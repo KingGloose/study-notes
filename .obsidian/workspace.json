@@ -166,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 347.5
+    "width": 351.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,18 +181,33 @@
   },
   "active": "14884a3ef02c6939",
   "lastOpenFiles": [
-    "study-notes/README.md",
-    "study-notes",
-    "study-note",
-    "03 前端/01 HTML5.md",
+    "04 后端/01 NodeJS.md",
+    "05 数据库/01 MySql.md",
     "README.md",
-    "04 后端",
-    "02 算法",
-    "05 数据库",
-    "05 Rust",
-    "04 嵌入式",
-    "04 Java",
-    "03 前端",
-    "01 基础"
+    "01 基础/01 Git.md",
+    "02 算法/README.md",
+    "02 算法/pnpm-lock.yaml",
+    "02 算法/package-lock.json",
+    "02 算法/package.json",
+    "02 算法/LICENSE",
+    "02 算法/node_modules/hy-algokit/lib/testSearch.ts",
+    "02 算法/node_modules/hy-algokit/lib/measureSort.ts",
+    "02 算法/node_modules/hy-algokit/lib/print.ts",
+    "02 算法/node_modules/hy-algokit/dist/index.d.ts",
+    "02 算法/node_modules/hy-algokit/dist/index.js",
+    "02 算法/node_modules/hy-algokit/lib/index.ts",
+    "02 算法/11.动态规划/解题思路.png",
+    "02 算法/10.排序算法/思路/排序复杂度.png",
+    "02 算法/10.排序算法/思路/快速排序思路02.png",
+    "02 算法/10.排序算法/思路/快速排序思路01.png",
+    "02 算法/10.排序算法/思路/归并排序思路.png",
+    "02 算法/09.红黑树/思路/04.红黑树vsAVL树.png",
+    "02 算法/09.红黑树/思路/03.红黑树相对平衡.png",
+    "02 算法/09.红黑树/思路/02.红黑树结构.png",
+    "02 算法/09.红黑树/思路/01.红黑树介绍.png",
+    "02 算法/08.堆/思路/堆的计算.png",
+    "02 算法/00 代码/README.md",
+    "study-notes/README.md",
+    "03 前端/01 HTML5.md"
   ]
 }
