@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      hy-algokit:
+        specifier: ^1.4.0
+        version: 1.4.0
+
+packages:
+
+  hy-algokit@1.4.0:
+    resolution: {integrity: sha512-Eehnx7YS7VUzZsuntin9B2kolfIWYtPOsh922ZQ/ZUZxP1nUIWqIw2sna5lXpU5SzkOugeNdIDGN1sRnv3yeIw==}
+
+snapshots:
+
+  hy-algokit@1.4.0: {}
