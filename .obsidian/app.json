@@ -3,5 +3,6 @@
   "promptDelete": false,
   "alwaysUpdateLinks": true,
   "newFileLocation": "root",
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "00 assets"
 }

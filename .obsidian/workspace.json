@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0ec2c5dcc8927b36",
+        "id": "506b037e3314d910",
         "type": "tabs",
         "children": [
           {
-            "id": "14884a3ef02c6939",
+            "id": "fbec17d4f26701b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 270.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -88,6 +88,31 @@
         "id": "9e1f668b9ecf0747",
         "type": "tabs",
         "children": [
+          {
+            "id": "ad764a1a68add54d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "README 的大纲"
+            }
+          },
+          {
+            "id": "8000354fce86ae5c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
           {
             "id": "afde894467b5d28a",
             "type": "leaf",
@@ -135,38 +160,13 @@
               "icon": "lucide-tags",
               "title": "标签"
             }
-          },
-          {
-            "id": "ad764a1a68add54d",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "README.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "README 的大纲"
-            }
-          },
-          {
-            "id": "8000354fce86ae5c",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 351.5
+    "width": 306.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,38 +176,46 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "14884a3ef02c6939",
+  "active": "fbec17d4f26701b9",
   "lastOpenFiles": [
-    "04 后端/01 NodeJS.md",
-    "05 数据库/01 MySql.md",
-    "README.md",
+    "01 基础/06 网络安全.md",
+    "01 基础/06 网络安全",
+    "03 前端/01 HTML5.md",
+    "01 基础/05 设计模式.md",
+    "00 assets/5f072923146f692a95e03b2aa9ad4035_MD5.png",
+    "00 assets/33ebe0e61d50d093cd762a16b16f9674_MD5.png",
+    "00 assets/e0cd3e4b342d09a32e1136d90c644d30_MD5.png",
+    "00 assets/873662a643cd43a921d45d202278990a_MD5.png",
+    "00 assets/777fbf5867b9c24b7a2d4cfa17e4f584_MD5.png",
+    "01 基础/04 计算机网络.md",
+    "01 基础/03 Docker.md",
+    "00 assets/48e4b21d4e49d84f8fd91ba629e623f2_MD5.png",
+    "00 assets/6e292cfe683e620edf1064966fcbdeb4_MD5.png",
+    "00 assets/e884bfcdb17eeb81f87fac2030aa3e69_MD5.png",
+    "00 assets/34624c23fe063a644bce300f52719903_MD5.png",
+    "00 assets/db3d12ea1b13c50e9af37103ca30be4d_MD5.png",
+    "01 基础/02 Linux.md",
     "01 基础/01 Git.md",
+    "00.md",
+    "05 数据库/01 MySql.md",
+    "01 基础/1.md",
+    "00 assets",
+    "README.md",
+    "assets",
+    "media",
+    "99 求职",
+    "06 Rust",
+    "04 后端/01 NodeJS.md",
     "02 算法/README.md",
     "02 算法/pnpm-lock.yaml",
     "02 算法/package-lock.json",
     "02 算法/package.json",
     "02 算法/LICENSE",
-    "02 算法/node_modules/hy-algokit/lib/testSearch.ts",
-    "02 算法/node_modules/hy-algokit/lib/measureSort.ts",
-    "02 算法/node_modules/hy-algokit/lib/print.ts",
-    "02 算法/node_modules/hy-algokit/dist/index.d.ts",
-    "02 算法/node_modules/hy-algokit/dist/index.js",
-    "02 算法/node_modules/hy-algokit/lib/index.ts",
-    "02 算法/11.动态规划/解题思路.png",
-    "02 算法/10.排序算法/思路/排序复杂度.png",
-    "02 算法/10.排序算法/思路/快速排序思路02.png",
-    "02 算法/10.排序算法/思路/快速排序思路01.png",
-    "02 算法/10.排序算法/思路/归并排序思路.png",
-    "02 算法/09.红黑树/思路/04.红黑树vsAVL树.png",
-    "02 算法/09.红黑树/思路/03.红黑树相对平衡.png",
-    "02 算法/09.红黑树/思路/02.红黑树结构.png",
-    "02 算法/09.红黑树/思路/01.红黑树介绍.png",
-    "02 算法/08.堆/思路/堆的计算.png",
     "02 算法/00 代码/README.md",
-    "study-notes/README.md",
-    "03 前端/01 HTML5.md"
+    "study-notes/README.md"
   ]
 }
