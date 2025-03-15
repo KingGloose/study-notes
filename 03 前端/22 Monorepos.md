@@ -189,6 +189,8 @@ packages:
 4、使用 `npm exec --workspaces -- npx tsc` ，`--workspaces` 是所有 workspace 都执行这个命令
 5、`npm exec --workspace @npm-mono-cli/cli -- node ./dist/index.js add 1 2` 单独执行命令
 
-# 3、nx
 
-# 4、Turborepo
+
+# 6、nx
+
+# 7、Turborepo
