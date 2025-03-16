@@ -11,7 +11,7 @@
   "tryCount": 2,
   "realTimeUpdateInterval": 5,
   "addNameOfFile": false,
-  "showNotifications": true,
+  "showNotifications": false,
   "includeps": "md|canvas",
   "includepattern": "(?<md>.*\\.md)|(?<canvas>.*\\.canvas)",
   "mediaRootDir": "_resources/${notename}",
