@@ -22,20 +22,6 @@
             }
           },
           {
-            "id": "adef88ad07afbfdd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "99 记录/02 技术扩展.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "02 技术扩展"
-            }
-          },
-          {
             "id": "379e8de607068c72",
             "type": "leaf",
             "state": {
@@ -106,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 273.5
+    "width": 269.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -116,6 +102,16 @@
         "id": "9e1f668b9ecf0747",
         "type": "tabs",
         "children": [
+          {
+            "id": "548b3a1c41b386ee",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {},
+              "icon": "lines-of-text",
+              "title": "Quiet Outline"
+            }
+          },
           {
             "id": "ad764a1a68add54d",
             "type": "leaf",
@@ -190,11 +186,11 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 330.5
+    "width": 358.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -210,21 +206,21 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/750582d0f6da88d4c046f5d653fa26d9_MD5.jpeg",
-    "00 assets/Pasted image 20250316183648.png",
-    "00 assets/94077da7f0445d9c9210917cb6a2c3c3_MD5.jpeg",
-    "00 assets/Pasted image 20250316183614.png",
-    "00 assets/29a6e96b4e12a3269c5b5e840caa2432_MD5.jpeg",
-    "00 assets/Pasted image 20250316182838.png",
+    "00 assets/42e6a1e9d2f7ea4a09b5804bd2aa2be3_MD5.jpeg",
+    "00 assets/Pasted image 20250317235006.png",
+    "00 assets/f65aad2034a7c6d21008c5f004f72e0d_MD5.jpeg",
+    "00 assets/Pasted image 20250317234954.png",
+    "00 assets/e2390b5dfce31ffe0d1a05079bff06eb_MD5.jpeg",
+    "00 assets/Pasted image 20250317234911.png",
+    "00 assets/bbb007836f2683ea3e5b7708bae3f0aa_MD5.jpeg",
+    "00 assets/Pasted image 20250317224854.png",
+    "00 assets/eaba6a2cb58e9ae22e9c228755d94cd5_MD5.jpeg",
+    "00 assets/Pasted image 20250317224420.png",
+    "00 assets/3716e680bbbc93d54e33799ddbd698e4_MD5.jpeg",
     "99 记录/02 技术扩展.md",
     "03 前端/02 CSS3.md",
     "99 求职/八股记录.md",
-    "00 assets/f5b939b08b6c5a70bbbce7a1841ecc34_MD5.jpeg",
-    "00 assets/Pasted image 20250316180319.png",
-    "00 assets/Pasted image 20250316174845.png",
     "03 前端/03 JavaScript.md",
-    "00 assets/f0b19a0331392fd98d55a9d53e259878_MD5.jpeg",
-    "00 assets/Pasted image 20250316173754.png",
     "99 求职/求职指导.md",
     "99 求职/实习学习.md",
     "README.md",
