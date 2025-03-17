@@ -14,11 +14,39 @@
               "type": "markdown",
               "state": {
                 "file": "99 求职/八股记录.md",
-                "mode": "preview",
-                "source": true
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
               "title": "八股记录"
+            }
+          },
+          {
+            "id": "adef88ad07afbfdd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99 记录/02 技术扩展.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "02 技术扩展"
+            }
+          },
+          {
+            "id": "379e8de607068c72",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/02 CSS3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "02 CSS3"
             }
           }
         ]
@@ -78,7 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 264.5
+    "width": 273.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -166,7 +194,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 327.5
+    "width": 330.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,25 +210,27 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/Pasted image 20250316153615.png",
-    "00 assets/a88036ee0ca5e055032fa9709cbedbae_MD5.jpeg",
-    "00 assets/Pasted image 20250316153530.png",
-    "00 assets/9548ca6a302256246cba72ac1f71015f_MD5.jpeg",
-    "00 assets/Pasted image 20250316150529.png",
+    "00 assets/750582d0f6da88d4c046f5d653fa26d9_MD5.jpeg",
+    "00 assets/Pasted image 20250316183648.png",
+    "00 assets/94077da7f0445d9c9210917cb6a2c3c3_MD5.jpeg",
+    "00 assets/Pasted image 20250316183614.png",
+    "00 assets/29a6e96b4e12a3269c5b5e840caa2432_MD5.jpeg",
+    "00 assets/Pasted image 20250316182838.png",
+    "99 记录/02 技术扩展.md",
+    "03 前端/02 CSS3.md",
+    "99 求职/八股记录.md",
+    "00 assets/f5b939b08b6c5a70bbbce7a1841ecc34_MD5.jpeg",
+    "00 assets/Pasted image 20250316180319.png",
+    "00 assets/Pasted image 20250316174845.png",
+    "03 前端/03 JavaScript.md",
+    "00 assets/f0b19a0331392fd98d55a9d53e259878_MD5.jpeg",
+    "00 assets/Pasted image 20250316173754.png",
     "99 求职/求职指导.md",
     "99 求职/实习学习.md",
     "README.md",
-    "00 assets/7b3bf57e8a48e5f7ea48c62d2ebe541f_MD5.jpeg",
-    "00 assets/Pasted image 20250316011238.png",
-    "00 assets/Pasted image 20250316011159.png",
-    "00 assets/Pasted image 20250316011135.png",
-    "00 assets/2c294d1bbed1f7fb0a925890a93b4629_MD5.jpeg",
-    "00 assets/Pasted image 20250316011121.png",
-    "99 求职/八股记录.md",
     "99 记录/01 技术记录.md",
     "03 前端/22 Monorepos.md",
     "03 前端/02 CSS/表单样式重写.md",
-    "99 记录/02 技术扩展.md",
     "99 记录",
     "07 嵌入式/01 ESP8266.md",
     "07 嵌入式",
@@ -218,8 +248,6 @@
     "03 前端/03 JavaScript/对象.md",
     "03 前端/03 JavaScript/位运算.md",
     "03 前端/03 JavaScript/requestAnimationFrame.md",
-    "03 前端/03 JavaScript/requestIdleCallback.md",
-    "03 前端/03 JavaScript/Reflect.md",
     "03 前端/03 JavaScript",
     "03 前端/02 CSS",
     "03 前端/01 HTML",
