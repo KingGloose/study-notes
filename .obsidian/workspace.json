@@ -8,7 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "abb85ef23d943ef5",
+            "id": "379e8de607068c72",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99 求职/实习学习.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "实习学习"
+            }
+          },
+          {
+            "id": "f78accc61b6a4813",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,20 +36,21 @@
             }
           },
           {
-            "id": "379e8de607068c72",
+            "id": "9f1eb4094f9f353c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/02 CSS3.md",
+                "file": "03 前端/04 JavaScript高级.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02 CSS3"
+              "title": "04 JavaScript高级"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -92,7 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269.5
+    "width": 257.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -190,7 +205,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 358.5
+    "width": 329.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,24 +221,27 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/42e6a1e9d2f7ea4a09b5804bd2aa2be3_MD5.jpeg",
-    "00 assets/Pasted image 20250317235006.png",
-    "00 assets/f65aad2034a7c6d21008c5f004f72e0d_MD5.jpeg",
-    "00 assets/Pasted image 20250317234954.png",
-    "00 assets/e2390b5dfce31ffe0d1a05079bff06eb_MD5.jpeg",
-    "00 assets/Pasted image 20250317234911.png",
-    "00 assets/bbb007836f2683ea3e5b7708bae3f0aa_MD5.jpeg",
-    "00 assets/Pasted image 20250317224854.png",
-    "00 assets/eaba6a2cb58e9ae22e9c228755d94cd5_MD5.jpeg",
-    "00 assets/Pasted image 20250317224420.png",
-    "00 assets/3716e680bbbc93d54e33799ddbd698e4_MD5.jpeg",
-    "99 记录/02 技术扩展.md",
-    "03 前端/02 CSS3.md",
+    "00 assets/efcabe8dc0acb92847ce5f07ea790a40_MD5.jpeg",
+    "00 assets/Pasted image 20250319233827.png",
+    "00 assets/e219ca72cd6d2f29f0ee14b953a364e3_MD5.jpeg",
+    "00 assets/Pasted image 20250319233734.png",
+    "00 assets/385abad24d9bda2e302ba50ccdb2d5b8_MD5.jpeg",
+    "00 assets/Pasted image 20250319233724.png",
+    "03 前端/04 JavaScript高级.md",
     "99 求职/八股记录.md",
-    "03 前端/03 JavaScript.md",
-    "99 求职/求职指导.md",
+    "00 assets/30c5cbb174e46c1f61ff46ac848bc7c4_MD5.jpeg",
+    "00 assets/Pasted image 20250319230651.png",
+    "00 assets/9bc9adeb7fb37d29ba1264a54153eeff_MD5.jpeg",
+    "00 assets/Pasted image 20250319230304.png",
+    "00 assets/8efe72be14b8432c6d8dc074e9d7ec45_MD5.jpeg",
     "99 求职/实习学习.md",
+    "03 前端/07 Vue.md",
+    "99 求职/未命名.md",
+    "99 求职/求职指导.md",
+    "03 前端/02 CSS3.md",
     "README.md",
+    "99 记录/02 技术扩展.md",
+    "03 前端/03 JavaScript.md",
     "99 记录/01 技术记录.md",
     "03 前端/22 Monorepos.md",
     "03 前端/02 CSS/表单样式重写.md",
@@ -241,9 +259,6 @@
     "03 前端/03 JavaScript/文件下载.md",
     "03 前端/03 JavaScript/数据类型转换.md",
     "03 前端/03 JavaScript/对象比较.md",
-    "03 前端/03 JavaScript/对象.md",
-    "03 前端/03 JavaScript/位运算.md",
-    "03 前端/03 JavaScript/requestAnimationFrame.md",
     "03 前端/03 JavaScript",
     "03 前端/02 CSS",
     "03 前端/01 HTML",
