@@ -4,53 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "c3a6f1d26ebdf61c",
+        "id": "b930f9b3c2e1922f",
         "type": "tabs",
         "children": [
           {
-            "id": "379e8de607068c72",
+            "id": "14b41ee68d863fa0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99 求职/实习学习.md",
+                "file": "08 AI/01 MCP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "实习学习"
-            }
-          },
-          {
-            "id": "f78accc61b6a4813",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "99 求职/八股记录.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "八股记录"
-            }
-          },
-          {
-            "id": "9f1eb4094f9f353c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03 前端/04 JavaScript高级.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "04 JavaScript高级"
+              "title": "01 MCP"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -107,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 257.5
+    "width": 244.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -128,6 +99,16 @@
             }
           },
           {
+            "id": "8000354fce86ae5c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
             "id": "ad764a1a68add54d",
             "type": "leaf",
             "state": {
@@ -140,16 +121,6 @@
               },
               "icon": "lucide-list",
               "title": "八股记录 的大纲"
-            }
-          },
-          {
-            "id": "8000354fce86ae5c",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
             }
           },
           {
@@ -201,11 +172,11 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 329.5
+    "width": 346.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -221,51 +192,51 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/efcabe8dc0acb92847ce5f07ea790a40_MD5.jpeg",
-    "00 assets/Pasted image 20250319233827.png",
-    "00 assets/e219ca72cd6d2f29f0ee14b953a364e3_MD5.jpeg",
-    "00 assets/Pasted image 20250319233734.png",
-    "00 assets/385abad24d9bda2e302ba50ccdb2d5b8_MD5.jpeg",
-    "00 assets/Pasted image 20250319233724.png",
-    "03 前端/04 JavaScript高级.md",
+    "00 assets/260c6fe68baa57f4d38592844150299e_MD5.jpeg",
+    "00 assets/Pasted image 20250405183553.png",
     "99 求职/八股记录.md",
-    "00 assets/30c5cbb174e46c1f61ff46ac848bc7c4_MD5.jpeg",
-    "00 assets/Pasted image 20250319230651.png",
-    "00 assets/9bc9adeb7fb37d29ba1264a54153eeff_MD5.jpeg",
-    "00 assets/Pasted image 20250319230304.png",
-    "00 assets/8efe72be14b8432c6d8dc074e9d7ec45_MD5.jpeg",
-    "99 求职/实习学习.md",
-    "03 前端/07 Vue.md",
-    "99 求职/未命名.md",
-    "99 求职/求职指导.md",
-    "03 前端/02 CSS3.md",
+    "08 AI/01 MCP.md",
+    "08 AI",
+    "00 assets/ca1d15872e72942ebbde027d3fdabda3_MD5.jpeg",
+    "00 assets/Pasted image 20250405182708.png",
+    "00 assets/973df2d9644d65a1b507001d371a5be9_MD5.jpeg",
+    "00 assets/Pasted image 20250405182431.png",
+    "00 assets/9075ec7bec301a92a2d45993c86231c4_MD5.jpeg",
+    "00 assets/Pasted image 20250405182226.png",
+    "00 assets/95b4615deab08a02346d558f27b0d4ae_MD5.jpeg",
+    "00 assets/Pasted image 20250405182147.png",
     "README.md",
-    "99 记录/02 技术扩展.md",
-    "03 前端/03 JavaScript.md",
-    "99 记录/01 技术记录.md",
-    "03 前端/22 Monorepos.md",
-    "03 前端/02 CSS/表单样式重写.md",
-    "99 记录",
-    "07 嵌入式/01 ESP8266.md",
-    "07 嵌入式",
-    "06 Rust/01 Rust.md",
-    "05 数据库/02 MongoDB.md",
-    "05 数据库/03 Redis.md",
+    "99 求职/实习学习.md",
+    "99 求职/求职指导.md",
     "04 后端/01 Java基础.md",
+    "05 数据库/02 MongoDB.md",
+    "05 数据库/01 MySql.md",
     "04 后端/02 JavaWeb.md",
+    "01 基础/06 网络安全.md",
+    "01 基础/04 计算机网络.md",
+    "01 基础/01 Git.md",
+    "03 前端/16 NextJS.md",
+    "03 前端/14 前端可视化.md",
+    "03 前端/13 Uniapp.md",
+    "03 前端/11 微信小程序.md",
+    "03 前端/09 NodeJS.md",
+    "03 前端/06 JQuery.md",
+    "03 前端/05 ECMAScript.md",
+    "03 前端/04 JavaScript高级.md",
+    "03 前端/03 JavaScript.md",
+    "03 前端/02 CSS3.md",
     "03 前端/01 HTML5.md",
-    "01 基础/02 Linux.md",
-    "03 前端/03 JavaScript/迭代器.md",
-    "03 前端/03 JavaScript/文件下载.md",
-    "03 前端/03 JavaScript/数据类型转换.md",
-    "03 前端/03 JavaScript/对象比较.md",
+    "00 assets/bf711a6fff9cf7859613c9e6a7605c65_MD5.jpeg",
+    "02 算法/00.力扣/100-200/229.多数元素2.ts",
+    "03 前端/22 Monorepos.md",
+    "03 前端/21 脚手架.md",
+    "99 记录",
+    "07 嵌入式",
     "03 前端/03 JavaScript",
     "03 前端/02 CSS",
     "03 前端/01 HTML",
     "03 前端/10 Typescript",
     "03 前端/09 NodeJS",
-    "03 前端/07 Vue",
-    "03 前端/02 CSS3",
-    "01 基础/06 网络安全"
+    "03 前端/07 Vue"
   ]
 }
