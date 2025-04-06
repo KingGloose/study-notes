@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "15265418004e23b8",
+            "id": "16ed51388ab1aa16",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -65,6 +65,16 @@
             }
           },
           {
+            "id": "8000354fce86ae5c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
             "id": "8d4918eae0345285",
             "type": "leaf",
             "state": {
@@ -73,12 +83,28 @@
               "icon": "lucide-bookmark",
               "title": "书签"
             }
+          },
+          {
+            "id": "6964adc766c504d2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 274.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -96,16 +122,6 @@
               "state": {},
               "icon": "lines-of-text",
               "title": "Quiet Outline"
-            }
-          },
-          {
-            "id": "8000354fce86ae5c",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
             }
           },
           {
@@ -155,28 +171,12 @@
               "icon": "links-going-out",
               "title": "README 的出链列表"
             }
-          },
-          {
-            "id": "6964adc766c504d2",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "标签"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 308.5
+    "width": 322.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,44 +192,44 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/aef3977e731291ca5daf306d237d7eff_MD5.jpeg",
-    "00 assets/Pasted image 20250406155409.png",
-    "00 assets/6a84d1d06d993ecc62b2ea930cdba70c_MD5.jpeg",
-    "00 assets/Pasted image 20250406155359.png",
-    "00 assets/2907f1d21d5d209b3b46b27feac51a55_MD5.jpeg",
-    "00 assets/Pasted image 20250406155349.png",
-    "00 assets/79445a7498efdeeff5497b984181cc31_MD5.jpeg",
-    "00 assets/Pasted image 20250406140851.png",
-    "99 求职/八股记录/讲一下缓冲、消息队列、数据库吗.md",
+    "00 assets/96ae9d5b925e4e6c39c315329691eb97_MD5.jpeg",
+    "00 assets/Pasted image 20250406212756.png",
+    "00 assets/15666d6a24443ab571503ad5ed6572f2_MD5.jpeg",
+    "00 assets/Pasted image 20250406212750.png",
+    "99 求职/八股记录/讲一下什么是 React Fiber.md",
     "99 求职/八股记录.md",
+    "00 assets/bff18f6ac0aee126891c8c0574db3107_MD5.jpeg",
+    "00 assets/Pasted image 20250406210156.png",
+    "99 求职/八股记录/cookie和session介绍.md",
+    "00 assets/ed0044edb55a142c6a52601e2f06ef7d_MD5.jpeg",
+    "00 assets/Pasted image 20250406205809.png",
+    "99 求职/八股记录/bundle和chunk的区别.md",
+    "99 求职/八股记录/移动端如何适配，rem适配的原理.md",
+    "99 求职/八股记录/git rebash和git merge有什么区别.md",
+    "00 assets/153e6ef10e47765fd56a2fed62dbae97_MD5.jpeg",
+    "00 assets/Pasted image 20250406184359.png",
+    "Promise的实现.md",
+    "99 求职/八股记录/vuex pinia的实现原理.md",
+    "99 求职/八股记录/vuex底层原理实现.md",
+    "99 求职/八股记录/vue中nextTick的原理.md",
+    "00 assets/b0adfc990702f1ac4cb26af1ca2a48ae_MD5.jpeg",
+    "99 求职/八股记录/箭头函数哪些场景不能使用.md",
+    "99 求职/八股记录/图片懒加载原理实现.md",
+    "99 求职/八股记录/vue2和vue3对比.md",
+    "99 求职/八股记录/Vue和React对比.md",
+    "99 求职/八股记录/为什么vuex设计了一个mutations，而pinia不需要.md",
+    "99 求职/八股记录/redux的实现原理.md",
+    "移动端1px边框实现方案.md",
+    "99 求职/八股记录/vue中父组件调用子组件中的方法的原理.md",
+    "99 求职/八股记录/vue-router路由权限管理如何设计.md",
+    "99 求职/八股记录/vue-router的中的动态权限管理是如何做的.md",
+    "99 求职/八股记录/vue keep-alive原理.md",
+    "03 前端/11 微信小程序.md",
+    "99 求职/八股记录/vue-router的核心实现api.md",
+    "99 求职/八股记录/讲一下缓冲、消息队列、数据库吗.md",
     "99 求职/八股记录/算法LRU.md",
-    "99 求职/八股记录/给一个div，通过样式设置为长方形，如何判断鼠标是在长方形对角线的上边还是下边.md",
-    "99 求职/八股记录/Vue响应式原理.md",
-    "99 求职/八股记录/axios的拦截机制.md",
-    "99 求职/八股记录/axios底层原理.md",
-    "99 求职/八股记录/webpack打包处理common.js与ES6 Module的区别.md",
-    "00 assets/Pasted image 20250406130925.png",
-    "00 assets/2a05357ef2150eba9a84158dc98a182f_MD5.jpeg",
-    "00 assets/Pasted image 20250406130759.png",
-    "99 求职/八股记录/vue-loader底层原理.md",
-    "99 求职/八股记录/bable-loader底层原理.md",
-    "99 求职/八股记录/发布订阅模式与观察者模式的区别.md",
-    "99 求职/八股记录/当用户不断点击的时候如何防止他多次点击.md",
-    "99 求职/八股记录/html渲染过程.md",
-    "99 求职/八股记录/虚拟 dom 有什么好的地方？ 框架为什么要设计虚拟 dom？.md",
-    "99 求职/八股记录/如何设计一个沙盒 sandbox.md",
-    "99 求职/八股记录/小程序的 API 做了什么处理，能够做到全局变量的隐藏，如果是你，怎么设计 ？.md",
-    "99 求职/八股记录/webpack 动态加载的原理、热更新.md",
-    "99 求职/八股记录/webpack loader输入什么产出什么.md",
-    "99 求职/实习学习.md",
     "99 求职/八股记录",
-    "08 AI/01 MCP.md",
-    "99 记录/01 技术记录.md",
     "08 AI",
-    "README.md",
-    "99 求职/求职指导.md",
-    "04 后端/01 Java基础.md",
-    "05 数据库/02 MongoDB.md",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",
     "99 记录",
     "07 嵌入式",
