@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b930f9b3c2e1922f",
+        "id": "16c1541bbee2fa00",
         "type": "tabs",
         "children": [
           {
-            "id": "14b41ee68d863fa0",
+            "id": "15265418004e23b8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08 AI/01 MCP.md",
+                "file": "99 求职/八股记录.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 MCP"
+              "title": "八股记录"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5
+    "width": 287.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 346.5
+    "width": 308.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,51 +192,51 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/260c6fe68baa57f4d38592844150299e_MD5.jpeg",
-    "00 assets/Pasted image 20250405183553.png",
+    "00 assets/aef3977e731291ca5daf306d237d7eff_MD5.jpeg",
+    "00 assets/Pasted image 20250406155409.png",
+    "00 assets/6a84d1d06d993ecc62b2ea930cdba70c_MD5.jpeg",
+    "00 assets/Pasted image 20250406155359.png",
+    "00 assets/2907f1d21d5d209b3b46b27feac51a55_MD5.jpeg",
+    "00 assets/Pasted image 20250406155349.png",
+    "00 assets/79445a7498efdeeff5497b984181cc31_MD5.jpeg",
+    "00 assets/Pasted image 20250406140851.png",
+    "99 求职/八股记录/讲一下缓冲、消息队列、数据库吗.md",
     "99 求职/八股记录.md",
-    "08 AI/01 MCP.md",
-    "08 AI",
-    "00 assets/ca1d15872e72942ebbde027d3fdabda3_MD5.jpeg",
-    "00 assets/Pasted image 20250405182708.png",
-    "00 assets/973df2d9644d65a1b507001d371a5be9_MD5.jpeg",
-    "00 assets/Pasted image 20250405182431.png",
-    "00 assets/9075ec7bec301a92a2d45993c86231c4_MD5.jpeg",
-    "00 assets/Pasted image 20250405182226.png",
-    "00 assets/95b4615deab08a02346d558f27b0d4ae_MD5.jpeg",
-    "00 assets/Pasted image 20250405182147.png",
-    "README.md",
+    "99 求职/八股记录/算法LRU.md",
+    "99 求职/八股记录/给一个div，通过样式设置为长方形，如何判断鼠标是在长方形对角线的上边还是下边.md",
+    "99 求职/八股记录/Vue响应式原理.md",
+    "99 求职/八股记录/axios的拦截机制.md",
+    "99 求职/八股记录/axios底层原理.md",
+    "99 求职/八股记录/webpack打包处理common.js与ES6 Module的区别.md",
+    "00 assets/Pasted image 20250406130925.png",
+    "00 assets/2a05357ef2150eba9a84158dc98a182f_MD5.jpeg",
+    "00 assets/Pasted image 20250406130759.png",
+    "99 求职/八股记录/vue-loader底层原理.md",
+    "99 求职/八股记录/bable-loader底层原理.md",
+    "99 求职/八股记录/发布订阅模式与观察者模式的区别.md",
+    "99 求职/八股记录/当用户不断点击的时候如何防止他多次点击.md",
+    "99 求职/八股记录/html渲染过程.md",
+    "99 求职/八股记录/虚拟 dom 有什么好的地方？ 框架为什么要设计虚拟 dom？.md",
+    "99 求职/八股记录/如何设计一个沙盒 sandbox.md",
+    "99 求职/八股记录/小程序的 API 做了什么处理，能够做到全局变量的隐藏，如果是你，怎么设计 ？.md",
+    "99 求职/八股记录/webpack 动态加载的原理、热更新.md",
+    "99 求职/八股记录/webpack loader输入什么产出什么.md",
     "99 求职/实习学习.md",
+    "99 求职/八股记录",
+    "08 AI/01 MCP.md",
+    "99 记录/01 技术记录.md",
+    "08 AI",
+    "README.md",
     "99 求职/求职指导.md",
     "04 后端/01 Java基础.md",
     "05 数据库/02 MongoDB.md",
-    "05 数据库/01 MySql.md",
-    "04 后端/02 JavaWeb.md",
-    "01 基础/06 网络安全.md",
-    "01 基础/04 计算机网络.md",
-    "01 基础/01 Git.md",
-    "03 前端/16 NextJS.md",
-    "03 前端/14 前端可视化.md",
-    "03 前端/13 Uniapp.md",
-    "03 前端/11 微信小程序.md",
-    "03 前端/09 NodeJS.md",
-    "03 前端/06 JQuery.md",
-    "03 前端/05 ECMAScript.md",
-    "03 前端/04 JavaScript高级.md",
-    "03 前端/03 JavaScript.md",
-    "03 前端/02 CSS3.md",
-    "03 前端/01 HTML5.md",
-    "00 assets/bf711a6fff9cf7859613c9e6a7605c65_MD5.jpeg",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",
-    "03 前端/22 Monorepos.md",
-    "03 前端/21 脚手架.md",
     "99 记录",
     "07 嵌入式",
     "03 前端/03 JavaScript",
     "03 前端/02 CSS",
     "03 前端/01 HTML",
     "03 前端/10 Typescript",
-    "03 前端/09 NodeJS",
-    "03 前端/07 Vue"
+    "03 前端/09 NodeJS"
   ]
 }
