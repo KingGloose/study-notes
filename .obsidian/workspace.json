@@ -48,6 +48,16 @@
             }
           },
           {
+            "id": "8000354fce86ae5c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
             "id": "fe2fe99800450408",
             "type": "leaf",
             "state": {
@@ -62,16 +72,6 @@
               },
               "icon": "lucide-search",
               "title": "搜索"
-            }
-          },
-          {
-            "id": "8000354fce86ae5c",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
             }
           },
           {
@@ -100,11 +100,11 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 274.5
+    "width": 265.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 322.5
+    "width": 310.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,27 +192,28 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "00 assets/da555df41c704efb02cc01e0a355722a_MD5.jpeg",
+    "00 assets/Pasted image 20250407223251.png",
+    "00 assets/c2f830c66993a80e4ef072cac50b6d06_MD5.jpeg",
+    "00 assets/Pasted image 20250407223210.png",
+    "02 算法/06.树/思路/AVLTree四种情况.png",
+    "02 算法/06.树/思路/AVLTree右旋转.png",
+    "02 算法/09.红黑树/思路/01.红黑树介绍.png",
+    "02 算法/09.红黑树/思路/03.红黑树相对平衡.png",
+    "02 算法/09.红黑树/思路/02.红黑树结构.png",
+    "99 求职/八股记录.md",
+    "README.md",
     "00 assets/96ae9d5b925e4e6c39c315329691eb97_MD5.jpeg",
     "00 assets/Pasted image 20250406212756.png",
-    "00 assets/15666d6a24443ab571503ad5ed6572f2_MD5.jpeg",
-    "00 assets/Pasted image 20250406212750.png",
     "99 求职/八股记录/讲一下什么是 React Fiber.md",
-    "99 求职/八股记录.md",
-    "00 assets/bff18f6ac0aee126891c8c0574db3107_MD5.jpeg",
-    "00 assets/Pasted image 20250406210156.png",
     "99 求职/八股记录/cookie和session介绍.md",
-    "00 assets/ed0044edb55a142c6a52601e2f06ef7d_MD5.jpeg",
-    "00 assets/Pasted image 20250406205809.png",
     "99 求职/八股记录/bundle和chunk的区别.md",
     "99 求职/八股记录/移动端如何适配，rem适配的原理.md",
     "99 求职/八股记录/git rebash和git merge有什么区别.md",
-    "00 assets/153e6ef10e47765fd56a2fed62dbae97_MD5.jpeg",
-    "00 assets/Pasted image 20250406184359.png",
     "Promise的实现.md",
     "99 求职/八股记录/vuex pinia的实现原理.md",
     "99 求职/八股记录/vuex底层原理实现.md",
     "99 求职/八股记录/vue中nextTick的原理.md",
-    "00 assets/b0adfc990702f1ac4cb26af1ca2a48ae_MD5.jpeg",
     "99 求职/八股记录/箭头函数哪些场景不能使用.md",
     "99 求职/八股记录/图片懒加载原理实现.md",
     "99 求职/八股记录/vue2和vue3对比.md",
@@ -227,7 +228,6 @@
     "03 前端/11 微信小程序.md",
     "99 求职/八股记录/vue-router的核心实现api.md",
     "99 求职/八股记录/讲一下缓冲、消息队列、数据库吗.md",
-    "99 求职/八股记录/算法LRU.md",
     "99 求职/八股记录",
     "08 AI",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",
