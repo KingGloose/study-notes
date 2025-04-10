@@ -1143,3 +1143,11 @@ sayHello();
 
 ![[00 assets/a74b1214e2cabd46d074fa7768f7d703_MD5.png]]
 
+# 11. 性能优化
+
+## 11.1 基本介绍
+
+![[00 assets/50a02469122eff50e643d4bf423289fa_MD5.jpeg]]
+
+## 11.2 代码分离
+
