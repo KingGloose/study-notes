@@ -339,42 +339,6 @@ pnpm add postcss-loader autoprefixer -D	// 安装postcss autoprefixer
 
 ## 3.3 JS 处理
 
-### 3.3.1 babel
-
-#### 3.3.1.1 基本介绍
-
-![[00 assets/7d23d6f4e9d3dc43070b18091340d65c_MD5.png]]
-
-#### 3.3.1.2 命令行使用
-
-真实开发很少使用这个来处理，大部分情况还是配合`webpack`来使用
-
-> Babel 命令行使用
-
-![[00 assets/efcba8c303d62acc22cc654bb3288148_MD5.png]]
-
-![[00 assets/ff3a94019033751cbe1c060bbc638617_MD5.png]]
-
-> 插件的使用
-
-![[00 assets/82b99b727d037f9e46877b96a9382315_MD5.png]]
-
-> Babel 的预设 preset
-
-![[00 assets/87cedb614064c0c5ec8b9c289631ba0a_MD5.png]]
-
-如果是做预设 `preset` 的话，还有 `StageX` 得 `preset`
-
-![[00 assets/58612c6213dd1ec44ca4254183a23e80_MD5.png]]
-
-#### 3.3.1.3 底层原理
-
-![[00 assets/f14c85f3a8304d0a91d4a6fca11a4558_MD5.png]]
-
-![[00 assets/51a43d1e2ef44e3c9236b1134993bf84_MD5.png]]
-
-#### 3.3.1.4 配合 webpack
-
 1、只要是和`webpack`使用，并且要触发某一个转化的情况下，都需要安装`loader`
 
 ![[00 assets/dae63c8d98dabd44c3f1e51cee77773b_MD5.png]]
@@ -409,6 +373,7 @@ pnpm add @babel/preset-env -D
 
 ![[00 assets/6cd79b940930a58d1ca8b3053bc41dfb_MD5.png]]
 
+
 ## 3.4 Vue 处理
 
 ```bash
@@ -431,6 +396,44 @@ pnpm add vue
 ```
 pnpm add react react-dom
 ```
+
+2、针对于 React 来讲，使用 babel 即可实现代码的转换，因为麻烦可以使用 `preset-react` 来做打包的预设，`html-webpack-plugin`让指定的 `html` 文件作为模块来输出
+
+![[00 assets/823f0c62138fc25c28bcc9ef86e2b20b_MD5.jpeg]]
+
+![[00 assets/db72baccefa0fd6c1f66c58f6058dccd_MD5.jpeg]]
+
+## 3.6 TS 处理
+
+### 3.6.1 tsc
+
+1、直接使用 `tsc` 就可以编译
+![[00 assets/309a50cc1f80a67dab31a74b0be2091b_MD5.jpeg]]
+
+### 3.6.2 ts-loader
+
+![[00 assets/6535ff132f74567db1818600e2675d69_MD5.jpeg]]
+
+1、使用 `ts-loader` 就可以实现转换，如果我们想实现转换还要初始化一个 `tsconfig.json`，他会自动读取
+2、但是使用 `ts-loader` 会有一个问题，他使用得 `ts` 中得 `complier` 来做得编译。如果使用这种方式得话，就不能使用 `polyfill`了，所以一般使用 `babel-loader` 来使用
+![[00 assets/d26b7a5406ce9bee5e1b832f309b1c30_MD5.jpeg]]
+
+### 3.6.3 babel-loader
+
+![[00 assets/0f6c7ef59357ca687febb7e41d825d14_MD5.jpeg]]
+
+1、可以使用 `babel-loader` 来实现转换，直接使用 `@babel/preset-typescript` 来做预设即可
+2、如果只是使用 `babel-loader` 来编译得话也存在问题，那就是编译得时候不会出现编译错误得报错 
+![[00 assets/c27ea0ea45cb418e85525e9d73a3780c_MD5.jpeg]]
+
+### 3.6.4 联合编译
+
+![[00 assets/b29d3218640a7e9b3a00600bc1ffb6f6_MD5.jpeg]]
+
+
+1、使用 `npm run ts-check-watch` 来监听 `ts` 中是否有错误，也就是开发得时候执行 `ts-check-watch`，要打包得时候使用 `npm run build` 来做 `ts` 得编译
+![[00 assets/6c646900bcf8ed3628ebdd165851798c_MD5.jpeg]]
+
 
 # 4. 配置选项
 
@@ -520,9 +523,13 @@ pnpm add react react-dom
 
 ## 6.1 基本介绍
 
+![[00 assets/052aa4e7b447661754d9cd91da238b01_MD5.jpeg]]
+
 ![[00 assets/f81bcd48d457e6eda0616d8658a04f55_MD5.png]]
 
 ## 6.2 webpack-dev-server
+
+### 6.2.1 基本使用
 
 > 基本使用
 
@@ -534,21 +541,56 @@ pnpm add react react-dom
 
 > devServer 配置
 
-![[00 assets/9e1dd9beb8eaf31a5a6e09e30a2e9a2b_MD5.png]]
-
-![[00 assets/4f8cacbf62ce4e8bdc96afaa2ff423b5_MD5.png]]
-
-下面就是`devServer`的配置
-
+下面就是`devServer`的一些基础配置
 ![[00 assets/f81bcd48d457e6eda0616d8658a04f55_MD5.png]]
 
-下面就是`Vue`中的配置
+### 6.2.2 static
 
-![[00 assets/a5cc1edbc360440a6a1b272a8a4a788d_MD5.png]]
+![[00 assets/ceb7b9c88dc9009dc6d93d87ce741fd8_MD5.jpeg]]
 
-![[00 assets/3ddeccdac02b8e301dbea97ba43f8f8c_MD5.png]]
+1、因为我们使用本地服务器得话，会将打包得内容加入到内存中，然后浏览器运行结果。但是开发中我们在 `index.html` 中引入了图片、JS等内容，它是没有加入到内存中得。所以是访问不到得，我们就需要进行静态资源得部署
+
+2、配置 `static` 即可完成静态资源，这样我们在 `index.html` 模板html 中就要按照如下路径来编写
+![[00 assets/b543d050f0c2ca0416c3ca9a14339bbd_MD5.jpeg]]
+
+### 6.2.3 liveReload
+
+![[00 assets/fab4d9038bac09d5060cfc3cf8957c9b_MD5.jpeg]]
+
+### 6.2.4 host
+
+![[00 assets/9e1dd9beb8eaf31a5a6e09e30a2e9a2b_MD5.png]]
+
+### 6.2.5 port
+
+设置监听得端口，默认是 8000
+
+### 6.2.6 open
+
+![[00 assets/6cc652ec394b3c22ea1b19193fb375f9_MD5.jpeg]]
+
+### 6.2.7 compress
+
+![[00 assets/eec76f6534f635a7ce67f1c99f2af916_MD5.jpeg]]
+
+### 6.2.8 proxy
+
+![[00 assets/f12c01d97cd119ce20678cceac612e5f_MD5.jpeg]]
+
+1、解决开发阶段得跨域问题，这块可以详细看看我之前得关于跨域解释
+2、它这里会将原本为`http://localhost:8080/api/user`转为`http://localhost:9000/user`，因为遇到了`/api`那么就会将头部转为`http://localhost:9000`，然后重写`/api`为`''`空字符串
+![[00 assets/91299ac7e6be938587ee22f74047d14a_MD5.jpeg]]
+
+3、这里还有一个 `changeOrigin` 得属性，因为我们发送请求得时候会在请求得 `haeder` 发送 `origin`，如果为 `false` 得话，那么服务器拿到得 `origin`是本地得地址`http://localhost:8888`，如果你改为 `true` 得话，那么服务器拿到得地址就是`api`得地址，改变了源
+![[00 assets/ef5c531fdf37092992339399241ccf35_MD5.jpeg]]
+
+### 6.2.9 historyApiFallback
 
 ![[00 assets/24dcfe7ee0f8f32210a70d9bb4cf3bc4_MD5.png]]
+
+1、按照如下方式来即可开启
+![[00 assets/0b98ab0c30267332c7cb82b3c5f4b220_MD5.jpeg]]
+
 
 ## 6.3 HotModuleReplacement
 
@@ -571,6 +613,9 @@ pnpm add react react-dom
 > 框架 HMR
 
 ![[00 assets/7a559bed1eb44ae0d9bd7205409e14c7_MD5.png]]
+
+
+
 
 # 7. 区分开发环境
 
@@ -989,9 +1034,40 @@ sayHello();
 
 # 9. babel
 
-## 9.1 基础配置
+## 9.1 基础介绍
 
-这段内容参考`3.3.1 babel`的笔记
+### 9.1.1 基本介绍
+
+![[00 assets/7d23d6f4e9d3dc43070b18091340d65c_MD5.png]]
+
+### 9.1.2 命令行使用
+
+真实开发很少使用这个来处理，大部分情况还是配合`webpack`来使用
+
+> Babel 命令行使用
+
+![[00 assets/efcba8c303d62acc22cc654bb3288148_MD5.png]]
+
+![[00 assets/ff3a94019033751cbe1c060bbc638617_MD5.png]]
+
+> 插件的使用
+
+![[00 assets/82b99b727d037f9e46877b96a9382315_MD5.png]]
+
+> Babel 的预设 preset
+
+![[00 assets/87cedb614064c0c5ec8b9c289631ba0a_MD5.png]]
+
+如果是做预设 `preset` 的话，还有 `StageX` 得 `preset`
+
+![[00 assets/58612c6213dd1ec44ca4254183a23e80_MD5.png]]
+
+### 9.1.3 底层原理
+
+![[00 assets/f14c85f3a8304d0a91d4a6fca11a4558_MD5.png]]
+
+![[00 assets/51a43d1e2ef44e3c9236b1134993bf84_MD5.png]]
+
 
 ## 9.2 browserslist
 
@@ -1039,6 +1115,7 @@ sayHello();
 
 ![[00 assets/2ca6c6a2d0a9fc2714a7625bff7857e0_MD5.png]]
 
+
 # 10. polyfill
 
 ## 10.1 基本介绍
@@ -1066,1624 +1143,3 @@ sayHello();
 
 ![[00 assets/a74b1214e2cabd46d074fa7768f7d703_MD5.png]]
 
-# 2. webpack 使用
-
-## 2.5 修改输出文件目录
-
-我们写入规则的话，就可以规定资源文件输入的的目录
-
-```javascript
-const path = require("path");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js", // 将 js 文件输出到 static/js 目录中
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024, // 小于10kb的图片会被base64处理
-          },
-        },
-        generator: {
-          // 将图片文件输出到 static/imgs 目录中
-          // 将图片文件命名 [hash:8][ext][query]
-          // [hash:8]: hash值取8位
-          // [ext]: 使用之前的文件扩展名
-          // [query]: 添加之前的query参数
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-    ],
-  },
-  plugins: [],
-  mode: "development",
-};
-```
-
-## 2.6 自动清空上次打包的内容
-
-写入规则
-
-```javascript
-const path = require("path");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js",
-    clean: true, // 自动将上次打包目录资源清空
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 40 * 1024,
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-    ],
-  },
-  plugins: [],
-  mode: "development",
-};
-```
-
-## 2.7 处理字体图标资源
-
-写入配置
-
-```javascript
-const path = require("path");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-      //字体文件的配置
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
-      },
-    ],
-  },
-  plugins: [],
-  mode: "development",
-};
-```
-
-先去下载字体文件，然后再去使用，然后`npx webpack`就可以了
-
-## 2.8 处理其他资源
-
-就是在处理字体图标资源基础上增加其他文件类型，统一处理即可
-
-```javascript
-const path = require("path");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024, // 小于10kb的图片会被base64处理
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-        //在这个位置加就可以了
-      {
-        test: /\.(ttf|woff2?|map4|map3|avi)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
-      },
-    ],
-  },
-  plugins: [],
-  mode: "development",
-};
-```
-
-## 2.9 处理 JS 资源
-
-有人可能会问，js 资源 Webpack 不能已经处理了吗，为什么我们还要处理呢？
-
-原因是 Webpack 对 js 处理是有限的，只能编译 js 中 ES 模块化语法，不能编译其他语法，导致 js 不能在 IE 等浏览器运行，所以我们希望做一些兼容性处理。
-
-其次开发中，团队对代码格式是有严格要求的，我们不能由肉眼去检测代码格式，需要使用专业的工具来检测。
-
-- 针对 js 兼容性处理，我们使用 Babel 来完成
-- 针对代码格式，我们使用 Eslint 来完成
-
-我们先完成 Eslint，检测代码格式无误后，在由 Babel 做代码兼容性处理
-
-### 2.9.1 Eslint
-
-可组装的 JavaScript 和 JSX 检查工具。
-
-这句话意思就是：它是用来检测 js 和 jsx 语法的工具，可以配置各项功能
-
-我们使用 Eslint，关键是写 Eslint 配置文件，里面写上各种 rules 规则，将来运行 Eslint 时就会以写的规则对代码进行检查
-
-#### 2.9.1.1 配置文件
-
-配置文件由很多种写法：
-
-- `.eslintrc.*`：新建文件，位于项目根目录
-  - `.eslintrc`
-  - `.eslintrc.js`
-  - `.eslintrc.json`
-  - 区别在于配置格式不一样
-- `package.json` 中 `eslintConfig`：不需要创建文件，在原有文件基础上写
-
-ESLint 会查找和自动读取它们，所以以上配置文件只需要存在一个即可
-
-#### 2.9.1.2 具体配置
-
-我们以 `.eslintrc.js` 配置文件为例：
-
-```javascript
-module.exports = {
-  // 解析选项
-  parserOptions: {},
-  // 具体检查规则
-  rules: {},
-  // 继承其他规则
-  extends: [],
-  // ...
-  // 其他规则详见：https://eslint.bootcss.com/docs/user-guide/configuring
-};
-```
-
-1.parserOptions 解析选项
-
-```javascript
-parserOptions: {
-  ecmaVersion: 6, // ES 语法版本
-  sourceType: "module", // ES 模块化
-  ecmaFeatures: { // ES 其他特性
-    jsx: true // 如果是 React 项目，就需要开启 jsx 语法
-  }
-}
-```
-
-2.rules 具体规则
-
-- `"off"` 或 `0` - 关闭规则
-
-- `"warn"` 或 `1` - 开启规则，使用警告级别的错误：`warn` (不会导致程序退出)
-
-- `"error"` 或 `2` - 开启规则，使用错误级别的错误：`error` (当被触发的时候，程序会退出)
-
-```javascript
- rules: {
-   semi: "error", // 禁止使用分号
-   'array-callback-return': 'warn', // 强制数组方法的回调函数中有 return 语句，否则警告
-   'default-case': [
-     'warn', // 要求 switch 语句中有 default 分支，否则警告
-     { commentPattern: '^no default$' } // 允许在最后注释 no default, 就不会有警告了
-   ],
-   eqeqeq: [
-     'warn', // 强制使用 === 和 !==，否则警告
-     'smart' // https://eslint.bootcss.com/docs/rules/eqeqeq#smart 除了少数情况下不会有警告
-   ],
- }
-```
-
-更多规则详见：[规则文档](https://eslint.bootcss.com/docs/rules/)
-
-3.extends 继承
-
-开发中一点点写 rules 规则太费劲了，所以有更好的办法，继承现有的规则。
-
-现有以下较为有名的规则：
-
-- [Eslint 官方的规则 open in new window](https://eslint.bootcss.com/docs/rules/)：`eslint:recommended`
-- [Vue Cli 官方的规则 open in new window](https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-eslint)：`plugin:vue/essential`
-- [React Cli 官方的规则 open in new window](https://github.com/facebook/create-react-app/tree/main/packages/eslint-config-react-app)：`react-app`
-
-```javascript
-// 例如在React项目中，我们可以这样写配置
-module.exports = {
-  extends: ["react-app"],
-  rules: {
-    // 我们的规则会覆盖掉react-app的规则
-    // 所以想要修改规则直接改就是了
-    eqeqeq: ["warn", "smart"],
-  },
-};
-```
-
-#### 2.9.1.3 在 webpack 中使用 eslint
-
-1.下载 eslint
-
-```
-npm i eslint-webpack-plugin eslint -D
-```
-
-2.我们在根目录创建一个.eslintrc.js 文件，里面就是写我们的 eslint 文件的配置
-
-![[00 assets/cae9e7990727570978a28b8251a3a365_MD5.png]]
-
-```javascript
-module.exports = {
-  // 继承 Eslint 规则
-  extends: ["eslint:recommended"],
-  env: {
-    node: true, // 启用node中全局变量
-    browser: true, // 启用浏览器中全局变量
-  },
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: "module",
-  },
-  rules: {
-    "no-var": 2, // 不能使用 var 定义变量
-  },
-};
-```
-
-3.写入插件，并且引入 Eslint 插件
-
-```javascript
-const path = require("path");
-//引入eslint插件
-const ESLintWebpackPlugin = require("eslint-webpack-plugin");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
-      },
-    ],
-  },
-  plugins: [
-    //创建eslint插件
-    new ESLintWebpackPlugin({
-      // 指定检查文件的根目录
-      context: path.resolve(__dirname, "src"),
-    }),
-  ],
-  mode: "development",
-};
-```
-
-这样我们的 eslint 的插件就是安装完毕了，假如我们不按照规则来执行的话就会报错
-
-![[00 assets/be7f3cd5daaf01158e1ab4e01814adf6_MD5.png]]
-
-打开 VSCode，下载 Eslint 插件，可以在不用编译就能看到错误，可以提前解决
-
-但是此时就会对项目所有文件默认进行 Eslint 检查了，我们 dist 目录下的打包后文件就会报错。但是我们只需要检查 src 下面的文件，不需要检查 dist 下面的文件。
-
-所以可以使用 Eslint 忽略文件解决。在项目根目录新建下面文件:`.eslintignore`
-
-![[00 assets/cb6d7f37ef1f887b0dba034b5cce7626_MD5.png]]
-
-### 2.9.2 babel
-
-JavaScript 编译器。
-
-主要用于将 ES6 语法编写的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中
-
-#### 2.9.2.1 配置文件
-
-配置文件由很多种写法：
-
-- babel.config.\*：新建文件，位于项目根目录
-  - `babel.config.js`
-  - `babel.config.json`
-- .babelrc.\*：新建文件，位于项目根目录
-  - `.babelrc`
-  - `.babelrc.js`
-  - `.babelrc.json`
-- `package.json` 中 `babel`：不需要创建文件，在原有文件基础上写
-
-Babel 会查找和自动读取它们，所以以上配置文件只需要存在一个即可
-
-#### 2.9.2.2 具体配置
-
-我们以 `babel.config.js` 配置文件为例：
-
-```javascript
-module.exports = {
-  // 预设
-  presets: [],
-};
-```
-
-1. presets 预设
-
-简单理解：就是一组 Babel 插件, 扩展 Babel 功能
-
-- `@babel/preset-env`: 一个智能预设，允许您使用最新的 JavaScript。
-- `@babel/preset-react`：一个用来编译 React jsx 语法的预设
-- `@babel/preset-typescript`：一个用来编译 TypeScript 语法的预设
-
-#### 2.9.2.3 babel 使用
-
-下载包
-
-```bash
-cnpm i babel-loader @babel/core @babel/preset-env -D
-```
-
-写入规则
-
-```javascript
-const path = require("path");
-const ESLintPlugin = require("eslint-webpack-plugin");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "./js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          "css-loader",
-        ],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024,
-          },
-        },
-        generator: {
-          filename: "./dist/imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      //babel的配置
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/, //表示排除
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  plugins: [
-    new ESLintPlugin({
-      context: path.resolve(__dirname, "src"),
-    }),
-  ],
-  mode: "development",
-};
-
-```
-
-再创建 babel.config.js，定义 Babel 配置文件
-
-![[00 assets/078c95c2862b7f60339221f7fc1a6b73_MD5.png]]
-
-再使用`npx webpack`来创建就会发现向下兼容了
-
-## 2.10 处理 HTML 文件
-
-下载包
-
-```javascript
-cnpm i html-webpack-plugin -D
-```
-
-写入插件
-
-```javascript
-const path = require("path");
-const ESLintWebpackPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-    ],
-  },
-  plugins: [
-    new ESLintWebpackPlugin({
-      context: path.resolve(__dirname, "src"),
-    }),
-      //引入插件
-    new HtmlWebpackPlugin({
-      // 以 public/index.html 为模板创建文件
-      // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
-      template: path.resolve(__dirname, "public/index.html"),
-    }),
-  ],
-  mode: "development",
-};
-```
-
-我们将原本的 html 文件里面的引入 js 去掉
-
-再使用`npx webpack`就会发现文件多了一个 dist 里面多了一个 html 文件，而且自动引入了 main.js
-
-## 2.11 开发服务器&自动化
-
-每次写完代码都需要手动输入指令才能编译代码，太麻烦了，我们希望一切自动化
-
-下载包
-
-```bash
-cnpm i webpack-dev-server -D
-```
-
-写入服务器
-
-```javascript
-const path = require("path");
-const ESLintWebpackPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-    ],
-  },
-  plugins: [
-    new ESLintWebpackPlugin({
-      context: path.resolve(__dirname, "src"),
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
-    }),
-  ],
-  // 开发服务器
-  devServer: {
-    host: "localhost", // 启动服务器域名
-    port: "3000", // 启动服务器端口号
-    open: true, // 是否自动打开浏览器
-  },
-  mode: "development",
-};
-```
-
-我们使用`npx webpack serve`就会自动打开服务器，这样的话每次只要文件变化的话，然后保存就会自动编译，并且显示再浏览器上面
-
-我们将 dist 文件删除，但是服务器一样可以运行，因为当你使用开发服务器时，所有代码都会在内存中编译打包，并不会输出到 dist 目录下。
-
-开发时我们只关心代码能运行，有效果即可，至于代码被编译成什么样子，我们并不需要知道。
-
-## 2.13 处理 CSS 资源
-
-### 2.13.1 提取 CSS 成单独文件
-
-Css 文件目前被打包到 js 文件中，当 js 文件加载时，会创建一个 style 标签来生成样式
-
-这样对于网站来说，会出现闪屏现象，用户体验不好
-
-我们应该是单独的 Css 文件，通过 link 标签加载性能才好
-
-下载包
-
-```bash
-cnpm i mini-css-extract-plugin -D
-```
-
-配置 webpack.prod.js
-
-```javascript
-const path = require("path");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //引入CSS插件
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "./js/main.js",
-    clean: true,
-  },
-  //加载器
-  module: {
-      {
-        test: /\.css$/,
-        //执行的顺序从下到上
-        use: [MiniCssExtractPlugin.loader,
-          // "style-loader",  //因为使用了css插件，这里的style-loader就可以去掉了
-          "css-loader",
-        ],
-      },
-      {
-        test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024,
-          },
-        },
-        generator: {
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  plugins: [
-    new ESLintPlugin({
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-    // 提取css成单独文件
-    new MiniCssExtractPlugin({
-      // 定义输出文件名和目录
-      filename: "./css/main.css",
-    }),
-  ],
-  mode: "development",
-};
-
-```
-
-我们再使用`npm run build`就可以运行，因为上面的生产模式里面配置了执行的命令
-
-而且你会发现打包的 webpack 文件的 html 文件自动引入了 css 文件，因为我们在 2.10 里面，使用了 HTML 插件，所以这个时候就不需要再手动引入了
-
-### 2.13.2 CSS 兼容性处理
-
-下载包
-
-```
-npm i postcss-loader postcss postcss-preset-env -D
-```
-
-配置包
-
-```javascript
-const path = require("path");
-const ESLintWebpackPlugin = require("eslint-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "static/js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        // 用来匹配 .css 结尾的文件
-        test: /\.css$/,
-        // use 数组里面 Loader 执行顺序是从右到左
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  "postcss-preset-env", // 能解决大多数样式兼容性问题
-                ],
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {	//注意这个配置要写在css-loader下面，less-loader前面
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  "postcss-preset-env", // 能解决大多数样式兼容性问题
-                ],
-              },
-            },
-          },
-          "less-loader",
-        ],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  "postcss-preset-env", // 能解决大多数样式兼容性问题
-                ],
-              },
-            },
-          },
-          "sass-loader",
-        ],
-      },
-      {
-        test: /\.styl$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  "postcss-preset-env", // 能解决大多数样式兼容性问题
-                ],
-              },
-            },
-          },
-          "stylus-loader",
-        ],
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: "static/imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-    ],
-  },
-  plugins: [
-    new ESLintWebpackPlugin({
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-    new MiniCssExtractPlugin({
-      filename: "static/css/main.css",
-    }),
-  ],
-  mode: "production",
-};
-```
-
-假如我们想考虑兼容性的问题，我们可以可以在`package.json`里面写入下面的配置
-
-![[00 assets/fe8a2c0282f0e8b6ad8dd034834e368e_MD5.png]]
-
-```javascript
-{
-	......
-	"browserslist": [
-    	"ie >= 8"
-  	]
-}
-```
-
-想要知道更多的 `browserslist` 配置，查看[browserslist 文档](https://github.com/browserslist/browserslist)
-
-以上为了测试兼容性所以设置兼容浏览器 ie8 以上。
-
-实际开发中我们一般不考虑旧版本浏览器了，所以我们可以这样设置：
-
-```json
-{
-  // 其他省略
-  "browserslist": [
-    "last 2 version",
-    "> 1%",
-    "not dead"
-  ]
-}
-```
-
-我们这个时候再来看上面的配置文件，是不是有很多重复的部分，所以下面就是将上面的配置信息进行简化
-
-```javascript
-const path = require("path"); //node.js核心模块，专门用于处理路径问题
-const ESLintPlugin = require("eslint-webpack-plugin"); //引入eslint
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //引入Html文件打包
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //引入CSS插件
-
-//封装的函数
-const getStyleLoaders = (preProcesser) => {
-  return [
-    MiniCssExtractPlugin.loader,
-    "css-loader",
-    {
-      loader: "postcss-loader",
-      options: {
-        postcssOptions: {
-          plugins: [
-            "postcss-preset-env", // 能解决大多数样式兼容性问题
-          ],
-        },
-      },
-    },
-    preProcesser
-  ].filter(Boolean);//这里是为了排除undefined的错误
-}
-
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "./js/main.js",
-    clean: true,
-  },
-  //加载器
-  module: {
-    rules: [
-      //loader的配置
-      //css配置
-      {
-        test: /\.css$/,
-        use: getStyleLoaders()
-      },
-      //less配置
-      {
-        test: /\.less$/,
-        use: getStyleLoaders("less-loader")
-      },
-      //scss和sass配置
-      {
-        test: /\.s[ac]ss$/,
-        use: getStyleLoaders("sass-loader")
-      },
-      //stylus配置
-      {
-        test: /\.styl$/,
-        use: getStyleLoaders("stylus-loader")
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024,
-          },
-        },
-        generator: {
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  plugins: [
-    new ESLintPlugin({
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-    new MiniCssExtractPlugin({
-      filename: "./css/main.css",
-    }),
-  ],
-  mode: "development",
-};
-
-```
-
-### 2.13.3 CSS 压缩
-
-下载包
-
-```bash
-cnpm i css-minimizer-webpack-plugin -D
-```
-
-写入配置
-
-```javascript
-const path = require("path"); //node.js核心模块，专门用于处理路径问题
-const ESLintPlugin = require("eslint-webpack-plugin"); //引入eslint
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //引入Html文件打包
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //引入CSS插件
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); //用于CSS压缩
-
-const getStyleLoaders = (preProcesser) => {
-  return [
-    MiniCssExtractPlugin.loader,
-    "css-loader",
-    {
-      loader: "postcss-loader",
-      options: {
-        postcssOptions: {
-          plugins: [
-            "postcss-preset-env", // 能解决大多数样式兼容性问题
-          ],
-        },
-      },
-    },
-    preProcesser
-  ].filter(Boolean);
-}
-
-
-module.exports = {
-  entry: "./src/main.js",
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "./js/main.js",
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: getStyleLoaders()
-      },
-      {
-        test: /\.less$/,
-        use: getStyleLoaders("less-loader")
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: getStyleLoaders("sass-loader")
-      },
-      {
-        test: /\.styl$/,
-        use: getStyleLoaders("stylus-loader")
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024,
-          },
-        },
-        generator: {
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  plugins: [
-    new ESLintPlugin({
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-    new MiniCssExtractPlugin({
-      filename: "./css/main.css",
-    }),
-    // css压缩
-    new CssMinimizerPlugin(),
-  ],
-  mode: "production",
-};
-```
-
-注意这里 css 的压缩不能将 mode 调为 development，而要调为 production
-
-## 2.14 HTML 压缩
-
-默认生产模式已经开启了：html 压缩和 js 压缩
-
-不需要额外进行配置
-
-![[00 assets/dd0e53a4871a19fdcd889d7373efbed9_MD5.png]]
-
-## 2.15 总结
-
-本章节我们学会了 Webpack 基本使用，掌握了以下功能：
-
-1. 两种开发模式
-
-- 开发模式：代码能编译自动化运行
-- 生产模式：代码编译优化输出
-
-1. Webpack 基本功能
-
-- 开发模式：可以编译 ES Module 语法
-- 生产模式：可以编译 ES Module 语法，压缩 js 代码
-
-1. Webpack 配置文件
-
-- 5 个核心概念
-  - entry
-  - output
-  - loader
-  - plugins
-  - mode
-- devServer 配置
-
-1. Webpack 脚本指令用法
-
-- `webpack` 直接打包输出
-- `webpack serve` 启动开发服务器，内存编译打包没有输出
-
-### 2.15.1 个人总结
-
-下面是我的文件目录
-
-`config`文件夹是将 webpack 的文件进行分类，`webpack.dev.js`是平时开发的时候使用的，`webpack.prod.js`是最后项目上线的时候使用的
-
-`dist`文件是最后输出的文件资源
-
-`public`是静态的 HTML 文件
-
-`src`是里面的样式，JS......等内容
-
-`.eslintignore`是 eslint 插件，进行语法检查的时候设置省略的文件
-
-`.eslintrc.js`是设置 eslint 插件的各项配置
-
-`babel.config.js`是设置 babel 的各项配置
-
-![[00 assets/b1c13976948c42eeaa2a504f0014fa36_MD5.png]]
-
-下面是`webpack.dev.js`文件的配置
-
-```javascript
-const path = require("path"); //node.js核心模块，专门用于处理路径问题
-const ESLintPlugin = require("eslint-webpack-plugin"); //引入eslint
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //引入HTML文件打包，自动引入JS和CSS
-
-module.exports = {
-  //入口：设置打包的开始的文件
-  entry: "./src/main.js", //相对路径
-  //输出：我们输出在那个文件夹
-  output: {
-    path: undefined, // 开发模式没有输出，直接使用代理服务器，在内存中执行，不需要指定输出目录
-    //文件名
-    filename: "./js/main.js",
-    //自动清空上次打包的内容
-    // clean: true, //当你配置了开发服务器的话，因为东西加载在内存，所以可以不要
-  },
-  //加载器
-  module: {
-    rules: [
-      //css配置
-      {
-        test: /\.css$/, //检测以css结尾的文件
-        //执行的顺序从下到上
-        use: [
-          //会动态创建一个 Style 标签，里面放置 Webpack 中 Css 模块内容
-          "style-loader",
-          //将css编译为common.js的模块放在js中
-          "css-loader",
-        ],
-      },
-      //less配置
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      //scss和sass配置
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      //stylus配置
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      //对图片进行Base64处理
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024, // 小于50kb的图片会被base64处理
-          },
-        },
-        generator: {
-          // 将图片文件输出到 static/imgs 目录中
-          // 将图片文件命名 [hash:8][ext][query]
-          // [hash:8]: hash值取8位
-          // [ext]: 使用之前的文件扩展名
-          // [query]: 添加之前的query参数
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      //对于图标字体进行处理
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      //babel的配置
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/, //表示排除
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  //插件
-  plugins: [
-    //plugin的配置
-    new ESLintPlugin({
-      // 指定检查文件的根目录
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      // 以 public/index.html 为模板创建文件
-      // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-  ],
-  // 开发服务器
-  devServer: {
-    host: "localhost", // 启动服务器域名
-    port: "3000", // 启动服务器端口号
-    open: true, // 是否自动打开浏览器
-  },
-  //模式
-  mode: "development",
-};
-
-```
-
-下面是平时开发时候设置的文件
-
-```javascript
-const path = require("path"); //node.js核心模块，专门用于处理路径问题
-const ESLintPlugin = require("eslint-webpack-plugin"); //引入eslint
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //引入Html文件打包
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //引入CSS插件
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); //用于CSS压缩
-
-//用于文件的数组的输出，这样的话就不需要写相同的配置
-const getStyleLoaders = (preProcesser) => {
-  return [
-    MiniCssExtractPlugin.loader,
-    "css-loader",
-    {
-      loader: "postcss-loader",
-      options: {
-        postcssOptions: {
-          plugins: [
-            "postcss-preset-env", // 能解决大多数样式兼容性问题
-          ],
-        },
-      },
-    },
-    preProcesser,
-  ].filter(Boolean);
-};
-
-module.exports = {
-  //入口
-  entry: "./src/main.js", //相对路径
-  //输出
-  output: {
-    //文件输出路径
-    //__dirname node.js变量，代表当前文件的文件夹目录
-    //__dirname表示的是hello文件夹，后面的dist是hello文件夹里面的dist
-    path: path.resolve(__dirname, "../dist"), // 生产模式需要输出
-    //文件名
-    filename: "./js/main.js",
-    //自动清空上次打包的内容
-    clean: true, //当你配置了开发服务器的话，因为东西加载在内存，所以可以不要
-  },
-  //加载器
-  module: {
-    rules: [
-      //css配置
-      {
-        test: /\.css$/, //检测以css结尾的文件
-        //执行的顺序从下到上
-        use: getStyleLoaders(),
-      },
-      //less配置
-      {
-        test: /\.less$/,
-        use: getStyleLoaders("less-loader"),
-      },
-      //scss和sass配置
-      {
-        test: /\.s[ac]ss$/,
-        use: getStyleLoaders("sass-loader"),
-      },
-      //stylus配置
-      {
-        test: /\.styl$/,
-        use: getStyleLoaders("stylus-loader"),
-      },
-      //对图片进行Base64处理
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024, // 小于50kb的图片会被base64处理
-          },
-        },
-        generator: {
-          // 将图片文件输出到 static/imgs 目录中
-          // 将图片文件命名 [hash:8][ext][query]
-          // [hash:8]: hash值取8位
-          // [ext]: 使用之前的文件扩展名
-          // [query]: 添加之前的query参数
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      //对于图标字体进行处理
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      //babel的配置
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/, //表示排除
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  //插件
-  plugins: [
-    //plugin的配置
-    new ESLintPlugin({
-      // 指定检查文件的根目录
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      // 以 public/index.html 为模板创建文件
-      // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-    // css压缩
-    new CssMinimizerPlugin(),
-    // 提取css成单独文件
-    new MiniCssExtractPlugin({
-      // 定义输出文件名和目录
-      filename: "./css/main.css",
-    }),
-  ],
-  //模式
-  mode: "production",
-};
-```
-
-# 3. webpack 高级
-
-本章节主要介绍 Webpack 高级配置。
-
-所谓高级配置其实就是进行 Webpack 优化，让我们代码在编译/运行时性能更好~
-
-我们会从以下角度来进行优化：
-
-1. 提升开发体验
-2. 提升打包构建速度
-3. 减少代码体积
-4. 优化代码运行性能
-
-## 3.1 SourceMap
-
-开发时我们运行的代码是经过 webpack 编译后的，例如下面这个样子：
-
-![[00 assets/7e644a125bdd9a09cb0fd8428b1f8fdc_MD5.png]]
-
-所有 css 和 js 合并成了一个文件，并且多了其他代码。此时如果代码运行出错那么提示代码错误位置我们是看不懂的。一旦将来开发代码文件很多，那么很难去发现错误出现在哪里。
-
-所以我们需要更加准确的错误提示，来帮助我们更好的开发代码
-
-SourceMap（源代码映射）是一个用来生成源代码与构建后代码一一映射的文件的方案。
-
-它会生成一个 xxx.map 文件，里面包含源代码和构建后代码每一行、每一列的映射关系。当构建后代码出错了，会通过 xxx.map 文件，从构建后代码出错位置找到映射后源代码出错位置，从而让浏览器提示源代码文件出错位置，帮助我们更快的找到错误根源。
-
-通过查看[Webpack DevTool 文档 open in new window](https://webpack.docschina.org/configuration/devtool/)可知，SourceMap 的值有很多种情况.
-
-但实际开发时我们只需要关注两种情况即可：
-
-- 开发模式：`cheap-module-source-map`
-  - 优点：打包编译速度快，只包含行映射
-  - 缺点：没有列映射
-
-![[00 assets/004eb526f01eb8459eb9d1fd42119cdd_MD5.png]]
-
-- 生产模式：`source-map`
-  - 优点：包含行/列映射
-  - 缺点：打包编译速度更慢
-
-![[00 assets/e59d472d07d0e9ffc695acd670c72a65_MD5.png]]
-
-## 3.3 oneof
-
-我们在日常使用的情况下，都是一个一个文件和 loader 来进行匹配，这样的话效率就会非常低，这是因为 test 的正则配置没有用到
-
-所以这个时候我们就需要使用 oneof 来进行处理，顾名思义就是只能匹配上一个 loader, 剩下的就不匹配了
-
-![[00 assets/ab1c8d979609b958cf5f7f9cb1c7016c_MD5.png]]
-
-## 3.4 include/exclude
-
-`exclude`表示排除这个文件，`include`表示包含这个文件，这样的话我们匹配到了，就会按照匹配到的文件规则来进行处理
-
-![[00 assets/8224af68baa66f37b815a73642434429_MD5.png]]
-
-## 3.5 cache
-
-每次打包时 js 文件都要经过 Eslint 检查 和 Babel 编译，速度比较慢。我们可以缓存之前的 Eslint 检查 和 Babel 编译结果，这样第二次打包时速度就会更快了。
-
-所以这个时候我们可以对 Eslint 检查 和 Babel 编译结果进行缓存。
-
-![[00 assets/25e2648a92c4e2eeefb3abe2c3591b9e_MD5.png]]
-
-下面是 eslint 的缓存
-
-![[00 assets/5aab9703fac3390ac96031f9c9a866cc_MD5.png]]
-
-## 3.6 Thead
-
-当项目越来越庞大时，打包速度越来越慢，甚至于需要一个下午才能打包出来代码。这个速度是比较慢的。
-
-我们想要继续提升打包速度，其实就是要提升 js 的打包速度，因为其他文件都比较少。
-
-而对 js 文件处理主要就是 eslint 、babel、Terser 三个工具，所以我们要提升它们的运行速度。
-
-我们可以开启多进程同时处理 js 文件，这样速度就比之前的单进程打包更快了。
-
-多进程打包：开启电脑的多个进程同时干一件事，速度更快。
-
-**需要注意：请仅在特别耗时的操作中使用，因为每个进程启动就有大约为 600ms 左右开销。**
-
-![[00 assets/59951f79b1da6fb56bb05bdd9f471953_MD5.png]]
-
-![[00 assets/249014b0c88188c746dbef05d67a4f6a_MD5.png]]
-
-![[00 assets/e723715d24bad419b0db0d7f1305147b_MD5.png]]
