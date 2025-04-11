@@ -20,6 +20,20 @@
               "icon": "lucide-file",
               "title": "12 Webpack"
             }
+          },
+          {
+            "id": "0597da02faea0f34",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/09 NodeJS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "09 NodeJS"
+            }
           }
         ]
       }
@@ -104,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 273.5
+    "width": 270.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -176,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 300.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,17 +206,18 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/cca5c1210b1949feb68580921fde3805_MD5.jpeg",
-    "00 assets/Pasted image 20250411201019.png",
-    "00 assets/3b951442587e0def0ca5dde6b028c2f4_MD5.jpeg",
-    "00 assets/Pasted image 20250411201003.png",
-    "00 assets/c2c1cc64883fade43d3e9c398bf0a634_MD5.jpeg",
-    "00 assets/Pasted image 20250411173304.png",
-    "00 assets/bfb557d4cb1a83b288cebb0d52c66db2_MD5.jpeg",
-    "00 assets/Pasted image 20250411172036.png",
-    "00 assets/35094fd65b0df86ae44de0ea02c22365_MD5.jpeg",
-    "00 assets/Pasted image 20250411172006.png",
-    "00 assets/08b6f36bfbcd4cfba957b06f8a6c806d_MD5.jpeg",
+    "00 assets/9e35bec93ff477e9e297bb19e7e0d7b1_MD5.jpeg",
+    "00 assets/Pasted image 20250411225231.png",
+    "00 assets/f4b4e88f6ef49b9b7df47f95d6b983b9_MD5.jpeg",
+    "00 assets/Pasted image 20250411225132.png",
+    "00 assets/d69c508a37f6f8359a1181ebef504795_MD5.jpeg",
+    "00 assets/Pasted image 20250411224121.png",
+    "00 assets/2adf87083c9d3efca8c83ff921278d6a_MD5.jpeg",
+    "00 assets/Pasted image 20250411212608.png",
+    "00 assets/445477f15a6b2bbaecb244a881748449_MD5.jpeg",
+    "00 assets/Pasted image 20250411212037.png",
+    "00 assets/6a32b36ce34d0d3e384afd31c556108b_MD5.jpeg",
+    "03 前端/09 NodeJS.md",
     "03 前端/12 Webpack.md",
     "99 求职/八股记录.md",
     "03 前端/08 React.md",
@@ -228,7 +243,6 @@
     "README.md",
     "99 求职/八股记录/bable-loader底层原理.md",
     "99 求职/八股记录/算法LRU.md",
-    "99 求职/八股记录/vue中父组件调用子组件中的方法的原理.md",
     "99 求职/八股记录",
     "08 AI",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",

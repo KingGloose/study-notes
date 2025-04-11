@@ -435,7 +435,7 @@ pnpm add react react-dom
 ![[00 assets/6c646900bcf8ed3628ebdd165851798c_MD5.jpeg]]
 
 
-# 4. 配置选项
+# 4. 基础配置
 
 ## 4.1 resolve 模块
 
@@ -613,8 +613,6 @@ pnpm add react react-dom
 > 框架 HMR
 
 ![[00 assets/7a559bed1eb44ae0d9bd7205409e14c7_MD5.png]]
-
-
 
 
 # 7. 区分开发环境
@@ -1212,6 +1210,11 @@ sayHello();
 1、为什么不适应 `natural` 的方式来打包呢？因为他本身打包的js经常变化，那么每次打包都不利于浏览器的缓存
 ![[00 assets/d8516e2b60c4d1a4a516cc77a091ce1c_MD5.jpeg]]
 
+### 11.2.6 hash名称
+
+1、针对 hash 值名称，其实是有利于浏览器得缓存，所以在合适得时候使用不同得 hash 值来命名
+![[00 assets/0e1a23c3658d4fad32260b35e841f9af_MD5.jpeg]]
+
 ## 11.3 prefetch/preload
 
 ![[00 assets/3ad06113ce7d531a1faaa5f2ce889303_MD5.jpeg]]
@@ -1255,4 +1258,46 @@ sayHello();
 ### 11.5.2 基本使用
 
 ![[00 assets/cca5c1210b1949feb68580921fde3805_MD5.jpeg]]
+
+1、其实本质和 `npm` 得 `隐式依赖` 有关，比如你 `隐式依赖` 了 `axios`，但是你没有导入，并且在全局没有引入 `cdn` 来全局使用，就可以使用下面得方式让 `axios` 变成一个全局变量来使用
+![[00 assets/57a8d68eda41f2a0fa9090d6cb587dd5_MD5.jpeg]]
+
+
+## 11.6 提取CSS
+
+![[00 assets/0746d8b7ea944e1ac0be04e15739315a_MD5.jpeg]]
+
+1、我们可以使用  `mini-css-extract-plugin` 来做 `css代码`得抽取，这个时候 `loader` 也需要换成 `mini-css-extract-plugin` 得 `loader`
+2、开发得时候可以使用 `style-loader`，在生产环境可以使用`css-loader`就行
+![[00 assets/6b40aa58a70c8e72ff9e532d00493e78_MD5.jpeg]]
+
+## 11.7 DLL库
+
+![[00 assets/6a32b36ce34d0d3e384afd31c556108b_MD5.jpeg]]
+
+## 11.8 Terser
+
+### 11.8.1 基本介绍
+
+![[00 assets/445477f15a6b2bbaecb244a881748449_MD5.jpeg]]
+
+### 11.8.2 命令行使用
+
+![[00 assets/2adf87083c9d3efca8c83ff921278d6a_MD5.jpeg]]
+![[00 assets/d69c508a37f6f8359a1181ebef504795_MD5.jpeg]]
+ 
+
+### 11.8.3 webpack使用
+
+![[00 assets/cf7c6d26dc7e9ed958d2b5f6dff264e6_MD5.jpeg]]
+![[00 assets/9e35bec93ff477e9e297bb19e7e0d7b1_MD5.jpeg]]
+
+1、安装之后直接使用即可，可以自动优化你的 `JS代码`，但是需要你做一些额外得配置
+![[00 assets/f4b4e88f6ef49b9b7df47f95d6b983b9_MD5.jpeg]]
+
+
+## 11.9 CSS压缩
+
+
+
 
