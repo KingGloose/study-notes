@@ -104,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 271.5
+    "width": 273.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -192,6 +192,7 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "00 assets/cca5c1210b1949feb68580921fde3805_MD5.jpeg",
     "00 assets/Pasted image 20250411201019.png",
     "00 assets/3b951442587e0def0ca5dde6b028c2f4_MD5.jpeg",
     "00 assets/Pasted image 20250411201003.png",
@@ -202,7 +203,6 @@
     "00 assets/35094fd65b0df86ae44de0ea02c22365_MD5.jpeg",
     "00 assets/Pasted image 20250411172006.png",
     "00 assets/08b6f36bfbcd4cfba957b06f8a6c806d_MD5.jpeg",
-    "00 assets/Pasted image 20250411170326.png",
     "03 前端/12 Webpack.md",
     "99 求职/八股记录.md",
     "03 前端/08 React.md",
