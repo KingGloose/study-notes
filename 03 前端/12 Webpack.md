@@ -1149,5 +1149,110 @@ sayHello();
 
 ![[00 assets/50a02469122eff50e643d4bf423289fa_MD5.jpeg]]
 
-## 11.2 代码分离
+## 11.2 代码分包
+
+![[00 assets/e8f02bdf4f426dc90af60d91116c0db0_MD5.jpeg]]
+
+### 11.2.1 多入口分包
+
+![[00 assets/5e86483db4294433b4354ba5b5f99992_MD5.jpeg]]
+1、如果我们想实现多个入口来进行分包，按照如上配置即可，`enrty`可以是一个对象得形式，针对输出直接使用 `[name]-bundle.js` 他就会将 `entry` 中得 `key` 直接填入到 `[name]` 中
+![[00 assets/dc58c957c1d65b04dc3d22bf659524be_MD5.jpeg]]
+
+### 11.2.2 多入口共享代码
+
+![[00 assets/3ec0674ea26385c50327eb29bf90253a_MD5.jpeg]]
+
+1、我们已经使用多入口来做打包了，但是针对一些比较通用包，多个入口文件中都会使用得情况，可以按照如下得方式来做编写
+2、`import`表示导入得包，`dependOn`表示依赖得入口，下图中的`index`和`main`就使用的同一个
+![[00 assets/8dd099cbed235bfdfbd488750abd447d_MD5.jpeg]]
+
+###  11.2.3 动态导入
+#### 11.2.3.1 基本使用
+
+![[00 assets/ae196d8f990e7f8b099aab9f9e90786c_MD5.jpeg]]
+![[00 assets/69ad4b906b1d9fcad60dc87d53aad369_MD5.jpeg]]
+
+1、我们在 `webpack` 的打包下面进行打包的操作，如果我们使用 `import()` 函数，那么在实际的情况中会额外打包出 `js`
+2、这样在首包加载会少很多的代码，如下图示例，只有在点击的时候才会自动的请求加载`js`进行执行
+![[00 assets/7dcad3dfced6a65975de37e22f229e70_MD5.jpeg]]
+
+#### 11.2.3.2 分包命名
+
+![[00 assets/cfd7a499e50908a34f28f4fb52c9c8f3_MD5.jpeg]]
+
+1、因为我们使用了 `import()` 来分包，但是名字我们可以额外配置
+![[00 assets/06c9a98333d9f45e6d28cfb42f7edfde_MD5.jpeg]]
+
+2、针对于 `[name]` 的显示可以在 `import()` 中编写 `webpack` 的魔法注释
+![[00 assets/d98c1141fbea7500a1f87bc3ffcbdfe8_MD5.jpeg]]
+
+### 11.2.4 splitChunks
+
+#### 11.2.3.1 基本使用
+
+![[00 assets/1a62a01bf90e4c0bf519b381096e466f_MD5.jpeg]]
+1、针对于使用的第三方库中的内容都会被打进 `vendors` 中使用
+![[00 assets/cb55ca15b8bb67b9d070a1f5c35e68cd_MD5.jpeg]]
+
+#### 11.2.3.2 maxSize/minSize
+
+1、配置拆包的大小maxSize/minSize
+![[00 assets/74d048aae46d8bda1fbbab32221f9adc_MD5.jpeg]]
+
+#### 11.2.3.3 cacheGroups
+
+1、我们可以根据匹配倒的 `test` 来实现自定义的拆包操作，并且按照 `filename` 的方式来进行命名
+![[00 assets/8dd735c80c1099d7a62644fdb73b1259_MD5.jpeg]]
+
+### 11.2.5 chunkIds
+
+![[00 assets/76c6565a4863b1cbd2c4955bd336831e_MD5.jpeg]]
+
+1、为什么不适应 `natural` 的方式来打包呢？因为他本身打包的js经常变化，那么每次打包都不利于浏览器的缓存
+![[00 assets/d8516e2b60c4d1a4a516cc77a091ce1c_MD5.jpeg]]
+
+## 11.3 prefetch/preload
+
+![[00 assets/3ad06113ce7d531a1faaa5f2ce889303_MD5.jpeg]]
+
+1、打包的时候使用 `webpack 魔法注释` 来实现标记即可
+![[00 assets/4d253b4de4483c0314ea189cd075a3a9_MD5.jpeg]]
+2、如果你编写了 `preload/prefetch` 的话，就会额外在空闲的时候请求
+![[00 assets/8592652791ea0c2522e0e96dea5601ea_MD5.jpeg]]
+
+## 11.4 cdn
+
+### 11.4.1 基本介绍
+
+![[00 assets/e5595b1c2c098bbbc888cab057451e07_MD5.jpeg]]
+
+
+
+### 11.4.2 基本使用
+
+![[00 assets/b9e85a9893a75d6f0899fbbe870cd381_MD5.jpeg]]
+
+1、这里编写 `publicPath` 就可以在编译的时候将这个地址编写进去
+![[00 assets/6a3ac903b3da511b76da4577a7ca7d61_MD5.jpeg]]
+2、打包的时候就会带上 `publicPath` 的地址
+![[00 assets/08b6f36bfbcd4cfba957b06f8a6c806d_MD5.jpeg]]
+
+### 11.4.3 第三方库
+
+![[00 assets/bfb557d4cb1a83b288cebb0d52c66db2_MD5.jpeg]]
+
+1、我们使用 `externals` 表示哪些代码不需要打包
+2、`key` 表示框架的名字（`package.json` 中的名字）；`value` 表示实际使用的名称，比如你使用的 `Jquery`，那么就是 `jQuery: "$"`，因为你在项目中使用的就是 `$`
+![[00 assets/35094fd65b0df86ae44de0ea02c22365_MD5.jpeg]]
+
+## 11.5 shimming
+
+### 11.5.1 基本介绍
+
+![[00 assets/c2c1cc64883fade43d3e9c398bf0a634_MD5.jpeg]]
+
+### 11.5.2 基本使用
+
+![[Pasted image 20250411201019.png]]
 
