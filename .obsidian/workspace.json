@@ -8,13 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "dbb8c62a76debf65",
+            "id": "aae6be8930c027c8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/12 Webpack.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "12 Webpack"
             }
           }
         ]
@@ -59,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "webpack",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 268.5
+    "width": 271.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -172,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 308.5
+    "width": 298.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,13 +192,28 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "99 其他/在 Windows VSCode 中按照 mono 字体.md",
+    "00 assets/Pasted image 20250411201019.png",
+    "00 assets/3b951442587e0def0ca5dde6b028c2f4_MD5.jpeg",
+    "00 assets/Pasted image 20250411201003.png",
+    "00 assets/c2c1cc64883fade43d3e9c398bf0a634_MD5.jpeg",
+    "00 assets/Pasted image 20250411173304.png",
+    "00 assets/bfb557d4cb1a83b288cebb0d52c66db2_MD5.jpeg",
+    "00 assets/Pasted image 20250411172036.png",
+    "00 assets/35094fd65b0df86ae44de0ea02c22365_MD5.jpeg",
+    "00 assets/Pasted image 20250411172006.png",
+    "00 assets/08b6f36bfbcd4cfba957b06f8a6c806d_MD5.jpeg",
+    "00 assets/Pasted image 20250411170326.png",
     "03 前端/12 Webpack.md",
+    "99 求职/八股记录.md",
+    "03 前端/08 React.md",
+    "99 记录/01 技术记录.md",
+    "03 前端/05 ECMAScript.md",
+    "03 前端/04 JavaScript高级.md",
+    "99 其他/在 Windows VSCode 中按照 mono 字体.md",
     "99 其他",
     "03 前端/13 Uniapp.md",
     "99 求职/实习学习.md",
     "99 求职/求职指导.md",
-    "99 求职/八股记录.md",
     "99 求职/八股记录/Promise的实现.md",
     "03 前端/06 JQuery.md",
     "03 前端/14 前端可视化.md",
@@ -203,28 +222,13 @@
     "03 前端/17 Electron.md",
     "03 前端/19 单元测试.md",
     "03 前端/09 NodeJS/模块化.md",
-    "00 assets/50a02469122eff50e643d4bf423289fa_MD5.jpeg",
-    "00 assets/Pasted image 20250410220619.png",
     "03 前端/20 脚手架.md",
     "03 前端/21 Monorepos.md",
     "03 前端/19.md",
-    "00 assets/91299ac7e6be938587ee22f74047d14a_MD5.jpeg",
-    "00 assets/Pasted image 20250410220355.png",
-    "00 assets/0b98ab0c30267332c7cb82b3c5f4b220_MD5.jpeg",
-    "00 assets/Pasted image 20250410220302.png",
-    "00 assets/ef5c531fdf37092992339399241ccf35_MD5.jpeg",
-    "00 assets/Pasted image 20250410220055.png",
-    "00 assets/5bd16ff30607446e253acac4d12262c0_MD5.jpeg",
-    "00 assets/Pasted image 20250410215219.png",
     "README.md",
     "99 求职/八股记录/bable-loader底层原理.md",
     "99 求职/八股记录/算法LRU.md",
     "99 求职/八股记录/vue中父组件调用子组件中的方法的原理.md",
-    "99 求职/八股记录/vue keep-alive原理.md",
-    "99 求职/八股记录/讲一下什么是 React Fiber.md",
-    "99 求职/八股记录/cookie和session介绍.md",
-    "99 求职/八股记录/bundle和chunk的区别.md",
-    "99 求职/八股记录/移动端如何适配，rem适配的原理.md",
     "99 求职/八股记录",
     "08 AI",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",
