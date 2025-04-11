@@ -1254,5 +1254,5 @@ sayHello();
 
 ### 11.5.2 基本使用
 
-![[Pasted image 20250411201019.png]]
+![[00 assets/cca5c1210b1949feb68580921fde3805_MD5.jpeg]]
 
