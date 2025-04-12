@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/12 Webpack.md",
+                "file": "03 前端/22 Gulp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12 Webpack"
+              "title": "22 Gulp"
             }
           },
           {
@@ -118,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 270.5
+    "width": 274.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -190,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 287.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,19 +206,23 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/9e35bec93ff477e9e297bb19e7e0d7b1_MD5.jpeg",
-    "00 assets/Pasted image 20250411225231.png",
-    "00 assets/f4b4e88f6ef49b9b7df47f95d6b983b9_MD5.jpeg",
-    "00 assets/Pasted image 20250411225132.png",
-    "00 assets/d69c508a37f6f8359a1181ebef504795_MD5.jpeg",
-    "00 assets/Pasted image 20250411224121.png",
-    "00 assets/2adf87083c9d3efca8c83ff921278d6a_MD5.jpeg",
-    "00 assets/Pasted image 20250411212608.png",
-    "00 assets/445477f15a6b2bbaecb244a881748449_MD5.jpeg",
-    "00 assets/Pasted image 20250411212037.png",
-    "00 assets/6a32b36ce34d0d3e384afd31c556108b_MD5.jpeg",
-    "03 前端/09 NodeJS.md",
+    "03 前端/01 HTML5.md",
+    "03 前端/22 Gulp.md",
     "03 前端/12 Webpack.md",
+    "00 assets/d70eb642425a550924788f7e78e27d0c_MD5.jpeg",
+    "00 assets/Pasted image 20250412103320.png",
+    "README.md",
+    "00 assets/cddf49724044c13771bab5268f96825a_MD5.jpeg",
+    "00 assets/Pasted image 20250412004511.png",
+    "00 assets/94f3019928f43f40c719f56e044992c3_MD5.jpeg",
+    "00 assets/Pasted image 20250412004240.png",
+    "00 assets/55b3fafffc723429b123fc9d7af09fcf_MD5.jpeg",
+    "00 assets/Pasted image 20250412003508.png",
+    "00 assets/5f0621acc6781a4da26988675c4ed72b_MD5.jpeg",
+    "00 assets/Pasted image 20250412003428.png",
+    "未命名",
+    "03 前端/00 源码分析",
+    "03 前端/09 NodeJS.md",
     "99 求职/八股记录.md",
     "03 前端/08 React.md",
     "99 记录/01 技术记录.md",
@@ -240,17 +244,13 @@
     "03 前端/20 脚手架.md",
     "03 前端/21 Monorepos.md",
     "03 前端/19.md",
-    "README.md",
     "99 求职/八股记录/bable-loader底层原理.md",
-    "99 求职/八股记录/算法LRU.md",
     "99 求职/八股记录",
     "08 AI",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",
     "99 记录",
     "07 嵌入式",
     "03 前端/03 JavaScript",
-    "03 前端/02 CSS",
-    "03 前端/01 HTML",
-    "03 前端/10 Typescript"
+    "03 前端/02 CSS"
   ]
 }

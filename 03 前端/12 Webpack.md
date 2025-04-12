@@ -615,7 +615,7 @@ pnpm add react react-dom
 ![[00 assets/7a559bed1eb44ae0d9bd7205409e14c7_MD5.png]]
 
 
-# 7. 区分开发环境
+# 7. 区分环境
 
 ## 7.1 基本介绍
 
@@ -623,281 +623,36 @@ pnpm add react react-dom
 
 ## 7.2 不同环境文件
 
-`生产环境(production)`：标识项目已经上线了
-
-`开发环境(development)`：自己编写代码时配置的环境
-
-我们要区分开发模式和生产模式，就要将不同模式的配置文件进行分类
-
+1、`生产环境(production)`：标识项目已经上线了、`开发环境(development)`：自己编写代码时配置的环境，我们要区分开发模式和生产模式，就要将不同模式的配置文件进行分类
 ![[00 assets/2de4182e4a9a436f43cd88e6039f2612_MD5.png]]
 
-然后先配置 webpack.dev.js 文件，也就是平时开发时候的模式
-
+2、然后先配置 webpack.dev.js 文件，也就是平时开发时候的模式
 ![[00 assets/cd9ac4a7e3234d54e67213af92d1af8b_MD5.png]]
-
 ![[00 assets/3ff6ca15961ed10ffa3195640e1562af_MD5.png]]
-
-> 开发环境
-
-```javascript
-const path = require("path"); //node.js核心模块，专门用于处理路径问题
-const ESLintPlugin = require("eslint-webpack-plugin"); //引入eslint
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //引入Html文件打包
-
-module.exports = {
-  //入口
-  entry: "./src/main.js", //相对路径
-  //输出
-  output: {
-    path: undefined, // 开发模式没有输出，不需要指定输出目录
-    //文件名
-    filename: "./js/main.js",
-    //自动清空上次打包的内容
-    // clean: true, //当你配置了开发服务器的话，因为东西加载在内存，所以可以不要
-  },
-  //加载器
-  module: {
-    rules: [
-      //loader的配置
-      //css配置
-      {
-        test: /\.css$/, //检测以css结尾的文件
-        //执行的顺序从下到上
-        use: [
-          //会动态创建一个 Style 标签，里面放置 Webpack 中 Css 模块内容
-          "style-loader",
-          //将css编译为common.js的模块放在js中
-          "css-loader",
-        ],
-      },
-      //less配置
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      //scss和sass配置
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      //stylus配置
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      //对图片进行Base64处理
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024, // 小于10kb的图片会被base64处理
-          },
-        },
-        generator: {
-          // 将图片文件输出到 static/imgs 目录中
-          // 将图片文件命名 [hash:8][ext][query]
-          // [hash:8]: hash值取8位
-          // [ext]: 使用之前的文件扩展名
-          // [query]: 添加之前的query参数
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      //对于图标字体进行处理
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      //babel的配置
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/, //表示排除
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  //插件
-  plugins: [
-    //plugin的配置
-    new ESLintPlugin({
-      // 指定检查文件的根目录
-      context: path.resolve(__dirname, "../src"),
-    }),
-    new HtmlWebpackPlugin({
-      // 以 public/index.html 为模板创建文件
-      // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
-      template: path.resolve(__dirname, "../public/index.html"),
-    }),
-  ],
-  // 开发服务器
-  devServer: {
-    host: "localhost", // 启动服务器域名
-    port: "3000", // 启动服务器端口号
-    open: true, // 是否自动打开浏览器
-  },
-  //模式
-  mode: "development",
-};
-```
-
-> 生产环境
-
-```javascript
-const path = require("path"); //node.js核心模块，专门用于处理路径问题
-const ESLintPlugin = require("eslint-webpack-plugin"); //引入eslint
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //引入Html文件打包
-
-module.exports = {
-  //入口
-  entry: "./src/main.js", //相对路径
-  //输出
-  output: {
-    //文件输出路径
-    //__dirname node.js变量，代表当前文件的文件夹目录
-    //__dirname表示的是hello文件夹，后面的dist是hello文件夹里面的dist
-    path: path.resolve(__dirname, "../dist"), // 生产模式需要输出
-    //文件名
-    filename: "./js/main.js",
-    //自动清空上次打包的内容
-    // clean: true, //当你配置了开发服务器的话，因为东西加载在内存，所以可以不要
-  },
-  //加载器
-  module: {
-    rules: [
-      //loader的配置
-      //css配置
-      {
-        test: /\.css$/, //检测以css结尾的文件
-        //执行的顺序从下到上
-        use: [
-          //会动态创建一个 Style 标签，里面放置 Webpack 中 Css 模块内容
-          "style-loader",
-          //将css编译为common.js的模块放在js中
-          "css-loader",
-        ],
-      },
-      //less配置
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      //scss和sass配置
-      {
-        test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      //stylus配置
-      {
-        test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      //对图片进行Base64处理
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset",
-        parser: {
-          dataUrlCondition: {
-            maxSize: 50 * 1024, // 小于10kb的图片会被base64处理
-          },
-        },
-        generator: {
-          // 将图片文件输出到 static/imgs 目录中
-          // 将图片文件命名 [hash:8][ext][query]
-          // [hash:8]: hash值取8位
-          // [ext]: 使用之前的文件扩展名
-          // [query]: 添加之前的query参数
-          filename: "./imgs/[hash:8][ext][query]",
-        },
-      },
-      //对于图标字体进行处理
-      {
-        test: /\.(ttf|woff2?)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./media/[hash:8][ext][query]",
-        },
-      },
-      //babel的配置
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/, //表示排除
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    ],
-  },
-  //插件
-  plugins: [
-    //plugin的配置
-    new ESLintPlugin({
-      // 指定检查文件的根目录
-      context: path.resolve(__dirname, "src"),
-    }),
-    new HtmlWebpackPlugin({
-      // 以 public/index.html 为模板创建文件
-      // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
-      template: path.resolve(__dirname, "public/index.html"),
-    }),
-  ],
-  // 开发服务器
-  // devServer: {
-  //   host: "localhost", // 启动服务器域名
-  //   port: "3000", // 启动服务器端口号
-  //   open: true, // 是否自动打开浏览器
-  // },
-  //模式
-  mode: "development",
-};
-```
 
 ## 7.3 配置运行指令
 
-我们再来运行生产模式的代码，前面表示允许里面的开发服务器，`--config`后面的表示指定开发文件的目录
-
-```bash
-npx webpack serve --config ./config/webpack.dev.config.js		// 开发环境
-npx webpack --config ./config/webpack.prod.config.js			// 生产环境
-```
-
-为了方便运行不同模式的指令，我们将指令定义在 package.json 中 scripts 里面
-
+1、为了方便运行不同模式的指令，我们将指令定义在 package.json 中 scripts 里面
+2、开发模式：`npm start` 或 `npm run serve`；生产模式：`npm run build`
 ![[00 assets/71a6b8cfd472b7af6d68d9902a8c1ca6_MD5.png]]
 
-以后启动指令：
-
-- 开发模式：`npm start` 或 `npm run serve`
-- 生产模式：`npm run build`
 
 ## 7.4 路径问题
 
 ![[00 assets/8e482c4e6b327b8b247aff81b505abbb_MD5.png]]
 
-其中就存在`context`属性来指定路径，并且该属性只为`入口文件`、`加载器`和`插件`使用，这些地方默认就是项目根路径，而`output`、`alias`就是真实路径了
-
+1、其中就存在`context`属性来指定路径，并且该属性只为`入口文件`、`加载器`和`插件`使用，这些地方默认就是项目根路径，而`output`、`alias`就是真实路径了
 ![[00 assets/7b0cf1f9af7de11bdf2c6d1326c068a7_MD5.png]]
 
 ## 7.5 抽取公共配置
 
-```bash
-pnpm add webpack-merge -D
-```
-
-将公共的配置都抽取到`common.config.js`中，然后通过`webpack-merge`来合并处理
-
+1、`pnpm add webpack-merge -D`
+2、将公共的配置都抽取到`common.config.js`中，然后通过`webpack-merge`来合并处理
 ![[00 assets/ca886ee4a3479a96dde926bbf98b83c8_MD5.png]]
 
-对于`production`也是一样的处理方式，这样会让配置更加清晰
-
+3、对于`production`也是一样的处理方式，这样会让配置更加清晰
 ![[00 assets/724a1832447c898002f6714074cceb8e_MD5.png]]
-
+ 
 # 8. source-map
 
 ## 8.1 基本介绍
@@ -1224,6 +979,7 @@ sayHello();
 2、如果你编写了 `preload/prefetch` 的话，就会额外在空闲的时候请求
 ![[00 assets/8592652791ea0c2522e0e96dea5601ea_MD5.jpeg]]
 
+
 ## 11.4 cdn
 
 ### 11.4.1 基本介绍
@@ -1295,9 +1051,88 @@ sayHello();
 1、安装之后直接使用即可，可以自动优化你的 `JS代码`，但是需要你做一些额外得配置
 ![[00 assets/f4b4e88f6ef49b9b7df47f95d6b983b9_MD5.jpeg]]
 
-
 ## 11.9 CSS压缩
 
+![[00 assets/604a3068ff9e09c436f67f6840cffd6b_MD5.jpeg]]
+1、可以使用 `CssMinimizerWebpackPlugin` 就可以实现针对 `CSS压缩`
+![[00 assets/29b4c53071cce50ee37e86045c28c1a0_MD5.jpeg]]
+
+## 11.10 JS Tree Shaking
+
+### 11.10.1 usedExports
+
+![[00 assets/7da5ebffccf436f85558418ffcf4207f_MD5.jpeg]]
+
+1、我们使用 `usedExports` 来做模块得分析时会将没使用到得函数做额外得标注
+![[00 assets/f52ff0e887ffd77c72db4f55369982c1_MD5.jpeg]]
+
+2、这样在 `Terser` 做代码压缩得时候会将这部分代码给优化掉
+![[00 assets/b92602d362853b51019137d108de91a0_MD5.jpeg]]
+
+### 11.10.2 sideEffects
+
+![[00 assets/ba2096e700757dff62e5fa409e2482c2_MD5.jpeg]]
+
+1、一般情况我们直接使用 `import "./src/main.js"`得时候，即便里面函数什么都没干，也依旧会打包进来，所以我们可以在 `package.json` 中进行配置`sideEffects: false`，表示当前得所有模块都是 `纯模块`，没有任何副作用针对没有使用得可以直接 `Tree Sharking`
+![[00 assets/f6859458e14b30d171da25c9536553ad_MD5.jpeg]]
+
+2、但是在项目中不可能所有得模块都是纯模块，这个时候就需要额外得配置了，表示这些模块有副作用，需要打包进去
+3、我们直接引入 `import "main.css"`也需要额外去做相应得配置
+![[00 assets/7abbd412427ee47276913bd9c8e8c424_MD5.jpeg]]
+
+### 11.10.3 最佳实践
+
+![[00 assets/c1feb486102f9c3fe2545d9b703bd7fc_MD5.jpeg]]
+
+## 11.11 CSS Tree Shaking
+
+![[00 assets/d5e7073ae37b03039a158c749c98386e_MD5.jpeg]]
+![[00 assets/c0f0bc0349e2a1de6147549f80ff2d4a_MD5.jpeg]]
+
+1、我们可以使用 `purgecss-webpack-plugin`来针对`css tree shaking`，`paths`表示扫描得路径，`safelist`表示是白名单
+2、该插件要配合 `mini-css-extract-plugin`一起使用
+![[00 assets/221c6ac4d2bda6cf3232d1a8ae762eaf_MD5.jpeg]]
 
 
+## 11.12 作用域提升
 
+![[00 assets/635e6de1448ac1308d8f7025599e080e_MD5.jpeg]]
+
+1、这个是 `webpack` 下面内置得模块
+![[00 assets/0dbb7c9a9aded8ec76b3e12e90ce0b67_MD5.jpeg]]
+
+2、看下图中得代码，上面是没开启之前得，如果想在 `demo.js` 中访问到 `math.js` 中得 `sum函数`，需要越过函数作用域，这样导致执行得效率不是很高
+3、我们可以开启作用域得提升，查看优化之后得代码可以发现已经将函数提升了作用域，提高了执行得效率
+![[00 assets/2b992152da866b35d8779f351ba8523b_MD5.jpeg]]
+
+## 11.13 HTTP压缩
+
+### 11.13.1 基本介绍
+
+![[00 assets/d33b06fb1877de5db9ca8484fcfcded6_MD5.jpeg]]
+![[00 assets/2e1aaa51f724a942a614ffab55eab02c_MD5.jpeg]]
+
+### 11.13.2 基本使用
+
+![[00 assets/604c62b173df449876619eb15b5311ea_MD5.jpeg]]
+## 11.14 HTML压缩
+
+![[00 assets/55b3fafffc723429b123fc9d7af09fcf_MD5.jpeg]]
+1、我们使用 `html-webpack-plugin` 就可以进行对应得压缩配置
+![[00 assets/5f0621acc6781a4da26988675c4ed72b_MD5.jpeg]]
+
+## 11.15 打包时间分析
+
+1、我们可以使用 `speed-measure-webpack-plugin`来分析各个模块的执行速度
+![[00 assets/94f3019928f43f40c719f56e044992c3_MD5.jpeg]]
+
+## 11.16 打包结果分析
+
+![[00 assets/cddf49724044c13771bab5268f96825a_MD5.jpeg]]
+
+# 12. 源码分析
+
+## 12.1 准备开发
+
+1、下载 `webpack源码`，为了方便调试编写如下代码来执行编译操作，其实和使用 `webpack-cli` 是一样的效果
+![[00 assets/d70eb642425a550924788f7e78e27d0c_MD5.jpeg]]
