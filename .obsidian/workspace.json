@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "aae6be8930c027c8",
+            "id": "637191e67d1a93d0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/22 Gulp.md",
+                "file": "03 前端/23 Rollup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "22 Gulp"
-            }
-          },
-          {
-            "id": "0597da02faea0f34",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03 前端/09 NodeJS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "09 NodeJS"
+              "title": "23 Rollup"
             }
           }
         ]
@@ -118,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 274.5
+    "width": 265.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -190,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 298.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,30 +186,35 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
+      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "03 前端/01 HTML5.md",
+    "00 assets/a00fe3d05130b2471742490ff39657d1_MD5.jpeg",
+    "00 assets/Pasted image 20250412235500.png",
+    "00 assets/01d3d1ac6c2f1bc2e60dd6c033b7baf4_MD5.jpeg",
+    "00 assets/Pasted image 20250412235108.png",
+    "00 assets/c3542a3bac4ecbd7f3e8d898c6c0747d_MD5.jpeg",
+    "00 assets/Pasted image 20250412234958.png",
+    "00 assets/0c77e33534df91802f7d45110231baa3_MD5.jpeg",
+    "00 assets/Pasted image 20250412233247.png",
+    "03 前端/06 Jquery.md",
+    "03 前端/23 Rollup.md",
     "03 前端/22 Gulp.md",
-    "03 前端/12 Webpack.md",
-    "00 assets/d70eb642425a550924788f7e78e27d0c_MD5.jpeg",
-    "00 assets/Pasted image 20250412103320.png",
-    "README.md",
-    "00 assets/cddf49724044c13771bab5268f96825a_MD5.jpeg",
-    "00 assets/Pasted image 20250412004511.png",
-    "00 assets/94f3019928f43f40c719f56e044992c3_MD5.jpeg",
-    "00 assets/Pasted image 20250412004240.png",
-    "00 assets/55b3fafffc723429b123fc9d7af09fcf_MD5.jpeg",
-    "00 assets/Pasted image 20250412003508.png",
-    "00 assets/5f0621acc6781a4da26988675c4ed72b_MD5.jpeg",
-    "00 assets/Pasted image 20250412003428.png",
-    "未命名",
-    "03 前端/00 源码分析",
+    "03 前端/14 前端可视化.md",
+    "00 assets/c1a48846e95914b7166f3d7e57a19de8_MD5.jpeg",
+    "00 assets/Pasted image 20250412224106.png",
+    "03 前端/24 Vite.md",
+    "00 assets/9920afac25577b7cc912a95fc629021a_MD5.jpeg",
     "03 前端/09 NodeJS.md",
     "99 求职/八股记录.md",
+    "03 前端/01 HTML5.md",
+    "03 前端/12 Webpack.md",
+    "README.md",
+    "未命名",
+    "03 前端/00 源码分析",
     "03 前端/08 React.md",
     "99 记录/01 技术记录.md",
     "03 前端/05 ECMAScript.md",
@@ -234,17 +225,12 @@
     "99 求职/实习学习.md",
     "99 求职/求职指导.md",
     "99 求职/八股记录/Promise的实现.md",
-    "03 前端/06 JQuery.md",
-    "03 前端/14 前端可视化.md",
     "03 前端/16 NextJS.md",
     "03 前端/15 NuxtJS.md",
     "03 前端/17 Electron.md",
     "03 前端/19 单元测试.md",
     "03 前端/09 NodeJS/模块化.md",
     "03 前端/20 脚手架.md",
-    "03 前端/21 Monorepos.md",
-    "03 前端/19.md",
-    "99 求职/八股记录/bable-loader底层原理.md",
     "99 求职/八股记录",
     "08 AI",
     "02 算法/00.力扣/100-200/229.多数元素2.ts",
