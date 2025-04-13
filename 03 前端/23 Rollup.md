@@ -12,3 +12,33 @@
 
 2、这里有意思的是针对 `umd`版本的打包，他会在执行的时候判断当前的环境
 ![[00 assets/a00fe3d05130b2471742490ff39657d1_MD5.jpeg]]
+
+3、我们也可以编写一个 `rollup.config.js`来做为配置文件
+4、`input`表示入口文件，`output`表示出口，并且可以编写为一个数组，来打包出不同版本的库
+![[00 assets/88dc5b10d6bda19b4721ae2e7e56491b_MD5.jpeg]]
+
+# 3. 第三方库导入
+
+1、我们导入 `lodash` 来导入，但是不做配置是导入不进来的，所以需要做额外的配置
+2、又因为`lodash`是`commonjs`来导入的，但是`rollup`默认处理`es module`，那么就不会将代码打包进来，我们需要额外安装一个`rollup`插件来处理
+![[00 assets/7fa7ebe01c5c83ca2e8cc569c14891be_MD5.jpeg]]
+3、按照如下配置就可以实现针对一系列库的实现
+![[00 assets/200afb4c1d62dab44d831d3e634ce156_MD5.jpeg]]
+
+
+# 4、资源处理
+
+## 4.1 JS
+
+1、执行 `pnpm i @babel/core @babel/preset-env @rollup/plugin-babel rollup-plugin-terser -D`下载所需的库
+2、下述主要是针对`js`进行转换和压缩，使用的`babel`和`terser`，可以详细参考使用库的文档来进行配置即可
+![[00 assets/e5ab4610ba3a4d1fbe8498b994bc77ec_MD5.jpeg]]
+
+## 4.2 CSS
+
+1、安装 `pnpm i postcss rollup-plugin-postcss -D`来安装所需要的库
+2、导入所需要的即可，需要的类似前缀、压缩等内容，可以查看`postcss`的文档
+![[00 assets/f0e8ee0b44e4f1d80134d97133a129bf_MD5.jpeg]]
+
+## 4.3 Vue
+
