@@ -26,7 +26,7 @@
 ![[00 assets/200afb4c1d62dab44d831d3e634ce156_MD5.jpeg]]
 
 
-# 4、资源处理
+# 4. 资源处理
 
 ## 4.1 JS
 
@@ -42,3 +42,23 @@
 
 ## 4.3 Vue
 
+1、安装`pnpm i rollup-plugin-vue rollup-plugin-replace @vue/compiler-sfc -D`
+2、按照如下配置就可以将`vue`的代码进行编译
+![[00 assets/619ab00747e379b9578deca9756e03d4_MD5.jpeg]]
+
+3、但是目前的打包会存在如下的问题，这里使用`rollup-plugin-replace`将配置的环境变量替换
+![[00 assets/04476645bc2a94a716bb2cada26542d3_MD5.jpeg]]
+
+
+# 5. 开发服务器
+
+![[00 assets/d86d835ac865349f6742845adfa8cccf_MD5.jpeg]]
+
+1、按照如下的配置即可完成服务器的搭建
+![[00 assets/4daf7b8fcf2c1bd89eae605172026589_MD5.jpeg]]
+
+
+# 6. 区分环境
+
+1、我们可以传入`NODE_ENV`的环境变量，在打包和开发的时候可以读取到这个变量再来区分配置
+![[00 assets/75bf8e79ebeea9d50511e7d2ff37b384_MD5.jpeg]]
