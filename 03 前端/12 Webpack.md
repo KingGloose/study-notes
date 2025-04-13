@@ -1136,3 +1136,11 @@ sayHello();
 
 1、下载 `webpack源码`，为了方便调试编写如下代码来执行编译操作，其实和使用 `webpack-cli` 是一样的效果
 ![[00 assets/d70eb642425a550924788f7e78e27d0c_MD5.jpeg]]
+
+
+## 12.2 compiler
+
+1、我们使用`webpack.compiler`的本质就是底层的`create`方法
+2、我们也可以在第二个参数传入`cb`来实现`run`的效果
+![[Pasted image 20250413160909.png]]
+
