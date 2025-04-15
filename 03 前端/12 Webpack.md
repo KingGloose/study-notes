@@ -1142,5 +1142,34 @@ sayHello();
 
 1、我们使用`webpack.compiler`的本质就是底层的`create`方法
 2、我们也可以在第二个参数传入`cb`来实现`run`的效果
-![[Pasted image 20250413160909.png]]
+![[00 assets/4f588ecf12617ec1b78f2c3398cdd2b1_MD5.jpeg]]
+
+3、我们可以传入数组来创建多个`compiler`
+![[00 assets/898de61696e76e09d50334b2f18e9e0b_MD5.jpeg]]
+而其本质就是调用底层的`createCompiler`
+![[00 assets/2dcf3bd6ce25bd88d20635df54616859_MD5.jpeg]]
+
+4、而底层的`compiler`就是使用类来实现的，而最重要的就是`this.hooks`，他的底层使用的`tapable`来实现
+5、这个`tapable`库实现的就是事件的监听和发出，订阅事件，监听事件，触发事件，很多的自定义插件就是按照如下的方式来实现的，需要监听指定的事件名
+![[00 assets/b95c6afbcf92f519039b4785a6400e59_MD5.jpeg]]
+6、基本的顺序如下
+![[00 assets/990e0af8d9b434e0fbe8c6ca89a2c9f5_MD5.jpeg]]
+
+7、`compiler`是从一开始创建再到结束都在运行中，但是在编译文件的时候会创建`compilation`来做编译，然后将结果给`compiler`来输出
+![[00 assets/06862c3147ca328df314074debc25d1e_MD5.jpeg]]
+
+## 12.3 plugins
+
+1、在一开始创建`compiler`的时候就会去注册`plugins`
+2、如果你传入的是函数的话就会直接调用。如果你是传入的`class`的话就会自动调用内部的`apply`方法，你可以拿到`compiler`就可以调用里面的`this.hooks`
+![[00 assets/6dcda9000c8a542257a77f580d45d632_MD5.jpeg]]
+
+3、针对`webpack`内部其他的选项的处理本质就是调用内部的 `process` 来做处理，而`process`内部做的本质就是调用内部写好的插件
+![[00 assets/9bd204c5bdf6585b001a037e607bc750_MD5.jpeg]]
+查看`process`的本质就是如下的操作，他会根据不同的选项配置来做内部插件的调用
+![[00 assets/3134626a1e3914cc16cfdabaf9156712_MD5.jpeg]]
+
+## 12.4 run方法
+
+
 
