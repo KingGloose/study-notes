@@ -33,9 +33,6 @@
 5、这也是`vite`和`webpack`的比较
 ![[00 assets/024fddf9ed7c223e85904f0bf376f268_MD5.jpeg]]
 
-
-
-
 # 2. 资源处理
 
 ## 2.1 JS

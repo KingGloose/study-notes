@@ -7,13 +7,13 @@
 | **AST 抽象语法树**       | `object`             | 部分 loader 会传递 AST（如 `babel-loader` 之间）                    |
 
 ### 二、Loader 的输出
-| 输出内容               | 格式要求             | 典型场景示例                                                                 |
-|------------------------|----------------------|------------------------------------------------------------------------------|
-| **JavaScript 代码**    | `string`             | 将非 JS 资源转换为 JS 模块（如 CSS 转成 `module.exports = "..."`）           |
-| **AST 对象**           | `object`             | Babel 等编译型 loader 可传递 AST 给后续 loader                               |
-| **二进制 Buffer**       | `Buffer`             | 处理图片、字体等二进制资源时直接返回                                         |
-| **Source Map**         | `object`             | 生成转换后的 Source Map（需与输出代码同步）                                   |
-| **元数据**             | `object`             | 附加资源依赖、webpack 特性标记等（通过 `this.emitFile` 等 API）               |
+| 输出内容              | 格式要求     | 典型场景示例                                               |
+| ----------------- | -------- | ---------------------------------------------------- |
+| **JavaScript 代码** | `string` | 将非 JS 资源转换为 JS 模块（如 CSS 转成 `module.exports = "..."`） |
+| **AST 对象**        | `object` | Babel 等编译型 loader 可传递 AST 给后续 loader                 |
+| **二进制 Buffer**    | `Buffer` | 处理图片、字体等二进制资源时直接返回                                   |
+| **Source Map**    | `object` | 生成转换后的 Source Map（需与输出代码同步）                          |
+| **元数据**           | `object` | 附加资源依赖、webpack 特性标记等（通过 `this.emitFile` 等 API）       |
 
 ### 三、核心处理流程
 ```javascript
