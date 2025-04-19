@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99 求职/八股记录.md",
+                "file": "03 前端/25 Bun.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "八股记录"
+              "title": "25 Bun"
             }
           }
         ]
@@ -104,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269.5
+    "width": 268.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -192,24 +192,24 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "00 assets/46556c4e33d7989cdadb65ae8739c744_MD5.jpeg",
+    "00 assets/Pasted image 20250419145720.png",
+    "00 assets/c705a436ed41b94af93703dc08eb0ec1_MD5.jpeg",
+    "00 assets/Pasted image 20250419145021.png",
+    "00 assets/e5749c64a5530751426944ff7a69c2d9_MD5.jpeg",
+    "00 assets/Pasted image 20250419144845.png",
+    "00 assets/4cce9dc3e7a201b2df091747c72b53cb_MD5.jpeg",
+    "00 assets/Pasted image 20250419144544.png",
+    "00 assets/4ed92bc5ac397e3742dd027eca4e6d77_MD5.jpeg",
+    "00 assets/Pasted image 20250419144149.png",
+    "README.md",
     "00 assets/e21aadf16a4cc2a8f0c2c525157f81c2_MD5.jpeg",
-    "00 assets/Pasted image 20250417134848.png",
-    "00 assets/c19379112927392fea1eb3d276754a7f_MD5.jpeg",
-    "00 assets/Pasted image 20250417134737.png",
-    "00 assets/Pasted image 20250417134723.png",
-    "00 assets/33e79eff81b5d7a73fcc10503581880d_MD5.jpeg",
-    "00 assets/Pasted image 20250417134239.png",
-    "00 assets/71471b1db2c3ed2ea933a5830280b3af_MD5.jpeg",
-    "00 assets/Pasted image 20250417134204.png",
-    "00 assets/Pasted image 20250417134203.png",
-    "00 assets/77c67bed2f7bb36f97cf879109dbe378_MD5.jpeg",
     "99 求职/八股记录/webpack loader输入什么产出什么.md",
     "99 求职/八股记录.md",
     "99 求职/实习学习.md",
     "99 求职/八股记录/vite构建流程.md",
     "03 前端/24 Vite.md",
     "03 前端/12 Webpack.md",
-    "README.md",
     "03 前端/25 Bun.md",
     "03 前端/15 NuxtJS.md",
     "03 前端/16 NextJS.md",
