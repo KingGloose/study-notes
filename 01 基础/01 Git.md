@@ -34,7 +34,7 @@ Git 没有中央服务器，每个电脑都是一个完整的版本库
 
 > 分布式版本控制
 
-![[00 assets/a2aaa51638c98b64649a3c031ac937c4_MD5.png]]
+![[00 assets/1c6b6713b95247f93d3b571720f5eb1b_MD5.jpeg]]
 
 # 2. 基本配置
 
@@ -149,7 +149,7 @@ Git 本地有 3 个目录，**工作目录(Working Directory)、暂存区(Stage/
 
 其实在工作中就是下面得 2 个命令
 
-![[00 assets/12f2b5753e371beef6248d25f2feedeb_MD5.png]]
+![[00 assets/1e919a0735e5b53465564a92e4769538_MD5.jpeg]]
 
 ![[00 assets/8c046a0cb67be87620253236f9f651aa_MD5.png]]
 
