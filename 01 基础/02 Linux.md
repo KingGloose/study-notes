@@ -60,7 +60,7 @@
 
 7、进入之后就是这个样子
 
-![[00 assets/f4a573e6ca9d39034aed29972d86d426_MD5.png]]
+![[00 assets/5960e3e72af23107ead48bfd38c2b93e_MD5.jpeg]]
 
 ## 1.3 网络连接三种方式
 

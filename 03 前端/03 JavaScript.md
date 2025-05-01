@@ -10,7 +10,7 @@
 
 > 计算机语言
 
-![image-20221130221719252](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309834.png)
+![[00 assets/0bfea36f3437e9a7958d2cdf739c410e_MD5.png]]
 
 > 编程语言
 
@@ -31,20 +31,19 @@
 > 高级语言
 
 ![[00 assets/1d477d501905ebc53579bb7a2789e85d_MD5.png]]
+![[00 assets/0de5f81071242534b12e3920a43d4a03_MD5.jpeg]]
 
-![[00 assets/7c7e82fa6fc9f233ff19b9e5e408cde0_MD5.png]]
 
 ## 1.2 基本介绍
 
-![[00 assets/205819b1104283a0a8e9caad5231d316_MD5.png]]
+![[00 assets/511068c9b4371b0448ca882bbba9159e_MD5.jpeg]]
 
 ## 1.3 JavaScript 历史
 
 ![[00 assets/9086cb82093772ea4dba1e402e268ed4_MD5.png]]
 
 ![[00 assets/0cfe558d3a980ff8b373b49f24387a78_MD5.png]]
-
-![[00 assets/28ac7fd6a58dbeae9fddc26981b2ae35_MD5.png]]
+![[00 assets/d11626723524f13b28dd8574d6df5602_MD5.jpeg]]
 
 ![[00 assets/ff925e3e760e0266b8dcb0a14017aab0_MD5.png]]
 
@@ -54,7 +53,7 @@
 
 ## 1.5 JavaScript 运行
 
-![[00 assets/e6fe8353a363a98b5ad719eebfea3b35_MD5.png]]
+![[00 assets/60163df32382a9e2526106b60a083323_MD5.jpeg]]
 
 ![[00 assets/7336db4d2f2c38a5ee8266f1c1a764f5_MD5.png]]
 
@@ -80,7 +79,7 @@
 
 ## 2.3 交互方式
 
-![[00 assets/0e0f151feb3fbba5f85f213d4056a10c_MD5.png]]
+![[00 assets/667c070cfd4bf50056009c07f07160f4_MD5.jpeg]]
 
 > alert()
 
@@ -98,7 +97,7 @@
 
 `console.log()`会将内容写到开发者工具的控制台中
 
-![[00 assets/95a23955d758bfccbea0d17384a149e7_MD5.png]]
+![[00 assets/16602be8333f62275ca30a91189b59f9_MD5.jpeg]]
 
 > prompt()
 
@@ -110,7 +109,7 @@
 
 `confirm()`会给你一个选择，返回布尔值
 
-![[00 assets/fca5529d3e7aa999e4ba2b6d074d02cf_MD5.png]]
+![[00 assets/ac588f045380294c44bf58275301929e_MD5.jpeg]]
 
 ## 2.4 代码注释
 
@@ -134,13 +133,13 @@
 
 2、还可以使用`const`来定义常量，常量市不能改变的
 
-![[00 assets/03e1b371399f788e287a2d6b0c303669_MD5.png]]
+![[00 assets/7b5dd863d731c21b93f94ae9064ea180_MD5.jpeg]]
 
 ## 3.2 命令规范
 
 关键字`MDN`文档：[词法文法 - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/web/javascript/reference/lexical_grammar)
 
-![[00 assets/0770da478cc18a33fd777f0e48648d42_MD5.png]]
+![[00 assets/3099091422573188e4eadf0d89f0e5e6_MD5.jpeg]]
 
 ## 3.3 数据类型
 
@@ -150,9 +149,9 @@
 
 ### 3.3.2 typeof
 
-![image-20221201133559372](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309759.png)
+![[00 assets/c2788ad49b620642c94716f4566c5f83_MD5.jpeg]]
 
-![image-20221201133659347](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309801.png)
+![[00 assets/a0f88d1d2e3f24330d858638bb863555_MD5.png]]
 
 ### 3.3.3 原始类型
 
@@ -160,53 +159,53 @@
 
 我们即便使用`typeof`检测`infinity...`都会是`number`类型
 
-![image-20221201134102031](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309824.png)
+![[00 assets/479e497924a491931483778c3cd7c26b_MD5.png]]
 
-![image-20221201134441077](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309848.png)
+![[00 assets/078abd866a87f27128e828040ed5e130_MD5.png]]
 
 #### 3.3.3.2 String
 
-![image-20221201143444086](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309872.png)
+![[00 assets/34eb84c404077fd2d49450b480aa1222_MD5.png]]
 
-![image-20221201143737766](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309910.png)
+![[00 assets/ea1953919999783df7ed066e0c731312_MD5.png]]
 
-![image-20221201143753466](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309491.png)
+![[00 assets/d89203b2ee2cfdcdc14b097d9ab04b65_MD5.png]]
 
 #### 3.3.3.3 Boolean
 
-![image-20221201143857076](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309512.png)
+![[00 assets/14dbe623d20711d15077b2874a9d4db3_MD5.png]]
 
 #### 3.3.3.4 Undefined
 
-![image-20221201144019070](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309532.png)
+![[00 assets/628b9bf648dd08a74d0572571bb60c99_MD5.png]]
 
 #### 3.3.3.5 Object
 
-![image-20221201144218828](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309562.png)
+![[00 assets/e57d5a435928d7358ce47004666295e1_MD5.png]]
 
 #### 3.3.3.6 Null
 
-![image-20221201144248753](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309584.png)
+![[00 assets/37be54127c800dfa848d785eac94362e_MD5.png]]
 
 ### 3.3.4 类型转换
 
 #### 5.4.1 转为 String
 
-![image-20221201170857279](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309623.png)
+![[00 assets/097d5d1e0b9be81bda1fe45410745961_MD5.png]]
 
-![image-20221201165058987](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309227.png)
+![[00 assets/8bb3ade07b90fa0ae9ca23a4304ee905_MD5.png]]
 
 #### 5.4.2 转为 Number
 
-![image-20221201170907406](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309249.png)
+![[00 assets/faee1920c0e7b94372e1c4f1a205dcf9_MD5.png]]
 
-![image-20221201170432356](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309271.png)
+![[00 assets/5f4e89a2bc2f09bf937963494cb298cf_MD5.png]]
 
 #### 5.4.3 转为 Boolean
 
-![image-20221201170924039](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309312.png)
+![[00 assets/56a964019aabd4234c1f746f9ab78bab_MD5.png]]
 
-![image-20221201170817984](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309333.png)
+![[00 assets/5c93921dc358145bb9d4b5f3a76f941a_MD5.png]]
 
 # 4. 运算符
 
@@ -214,83 +213,83 @@
 
 > 运算符
 
-![image-20221201171304857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309363.png)
+![[00 assets/a967eb1b566508a56c64eacec13856be_MD5.png]]
 
 > 运算元
 
-![image-20221201171316295](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309956.png)
+![[00 assets/1509a90241fb4f8e09572c78d441667d_MD5.png]]
 
 ## 4.2 算术运算符
 
-![image-20221201171635960](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309981.png)
+![[00 assets/f8e2cf2fa2411a641b383ac7ac11bfbe_MD5.png]]
 
-![image-20221201172843394](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309004.png)
+![[00 assets/811bc48d0846aaaf80e31a4a833fa700_MD5.png]]
 
-![image-20221201172331115](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309033.png)
+![[00 assets/e0aef89ecebf419b3da004adebac9c41_MD5.png]]
 
 ## 4.3 赋值运算符
 
-![image-20221201172409871](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309078.png)
+![[00 assets/c7482f44f1fe7f984bac7f1755998896_MD5.png]]
 
-![image-20221201172755055](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309111.png)
+![[00 assets/8031e46e8e3f23dd0fa2b8bc9572d831_MD5.png]]
 
-![image-20221201172732082](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309647.png)
+![[00 assets/c42e10512102de751cbb18f51cb8d285_MD5.png]]
 
 ## 4.4 比较运算符
 
-![image-20221201173009731](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309692.png)
+![[00 assets/2344e557d13c1cae187c0387988dc707_MD5.png]]
 
-![image-20221201173018872](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309791.png)
+![[00 assets/1712ceca8d5d679715dd6f0119a1749f_MD5.png]]
 
 ## 4.5 条件运算符
 
-![image-20221201174019175](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309831.png)
+![[00 assets/b73f6eec6e923e8fb2c8d645b5a2fb16_MD5.png]]
 
 ## 4.6 逻辑运算符
 
-![image-20221201174154722](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309857.png)
+![[00 assets/e534aecee2871e022a6103f174abc426_MD5.png]]
 
 > ||
 
-![image-20221201174213007](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309884.png)
+![[00 assets/0a0136f693536de13339ad4dab8b78e8_MD5.png]]
 
 > &&
 
-![image-20221201174228149](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309512.png)
+![[00 assets/14dbe623d20711d15077b2874a9d4db3_MD5.png]]
 
 > !
 
-![image-20221201174245507](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309560.png)
+![[00 assets/e156dddff6c3f94bcd96e7b6e9f3a861_MD5.png]]
 
 ## 4.7 运算优先级
 
-![image-20221201172921293](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309615.png)
+![[00 assets/c24428d1b631df82dcb5eb894e7c2f54_MD5.png]]
 
 # 5. 流程控制
 
 ## 5.1 基本介绍
 
-![image-20221201173712626](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309658.png)
+![[00 assets/f2ed6054bfd88d2affd89639d64395e9_MD5.png]]
 
 ## 5.2 if
 
 > 单分支语句 if
 
-![image-20221201173803011](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309699.png)
+![[00 assets/aa26deab496a056a96b3121d81bfa9cd_MD5.png]]
 
 > 多分支语句 if...else...
 
-![image-20221201173901699](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309746.png)
+![[00 assets/4750bcad48ae256fe8a41b06441d8d5a_MD5.png]]
 
 > 多分支语句 if...else if ...
 
-![image-20221201173933790](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309211.png)
+![[00 assets/b6d94c1f160d64c2c05423269e115224_MD5.png]]
 
 ## 5.3 switch
 
-![image-20221201174437316](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309291.png)
+![[00 assets/4d9f43d59bc9e5ec05218797b64865a8_MD5.png]]
 
-![image-20221201174444157](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309318.png)
+![[00 assets/9c67761687f2f865244096375bc8c6b9_MD5.png]]
 
 ## 5.4 while
 
@@ -438,7 +437,7 @@ async 和 sync 分别是异步和同步执行，具体的异步和同步参考�
 
 ```
 
-![屏幕截图 2022-02-25 110333](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309346.png)
+![[00 assets/4ac6716cec9e4edb9b734f6f23a7e753_MD5.png]]
 
 我们再来看 sync 的同步请求，是不是就和上面的 async 就有区别了，他是从上到下依次执行的
 
@@ -459,7 +458,7 @@ async 和 sync 分别是异步和同步执行，具体的异步和同步参考�
 
 ```
 
-![屏幕截图 2022-02-25 110641](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309373.png)
+![[00 assets/28a4e1e684f2124dfe2a6f4f4efa4f73_MD5.png]]
 
 defer 的表现和 async 是基本一样的，defer 属性只有 IE 支持
 
@@ -490,7 +489,7 @@ defer 的表现和 async 是基本一样的，defer 属性只有 IE 支持
 
 ```
 
-![屏幕截图 2021-09-16 213715](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309433.png)
+![[00 assets/fcd83602c8a772e7841512763c882063_MD5.png]]
 
 ## 7. 数组
 
@@ -551,7 +550,7 @@ var att = [[],[]];
 
 ```
 
-![屏幕截图 2021-09-24 232732](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309901.png)
+![[00 assets/7895208318d71e372074f0ce1be48a11_MD5.png]]
 
 ### 7.3 修改数组的长度
 
@@ -577,7 +576,7 @@ var att = [[],[]];
 
 ```
 
-![屏幕截图 2021-09-24 233142](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309923.png)
+![[00 assets/1801d2c34a19d0b82da44b2e3a13b176_MD5.png]]
 
 假如我们向数组的最后添加元素，并且会扩大数组的长度
 
@@ -605,7 +604,7 @@ var att = [[],[]];
 
 ```
 
-![屏幕截图 2021-09-24 233343](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309949.png)
+![[00 assets/fc1d3ac1cfd1058a3a0f234fa75f10e7_MD5.png]]
 
 ### 7.4 使用字面量来创建数组
 
@@ -675,7 +674,7 @@ var att = [[],[]];
 
 ```
 
-![屏幕截图 2021-11-25 210902](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309982.png)
+![[00 assets/aadb972a2ecc00b341baf663624490d6_MD5.png]]
 
 当然这个不止可以检测数组，还可以检测类
 
@@ -705,7 +704,7 @@ var att = [[],[]];
 </html>
 ```
 
-![屏幕截图 2021-11-25 210902](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309982.png)
+![[00 assets/aadb972a2ecc00b341baf663624490d6_MD5.png]]
 
 #### 7.5.2 Arreay.isArray()
 
@@ -726,13 +725,13 @@ var att = [[],[]];
 </html>
 ```
 
-![屏幕截图 2021-11-25 210902](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309982.png)
+![[00 assets/aadb972a2ecc00b341baf663624490d6_MD5.png]]
 
 ### 7.5 数组的方法
 
 #### 7.5.1 push()
 
-![屏幕截图 2021-11-25 211028](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309011.png)
+![[00 assets/3c8b0ee3f128f33eeecceeee508c08e8_MD5.png]]
 
 用来向数组的末尾添加一个或多个元素，并返回数组新的长度
 
@@ -816,7 +815,7 @@ var att = [[],[]];
 
 ```
 
-![屏幕截图 2021-09-25 104524](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309107.png)
+![[00 assets/188cb1cfd741e789190f8ce19f7c3d3a_MD5.png]]
 
 #### 7.5.3 unshift()
 
@@ -840,7 +839,7 @@ var att = [[],[]];
 
 ```
 
-![屏幕截图 2021-09-25 104631](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309282.png)
+![[00 assets/95a23955d758bfccbea0d17384a149e7_MD5.png]]
 
 但是你传入的是一个数组的话就会形成一个二维数组
 
@@ -851,7 +850,7 @@ console.log(arr.unshift(addArr));
 console.log(arr);
 ```
 
-![屏幕截图 2022-03-11 103844](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309336.png)
+![[00 assets/f8b8d318baf27508219904eb20ff646a_MD5.png]]
 
 #### 7.5.4 shift()
 
@@ -900,7 +899,7 @@ console.log(arr);
 
 ```
 
-![屏幕截图 2021-09-25 131446](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309431.png)
+![[00 assets/4847b68e1f6f16ed3d5a3d63c9fe4b4d_MD5.png]]
 
 参数可以传递一个负值，如果是负值，则从后往前数
 
@@ -927,7 +926,7 @@ console.log(arr);
 </html>
 ```
 
-![屏幕截图 2021-09-25 131622](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309485.png)
+![[00 assets/4ceddc4768ec0fdeba6e785173e7f387_MD5.png]]
 
 我们可以插入数据
 
@@ -951,7 +950,7 @@ console.log(arr);
 
 ```
 
-![屏幕截图 2021-09-25 131909](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309571.png)
+![[00 assets/772639098dafff37dbe594e616c8cf20_MD5.png]]
 
 #### 7.5.7 concat()
 
@@ -978,7 +977,7 @@ console.log(arr);
 
 ```
 
-![屏幕截图 2021-09-25 161253](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309665.png)
+![[00 assets/7c7e82fa6fc9f233ff19b9e5e408cde0_MD5.png]]
 
 #### 7.5.8 join()
 
@@ -1000,7 +999,7 @@ console.log(arr);
 </html>
 ```
 
-![屏幕截图 2021-11-25 213737](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309791.png)
+![[00 assets/1712ceca8d5d679715dd6f0119a1749f_MD5.png]]
 
 #### 7.5.9 reverse()
 
@@ -1050,7 +1049,7 @@ console.log(arr.sort((a,b)=>{
 </html>
 ```
 
-![屏幕截图 2021-11-25 211906](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309868.png)
+![[00 assets/fd8fe65cb2cde8175e5e970001994809_MD5.png]]
 
 #### 7.5.12 lastIndexOf()
 
@@ -1072,7 +1071,7 @@ console.log(arr.sort((a,b)=>{
 </html>
 ```
 
-![屏幕截图 2021-11-25 212148](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309909.png)
+![[00 assets/a9e39aadf03c5dd7d19f8deb9927d4dd_MD5.png]]
 
 #### 7.5.13 filter
 
@@ -1132,7 +1131,7 @@ myFunction();
 </html>
 ```
 
-![屏幕截图 2021-11-25 211654](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309968.png)
+![[00 assets/a81ec65cd68074b88460a276d15b4cd1_MD5.png]]
 
 数组去重
 
@@ -1164,7 +1163,7 @@ myFunction();
 </html>
 ```
 
-![屏幕截图 2021-11-25 213328](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309111.png)
+![[00 assets/8031e46e8e3f23dd0fa2b8bc9572d831_MD5.png]]
 
 ### 7.6 遍历数组
 
@@ -1190,7 +1189,7 @@ myFunction();
 </html>
 ```
 
-![屏幕截图 2021-09-25 105226](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309289.png)
+![[00 assets/ddbf3b88ad3a2d7b10fa11dcb0a7248f_MD5.png]]
 
 #### 7.6.2 forEach()
 
@@ -1218,7 +1217,7 @@ myFunction();
 
 ```
 
-![屏幕截图 2021-09-25 130904](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309311.png)
+![[00 assets/7cf58fdf54a75e6b07c44505551d7fce_MD5.png]]
 
 ## 8. 函数
 
@@ -1304,7 +1303,7 @@ myFunction();
 
 ```
 
-![屏幕截图 2021-09-20 131109](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309381.png)
+![[00 assets/b8b6703aebdd1bf1aed58a065f2cb392_MD5.png]]
 
 形参会在调用时才赋值。
 
@@ -1380,7 +1379,7 @@ myFunction();
 
 ```
 
-![屏幕截图 2021-09-19 224132](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309428.png)
+![[00 assets/3fc4924919a111d7d8e5a6326bcd3317_MD5.png]]
 
 我们来看下面的这个问题
 
@@ -1577,7 +1576,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-10-02 220418](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309539.png)
+![[00 assets/e771915a775fa7943260be308ca016ba_MD5.png]]
 
 当你不是很确定要输入这个函数的参数的个数，就可以使用 arguments
 
@@ -1612,7 +1611,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-11-18 211309](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309565.png)
+![[00 assets/826e5486403d7a49043eb47831b6ce4c_MD5.png]]
 
 ### 8.6 函数调用另一个函数
 
@@ -1641,7 +1640,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-11-18 212216](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309712.png)
+![[00 assets/e29be6fad1063c6033a9b2e376df2fe6_MD5.png]]
 
 下面有一个案例的例子
 
@@ -1723,7 +1722,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-12-14 210722](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309765.png)
+![[00 assets/0dbb37f5a8de4624d23b150aa63f99e2_MD5.png]]
 
 但是发现，是不是后面有一个报错啊，这是因为，上面的执行函数后面没有写分号，导致的报错，假如我们去掉的话就不会报错了
 
@@ -1761,7 +1760,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-12-14 210946](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309896.png)
+![[00 assets/a36cbf5c052c437c8859d28fa33be022_MD5.png]]
 
 当然我们加上函数名也没有问题
 
@@ -1797,7 +1796,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-12-14 210946](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309896.png)
+![[00 assets/a36cbf5c052c437c8859d28fa33be022_MD5.png]]
 
 立即执行函数最大的作用就是**独立创建了一个作用域**，虽然名字一样的话，也是不影响的
 
@@ -1866,7 +1865,7 @@ callee 可以查看当前的函数
 
 ```
 
-![屏幕截图 2021-09-20 125708](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309927.png)
+![[00 assets/7ff862c4720040babba28ed5105d773a_MD5.png]]
 
 ### 9.3 块级作用域
 
@@ -1908,7 +1907,7 @@ if()
 
 ```
 
-![屏幕截图 2021-11-23 210940](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309076.png)
+![[00 assets/492561de94d7acb1040e7496277aab79_MD5.png]]
 
 ### 9.5 局部变量
 
@@ -1939,7 +1938,7 @@ if()
 
 ```
 
-![屏幕截图 2021-11-23 211051](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309142.png)
+![[00 assets/a4c1cf70fdebaa56ccd4e8c2b39f0533_MD5.png]]
 
 还有一个变量虽然写在局部作用域里面，但是它是全局变量，可以参考变量的声明提前的例子
 
@@ -1968,7 +1967,7 @@ if()
 
 ```
 
-![屏幕截图 2021-11-23 211459](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309271.png)
+![[00 assets/5f4e89a2bc2f09bf937963494cb298cf_MD5.png]]
 
 这里是从**执行效率**来看全局变量和局部变量
 
@@ -2006,7 +2005,7 @@ if()
 </html>
 ```
 
-![屏幕截图 2021-09-20 130006](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309299.png)
+![[00 assets/879a0494baa2c5c8fcc411acf2c2b4e8_MD5.png]]
 
 假如在函数里面要访问全局的变量，可以使用 windows
 
@@ -2041,7 +2040,7 @@ if()
 
 ```
 
-![屏幕截图 2021-09-20 124512](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309403.png)
+![[00 assets/fb70c8e5afe75387275d66edb21bf909_MD5.png]]
 
 在函数作用域中，也具有该特性，使用 var 关键字声明的变量会在函数所有的代码执行前被声明
 
@@ -2069,7 +2068,7 @@ if()
 
 ```
 
-![屏幕截图 2021-09-20 130820](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309482.png)
+![[00 assets/9424ec2bfd47634f7ae1362e4a160545_MD5.png]]
 
 ### 10.2 函数的声明提前
 
@@ -2095,7 +2094,7 @@ if()
 
 ```
 
-![屏幕截图 2021-09-20 125059](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309633.png)
+![[00 assets/3a91fd8849246854dd646dd718a056b9_MD5.png]]
 
 也就是我们可以在函数声明前去调用函数，但是使用函数表达式(var fun = function(){})创建的函数没有该特性
 
@@ -2119,7 +2118,7 @@ if()
 
 ```
 
-![屏幕截图 2021-09-20 125141](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309657.png)
+![[00 assets/d84dd3c0a4c583a0f65088ab2e031845_MD5.png]]
 
 在函数作用域中，使用函数声明创建的函数，会在所有的函数中的代码执行之前就被创建好了
 
@@ -2177,7 +2176,7 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 **案例一**
 
-![屏幕截图 2021-11-23 214933](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309718.png)
+![[00 assets/7c5d637b69c2ed9b752fc1cb07abbc00_MD5.png]]
 
 假如解析之后就是
 
@@ -2205,11 +2204,11 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-23 215255](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309785.png)
+![[00 assets/d17dbca848ace22d953410b6afefa759_MD5.png]]
 
 **案例二**
 
-![屏幕截图 2021-11-23 215734](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309810.png)
+![[00 assets/a8f2ddc4e2a69af4a47809e615c0e864_MD5.png]]
 
 假如预解析之后就是
 
@@ -2237,11 +2236,11 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-23 220109](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309956.png)
+![[00 assets/1509a90241fb4f8e09572c78d441667d_MD5.png]]
 
 **案例三**
 
-![屏幕截图 2021-11-23 220135](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309160.png)
+![[00 assets/00f667f72af10b4afb1f70fc0afe2a14_MD5.png]]
 
 假如预解析之后就是
 
@@ -2275,11 +2274,11 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-23 220555](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309194.png)
+![[00 assets/9fe167a6d39b00cd0ccce56f224c76c3_MD5.png]]
 
 **案例四**
 
-![屏幕截图 2021-11-23 220642](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309234.png)
+![[00 assets/435dfc1566f7c91bcdb4332ae3501d6e_MD5.png]]
 
 假如预解析之后就是
 
@@ -2313,7 +2312,7 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-23 221341](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309301.png)
+![[00 assets/2e5fd2267c504a017122d4c3d8b4ed68_MD5.png]]
 
 ## 11. 对象
 
@@ -2321,9 +2320,9 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 在 JS 中，对象是一组无序的相关属性和方法的集合，所有的事物都是对象，例如字符串、数值、数组、函数
 
-![屏幕截图 2021-11-23 221754](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309324.png)
+![[00 assets/e08a83531494ed2804b03ad70dc45d80_MD5.png]]
 
-![屏幕截图 2021-11-23 222033](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309476.png)
+![[00 assets/c02f20743f2d05943b8d1e2c1b5c3edd_MD5.png]]
 
 ### 11.1 创建对象
 
@@ -2402,7 +2401,7 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-23 223616](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309608.png)
+![[00 assets/29df8f0276e1a3a6c5303b0160dad932_MD5.png]]
 
 #### 11.1.2 new Object 创建对象
 
@@ -2459,7 +2458,7 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-24 211941](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309648.png)
+![[00 assets/dc1c1458856b950f325b4037fbffdf1f_MD5.png]]
 
 当然我们也可以将对象赋值给属性值
 
@@ -2492,7 +2491,7 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-24 212351](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309710.png)
+![[00 assets/029443dadff090033070925251223477_MD5.png]]
 
 #### 11.1.3 使用构造函数来构造对象
 
@@ -2535,7 +2534,7 @@ JS 代码是由浏览器的 JS 解析器来执行的，JS 解释器在执行 JS 
 
 ```
 
-![屏幕截图 2021-11-24 205054](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309968.png)
+![[00 assets/a81ec65cd68074b88460a276d15b4cd1_MD5.png]]
 
 后记：感觉构造函数有点像 JAVA 里面的类
 
@@ -2596,7 +2595,7 @@ for...in 语句的循环体会执行多次，对象中有几个属性就会执�
 
 ```
 
-![屏幕截图 2021-09-20 105850](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309994.png)
+![[00 assets/0cc2bbd18af19ea9df193c659ffa2cbb_MD5.png]]
 
 下面是取出属性值
 
@@ -2625,7 +2624,7 @@ for...in 语句的循环体会执行多次，对象中有几个属性就会执�
 
 ```
 
-![屏幕截图 2021-09-20 110222](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309079.png)
+![[00 assets/43389ccbce198da26f50e7b782396dd9_MD5.png]]
 
 #### 11.3.2 keys()
 
@@ -2640,7 +2639,7 @@ var arr = Object.keys(p1);
 console.log(arr);
 ```
 
-![屏幕截图 2022-03-04 211612](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309100.png)
+![[00 assets/ab9db17694a21cfc7c367489d4cc25d3_MD5.png]]
 
 ### 11.4 内置对象
 
@@ -2670,7 +2669,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-10-02 223227](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309133.png)
+![[00 assets/f34e54cee48ea411cbd7cc7e8a9579bf_MD5.png]]
 
 我们也可以指定时间的数值，一般的格式是：月/日/年 时:分:秒
 
@@ -2692,7 +2691,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-10-02 223749](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309398.png)
+![[00 assets/d6c8319a441e92d725617eec4041b68a_MD5.png]]
 
 这里要注意一个小细节，date 和 Date 是不一样的
 
@@ -2718,7 +2717,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-10-02 224049](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309473.png)
+![[00 assets/1862c45a3be490ac55d1140ceb8316b0_MD5.png]]
 
 ##### 11.4.1.2 getDay()
 
@@ -2744,7 +2743,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 222703](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309501.png)
+![[00 assets/dc924fa104ce4b019137fe5c3dd34905_MD5.png]]
 
 ##### 11.4.1.3 getMonth()
 
@@ -2768,7 +2767,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 222600](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309530.png)
+![[00 assets/9e9e9218614edc52c81d4d01ffcfd723_MD5.png]]
 
 ##### 11.4.1.4 getFullYear()
 
@@ -2792,7 +2791,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 222510](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309574.png)
+![[00 assets/b8996fdb3d3ccba10cd1a336b7170da3_MD5.png]]
 
 ##### 11.4.1.5 getHours()
 
@@ -2816,7 +2815,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 222944](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309652.png)
+![[00 assets/8049a09241e78851ee506824dfd6defd_MD5.png]]
 
 ##### 11.4.1.6 getMinutes()
 
@@ -2840,7 +2839,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 223112](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309856.png)
+![[00 assets/e63f5f1552f20d2968074b77ee188613_MD5.png]]
 
 ##### 11.4.1.7 getSeconds()
 
@@ -2863,7 +2862,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 </html>
 ```
 
-![屏幕截图 2021-11-24 223232](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309946.png)
+![[00 assets/79cbe18acc0eae59f34b6afe7fbd1285_MD5.png]]
 
 ##### 11.4.1.8 getTime()和 valueOf()
 
@@ -2894,7 +2893,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-25 201640](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309975.png)
+![[00 assets/03cd501ac00927d7aa0868ed93cea56f_MD5.png]]
 
 还有一个简单的写法
 
@@ -2916,7 +2915,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-25 201847](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309000.png)
+![[00 assets/fca5529d3e7aa999e4ba2b6d074d02cf_MD5.png]]
 
 ##### 11.4.1.9 now()
 
@@ -2967,7 +2966,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 223849](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309034.png)
+![[00 assets/beb866d429f3faab2d4f252b9c52cdb0_MD5.png]]
 
 倒计时案例
 
@@ -3004,7 +3003,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-25 205540](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309227.png)
+![[00 assets/8bb3ade07b90fa0ae9ca23a4304ee905_MD5.png]]
 
 #### 11.4.2 Math
 
@@ -3071,7 +3070,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 214916](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309402.png)
+![[00 assets/a42016a937751efee6d4e43e7f1c476b_MD5.png]]
 
 ##### 11.4.2.4 floor()
 
@@ -3094,7 +3093,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 214733](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309439.png)
+![[00 assets/983368a96e00415dd7e193da49b37292_MD5.png]]
 
 ##### 11.4.2.5 round()
 
@@ -3121,7 +3120,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 215629](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309537.png)
+![[00 assets/1e1480b565263803f3a804802327fc98_MD5.png]]
 
 ##### 11.4.2.6 random()
 
@@ -3236,7 +3235,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 214355](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309582.png)
+![[00 assets/2662dd09441a5f8e04ab85d5dfd7ac31_MD5.png]]
 
 随机生成 1-10 的数字来猜
 
@@ -3264,9 +3263,9 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 ```
 
-![屏幕截图 2021-11-24 220901](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309613.png)
+![[00 assets/7d615f48ad7608f84d36f8f78f474445_MD5.png]]
 
-![屏幕截图 2021-11-24 220908](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309748.png)
+![[00 assets/28ac7fd6a58dbeae9fddc26981b2ae35_MD5.png]]
 
 #### 11.4.3 String
 
@@ -3274,7 +3273,7 @@ JS 的对象包括自定义对象，内置对象，浏览器对象
 
 String 也就是字符串有不可变性，你看下面的图片，一开始 str 表示的是 andy，但是后面赋值给 str 为 red，这样的话 red 就会再内存空间里面开辟一个新的内存空间，然后指向，不建议向这样来改变，这样会影响电脑性能
 
-![屏幕截图 2021-11-25 214525](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309943.png)
+![[00 assets/090fa87b5c0c8d806edde17bdda68303_MD5.png]]
 
 ##### 11.4.3.1 length
 
@@ -3299,7 +3298,7 @@ String 也就是字符串有不可变性，你看下面的图片，一开始 str
 
 ```
 
-![屏幕截图 2021-10-04 162602](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309969.png)
+![[00 assets/cb176fe7bc595fcd94793a138b104fa4_MD5.png]]
 
 这里有没有好奇，为什么是字符串类型，但是可以使用 length 来输出长度，这是因为我们使用了基本包装类型，我们将简单数据类型包装为复杂数据类型，String，number，boolen 就可以被包装，下面是执行的步骤
 
@@ -3528,7 +3527,7 @@ replace('被替换的字符','替换为的字符')
 
 ```
 
-![屏幕截图 2021-11-27 133016](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309038.png)
+![[00 assets/190dc64debbe8dfb41e89281f0e6d217_MD5.png]]
 
 但是假如我们想要都替换的话
 
@@ -3555,7 +3554,7 @@ replace('被替换的字符','替换为的字符')
 
 ```
 
-![屏幕截图 2021-11-27 133418](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309070.png)
+![[00 assets/c5d4007ec32aac84d7e7a781f4a82219_MD5.png]]
 
 ##### 11.4.3.12 split()
 
@@ -3581,7 +3580,7 @@ replace('被替换的字符','替换为的字符')
 
 ```
 
-![屏幕截图 2021-11-27 133719](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309156.png)
+![[00 assets/7882f8256c82846502f31dc4731638c6_MD5.png]]
 
 ##### 11.4.3.11 String 案例
 
@@ -3613,7 +3612,7 @@ replace('被替换的字符','替换为的字符')
 </html>
 ```
 
-![屏幕截图 2021-11-25 220740](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309249.png)
+![[00 assets/faee1920c0e7b94372e1c4f1a205dcf9_MD5.png]]
 
 统计字符出现的次数，并且显示出现次数最多的字符
 
@@ -3644,7 +3643,7 @@ replace('被替换的字符','替换为的字符')
 </html>
 ```
 
-![屏幕截图 2021-11-25 223805](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309380.png)
+![[00 assets/2ae7cfa436da6e322f80c94afc3ee844_MD5.png]]
 
 当然我们也可以求里面的最大值
 
@@ -3686,7 +3685,7 @@ replace('被替换的字符','替换为的字符')
 </html>
 ```
 
-![屏幕截图 2021-11-27 132451](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309454.png)
+![[00 assets/c0cd132a65ef53fb253cca5e640422d4_MD5.png]]
 
 #### 11.4.4 Array
 
@@ -3706,7 +3705,7 @@ replace('被替换的字符','替换为的字符')
 
 堆是存储复杂类型，一般由程序员来分配释放，如果不释放，会有垃圾回收机制回收
 
-![屏幕截图 2021-11-27 135248](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309554.png)
+![[00 assets/6c1ab47c9660befa5babb6a904ff036b_MD5.png]]
 
 ### 12.3 传参
 
@@ -3714,19 +3713,19 @@ replace('被替换的字符','替换为的字符')
 
 基本和 Java 是差不多的
 
-![屏幕截图 2021-11-27 135533](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309576.png)
+![[00 assets/a429de5ce91b3de679cfe48d6997e42f_MD5.png]]
 
 #### 12.3.2 复杂数据类型传参
 
 也基本和 Java 是差不多的
 
-![屏幕截图 2021-11-27 140044](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309714.png)
+![[00 assets/f402109a0c7630a54ddee0056c590097_MD5.png]]
 
 ## 13. 原型对象
 
 其实就是下面的图，我先来解释一下 Myclass 是一个函数，你在创建一个函数的时候，就会有一个 prototype，其中地址值指向的是原型对象，我们在创建 MyClass 对象的时候就会有一个属性** proto **也有原型对象的地址值，你在原型对象里面创建的值是公有的，你通过 MyClass 创建的对象都可以访问里面的值，但是什么时候是被迫访问呢？其实就是对象里面没这个值的时候就会访问原型对象里面的值，但是原型对象也是一个对象，所以 MyClass 的原型对象也有一个原型对象
 
-![屏幕截图 2022-03-10 215001](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309749.png)
+![[00 assets/99ee1c47458e013d9ecb2c51079d372a_MD5.png]]
 
 下面就是代码演示
 
@@ -3804,13 +3803,13 @@ console.log(p1.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
 
 # JavaScript WebAPIs
 
-![屏幕截图 2021-11-27 140522](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309838.png)
+![[00 assets/daaf89eac7ae3a266590222efac8d14d_MD5.png]]
 
 API 就是应用程序编程接口
 
-![屏幕截图 2021-11-27 140719](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309921.png)
+![[00 assets/99e036978005f2f1b7e84072abeae45c_MD5.png]]
 
-![屏幕截图 2021-11-27 140934](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309005.png)
+![[00 assets/d3aed2b3b18800da3ea7207e497cf56e_MD5.png]]
 
 ## 11. 正则表达式
 
@@ -4076,7 +4075,7 @@ g:全局匹配模式
 
 ```
 
-![屏幕截图 2021-10-05 180058](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309095.png)
+![[00 assets/8819f5e3df8d7c88c4d6fb19035ea222_MD5.png]]
 
 这个可以传递一个正则表达式，这样就可以和正则表达式一起合作
 
@@ -4101,7 +4100,7 @@ g:全局匹配模式
 
 ```
 
-![屏幕截图 2021-10-05 180314](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309462.png)
+![[00 assets/3539fe6396ffa2f9233b58b2846b64f5_MD5.png]]
 
 #### 11.4.2 search()
 
@@ -4131,7 +4130,7 @@ search 只会设置第一个，即便设置看全局的模式
 </html>
 ```
 
-![屏幕截图 2021-10-05 180608](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309494.png)
+![[00 assets/7d6b234d9ca04c5c8d7af35e2aabe4a1_MD5.png]]
 
 这个也可以和正则表达式来整合
 
@@ -4155,7 +4154,7 @@ search 只会设置第一个，即便设置看全局的模式
 </html>
 ```
 
-![屏幕截图 2021-10-05 180858](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309516.png)
+![[00 assets/d79d797e167dea7bdc7f3b8d4b2b2aff_MD5.png]]
 
 #### 11.4.3 match()
 
@@ -4184,7 +4183,7 @@ search 只会设置第一个，即便设置看全局的模式
 
 ```
 
-![屏幕截图 2021-10-05 181310](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309543.png)
+![[00 assets/b92083fd25648befbd0f0f6f4121f68b_MD5.png]]
 
 下面就是打开全局模式的效果
 
@@ -4209,7 +4208,7 @@ search 只会设置第一个，即便设置看全局的模式
 
 ```
 
-![屏幕截图 2021-10-05 181433](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309578.png)
+![[00 assets/10120cfc7a00b5ec03ce93834cde4033_MD5.png]]
 
 假如是两种全局模式的话，就是下面的一个模式
 
@@ -4266,7 +4265,7 @@ match()会将匹配到的内容封装到一个数组返回
 
 ```
 
-![屏幕截图 2021-10-05 182332](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309604.png)
+![[00 assets/53418487ba91aa5cdba9aee07550e050_MD5.png]]
 
 ### 11.5 正则表达式语法
 
@@ -4707,9 +4706,9 @@ match()会将匹配到的内容封装到一个数组返回
 
 ### 11.7 常用的正则表达式
 
-![屏幕截图 2021-10-08 111418](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309990.png)
+![[00 assets/010ad1b088fc2dcf828ecb1ed153bc2c_MD5.png]]
 
-![屏幕截图 2021-10-08 111440](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309020.png)
+![[00 assets/c1acf1f3dacaaf07793777137f224eb1_MD5.png]]
 
 ## 12. DOM
 
@@ -4732,11 +4731,11 @@ match()会将匹配到的内容封装到一个数组返回
 属性节点（Attribute），代表标签中的属性
 文本节点（Text），代表网页中的文本内容
 
-![屏幕截图 2021-10-06 214403](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309045.png)
+![[00 assets/68cf0418f77c6379c400d190469a0fee_MD5.png]]
 
 **节点的属性**
 
-![屏幕截图 2021-10-06 214502](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309074.png)
+![[00 assets/da18db026851bf5737ae4117f6b3c0cc_MD5.png]]
 
 ### 12.2 文档的加载
 
@@ -4822,7 +4821,7 @@ getElementById()返回一个匹配特定 ID 得元素
 </html>
 ```
 
-![屏幕截图 2021-11-27 142125](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309142.png)
+![[00 assets/a4c1cf70fdebaa56ccd4e8c2b39f0533_MD5.png]]
 
 后记：首先我们要获取按钮吧！假如你不获取按钮得话，是不是你点击按钮就没什么用，所以我们首先先通过 getElementById 来获取按钮得信息，然后这个按钮点击之后要有相应得反应，也就是函数，当然在对象里面才叫方法，我们就要获取北京得相关信息，然后再读取北京得信息来返回给浏览器
 
@@ -4848,7 +4847,7 @@ getElementById()返回一个匹配特定 ID 得元素
 </html>
 ```
 
-![屏幕截图 2021-11-27 142908](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309178.png)
+![[00 assets/29dc82e76b346607062549b2e6cf1920_MD5.png]]
 
 当然也不是放回整个标签，这只是显示，其实真正返回得是 element 对象，如果没有得话就返回 null
 
@@ -4873,7 +4872,7 @@ getElementById()返回一个匹配特定 ID 得元素
 </html>
 ```
 
-![屏幕截图 2021-11-27 143153](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309568.png)
+![[00 assets/2c06c01b527f2306e55f4512affcc563_MD5.png]]
 
 我们也可以使用 dir 来显示整个标签完整得信息
 
@@ -4899,7 +4898,7 @@ getElementById()返回一个匹配特定 ID 得元素
 </html>
 ```
 
-![屏幕截图 2021-11-27 143421](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309592.png)
+![[00 assets/802ac440744d102d37379bb757e95b37_MD5.png]]
 
 ##### 12.3.1.2 getElementsByTagName()
 
@@ -4985,7 +4984,7 @@ getElementById()返回一个匹配特定 ID 得元素
 
 ```
 
-![屏幕截图 2021-11-27 184145](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309630.png)
+![[00 assets/6946e364f599085ba5c8deb9271439ce_MD5.png]]
 
 假如是下面的情况的话，根据标签名来获取的话
 
@@ -5027,7 +5026,7 @@ getElementById()返回一个匹配特定 ID 得元素
 
 ```
 
-![屏幕截图 2021-11-27 185023](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309667.png)
+![[00 assets/0168d04d4878f67f0e6349970229fc2b_MD5.png]]
 
 也可以使用 id 来使用
 
@@ -5067,7 +5066,7 @@ getElementById()返回一个匹配特定 ID 得元素
 
 ```
 
-![屏幕截图 2021-11-29 145059](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309696.png)
+![[00 assets/740a9f26a13568f9cc7e9d59de3bac20_MD5.png]]
 
 ##### 12.3.1.3 getElementsByName()
 
@@ -5173,7 +5172,7 @@ innerHTML 是读取元素内部的 HTML 代码
 
 ```
 
-![屏幕截图 2021-11-27 190010](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309748.png)
+![[00 assets/28ac7fd6a58dbeae9fddc26981b2ae35_MD5.png]]
 
 ##### 12.3.1.5 querySelector()
 
@@ -5202,7 +5201,7 @@ innerHTML 是读取元素内部的 HTML 代码
 </html>
 ```
 
-![屏幕截图 2021-11-27 190317](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309040.png)
+![[00 assets/9e301cd409706e9d880d246704396e92_MD5.png]]
 
 使用该方法总会返回唯一的一个元素,也就是返回第一个元素
 
@@ -5227,7 +5226,7 @@ innerHTML 是读取元素内部的 HTML 代码
 </html>
 ```
 
-![屏幕截图 2021-11-27 190720](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309068.png)
+![[00 assets/ee7f887896f948b97b9c932815156c9b_MD5.png]]
 
 ##### 12.3.1.6 querySelectorAll()
 
@@ -5255,7 +5254,7 @@ innerHTML 是读取元素内部的 HTML 代码
 </html>
 ```
 
-![屏幕截图 2021-11-27 190924](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309092.png)
+![[00 assets/03e1b371399f788e287a2d6b0c303669_MD5.png]]
 
 ##### 12.3.1.7 获取 body
 
@@ -5282,7 +5281,7 @@ innerHTML 是读取元素内部的 HTML 代码
 
 ```
 
-![屏幕截图 2021-11-27 210136](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309186.png)
+![[00 assets/93f4a1f3d8cbac511604a583c6622e3e_MD5.png]]
 
 ##### 12.3.1.8 获取 html
 
@@ -5311,11 +5310,11 @@ innerHTML 是读取元素内部的 HTML 代码
 
 ```
 
-![屏幕截图 2021-11-27 210354](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309207.png)
+![[00 assets/28fc88bcdbfbfc50faca692113c1f28d_MD5.png]]
 
 ##### 12.3.1.9 根据自定义属性获取
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405081650954.png)
+![[00 assets/9f7f7a9d05e06352477a46deffc176ae_MD5.png]]
 
 #### 12.3.2 获取元素节点的子节点
 
@@ -5351,7 +5350,7 @@ innerHTML 是读取元素内部的 HTML 代码
 </html>
 ```
 
-![屏幕截图 2021-12-03 123037](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309393.png)
+![[00 assets/49d621949679f5bb4f09cda5230a19b8_MD5.png]]
 
 ##### 12.3.2.2 childNodes
 
@@ -5388,7 +5387,7 @@ childNodes 属性会获取包括文本在内的所有节点，注意这里是包
 </html>
 ```
 
-![屏幕截图 2021-12-03 122207](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309565.png)
+![[00 assets/826e5486403d7a49043eb47831b6ce4c_MD5.png]]
 
 ##### 12.3.2.3 children
 
@@ -5421,7 +5420,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-03 123636](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309586.png)
+![[00 assets/f697fcf3d76ca4771240cf742244a1c9_MD5.png]]
 
 ##### 12.3.2.4 firstElementChild
 
@@ -5454,7 +5453,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-03 124149](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309610.png)
+![[00 assets/8bf38597fb4ece4fe9b9791e374ee080_MD5.png]]
 
 但是考虑到兼容性问题，我们在实际中就使用下面的写法，也就是使用 children，这样不仅可以获取第一个，还可以获取最后一个节点
 
@@ -5485,7 +5484,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-03 124659](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309694.png)
+![[00 assets/48645f54e27a5519c61d32a9d0cd04f7_MD5.png]]
 
 ##### 12.3.2.5 lastElementChild
 
@@ -5518,7 +5517,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-03 124202](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309861.png)
+![[00 assets/f146724395f41d14a24e37fc2dc7a01a_MD5.png]]
 
 ##### 12.3.2.6 firstChild
 
@@ -5551,7 +5550,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-03 124040](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309999.png)
+![[00 assets/29c960939f7b49589325deadf94e603b_MD5.png]]
 
 ##### 12.3.2.7 lastChild
 
@@ -5584,7 +5583,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-03 124055](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309030.png)
+![[00 assets/dbc328a558e6da59b264335d9698bc9e_MD5.png]]
 
 #### 12.3.3 获取父节点和兄弟节点
 
@@ -5637,7 +5636,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 
 ```
 
-![屏幕截图 2021-10-11 130521](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309112.png)
+![[00 assets/6e8fed2835ae8327b75506b046d82a0b_MD5.png]]
 
 ##### 12.3.3.1 parentNode
 
@@ -5668,7 +5667,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-02 221518](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309163.png)
+![[00 assets/acc8a4500ba9f140c22b4e72861f1032_MD5.png]]
 
 但是要注意一个问题，这是获取离这最近的父节点
 
@@ -5703,7 +5702,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 </html>
 ```
 
-![屏幕截图 2021-12-02 222129](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309262.png)
+![[00 assets/9975993ee5d50f8452ca5d44da07c4a5_MD5.png]]
 
 ##### 12.3.3.4 nextSibling
 
@@ -5731,7 +5730,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 
 ```
 
-![屏幕截图 2021-12-03 210330](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309280.png)
+![[00 assets/0e25e01258203a3b418fba0ab60442a0_MD5.png]]
 
 ##### 12.3.3.2 previousSibling
 
@@ -5759,7 +5758,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 
 ```
 
-![屏幕截图 2021-12-03 210538](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309395.png)
+![[00 assets/4efb3c524c9a8c7066f6e666687bbce5_MD5.png]]
 
 ##### 12.3.3.5 nextElementSibling
 
@@ -5787,7 +5786,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 
 ```
 
-![屏幕截图 2021-12-03 210857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309567.png)
+![[00 assets/b4fdf7fb9ccec9ce017a7ecf140600f6_MD5.png]]
 
 在实际中会因为兼容性问题，导致无法正常使用，但是我们可以使用自己封装的函数来解决
 
@@ -5823,7 +5822,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 
 ```
 
-![屏幕截图 2021-12-03 211706](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309591.png)
+![[00 assets/854d9c28a1aea5e7a423fa2c458db4d0_MD5.png]]
 
 ##### 12.3.3.3 previousElementSibling
 
@@ -5851,7 +5850,7 @@ childrens 是获取当前元素的所有子元素，但是不会获取文本节�
 
 ```
 
-![屏幕截图 2021-12-03 210937](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309632.png)
+![[00 assets/3bdc7c52c7532d4a483f4a0761b65942_MD5.png]]
 
 ### 12.4 DOM 增删改
 
@@ -5911,7 +5910,7 @@ node.sppendChild(Child)，其中 node 是父级,child 是子级
 
 ```
 
-![屏幕截图 2021-12-03 212500](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309708.png)
+![[00 assets/3fae799b94a7f76e31c9fb87e753ca84_MD5.png]]
 
 但是它是将一个节点添加到指定父节点的子节点列表的末尾
 
@@ -5938,7 +5937,7 @@ node.sppendChild(Child)，其中 node 是父级,child 是子级
 
 ```
 
-![屏幕截图 2021-12-03 212652](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309741.png)
+![[00 assets/99388ef6c6d50e11cd5d07e14905d7d0_MD5.png]]
 
 ##### 12.4.1.2 createTextNode
 
@@ -5972,7 +5971,7 @@ node.insertBefore(child，指定节点)
 </html>
 ```
 
-![屏幕截图 2021-12-03 213120](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309913.png)
+![[00 assets/ba8027f9e94d9b87c7829a85ced53230_MD5.png]]
 
 ##### 12.4.1.4 创建的基本步骤
 
@@ -6035,7 +6034,7 @@ node.insertBefore(child，指定节点)
 
 ```
 
-![屏幕截图 2021-10-18 221333](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309033.png)
+![[00 assets/e0aef89ecebf419b3da004adebac9c41_MD5.png]]
 
 我们也可以使用 innerHTML 来添加子节点，这个明显简单一点但是还是有一些区别的，你使用这个方式，也就是只改变一个，但是你使用上面的方式的话，就是把原本所有的删除再添加的
 
@@ -6168,7 +6167,7 @@ node.insertBefore(child，指定节点)
 
 ```
 
-![屏幕截图 2021-12-04 152135](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309124.png)
+![[00 assets/0770da478cc18a33fd777f0e48648d42_MD5.png]]
 
 但是发现没是不是没复制文本，这里就是 cloneNode 里面值得问题，默认是 false，就是浅拷贝，只复制节点，但是不复制节点里面得东西，true 就是深拷贝
 
@@ -6200,7 +6199,7 @@ node.insertBefore(child，指定节点)
 
 ```
 
-![屏幕截图 2021-12-04 152354](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309146.png)
+![[00 assets/9f0a609d0438b4637069b84d22368d04_MD5.png]]
 
 #### 12.4.2 删
 
@@ -6236,7 +6235,7 @@ node.insertBefore(child，指定节点)
 
 ```
 
-![屏幕截图 2021-12-03 215128](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309203.png)
+![[00 assets/0e0f151feb3fbba5f85f213d4056a10c_MD5.png]]
 
 #### 12.4.3 改
 
@@ -6335,7 +6334,7 @@ innerHTML 从起始位置到终止位置的内容，空格和换行不会去掉�
 
 ```
 
-![屏幕截图 2021-11-27 221351](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309287.png)
+![[00 assets/b801c514b559201810541c85ded5cb82_MD5.png]]
 
 innerHTML 是识别 html 标签的
 
@@ -6361,7 +6360,7 @@ innerHTML 是识别 html 标签的
 
 ```
 
-![屏幕截图 2021-11-27 220904](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309477.png)
+![[00 assets/2e61ae419e09df714721bd2c9855d1db_MD5.png]]
 
 当然我们还可以通过 innerHTML 来设置一写高级的操作
 
@@ -6400,7 +6399,7 @@ innerHTML 是识别 html 标签的
 
 ```
 
-![屏幕截图 2021-11-27 215230](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309554.png)
+![[00 assets/6c1ab47c9660befa5babb6a904ff036b_MD5.png]]
 
 假如你不想设置点击获取时间的话，也可以不设置事件，直接通过网页来刷新获取
 
@@ -6466,7 +6465,7 @@ innerText 从起始位置到终止位置的内容，但是它去除 html 内容�
 
 ```
 
-![屏幕截图 2021-11-27 221301](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309625.png)
+![[00 assets/638c106412f643130f4566324e8460e2_MD5.png]]
 
 并且是不识别 html 标签
 
@@ -6492,7 +6491,7 @@ innerText 从起始位置到终止位置的内容，但是它去除 html 内容�
 
 ```
 
-![屏幕截图 2021-11-27 220701](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309650.png)
+![[00 assets/c1148d13dbc3bdcb2a8b1cd966d88574_MD5.png]]
 
 innerHTML 和 innerText 是可读写的
 
@@ -6539,7 +6538,7 @@ innerHTML 和 innerText 是可读写的
 
 ```
 
-![屏幕截图 2021-11-27 222407](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309722.png)
+![[00 assets/49525627525a71629b7e143a5924876a_MD5.png]]
 
 下面是获取 input 里面的值
 
@@ -6575,7 +6574,7 @@ innerHTML 和 innerText 是可读写的
 </html>
 ```
 
-![屏幕截图 2021-10-12 221558](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309811.png)
+![[00 assets/a8ce4f60b3446edb6bb89b4abdce7d81_MD5.png]]
 
 下面是修改里面的值，当你点击按钮的时候，values 的值会改变
 
@@ -6609,7 +6608,7 @@ innerHTML 和 innerText 是可读写的
 </html>
 ```
 
-![屏幕截图 2021-12-02 220020](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309907.png)
+![[00 assets/d31841ddb1136d80cbb02f2cf7778b82_MD5.png]]
 
 ##### 12.4.3.5 表单操作
 
@@ -6646,7 +6645,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-11-27 224743](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309002.png)
+![[00 assets/feea01c55ae4a889e66c649c5e6b1a1a_MD5.png]]
 
 当然我们也可以改变里面的属性值
 
@@ -6682,7 +6681,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-11-27 224858](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309192.png)
+![[00 assets/6bcd70db5ad7e691d6c05ec7c91a5685_MD5.png]]
 
 ##### 12.4.3.6 write
 
@@ -6707,7 +6706,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-12-04 163111](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309327.png)
+![[00 assets/cd6b0f226c95d0c78d974340301204be_MD5.png]]
 
 但是它有一个特点，就是文档流结束之后，在调用这句话得话，就会重绘文档流
 
@@ -6736,11 +6735,11 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 原本是这样得
 
-![屏幕截图 2021-12-04 163303](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309350.png)
+![[00 assets/297851db67388907c6090f3b84f79914_MD5.png]]
 
 在点击得按钮之后，发现没文档流被重绘了
 
-![屏幕截图 2021-12-04 163316](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309474.png)
+![[00 assets/cadda16428b122ff4d337d1a805f0f61_MD5.png]]
 
 ##### 12.4.3.7 innerHTML 和 createElement 得区别
 
@@ -6768,7 +6767,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-12-04 164714](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309531.png)
+![[00 assets/8f81e4f22f3600de08152662df3324d4_MD5.png]]
 
 他们都能很快得创建完毕，但是我们不知道创建得效率是多少
 
@@ -6801,7 +6800,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-12-04 165247](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309654.png)
+![[00 assets/2e5c900134ec87352b0cde6ac21855b1_MD5.png]]
 
 使用 createElement 创建 50000 次也只需要 42ms，但是上面得创建 3000 次就需要 3064ms 了，可以看出 createElement 得效率很高，但是有没有效率更加高得方法呢
 
@@ -6832,7 +6831,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-12-04 165428](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309684.png)
+![[00 assets/edff754a15283c20c8f2b33e5df11a28_MD5.png]]
 
 就是使用 innerHTML 来拼接数组里面得字符串
 
@@ -6865,7 +6864,7 @@ innerHTML 是改变普通盒子里面的值，比如说：div
 
 ```
 
-![屏幕截图 2021-12-04 165914](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309850.png)
+![[00 assets/c86d4f4a3a019bf4b83cc660be8cb3c2_MD5.png]]
 
 最后根据结果可以知道，用数组拼接得话，效率是最高得，但是这个方式结构不是很清晰
 
@@ -6911,15 +6910,15 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 原本的样式
 
-![屏幕截图 2021-11-28 220240](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309877.png)
+![[00 assets/98fd1b66f00e9818b96282f665901757_MD5.png]]
 
 点击之后的样式
 
-![屏幕截图 2021-11-28 220251](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309987.png)
+![[00 assets/b3cbd50858083c1595ffee977c9ed845_MD5.png]]
 
 注意这是修改的是行内样式，权重是比较高的
 
-![屏幕截图 2021-11-28 220535](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309072.png)
+![[00 assets/519ff6290347ab7ed47689ee58dc6a59_MD5.png]]
 
 #### 12.5.2 元素.className
 
@@ -6962,11 +6961,11 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 原本
 
-![屏幕截图 2021-11-28 224849](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309248.png)
+![[00 assets/5a363478f7e42a0055d2453bec0cbf2c_MD5.png]]
 
 点击之后
 
-![屏幕截图 2021-11-28 224856](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309275.png)
+![[00 assets/09f73c0f9fd8210cb6a335445eaf246e_MD5.png]]
 
 使用这个的好处，假如有很多的样式设置的话，就是一排元素.style，这样非常不好看，我们就可以使用 className
 
@@ -7008,11 +7007,11 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-11-28 225249](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309316.png)
+![[00 assets/ddd42b395dd561a092242a5d92e1e6d1_MD5.png]]
 
 你看代码，是不是 class 改变为 change 了
 
-![屏幕截图 2021-11-28 225243](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309422.png)
+![[00 assets/eeaef2b30046f1a76bfb79cef3518352_MD5.png]]
 
 但是我们也可以使用一个方式来保留原本的类名
 
@@ -7054,17 +7053,17 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 看见为样式就叠加了
 
-![屏幕截图 2021-11-28 225419](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309441.png)
+![[00 assets/4c74b1cfb584e976d293e427878e418f_MD5.png]]
 
 我们来看代码是不是就变成了 2 个 class 类名
 
-![屏幕截图 2021-11-28 225424](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309631.png)
+![[00 assets/0a9f5b6bc506cfa9d6abcb464faba823_MD5.png]]
 
 ### 12.6 排他思想(算法)
 
 假如做下面的按钮的话，不可能为每个小按钮绑定一个事件
 
-![屏幕截图 2021-12-01 194139](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309762.png)
+![[00 assets/095a1b5f4ed099623a8fa48dba4da41e_MD5.png]]
 
 就在这里就有一个思想，就可以直接链接下面的按钮
 
@@ -7101,7 +7100,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-01 195144](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309792.png)
+![[00 assets/e5b819c043772a2fcbb5543505a0901e_MD5.png]]
 
 如果同一组元素，我们想要一个元素实现某种样式，需要用到循环打排他思想
 
@@ -7141,7 +7140,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 214255](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309821.png)
+![[00 assets/568c8d935e262670e9aba2073fefeb61_MD5.png]]
 
 不仅可以使用下面的方法来获取自定义属性值，还可以通过 H5 新增的方法来获取
 
@@ -7167,7 +7166,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 214255](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309821.png)
+![[00 assets/568c8d935e262670e9aba2073fefeb61_MD5.png]]
 
 可以看下面的图片，不是在 divs.setAttribute 里面的 data-time 的值也是可以去出来，即便它不在 div 里面，而且我们也可以使用 dataset 来获取所有的 data 的值
 
@@ -7194,7 +7193,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 214839](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309877.png)
+![[00 assets/98fd1b66f00e9818b96282f665901757_MD5.png]]
 
 当然我们也可以使用下面的方法来获取值，ie11 才支持 dataset，注意这一点
 
@@ -7223,7 +7222,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 215115](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309958.png)
+![[00 assets/873cb33cca583be8f87492ad800a7e67_MD5.png]]
 
 当然假如我们使用多个-来连接的话，后面的名字就需要使用驼峰命名法
 
@@ -7250,7 +7249,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 215357](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309202.png)
+![[00 assets/7ee325d7bf6cd27bbfb4bdfe8044cd29_MD5.png]]
 
 #### 12.7.1 获取自定义属性值
 
@@ -7281,7 +7280,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 201053](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309273.png)
+![[00 assets/6cdf0d97438944e706b189e616e2910f_MD5.png]]
 
 ##### 12.7.1.2 元素.getAttribute
 
@@ -7311,7 +7310,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 201612](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309301.png)
+![[00 assets/2e5fd2267c504a017122d4c3d8b4ed68_MD5.png]]
 
 但是他个上一种方法肯定是有区别的，上面一种办法只能获取内置属性值，但是后面 getAttribute 是可以获取自定义属性，就是上面的 index，这是程序员自己设置的属性值
 
@@ -7351,7 +7350,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 202650](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309324.png)
+![[00 assets/e08a83531494ed2804b03ad70dc45d80_MD5.png]]
 
 #### 12.7.3 移除自定义属性值
 
@@ -7385,7 +7384,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 203015](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309378.png)
+![[00 assets/435ec9a363ad1b693af7f690df8bd5cd_MD5.png]]
 
 ### 12.5 DOM 案例
 
@@ -7465,7 +7464,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 </html>
 ```
 
-![屏幕截图 2021-10-10 215319](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309466.png)
+![[00 assets/de5a149c1e68c113b6b8699d0744713d_MD5.png]]
 
 #### 12.5.2 分时显示图片
 
@@ -7520,7 +7519,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-11-27 224014](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309672.png)
+![[00 assets/69a1413fe4fc5100aacf74b0abc5dae3_MD5.png]]
 
 #### 12.5.3 仿京东显示隐藏密码
 
@@ -7570,17 +7569,17 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 当你输入密码的话，是隐藏的
 
-![屏幕截图 2021-11-27 233927](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309709.png)
+![[00 assets/d320388744d93475b3bb043fcfba692e_MD5.png]]
 
 当你显示密码的话
 
-![屏幕截图 2021-11-27 233920](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309751.png)
+![[00 assets/e5e010c4308d825e04353839af0b444f_MD5.png]]
 
 #### 12.6.4 仿淘宝二维码样式
 
 当你点击旁边的叉号就关闭二维码，下面的代码是简化的，但是思路是没有问题的
 
-![屏幕截图 2021-11-28 221017](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309804.png)
+![[00 assets/53366f2b89b8f00f5386a252e31a61ea_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -7615,23 +7614,23 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 原本的
 
-![屏幕截图 2021-11-28 221025](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309938.png)
+![[00 assets/61a2342ad01176fc6f0c642977e65aab_MD5.png]]
 
 假如你点击的话
 
-![屏幕截图 2021-11-28 221032](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309133.png)
+![[00 assets/f34e54cee48ea411cbd7cc7e8a9579bf_MD5.png]]
 
 #### 12.6.5 循环精灵图
 
-![屏幕截图 2021-11-28 221255](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309160.png)
+![[00 assets/00f667f72af10b4afb1f70fc0afe2a14_MD5.png]]
 
 以前用 css 来设置的话
 
-![屏幕截图 2021-11-28 221953](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309188.png)
+![[00 assets/7db1f13cc6397f1e82eea11c8f773154_MD5.png]]
 
 就要写一排代码
 
-![屏幕截图 2021-11-28 222011](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309256.png)
+![[00 assets/5ac140a3564e6cfd8cec323316024d4d_MD5.png]]
 
 但是现在就可以使用 JS 来简化
 
@@ -7675,13 +7674,13 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-11-28 222846](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309307.png)
+![[00 assets/8353da8f12304becc5c3029bab35deb6_MD5.png]]
 
 #### 12.6.6 显示隐藏文本框内容
 
 假如你点击搜索框的时候，里面的文本消失，假如你不点击的话，就会显示出来
 
-![屏幕截图 2021-11-28 223014](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309665.png)
+![[00 assets/7c7e82fa6fc9f233ff19b9e5e408cde0_MD5.png]]
 
 这里表单有 2 个新事件，获得焦点 onfocus，失去焦点 onblur
 
@@ -7723,11 +7722,11 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 当你有焦点的时候，也就是点击了输入文本框
 
-![屏幕截图 2021-11-28 223750](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309686.png)
+![[00 assets/205819b1104283a0a8e9caad5231d316_MD5.png]]
 
 当你没有焦点的时候，当不点击文本框
 
-![屏幕截图 2021-11-28 223756](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309708.png)
+![[00 assets/3fae799b94a7f76e31c9fb87e753ca84_MD5.png]]
 
 #### 12.6.7 文本框格式提示信息
 
@@ -7794,11 +7793,11 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 假如你输入的数字是小于 6 的话
 
-![屏幕截图 2021-11-29 164347](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309742.png)
+![[00 assets/abda708326d223bd001d7f5e7bad3c2d_MD5.png]]
 
 假如你输入的数字在范围内的话
 
-![屏幕截图 2021-11-29 164356](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309782.png)
+![[00 assets/ffdc9c582af514a29bf05ff2a682e036_MD5.png]]
 
 #### 12.7.8 百度换肤
 
@@ -7843,7 +7842,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-01 202451](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309814.png)
+![[00 assets/31de1b056283ff3a850c0f04ae9c3dc3_MD5.png]]
 
 同时在做这个案例的时候发现一些问题，不要以为是 for 循环循环向下走，到了你点击的 onclick 的按钮，就执行下面的 function，结果不是这样的，你再输入 i 的值话就是 5，也就是长度，也可能对于这个理解错了，而且在这里 btn[i]也失效了，到时候有时间了看下
 
@@ -7919,7 +7918,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 鼠标放在那里，那里就变色
 
-![屏幕截图 2021-12-01 205306](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309098.png)
+![[00 assets/926963b45001823437504e809d0f1a42_MD5.png]]
 
 #### 12.7.10 表格全选
 
@@ -8107,7 +8106,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-02 211529](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309147.png)
+![[00 assets/dccf11896543ff4e3b3f4927cb1710d3_MD5.png]]
 
 #### 12.7.12 新浪下拉菜单
 
@@ -8188,7 +8187,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-03 205547](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309199.png)
+![[00 assets/9f648ae893ffcf21d68d98a894d68b4e_MD5.png]]
 
 #### 12.7.13 简单版的发布留言
 
@@ -8234,7 +8233,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-03 214608](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309227.png)
+![[00 assets/8bb3ade07b90fa0ae9ca23a4304ee905_MD5.png]]
 
 #### 12.7.14 删除留言
 
@@ -8374,7 +8373,7 @@ createElement 得效率虽然不是很高，但是它得结构很清晰
 
 ```
 
-![屏幕截图 2021-12-04 161917](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309263.png)
+![[00 assets/56889dc55fd0a06e0658bc1a125778d2_MD5.png]]
 
 ## 13. 事件
 
@@ -8427,7 +8426,7 @@ var btn = document.getElementById("one");
 
 #### 13.3.1 传统方式
 
-![屏幕截图 2021-12-04 170903](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309825.png)
+![[00 assets/8a2d192ed6117f57f7669f49ec183d99_MD5.png]]
 
 这里得事件得唯一性就是只能使用一个处理函数，一般都是选择后定义得
 
@@ -8456,7 +8455,7 @@ var btn = document.getElementById("one");
 
 ```
 
-![屏幕截图 2021-12-04 171216](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309900.png)
+![[00 assets/df720a48304ecebbcde640401181b9de_MD5.png]]
 
 #### 13.3.2 方法监听注册方式
 
@@ -8464,7 +8463,7 @@ var btn = document.getElementById("one");
 
 同一个元素得同一个事件可以注册多个监听器，会按注册依次处理
 
-![屏幕截图 2021-12-04 171429](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309930.png)
+![[00 assets/31682b0e941cc2fa86fdf2dcd0d7be39_MD5.png]]
 
 下面是使用监听得方式来创建，但是这个方式只有 IE9 以上才支持
 
@@ -8493,9 +8492,9 @@ var btn = document.getElementById("one");
 
 ```
 
-![屏幕截图 2021-12-04 171648](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309963.png)
+![[00 assets/477531154235fee7c41e25fd2a07a170_MD5.png]]
 
-![屏幕截图 2021-12-04 171654](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309996.png)
+![[00 assets/3e6c731fb0abdaa9721d02457ea4c089_MD5.png]]
 
 但是这个方法的兼容性不是很好，所以就有下面的兼容性的解决办法
 
@@ -8531,7 +8530,7 @@ var btn = document.getElementById("one");
 
 这个 IE9 以下版本支持，而且这个不是标准的，尽量不去使用，因为现在大部分浏览器都支持上面的方法，实在不行就使用传统方法来解决
 
-![屏幕截图 2021-12-04 203923](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309069.png)
+![[00 assets/723befab24f3b3dc7f4045777c4c9629_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -8558,7 +8557,7 @@ var btn = document.getElementById("one");
 
 ```
 
-![屏幕截图 2021-12-04 204453](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309385.png)
+![[00 assets/0934877a891cabbadbd7243c5521096f_MD5.png]]
 
 ### 13.3 删除事件
 
@@ -8601,7 +8600,7 @@ var btn = document.getElementById("one");
 
 ```
 
-![屏幕截图 2021-12-04 210142](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309407.png)
+![[00 assets/393ca42644bdcfb0693323490f9d9187_MD5.png]]
 
 #### 13.3.2 方法监听解绑方式
 
@@ -8647,7 +8646,7 @@ var btn = document.getElementById("one");
 
 ```
 
-![屏幕截图 2021-12-04 211018](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309435.png)
+![[00 assets/5144e489d3c032be9fdc6575b7f97c8f_MD5.png]]
 
 ##### 13.3.2.2 detachEvent
 
@@ -8695,9 +8694,9 @@ var btn = document.getElementById("one");
 
 事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程就是 DOM 事件流
 
-![屏幕截图 2021-12-04 212237](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309544.png)
+![[00 assets/13f205afea60b0074b1994b84f5e05d0_MD5.png]]
 
-![屏幕截图 2021-12-04 212615](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309718.png)
+![[00 assets/7c5d637b69c2ed9b752fc1cb07abbc00_MD5.png]]
 
 JS 代码只能执行捕获或者冒泡其中一个阶段，并且 onclick 和 attachEvent 只能得到冒泡阶段，但是 onblur、onfocus、onmouseenter、onmouseleave 就没有事件冒泡
 
@@ -8748,7 +8747,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 214028](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309745.png)
+![[00 assets/a3dbeb6eda94fe94c7501f8508f67af9_MD5.png]]
 
 下面演示的是冒泡阶段，你点击之后就从子元素冒泡到 document，并且我们再实际开发时候很少使用事件捕获，我们更加关注事件冒泡
 
@@ -8792,9 +8791,9 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 </html>
 ```
 
-![屏幕截图 2021-12-04 214148](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309778.png)
+![[00 assets/d357860c71817af46d33a88e5042de26_MD5.png]]
 
-![image-20220627212547164](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309823.png)
+![[00 assets/c437a1e7dc397525b22bc1c6bf25d495_MD5.png]]
 
 ### 13.5 事件对象
 
@@ -8829,7 +8828,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 </html>
 ```
 
-![屏幕截图 2021-12-04 215235](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309862.png)
+![[00 assets/6638a10530514e928ae0632b0a3f9438_MD5.png]]
 
 事件对象也是有兼容性问题，在 IE678 只知道 window.event，这里我们就可以使用兼容性写法
 
@@ -8861,7 +8860,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 #### 13.5.1 事件对象的属性
 
-![屏幕截图 2021-12-04 215953](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309146.png)
+![[00 assets/9f0a609d0438b4637069b84d22368d04_MD5.png]]
 
 ##### 13.5.1.1 target
 
@@ -8893,7 +8892,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 215905](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309198.png)
+![[00 assets/85a542efe089888200c5591ef4e14bc6_MD5.png]]
 
 这里会发现，是不是和 this 很像，但是 targrt 是返回触发事件的对象，this 放回的是绑定事件的对象
 
@@ -8933,7 +8932,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 220751](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309333.png)
+![[00 assets/5c93921dc358145bb9d4b5f3a76f941a_MD5.png]]
 
 下面是 this 的显示
 
@@ -9008,7 +9007,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 </html>
 ```
 
-![屏幕截图 2021-12-04 221409](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309466.png)
+![[00 assets/de5a149c1e68c113b6b8699d0744713d_MD5.png]]
 
 ##### 13.5.1.3 type
 
@@ -9046,7 +9045,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 221629](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309487.png)
+![[00 assets/da5a67e16d356ae3dcc7ca7a48a34b0f_MD5.png]]
 
 #### 13.5.2 事件对象的方法
 
@@ -9201,7 +9200,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 225935](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309791.png)
+![[00 assets/1712ceca8d5d679715dd6f0119a1749f_MD5.png]]
 
 假如你想考虑兼容性的话，就要使用 cancelBubble
 
@@ -9255,11 +9254,11 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 230909](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309816.png)
+![[00 assets/1f1176a6df93f10b6613f35ed59e136c_MD5.png]]
 
 #### 13.3.1 常见的鼠标事件
 
-![屏幕截图 2021-11-27 212105](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309889.png)
+![[00 assets/5433d642d55f2156c3da72e96f7da662_MD5.png]]
 
 ##### 13.3.1.1 contextmenu
 
@@ -9292,7 +9291,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 132222](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309974.png)
+![[00 assets/e3b4a1961caa59ebf95a0e3163120c33_MD5.png]]
 
 ##### 13.3.1.2 selectstart
 
@@ -9323,11 +9322,11 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 132447](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309088.png)
+![[00 assets/6292625a6d82489e76099542e4a2d39f_MD5.png]]
 
 ##### 13.3.1.3 鼠标在页面中的值
 
-![屏幕截图 2021-12-05 133101](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309181.png)
+![[00 assets/a2cd033835999d7db2770deff61677dc_MD5.png]]
 
 下面就是显示鼠标点击之后返回的值
 
@@ -9354,17 +9353,17 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 133239](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309325.png)
+![[00 assets/2eb312cb42b0215d4f1fad20fb89bf36_MD5.png]]
 
 并且要注意的是 clientX 和 clientY 是可视区的的值，红线左边的就是可视区
 
-![屏幕截图 2021-12-05 133449](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309349.png)
+![[00 assets/fa41e82b8faa6ed2543f93e5d7bd9aee_MD5.png]]
 
 但是我们有的页面是很长的，所有就是 pageX 和 pageY 来获取
 
 ##### 13.3.1.4 mouseenter 和 mouseover
 
-![屏幕截图 2022-01-13 205324](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309441.png)
+![[00 assets/4c74b1cfb584e976d293e427878e418f_MD5.png]]
 
 其实本质是 mouseover 不会冒泡
 
@@ -9407,7 +9406,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2022-01-13 205226](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309474.png)
+![[00 assets/cadda16428b122ff4d337d1a805f0f61_MD5.png]]
 
 我们再来看下面的案例，一样的滑动，是不是最后只有一次显示
 
@@ -9448,11 +9447,11 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2022-01-13 205251](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309624.png)
+![[00 assets/8a1351b1550111a6868831db3ffd79b0_MD5.png]]
 
 #### 13.3.1 常见的键盘事件
 
-![屏幕截图 2021-12-05 140604](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309923.png)
+![[00 assets/1801d2c34a19d0b82da44b2e3a13b176_MD5.png]]
 
 下面就是常见的键盘事件，当你点击按下后松开就触发，还有一个是按下就触发
 
@@ -9488,7 +9487,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 140901](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309946.png)
+![[00 assets/79cbe18acc0eae59f34b6afe7fbd1285_MD5.png]]
 
 但是这里是不是要怀疑，为什么会设置 2 个键呢，这是因为 keypress 是不能识别功能键的
 
@@ -9524,7 +9523,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 141331](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309967.png)
+![[00 assets/dc15ffebce345d76df334d7a1e9d56c7_MD5.png]]
 
 还有一个区别，就是 keyup 和 keydown 是不区分大小写的，keypress 是区分大小写，可以参考下面
 
@@ -9586,17 +9585,17 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 142144](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309043.png)
+![[00 assets/6cab1db6151975024b702d8941eca1ca_MD5.png]]
 
 ### 13.6 事件的委派
 
 事件冒泡会带来坏处，同时也可以带来好处，生活中的场景如下
 
-![屏幕截图 2021-12-04 231248](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309080.png)
+![[00 assets/c8383949d6358324b0bd57539bc15a5b_MD5.png]]
 
 当然在程序里面场景如下
 
-![屏幕截图 2021-12-04 231359](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309373.png)
+![[00 assets/28a4e1e684f2124dfe2a6f4f4efa4f73_MD5.png]]
 
 事件委托也称为事件代理，在 jQuery 里面称为事件委派
 
@@ -9650,9 +9649,9 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-04 232459](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309399.png)
+![[00 assets/03ba4c1105cea18b82d278cfb7b3a8cd_MD5.png]]
 
-![屏幕截图 2021-12-04 232506](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309440.png)
+![[00 assets/4ba44db55ec1a4690cdab18445ffd538_MD5.png]]
 
 ### 13.8 事件案例
 
@@ -9693,7 +9692,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 140431](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309485.png)
+![[00 assets/4ceddc4768ec0fdeba6e785173e7f387_MD5.png]]
 
 #### 13.8.2 按键输入案例
 
@@ -9728,7 +9727,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 142840](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309759.png)
+![[00 assets/a34f6818d774aa207e7ecc440a6df5c7_MD5.png]]
 
 #### 13.8.3 模拟快递单号
 
@@ -9797,7 +9796,7 @@ addEventListener 的第三个参数如果时 true 的话，表示事件处于捕
 
 ```
 
-![屏幕截图 2021-12-05 144802](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309785.png)
+![[00 assets/d17dbca848ace22d953410b6afefa759_MD5.png]]
 
 但是有没有疑问，**为什么不去使用 keydown 和 keypress**
 
@@ -9815,11 +9814,11 @@ BOM 是由一系列相关的对象构成，并且每个对象都提供了很多�
 
 但是有一个问题，BOM 缺乏标准，JS 的语法标准是 ECMA，DOM 标准是 W3C，但是 BOM 最初是网景公司标准的一部分
 
-![屏幕截图 2021-12-06 215450](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309810.png)
+![[00 assets/a8f2ddc4e2a69af4a47809e615c0e864_MD5.png]]
 
 #### 14.1.2 BOM 的构成
 
-![屏幕截图 2021-12-06 215900](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309847.png)
+![[00 assets/3ed1975c847991a52d2d127f7d4dc6da_MD5.png]]
 
 window 对象是浏览器的顶级对象，它不仅是 JS 访问浏览器窗口的一个**接口**，而且它是一个全局变量，定义在全局作用域中的变量、函数都会变成 window 对象的**属性和方法**
 
@@ -9855,7 +9854,7 @@ window 对象是浏览器的顶级对象，它不仅是 JS 访问浏览器窗口
 
 ```
 
-![屏幕截图 2021-12-06 220405](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309886.png)
+![[00 assets/1512a37da57827bd9cb4c79e5fe7e870_MD5.png]]
 
 但是注意一个问题，最好不要使用 name，因为 name 是 window 下面的一个属性
 
@@ -9881,7 +9880,7 @@ window 对象是浏览器的顶级对象，它不仅是 JS 访问浏览器窗口
 
 ```
 
-![屏幕截图 2021-12-06 220655](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309023.png)
+![[00 assets/df2733fa98fc3ae31d24788440feb9d7_MD5.png]]
 
 ### 14.2 window 对象的事件
 
@@ -9920,7 +9919,7 @@ window.onload 是窗口加载事件，当文档内容完全加载完全会触发
 
 ```
 
-![屏幕截图 2021-12-06 221501](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309293.png)
+![[00 assets/cb91547f19a5b7fb3b660a1854469b51_MD5.png]]
 
 所有我们就可以使用监听来写
 
@@ -9951,7 +9950,7 @@ window.onload 是窗口加载事件，当文档内容完全加载完全会触发
 
 ```
 
-![屏幕截图 2021-12-06 221731](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309319.png)
+![[00 assets/b798ba56206d77b188b010e918f54c80_MD5.png]]
 
 但是我们还有一个事件来处理加载页面，就是 DOMContentLoaded
 
@@ -9988,7 +9987,7 @@ window.onload 是窗口加载事件，当文档内容完全加载完全会触发
 
 ```
 
-![屏幕截图 2021-12-06 222436](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309342.png)
+![[00 assets/afac1fe08e5ccd5721ac90a096dad316_MD5.png]]
 
 但是在相同的事件下还是 load 优先执行
 
@@ -10025,7 +10024,7 @@ window.onload 是窗口加载事件，当文档内容完全加载完全会触发
 
 ```
 
-![屏幕截图 2021-12-06 222618](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309369.png)
+![[00 assets/6d9dbc7e009300cef1c36dfbb5551d64_MD5.png]]
 
 后记：这个没有具体来测试
 
@@ -10059,7 +10058,7 @@ window.onresize 是调整窗口大小加载事件，当触发的时候就调用�
 
 ```
 
-![屏幕截图 2021-12-06 223035](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309422.png)
+![[00 assets/eeaef2b30046f1a76bfb79cef3518352_MD5.png]]
 
 但是这个事件我们一般用来响应式布局里面，这里就需要一个新的属性，window.innerWidth 来处理
 
@@ -10100,7 +10099,7 @@ window.onresize 是调整窗口大小加载事件，当触发的时候就调用�
 
 ```
 
-![屏幕截图 2021-12-06 223544](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309629.png)
+![[00 assets/ddd892be396c181543da8bebcba0b24e_MD5.png]]
 
 #### 14.2.3 定时器
 
@@ -10136,7 +10135,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-06 224031](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309745.png)
+![[00 assets/a3dbeb6eda94fe94c7501f8508f67af9_MD5.png]]
 
 但是里面也可以接收函数名，有 2 种写法，但是后一种方式不是很提倡，只作为了解就可以了
 
@@ -10166,7 +10165,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-06 224610](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309779.png)
+![[00 assets/af5a89035b861dd4bad9ae222380e221_MD5.png]]
 
 当然我们也可以给定时器取一个名字
 
@@ -10199,7 +10198,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-06 224846](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309808.png)
+![[00 assets/1a3a5a7a847490b495372887fd54a855_MD5.png]]
 
 这里就有一个名词，就是**回调函数**
 
@@ -10240,7 +10239,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 170745](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309897.png)
+![[00 assets/25e7978d5365ab2bc3e7c7ad390d04db_MD5.png]]
 
 当然我们也可以停止定时器
 
@@ -10286,7 +10285,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 171613](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309927.png)
+![[00 assets/7ff862c4720040babba28ed5105d773a_MD5.png]]
 
 ##### 14.2.3.3 setInterval()
 
@@ -10317,7 +10316,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 172008](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309054.png)
+![[00 assets/50118fe0fe09e332646af00a843377b6_MD5.png]]
 
 ##### 14.2.3.4 clearInterval()
 
@@ -10394,7 +10393,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 223712](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309266.png)
+![[00 assets/488ed5c9703b286af6c2f64f751fd757_MD5.png]]
 
 #### 14.2.2 方法调用中
 
@@ -10425,7 +10424,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 224615](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309345.png)
+![[00 assets/f2d8240936e924fe04625a88251d2c3b_MD5.png]]
 
 后记：为什么最后输出的是 f
 
@@ -10453,7 +10452,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 224841](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309371.png)
+![[00 assets/b8c0432044601e641a85e6d5ab4747b7_MD5.png]]
 
 #### 14.2.3 在构造函数中
 
@@ -10492,7 +10491,7 @@ window.setTimeout()，就是用于设置一个定时器，该定时器到期后�
 
 ```
 
-![屏幕截图 2021-12-07 225548](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309395.png)
+![[00 assets/4efb3c524c9a8c7066f6e666687bbce5_MD5.png]]
 
 ### 14.4 JS 执行机制
 
@@ -10532,7 +10531,7 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 ```
 
-![屏幕截图 2021-12-08 123458](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309443.png)
+![[00 assets/c4ed67d89863613b7f2ae5f79a577913_MD5.png]]
 
 有人说是因为定时器后面设置了时间导致的，假如说我们不去设置时间的话
 
@@ -10560,7 +10559,7 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 ```
 
-![屏幕截图 2021-12-08 123825](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309723.png)
+![[00 assets/0b57e8c5de7758e5f455f1295e8bda64_MD5.png]]
 
 #### 14.4.3 执行顺序
 
@@ -10568,11 +10567,11 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 **异步任务**是通过回调函数来实现的
 
-![屏幕截图 2021-12-08 211602](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309823.png)
+![[00 assets/c437a1e7dc397525b22bc1c6bf25d495_MD5.png]]
 
 这个时候我们来看上面的案例，也就是 14.4.2 里面的案例
 
-![屏幕截图 2021-12-08 211702](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309857.png)
+![[00 assets/e534aecee2871e022a6103f174abc426_MD5.png]]
 
 所以根据上面的可以知道，先执行同步任务，遇到异步任务就放在任务队列里面，等到同步任务在执行栈里面执行完毕，系统就会将任务队列里面的异步任务放到执行栈中，开始执行
 
@@ -10611,11 +10610,11 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 这个时候我们有没有发现一个问题，为什么程序结束了，同步任务还是会去异步任务看看，这是因为事件循环，会来回循环
 
-![屏幕截图 2021-12-08 212907](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309882.png)
+![[00 assets/b96268439d3c1da483592739767d3633_MD5.png]]
 
 当然还有一个比较复杂的图
 
-![屏幕截图 2021-12-08 214137](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309909.png)
+![[00 assets/a9e39aadf03c5dd7d19f8deb9927d4dd_MD5.png]]
 
 ### 14.5 BOM 案例
 
@@ -10680,7 +10679,7 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 ```
 
-![屏幕截图 2021-12-07 213950](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309060.png)
+![[00 assets/c72e1ccef698b42862e3da431a7ad17c_MD5.png]]
 
 #### 14.5.2 发送短信验证码
 
@@ -10728,7 +10727,7 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 ```
 
-![屏幕截图 2021-12-07 222212](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309378.png)
+![[00 assets/435ec9a363ad1b693af7f690df8bd5cd_MD5.png]]
 
 但是我们还有一个方式来写这个代码，因为上面的代码有点杂乱了
 
@@ -10813,7 +10812,7 @@ JS 的一大特点，就是单线程，就是同一时间只能做一件事，�
 
 ```
 
-![屏幕截图 2021-12-10 213215](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309405.png)
+![[00 assets/a54dc1eac1399d8d048e23dcc5c53a66_MD5.png]]
 
 #### 14.5.4 获取 url 参数
 
@@ -10867,11 +10866,11 @@ index1.html
 
 我们这里点击了提交，就会变成下面的值
 
-![屏幕截图 2021-12-10 214305](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309427.png)
+![[00 assets/d6111797014792d8dd27b72bfd48a15b_MD5.png]]
 
 看到网页 url 的值没，是不是发生了变化，并且网页跳转到了 index1.html，后面的 uname 就是其他参数，也就是 search 的值
 
-![屏幕截图 2021-12-10 214314](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309456.png)
+![[00 assets/77948d01f812fcc7647282e1cfe940de_MD5.png]]
 
 假如将 index1.html 改成下面的样子，就会将用户名更改过来
 
@@ -10897,7 +10896,7 @@ index1.html
 
 ```
 
-![屏幕截图 2021-12-10 215320](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309491.png)
+![[00 assets/d89203b2ee2cfdcdc14b097d9ab04b65_MD5.png]]
 
 ## 15. 网页特效
 
@@ -10905,7 +10904,7 @@ index1.html
 
 offset 就是偏移量的意思，我们使用 offset 就可以动态的获取元素的位置，大小，但是返回的值是不带单位的
 
-![屏幕截图 2021-12-11 123203](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309536.png)
+![[00 assets/8a13118804e39dbf0f4a0919ba23a687_MD5.png]]
 
 #### 15.1.1 offsetTop 和 offsetLeft
 
@@ -10959,7 +10958,7 @@ offset 就是偏移量的意思，我们使用 offset 就可以动态的获取�
 
 ```
 
-![屏幕截图 2021-12-11 124844](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309826.png)
+![[00 assets/92e6464f21ea2671a928180419fa2ca4_MD5.png]]
 
 假如给父元素加一个定位的话，就会改变这样的状况，子元素就会按照父元素为起点来写 margin 的值，并且是父元素开启什么定位都可以
 
@@ -11012,7 +11011,7 @@ offset 就是偏移量的意思，我们使用 offset 就可以动态的获取�
 
 ```
 
-![屏幕截图 2021-12-11 125146](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309848.png)
+![[00 assets/078abd866a87f27128e828040ed5e130_MD5.png]]
 
 #### 15.1.2 offsetWidth 和 offsetHeight
 
@@ -11060,7 +11059,7 @@ offset 就是偏移量的意思，我们使用 offset 就可以动态的获取�
 
 ```
 
-![屏幕截图 2021-12-11 132028](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309890.png)
+![[00 assets/990f5d5289364f40d20de19766861312_MD5.png]]
 
 但是有人想问，这个口算的计算的出来，为什么需要这个属性呢，这是因为你不加 width 的话，就会自动获取盒子的 width 值
 
@@ -11101,7 +11100,7 @@ offset 就是偏移量的意思，我们使用 offset 就可以动态的获取�
 
 ```
 
-![屏幕截图 2021-12-11 132140](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309942.png)
+![[00 assets/6bd0360bcf863395d2e003801187fcfe_MD5.png]]
 
 #### 15.1.3 offsetParent
 
@@ -11153,7 +11152,7 @@ offset 就是偏移量的意思，我们使用 offset 就可以动态的获取�
 
 ```
 
-![屏幕截图 2021-12-11 132409](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309035.png)
+![[00 assets/77a83f41c04093cd20f1eeabf8c8ed73_MD5.png]]
 
 假如你的父元素没开启定位的话，就是返回的 body
 
@@ -11202,13 +11201,13 @@ offset 就是偏移量的意思，我们使用 offset 就可以动态的获取�
 
 ```
 
-![屏幕截图 2021-12-11 132425](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309223.png)
+![[00 assets/9df4dff0247ff2fbb65fe322c6c718b3_MD5.png]]
 
 但是我们回忆一下前面的 DOM 标记，是不是有一个 parentNode，这也是返回父元素的，但是要注意这个和 offsetParent 的区别，parentNode 是返回最近的一级的父元素，但是 offsetParent 是返回开启定位的最近的父元素
 
 #### 15.1.4 offset 和 style 的区别
 
-![屏幕截图 2021-12-11 133014](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309317.png)
+![[00 assets/39bb8617a92df4a98830795e2ed279e2_MD5.png]]
 
 首先是获取元素的值
 
@@ -11247,7 +11246,7 @@ offset 不管 css 在那里都可以获取，但是 style 是不可以的，styl
 
 ```
 
-![屏幕截图 2021-12-11 133235](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309346.png)
+![[00 assets/4ac6716cec9e4edb9b734f6f23a7e753_MD5.png]]
 
 style 获取过来的是有单位的，但是 offset 获取过来的是没有单位的
 
@@ -11284,13 +11283,13 @@ style 获取过来的是有单位的，但是 offset 获取过来的是没有单
 
 ```
 
-![屏幕截图 2021-12-11 133405](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309381.png)
+![[00 assets/b8b6703aebdd1bf1aed58a065f2cb392_MD5.png]]
 
 这个是最主要的区别，就是 offset 属性是只读属性，只能获取不能赋值，也就是不能改变，但是 style 是可读写的，不仅可以读还可以写
 
 ### 15.2 client
 
-![屏幕截图 2021-12-14 205121](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309487.png)
+![[00 assets/da5a67e16d356ae3dcc7ca7a48a34b0f_MD5.png]]
 
 client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
@@ -11328,11 +11327,11 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 ```
 
-![屏幕截图 2021-12-14 205519](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309747.png)
+![[00 assets/b01446b51bacd7bd908298f2832feac8_MD5.png]]
 
 ### 15.4 scroll
 
-![屏幕截图 2021-12-14 222354](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309781.png)
+![[00 assets/e6bfb1c44e69e5547d93c6e248dd4847_MD5.png]]
 
 这个就和上面又都不一样，这个是不包含边框，但是包含 padding 的值
 
@@ -11366,7 +11365,7 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 ```
 
-![屏幕截图 2021-12-14 222742](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309818.png)
+![[00 assets/981e853eea3225a045cc168fdae442be_MD5.png]]
 
 但是它还有一个特性，假如文字特别多的时候，width 的值也是会增加，因为它是记录实际高度和宽度得值
 
@@ -11410,7 +11409,7 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 ```
 
-![屏幕截图 2021-12-14 223048](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309913.png)
+![[00 assets/ba8027f9e94d9b87c7829a85ced53230_MD5.png]]
 
 当然我们有的时候也使用 scrollTop 来记录
 
@@ -11458,13 +11457,13 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 ```
 
-![屏幕截图 2021-12-14 223459](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309937.png)
+![[00 assets/f435d6c406293b52578cf5f3ab997725_MD5.png]]
 
 ### 15.5 总结
 
-![屏幕截图 2022-01-13 204332](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309072.png)
+![[00 assets/519ff6290347ab7ed47689ee58dc6a59_MD5.png]]
 
-![屏幕截图 2022-01-13 204438](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309355.png)
+![[00 assets/e3a0a9eb8fbfe6dc6144f5b46f034789_MD5.png]]
 
 ### 15.6 案例
 
@@ -11506,7 +11505,7 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 ```
 
-![屏幕截图 2021-12-11 134507](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309378.png)
+![[00 assets/435ec9a363ad1b693af7f690df8bd5cd_MD5.png]]
 
 #### 15.6.2 拖动模态框
 
@@ -11518,7 +11517,7 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 我们来看下面的图，假如你删除了移动事件里面的 x 和 y 的话，登录框的左上角就会到红色标指的位置，假如获取一开始鼠标相对于框的距离的话，再减去的话，就不会出现这样的问题
 
-![屏幕截图 2021-12-11 225822](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309401.png)
+![[00 assets/e6fe8353a363a98b5ad719eebfea3b35_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -11608,11 +11607,11 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 你点击下面的按钮的话，就会出现后面的菜单
 
-![屏幕截图 2021-12-11 224135](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309450.png)
+![[00 assets/a49cba5216909be495ea057461466c3f_MD5.png]]
 
 然后我们就可以拖动这个菜单框了
 
-![屏幕截图 2021-12-11 224144](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309503.png)
+![[00 assets/8c3cd885264f29fcc178f7980b157fd1_MD5.png]]
 
 #### 15.6.3 仿京东放大镜
 
@@ -11727,7 +11726,7 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 ```
 
-![屏幕截图 2021-12-14 173552](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309793.png)
+![[00 assets/eeaae7cbbd407bf982006be51787a7a7_MD5.png]]
 
 #### 15.6.4 淘宝 flexibleJS 源码分析
 
@@ -11737,7 +11736,7 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 首先我们来看第五行代码的解析
 
-![屏幕截图 2021-12-14 211445](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309825.png)
+![[00 assets/8a2d192ed6117f57f7669f49ec183d99_MD5.png]]
 
 这里是设置物理像素比的，移动端的像素和 pc 端的是不一样的
 
@@ -11764,17 +11763,17 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 电脑端
 
-![屏幕截图 2021-12-14 211654](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309914.png)
+![[00 assets/8d9829c02236faa15bf312d805ce211b_MD5.png]]
 
 手机端
 
-![屏幕截图 2021-12-14 211704](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309940.png)
+![[00 assets/3410ec5a05f51378b884cbb349b645fb_MD5.png]]
 
 **2.**
 
 我们再来看后面的调整字体大小的代码，这就是按照上面获取的物理像素比来动态调整
 
-![屏幕截图 2021-12-14 212136](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309969.png)
+![[00 assets/cb176fe7bc595fcd94793a138b104fa4_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -11811,17 +11810,17 @@ client 和 offsetWidth 最大的区别就是 client 是不包含边框的
 
 pc 端
 
-![屏幕截图 2021-12-14 213615](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309102.png)
+![[00 assets/f2cd29db11a1b52701c9725e715a2096_MD5.png]]
 
 移动端
 
-![屏幕截图 2021-12-14 213625](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309551.png)
+![[00 assets/f089f611d257ee47ce2e2866aeb76b48_MD5.png]]
 
 **3.**
 
 这里就是 rem 的实现
 
-![屏幕截图 2021-12-14 214341](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309578.png)
+![[00 assets/10120cfc7a00b5ec03ce93834cde4033_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -11855,17 +11854,17 @@ pc 端
 
 PC 端
 
-![屏幕截图 2021-12-14 214252](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309601.png)
+![[00 assets/86bd4054d6e1e65f444feb73c33ffc75_MD5.png]]
 
 移动端
 
-![屏幕截图 2021-12-14 214303](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309676.png)
+![[00 assets/d11c4f580e43fc1acbe6bc3e443734bd_MD5.png]]
 
 **4.**
 
 这个就是当页面发生变化的时候的代码，你拉动浏览器窗口的大小的时候，字体也需要一起变化
 
-![屏幕截图 2021-12-14 214612](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309706.png)
+![[00 assets/98069e3d4924279583fcb6b456f63c51_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -11914,17 +11913,17 @@ PC 端
 </html>
 ```
 
-![屏幕截图 2021-12-14 215543](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309727.png)
+![[00 assets/09a9b7195889033a6f1b1a3401c22261_MD5.png]]
 
 但是有没有怀疑，为什么不使用 load 来处理
 
-![屏幕截图 2021-12-14 215438](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309079.png)
+![[00 assets/43389ccbce198da26f50e7b782396dd9_MD5.png]]
 
 **5.**
 
 当然下面就是设置移动端
 
-![屏幕截图 2021-12-14 215723](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309114.png)
+![[00 assets/2a8695cc4d92af0cba15a671af0226cb_MD5.png]]
 
 #### 15.6.5 仿淘宝固定定位
 
@@ -12049,7 +12048,7 @@ PC 端
 
 ```
 
-![动画](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309147.gif)
+![[00 assets/726e46c0f0a246537aa59e051c5f0d92_MD5.gif]]
 
 ### 16.2 简单动画函数封装
 
@@ -12106,7 +12105,7 @@ PC 端
 
 ```
 
-![动画2](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309227.gif)
+![[00 assets/92847fae9e0a32f42f6eb83095fa47f1_MD5.gif]]
 
 但是我们发现了一个问题没，上面的你只要调用一次封装好的动画函数，我们就需要在内存里面开辟内存空间，假如你要调用 100 个，就需要在内存中创建 100 个，这非常吃性能，所以在这里我们使用下面的写法，来优化性能
 
@@ -12217,7 +12216,7 @@ PC 端
 
 ```
 
-![动画3](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309271.gif)
+![[00 assets/97af1c5be5681ac6ded9324826256ae9_MD5.gif]]
 
 下面是优化的方法
 
@@ -12277,7 +12276,7 @@ PC 端
 
 缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来
 
-![屏幕截图 2022-01-13 214221](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309370.png)
+![[00 assets/158f85a24f4e542ef7731cc7446f4b50_MD5.png]]
 
 ```html
 <!DOCTYPE html>
@@ -12330,7 +12329,7 @@ PC 端
 
 ```
 
-![动画4](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309675.gif)
+![[00 assets/559b972546e168e9ce1c667844a528b0_MD5.gif]]
 
 但是我们可以发现，是不是最后达不到 500px，这是因为公式的原因
 
@@ -12445,11 +12444,11 @@ PC 端
 
 ```
 
-![动画5](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309707.gif)
+![[00 assets/c1272ecce5237fbdec19e4c058f745c1_MD5.gif]]
 
 但是我们想下就知道，下面的值肯定会有一些问题，最后的距离并没有回到原先的位置
 
-![屏幕截图 2022-01-13 220804](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309805.png)
+![[00 assets/023c151b1c0b0f02754e13fb4709a1ef_MD5.png]]
 
 我们再做下面的修改，就可以改正上面的错误了
 
@@ -12588,7 +12587,7 @@ PC 端
 
 ```
 
-![动画6](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309831.gif)
+![[00 assets/6a4bc96715a13f162b8b3b5c57466b0e_MD5.gif]]
 
 但是发现没，是不是最后好像没有完全实现回调函数
 
@@ -12662,7 +12661,7 @@ PC 端
 
 ```
 
-![动画7](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309862.gif)
+![[00 assets/5845c6183fc57fd376434178cf2fe07b_MD5.gif]]
 
 ### 16.5 节流阀
 
@@ -12787,7 +12786,7 @@ c.addEventListener('click',function(){
 
 ```
 
-![动画8](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309083.gif)
+![[00 assets/2f026352b945f60ac59039f81d0618d0_MD5.gif]]
 
 #### 16.5.2 网页轮播图
 
@@ -12798,7 +12797,7 @@ c.addEventListener('click',function(){
 3. 鼠标移动到上面左右按钮显示
 4. 鼠标悬浮关闭定时器，鼠标离开打开定时器
 
-![动画9](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309254.gif)
+![[00 assets/94c08f5da1c3c9de27975d46342e3a7f_MD5.gif]]
 
 我先放 html 和 css 的代码
 
@@ -13159,7 +13158,7 @@ callback && callback();
 
 ```
 
-![动画10](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309252.gif)
+![[00 assets/b3d28546fca7b246c2bc17da0ca6c482_MD5.gif]]
 
 ## 17. 移动端网页特效
 
@@ -13167,7 +13166,7 @@ callback && callback();
 
 移动端浏览器的兼容性比较好，我们不需要考虑 JS 的兼容性问题，所有我们卡哇伊使用原生 JS 的书写效果，但是移动端也有自己独特的地方，比如说触屏事件 touch
 
-![屏幕截图 2022-01-20 145017](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309638.png)
+![[00 assets/87099ccb169bed803e8f44f730d4a162_MD5.png]]
 
 下面演示的是上面的触屏事件 s
 
@@ -13209,7 +13208,7 @@ callback && callback();
 
 ```
 
-![动画11](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309665.gif)
+![[00 assets/3d9eac69e9d21a68e024ba75afde7fb6_MD5.gif]]
 
 ### 17.2 触摸事件对象
 
@@ -13248,11 +13247,11 @@ callback && callback();
 
 ```
 
-![屏幕截图 2022-01-20 151550](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309685.png)
+![[00 assets/63f04b7eb7b316ec69392e9fecb20851_MD5.png]]
 
 这几个是最重要的
 
-![屏幕截图 2022-01-20 151622](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309092.png)
+![[00 assets/03e1b371399f788e287a2d6b0c303669_MD5.png]]
 
 当然这 3 个最重要的触摸列表中最重要的是 changedTouches
 
@@ -13319,7 +13318,7 @@ callback && callback();
 </html>
 ```
 
-![动画12](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309116.gif)
+![[00 assets/c65dcda7a9fff4adcfeb2e02e9073282_MD5.gif]]
 
 ### 17.4 移动端 click 事件 300ms 延时问题解决
 
@@ -13421,7 +13420,7 @@ console.log(val.codePointAt());
 
 ```
 
-![屏幕截图 2022-03-12 085913](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309168.png)
+![[00 assets/3ebd64b2eedc6e677aed82e1a80bf9f2_MD5.png]]
 
 ## 3. 优化冒泡排序
 
@@ -13595,7 +13594,7 @@ Student.RecPerson.p1 = {id:003}
 console.log(Student)
 ```
 
-![屏幕截图 2022-04-01 124031](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309216.png)
+![[00 assets/289707711c2ecbbea1354aa88d3a11f3_MD5.png]]
 
 ```javascript
 let Person = {
@@ -13628,9 +13627,9 @@ console.log(Student)
 console.log(Person)
 ```
 
-![屏幕截图 2022-04-01 124541](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309272.png)
+![[00 assets/1a4845a361a23ac663a72502faba725a_MD5.png]]
 
-![屏幕截图 2022-04-01 125056](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309781.png)
+![[00 assets/e6bfb1c44e69e5547d93c6e248dd4847_MD5.png]]
 
 **浅拷贝**
 
@@ -13750,11 +13749,11 @@ alert("这是一个alert语句")
 
 会报错，这是为什么呢？
 
-![image-20220613152500708](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309295.png)
+![[00 assets/2abc1979fc15e404924c3baaa0f5dccc_MD5.png]]
 
 其实 JS 吧这 2 句当作是一句话了，所以就会报错
 
-![image-20220613152549243](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309976.png)
+![[00 assets/cf18554dae60fde02fb3358f312014e9_MD5.png]]
 
 假如我们加上分号的话就没问题了
 
@@ -13766,11 +13765,11 @@ alert("这是一个alert语句")
 
 但是你写了这个模式，和不写这个模式有什么区别吗？是有的，我们在日常的 js 里面是可以写的
 
-![image-20220613153132856](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309384.png)
+![[00 assets/d06675607abb8e7d5715c71f07c8eb1f_MD5.png]]
 
 但是我们开启现代模式的话，就会有问题
 
-![image-20220613153213910](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032309626.png)
+![[00 assets/6c8c191959c6a0fa715138a9a929260d_MD5.png]]
 
 ## 15. bind
 

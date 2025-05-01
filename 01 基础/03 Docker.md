@@ -177,7 +177,7 @@ docker run --name nginx-test2 -p 80:80 -v /tmp/aaa:/usr/share/nginx/html -e KEY1
 
 2、输入`exit`即可退出`docker exec`
 
-![[00 assets/e41a0ea6d8dbd1170d51855e9b1d279d_MD5.png]]
+![[00 assets/110fea4eb2311793664042710a68b209_MD5.jpeg]]
 
 > docker logs
 
