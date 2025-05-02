@@ -27,12 +27,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/03 JavaScript.md",
+                "file": "03 前端/07 Vue.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 JavaScript"
+              "title": "07 Vue"
+            }
+          },
+          {
+            "id": "60f3c8af8c28245b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/03 JavaScript/Reflect.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Reflect"
             }
           }
         ],
@@ -119,7 +133,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 295.5
+    "width": 288.49999618530273
   },
   "right": {
     "id": "833a170ccf889101",
@@ -207,25 +221,35 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "03 前端/01 HTML5.md",
+    "00 assets/a579ed5664732fe6498f793cd4649a11_MD5.jpeg",
+    "00 assets/Pasted image 20250502174839.png",
+    "00 assets/d0c46685b030efb5df496ab117e36f27_MD5.jpeg",
+    "00 assets/Pasted image 20250502174756.png",
+    "00 assets/ce7ba73eccd7a16b1ab3f0fe29fd2680_MD5.jpeg",
+    "00 assets/Pasted image 20250502174739.png",
+    "00 assets/047c47378911c6cb8aa621488065b46b_MD5.jpeg",
+    "00 assets/Pasted image 20250502174653.png",
+    "00 assets/584e26e93f17e3b7c7c5a6c28b2d4ab6_MD5.jpeg",
+    "00 assets/Pasted image 20250502174636.png",
+    "00 assets/9efd16574d1e70427e01d49bbe2e0cb2_MD5.jpeg",
+    "03 前端/06 Jquery.md",
+    "03 前端/05 ECMAScript.md",
+    "03 前端/03 JavaScript/Reflect.md",
+    "03 前端/04 JavaScript高级.md",
     "03 前端/03 JavaScript.md",
+    "03 前端/02 CSS3.md",
+    "03 前端/01 HTML5.md",
+    "01 基础/06 网络安全.md",
+    "01 基础/05 设计模式.md",
+    "01 基础/04 计算机网络.md",
+    "01 基础/03 Docker.md",
+    "01 基础/02 Linux.md",
+    "01 基础/01 Git.md",
+    "03 前端/18 NestJS.md",
     "123.md",
     "03 前端/09 NodeJS.md",
     "03 前端/08 React.md",
     "03 前端/07 Vue.md",
-    "00 assets/94c08f5da1c3c9de27975d46342e3a7f_MD5.gif",
-    "00 assets/097d5d1e0b9be81bda1fe45410745961_MD5.png",
-    "00 assets/1a4845a361a23ac663a72502faba725a_MD5.png",
-    "00 assets/c65dcda7a9fff4adcfeb2e02e9073282_MD5.gif",
-    "00 assets/63f04b7eb7b316ec69392e9fecb20851_MD5.png",
-    "00 assets/289707711c2ecbbea1354aa88d3a11f3_MD5.png",
-    "00 assets/3ebd64b2eedc6e677aed82e1a80bf9f2_MD5.png",
-    "00 assets/3d9eac69e9d21a68e024ba75afde7fb6_MD5.gif",
-    "00 assets/87099ccb169bed803e8f44f730d4a162_MD5.png",
-    "00 assets/2f026352b945f60ac59039f81d0618d0_MD5.gif",
-    "01 基础/03 Docker.md",
-    "01 基础/02 Linux.md",
-    "01 基础/01 Git.md",
     "README.md",
     "03 前端/24 Vite.md",
     "03 前端/25 Bun.md",
@@ -233,16 +257,6 @@
     "99 求职/八股记录.md",
     "99 求职/实习学习.md",
     "99 求职/八股记录/vite构建流程.md",
-    "03 前端/12 Webpack.md",
-    "03 前端/15 NuxtJS.md",
-    "03 前端/16 NextJS.md",
-    "03 前端/23 Rollup.md",
-    "03 前端/22 Gulp.md",
-    "03 前端/21 Monorepos.md",
-    "03 前端/20 脚手架.md",
-    "03 前端/19 单元测试.md",
-    "03 前端/18 NestJS.md",
-    "03 前端/17 Electron.md",
     "未命名",
     "03 前端/00 源码分析",
     "99 其他",

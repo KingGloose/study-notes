@@ -20,7 +20,7 @@
 
 ## 2.2 解释细节
 
-![image-20220517224343087](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311468.png)
+![[00 assets/f4d82d0901ecf5412501912b0ffbd3b9_MD5.png]]
 
 ### 2.2.1 **Parse**
 
@@ -106,7 +106,7 @@ fn("a" , "b"); //类型不同，又转换为字节码了，这个会造成性能
 
 ### 2.2.5 PreParser
 
-![image-20220518182328850](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311486.png)
+![[00 assets/3f970049e1e2fce6d01fcbaa5329c143_MD5.png]]
 
 首先是`Scanner`通过**词法分析**将`JavaScript`每行代码转换为`token数组`。然后再将`token数组`给`Parser`，进行了`语法分析`，接着转换为`AST`树
 
@@ -121,7 +121,7 @@ Inner();
 
 ## 2.3 执行过程
 
-![image-20220518182328850](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311486.png)
+![[00 assets/3f970049e1e2fce6d01fcbaa5329c143_MD5.png]]
 
 下面是大致的执行过程
 
@@ -164,7 +164,7 @@ var GlobalObject = {
 
 这个时候才会从上到下执行代码，通过**VO**找到**name**就将值赋值给**GlobalObject**里面的**name**
 
-![image-20220518200350078](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311490.png)
+![[00 assets/722fa03f150780a2f089d1cfc57ebc44_MD5.png]]
 
 假如看懂了上面的流程，就知道下面的原理了。下面这个模式可以叫做**作用域提升**。
 
@@ -189,7 +189,7 @@ console.log(window);
 
 因为`window`的值就是`this`，即指向的就是`GO`。所以可以看到全局中的变量
 
-![image-20221006212418485](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311485.png)
+![[00 assets/86cf384caed721080562400973fb9027_MD5.png]]
 
 # 3. 函数执行
 
@@ -199,11 +199,11 @@ console.log(window);
 
 下面就来介绍一下在`JS`中函数执行的过程
 
-![image-20220927163947182](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311502.png)
+![[00 assets/a895d9b12bedb6d1036e18924e3c86e3_MD5.png]]
 
 下面就是执行过程的简要表述
 
-![image-20220930124041016](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311199.png)
+![[00 assets/fb4c9f13e9f7c8ebbf946ada093dc0af_MD5.png]]
 
 1.因为是函数内部存在变量，通过**预解析**处理，并不会在开始就去处理函数内部的执行。并且在**Parser 阶段**解析为**AST 树**的时候创建**GO**。
 
@@ -227,49 +227,49 @@ console.log(window);
 
 在一个函数`AO`中不存在的变量，会到上级函数作用域中去寻找
 
-![image-20220927170930821](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311224.png)
+![[00 assets/b89898c5bb218639ec3db980ad9c3d95_MD5.png]]
 
 当**函数执行上下文**执行到`console.log(name)`的时候会发现自己函数的**AO**中并不存在该变量，就会通过自身存储函数空间的**scope 属性**中找到上级函数的**AO**，通过`函数执行上下文`的**VO**对上级进行寻找。
 
 但是这个是单函数，并不存在函数的嵌套，所以`parent scope`就是`GO`
 
-![image-20220927170557203](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311258.png)
+![[00 assets/fbed062b6b3721e2a9c123eb94bed2bf_MD5.png]]
 
 ✨`JavaScript`存在一些特性。当我们在`foo()函数`中写了`var m = 100`的话就会报错该变量**m**找不到。但是按照下面的书写方式就不会报错，而且会把该变量加到`GO`中，所以可以打印出来
 
-![image-20220927193136962](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311278.png)
+![[00 assets/91505a71806b6b1496ec06f3a3bf3a4b_MD5.png]]
 
 ### 3.2.2 函数嵌套
 
 下面就是函数嵌套中的作用域链，可以发现他不只是会向上寻找一次，而是找到`GO`为止
 
-![image-20220927181710437](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311297.png)
+![[00 assets/8fb1f3ff7045accb0e5f72843aa23ab7_MD5.png]]
 
 假如出现下面函数嵌套的情况，当**foo**的**函数执行上下文**执行到`bar()`的时候，就会创建**bar**的**存储函数空间**，在 foo 的 AO 中的 bar 指向的就是**bar**的存储函数空间。该空间里面的**scope**指向的就是**foo**的**AO**（这也可以知道 foo 的存储函数空间中的 scope 指向的就是 GO 了）
 
 并且在调用栈里面会创建 bar 的**函数执行上下文**，当该函数执行上下文执行到`console.log(name)`的时候，就会在 bar 的**AO**中去寻找，没有就会跟着**scope 的地址找到 foo 的 AO**来寻找，没有就会跟着**foo 的 scope 的地址找到 GO**，这个时候就可以找到 GO 中的 name
 
-![image-20220928091514111](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311314.png)
+![[00 assets/c4c255f14ef1d526b144d8512fd4c1b3_MD5.png]]
 
 ✨ 这里需要知道一个细节：一些浏览器中的`window`中会包含一些属性，比如：`name`...。当根据作用域链来寻找都会找到`window`，所有有些时候你即便在全局不写该变量，我们去调用的时候也不会报错
 
-![image-20220927183417838](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311012.png)
+![[00 assets/0742cfbd93a9c87c49b0492f8cb1bfd1_MD5.png]]
 
 ### 3.2.3 函数内调用
 
 因为`function ...`写在`GO`里面，所以其作用域链中的父作用域就是`GO`。所以调用在那个位置不影响它的`作用域链`
 
-![image-20220927184527665](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311038.png)
+![[00 assets/fc2ac50d7a70b9d641b33511f6fcf54f_MD5.png]]
 
 ### 3.2.4 面试题
 
-![image-20221006220357519](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311057.png)
+![[00 assets/fb4867eb9ef022478b787c96ec5e8618_MD5.png]]
 
 当函数得参数有默认参数得情况下，会形成一个新得作用域，这个作用域用于保存参数得值。
 
 比如说：`foo()`中得`y`和`x`就是一个全新得`参数作用域`。如果没有`参数默认值`得话，那么就只存在`函数内部作用域`
 
-![image-20221208210320303](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311076.png)
+![[00 assets/7650fc1202f34afe68d44f1121820e39_MD5.png]]
 
 ## 3.3 变量环境和记录
 
@@ -277,7 +277,7 @@ console.log(window);
 
 上面做的笔记都基于`ESMAScript 5`以前的
 
-![image-20220927190704240](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311093.png)
+![[00 assets/9914304f1a103e84d2ae29cb03b30492_MD5.png]]
 
 > 最新的版本
 
@@ -285,7 +285,7 @@ console.log(window);
 
 原本的`GO(VO)`是一个对象，保存变量的时候直接就是`GO.name = "张三"`。但是在现在是`VE`，不是一个对象，最后的数据都会保存在`variables_`，他的数据类型是`VariableMap`，他是一个`HashMap`，也就是一个哈希表，底层通过`C++`实现
 
-![image-20220927191222838](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311108.png)
+![[00 assets/d7f47096ecb368cc7fe3324b08b433e3_MD5.png]]
 
 # 4. 内存管理
 
@@ -295,13 +295,13 @@ console.log(window);
 
 下面的内容就可以参考`深入了解操作系统`
 
-![image-20220927195005639](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311932.png)
+![[00 assets/01b80e1d07970f8fdbf9e64e3fb5a6a6_MD5.png]]
 
 > JS 中的内存管理
 
 JS 在定义变量的时候就会为我们分配内存空间
 
-![image-20220927201242952](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032311969.png)
+![[00 assets/81d1d1ef79b538afcfa9d205be45fa67_MD5.png]]
 
 ## 4.2 垃圾回收
 
@@ -309,21 +309,21 @@ JS 在定义变量的时候就会为我们分配内存空间
 
 ### 4.2.1 基本介绍
 
-![image-20220927214751237](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312010.png)
+![[00 assets/732a2bb82e7b29ea4d5d307ea2e6a3e6_MD5.jpeg]]
 
 ### 4.2.2 引用计数
 
 1、当然最常见的就是`引用计数算法`，只要有引用的话就会计数+1，其中一个应用就是`AO`中。当计数为 0 的话就会被清除
 
-![image-20220927215606493](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312048.png)
+![[00 assets/40802a567f49a69e40f0436a64fc2819_MD5.png]]
 
 2、但是这个`计数算法`有一个弊端就是循环引用的话就会有问题，这样会导致内存泄漏，比较早的浏览器就是使用的引用计数的方式来处理的，但是后续都换成引用标记清除了
 
-![image-20220927220115807](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312077.png)
+![[00 assets/19001e6d91a774c4b048d5fd396bff04_MD5.png]]
 
 ### 4.2.3 标记清除
 
-![image-20220927220651616](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312107.png)
+![[00 assets/e11ff73adfecaa6161f86de58475e903_MD5.png]]
 
 ## 5.3 性能优化
 
@@ -343,21 +343,21 @@ JS 在定义变量的时候就会为我们分配内存空间
 
 2、初始化会创建一个初始化隐藏类 C0，然后看到存在`name`属性，所以会创建一个`C1`隐藏类，这个时候会有一个 C0 的指针指向 C1，看到 age 属性类似，最后会有 3 个隐藏类
 
-![image-20231210230539692](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312814.png)
+![[00 assets/b29733eebe682f7334f2964cb0cb5ad6_MD5.png]]
 
 3、因为之前对象的隐藏类是一样的，所以会复用隐藏类
 
 4、但是我们为其中一个实例额外赋一个值，就会额外创建隐藏类，所以导致 V8 不能再复用之前的隐藏类，也就造成了性能损失
 
-![image-20231210231215766](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312833.png)
+![[00 assets/04a0a8196681f9938b2cd0cf210566f0_MD5.png]]
 
 5、所以最好使用下面的方式来编写，这样会让使用的 Person 的隐藏类是一样的，也就可以让 V8 复用隐藏类，达到性能优化
 
-![image-20231210231405529](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312855.png)
+![[00 assets/e671ccb8f4b11724c28e237e16828eea_MD5.png]]
 
 6、当然也存在 delete 的方式来删除属性，这也不是很推荐，因为这也会导致隐藏类不一致，导致不能复用
 
-![image-20231210231621962](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312887.png)
+![[00 assets/16a0486ef17d6e477b3208897faf4b86_MD5.png]]
 
 > 内存泄漏
 
@@ -367,7 +367,7 @@ JS 在定义变量的时候就会为我们分配内存空间
 
 3、如果使用函数闭包也会导致内存泄漏，下面就是一个例子，创建的`innerFn`就会进行闭包，而且`outerFn`执行之后`sum`并没有被消除，就是因为闭包了，如果想释放这个闭包就需要手动设置为`null`，等待 GC 回收
 
-![image-20231210232833599](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312914.png)
+![[00 assets/7e0a3ef16b41baaed9fed8d10efcb5c9_MD5.jpeg]]
 
 # 5. 高阶函数
 
@@ -397,7 +397,7 @@ calc(1, 2, addfn);
 calc(1, 2, subfn);
 ```
 
-![image-20220916094942346](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312958.png)
+![[00 assets/a878e693e4b6108b89b34ac1981e8782_MD5.png]]
 
 > 函数作为返回值的使用
 
@@ -438,11 +438,11 @@ var NewArr = nums.filter(function (item, index, arr) {
 console.log(NewArr);
 ```
 
-![image-20220916100649606](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312420.png)
+![[00 assets/938d53dec711cd376a1e10d142436f12_MD5.png]]
 
 `filter`对于对象的存储是`浅拷贝`，所以我们去修改里面的值也会改变原本数组中的值
 
-![image-20221129203221205](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312440.png)
+![[00 assets/82feddc2177f2232bed5e4e026c857a4_MD5.png]]
 
 ### 5.2.2 map
 
@@ -462,7 +462,7 @@ var NewArr = nums.map(function (item, index, arr) {
 console.log(NewArr);
 ```
 
-![image-20220916100801152](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312465.png)
+![[00 assets/47c2eaf60b560a8d2b8f6bd6e34aa2d6_MD5.jpeg]]
 
 ### 5.2.3 forEach
 
@@ -476,7 +476,7 @@ nums.forEach((ele) => {
 });
 ```
 
-![image-20220916100859117](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312494.png)
+![[00 assets/3a69ef9f2f21d07dd9c89e081d526cb4_MD5.png]]
 
 当然`forEach`中也可以设置`this`的绑定
 
@@ -498,7 +498,7 @@ var NewArr = nums.find(function (item,index,arr) {
 console.log(NewArr);
 ```
 
-![image-20220916101201664](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312517.png)
+![[00 assets/553ddea6442256c2e2a7cdcafae84c63_MD5.jpeg]]
 
 ### 5.2.5 reduce
 
@@ -524,7 +524,7 @@ console.log(result);
 
 下面都是官方的解释
 
-![image-20220927221829325](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312631.png)
+![[00 assets/0da9026ed08dac479d285872d5a63e47_MD5.png]]
 
 我们来分析下面这段代码中执行的情况
 
@@ -543,11 +543,11 @@ fn()
 
 当`var fn = foo()`执行完毕，但是`fn()`还没执行的内存地址图。到这里的分析可以查看`3 函数执行`里面的笔记
 
-![image-20221006222202753](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312835.png)
+![[00 assets/3be2faf752500f849884e0f1dead9cd0_MD5.png]]
 
 当执行到`fn()`的时候的内存图
 
-![image-20221006222505663](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312936.png)
+![[00 assets/8f6b17c5d7282d2948d7432355b33913_MD5.png]]
 
 我们再来看`闭包`的内存执行情况，可以参考下面的代码，这个是最典型的闭包
 
@@ -566,17 +566,17 @@ var fn = foo();
 fn();
 ```
 
-![image-20220928131122222](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312961.png)
+![[00 assets/f55e96b7d46df8f0b8e7c49584304f9a_MD5.png]]
 
 因为`boo`的`scope`指向的是`foo`，所以该`foo`不会被销毁。而是继续保留，在寻找作用域链的时候会跟着向上寻找，知道找到`GO`为止
 
-![image-20221006222703035](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312980.png)
+![[00 assets/57a5a1f5bb856a2b5fb02fb014bcb3d9_MD5.png]]
 
 假如你走了上面的流程，你会发现当你执行了`foo()`之后返回的是`boo`的内存地址。但是`foo`已经执行完毕了，所以`foo`的`FEC`和`AO`就会被销毁掉。但是按照上面的执行情况来说，他没有销毁，并且可以正常访问。所以这个叫做**闭包**
 
 我们再来看上面的概念，可以得出闭包是两部分组成的：`函数` + `函数外部访问的自由变量`
 
-![image-20220929230809460](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312089.png)
+![[00 assets/15894ead7e0e36041ce7492c6a796abc_MD5.png]]
 
 首先来一段 JS 函数
 
@@ -608,7 +608,7 @@ test()
 
 5.当函数执行完毕之后就会注销掉`函数执行上下文`，这个时候`0x200`的引用会被删掉。当所有的引用都没有的话，就基本等于被删除了
 
-![image-20220930105450100](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312507.png)
+![[00 assets/ed04b4fa1b49b46af231bb7236ddf8a2_MD5.jpeg]]
 
 假如上面的函数执行完毕之后，我们再来看下面的执行情况
 
@@ -633,13 +633,13 @@ to();
 
 按照没有引用就消失得原则，所以`AO`也会消失。但是`foo`的`AO`不会消失，因为还有`bar`函数对象引用它
 
-![image-20221003084736606](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312534.png)
+![[00 assets/f6f6f3ec4112ac8f9d919a469966861b_MD5.png]]
 
 当执行到`to()`得时候，因为返回值给了`fn`，所以`bar`函数对象也不会消失。函数执行上下文也换成了`bar`，当在该`AO`对象找不到得时候，就会通过作用域链去上级作用域来寻找，`bar`函数对象得上级作用域是`foo得AO`对象
 
 这里就可以扩展一下，因为我们在`bar`中可以找到上级作用域，所以通过该方式还可以向上寻找，最后找到`GO`中
 
-![image-20221003085640853](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312555.png)
+![[00 assets/76e2acd54deded9a6502f382120919c6_MD5.png]]
 
 ## 6.2 内存泄漏
 
@@ -707,7 +707,7 @@ for (let i = 0; i <= 100; i++) {
 
 我们来通过浏览器来调试，因为浏览器本身自己需要加载一些服务，所以会占用`400mb`的内存地址。当过了一会之后，内存会一直增加，直到达到`800mb`才会停止，这一段增加的就是内存泄漏的
 
-![image-20221006151537857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312593.png)
+![[00 assets/af9dfdebbcca03615d2eb3e737acef43_MD5.png]]
 
 当我们去释放内存的话
 
@@ -732,7 +732,7 @@ setTimeout(() => {
 
 先是内存上升到`400mb`，当定时到了之后就会赋值为`null`，并且将内存释放。是有等到一定的时间之后才会进行回收的操作，所以看不到结果的时候可以多进行几次操作
 
-![image-20221006163404955](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312711.png)
+![[00 assets/95403547dcb6b6b7f1c0722018ed4eed_MD5.png]]
 
 ## 6.3 自由变量销毁
 
@@ -757,7 +757,7 @@ foo();
 
 这个在`ECMA规范`中是不会被销毁的，但是在`V8引擎`中是会被销毁的，可以看到浏览器调试的结果，可以看到只有`name`，`age`已经被销毁了
 
-![image-20221006170736952](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312839.png)
+![[00 assets/5d2df6fbcc9c26b5b15716d85920b684_MD5.jpeg]]
 
 ## 6.5 闭包陷阱
 
@@ -769,11 +769,11 @@ foo();
 
 在`JS`的日常开发我们在函数内部直接使用`对象名`也可以直接获取到该对象里面的`属性值`
 
-![image-20221006192747556](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312198.png)
+![[00 assets/ffc507b4785c2ef82aef20660d6c970f_MD5.png]]
 
 但是我们为什么需要使用`this`?假如按照上面的来做，假如`对象名person`修改的话，下面的所有的引用都需要修改，这就造成了开发的不便，所以需要使用到`this`
 
-![image-20221006192759863](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312217.png)
+![[00 assets/2d364ccbee061f656880f282cd5dae66_MD5.png]]
 
 ✨ 对于`Node.js`直接在全局执行`this`，会打印出`{ }`。其实`Node.js`将每个文件当作是一个`模块`，编译解析，然后`Node.js`将代码放在一个函数里面，并且该函数最后会使用`apply`强行让全局指向为`{ }`
 
@@ -843,7 +843,7 @@ let obj2fn = foo();
 obj2fn();
 ```
 
-![image-20221006200729968](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312265.png)
+![[00 assets/c626294fc2ab3f053e515d12a9de8d77_MD5.png]]
 
 ### 7.2.2 隐式绑定
 
@@ -886,11 +886,11 @@ obj3.bar();
 
 ```
 
-![image-20221006202317540](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312284.png)
+![[00 assets/59a67a3529f5bb512748111e3259eda7_MD5.png]]
 
 ### 7.2.3 显式绑定
 
-![image-20221006202300278](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312520.png)
+![[00 assets/d26e76ae4d5645d872cf3da2e354b80a_MD5.jpeg]]
 
 > call/apply
 
@@ -910,7 +910,7 @@ fn.apply(obj);
 fn.apply("abc");
 ```
 
-![image-20221006203011147](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312799.png)
+![[00 assets/8ecc01bf2cf8a6399f1d2c74b1744bdb_MD5.png]]
 
 但是`call`和`apply`的最大的区别就是传递的参数不同
 
@@ -954,7 +954,7 @@ fn.call(obj, 1, 2);
 fn.call(obj, 1, 2);
 ```
 
-![image-20221006204121289](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312820.png)
+![[00 assets/4fa2fecea832193699d3f11c9b0f408c_MD5.png]]
 
 ### 7.2.4 new 绑定
 
@@ -970,7 +970,7 @@ let p1 = new Person("张三", 18);
 console.log(p1.name, p1.age);
 ```
 
-![image-20221006205019994](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312839.png)
+![[00 assets/0084f7848dda11e5fccfa7f78448b4bb_MD5.jpeg]]
 
 ## 7.3 内置函数指向
 
@@ -1015,7 +1015,7 @@ divBox.onclick = function () {
 divBox.onclick() //因为是对象的调用，对应的就是隐式绑定
 ```
 
-![image-20221007085608756](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312883.png)
+![[00 assets/d377db80808ed398a2a40bc969a28346_MD5.jpeg]]
 
 > forEach / map / filter / find
 
@@ -1034,7 +1034,7 @@ arr.forEach(function (ele) {
 }, obj);
 ```
 
-![image-20221007090325251](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312914.png)
+![[00 assets/518d3c7f91af2616e3d8107705420b62_MD5.png]]
 
 ## 7.4 规则优先级
 
@@ -1058,7 +1058,7 @@ var bar = fn.bind(null);
 bar()
 ```
 
-![image-20221007092920909](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312338.png)
+![[00 assets/08b65b4a606cf9b924f92878cf912022_MD5.jpeg]]
 
 ### 7.5.2 间接函数引用
 
@@ -1079,7 +1079,7 @@ var obj2 = {
 (obj2.bar = obj1.fn)();
 ```
 
-![image-20221007130842981](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312362.png)
+![[00 assets/13a0d372d7d57ba507d677fcc8a1f3a7_MD5.png]]
 
 但是这里就涉及到了`JavaScript语法规范`了，平常我们写代码的时候是不会主动加上`;`，这是因为`JS引擎`在解析的时候会自动分析语句的结束，然后自动加上`;`
 
@@ -1113,7 +1113,7 @@ var obj2 = {
 }(obj2.bar = obj1.fn)();
 ```
 
-![image-20221007131355846](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312379.png)
+![[00 assets/ef3c6e45172c3f6a70f9adfc6a65e8b3_MD5.png]]
 
 在`《你不知道的JavaScript》`中就记录了和上面一样的模式
 
@@ -1188,15 +1188,15 @@ let sum = arr
 console.log(sum);
 ```
 
-![image-20221007195215659](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312406.png)
+![[00 assets/6f25f452e3bb2b4c922b7af498d4e7c1_MD5.png]]
 
 假如我们又想简写又想返回对象呢？我们按照下面的方式来写的话，`JS引擎`就区分不了对象的`{ }`的方法的`{}`，所以就会导致报错
 
-![image-20221007195519054](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312433.png)
+![[00 assets/807f10b25109ce33140140080ae5eee4_MD5.png]]
 
 假如我们要返回对象的话，只能将这个对象当作一个整体来处理
 
-![image-20221007195646640](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312500.png)
+![[00 assets/57bccaf31a39d78d3fab672eb5ef939c_MD5.png]]
 
 箭头函数的`this`默认是按照上层作用域来查找的
 
@@ -1330,15 +1330,15 @@ let result = fn.bind(obj, 1, 2);
 result(3, 4);
 ```
 
-![image-20221007235456388](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312812.png)
+![[00 assets/8309271d1cebd12ce1e8c244c45cabe9_MD5.png]]
 
 ## 7.9 arguments
 
-![image-20221009211232411](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312834.png)
+![[00 assets/f03a95d452d55f117b99f0aa51bcbaf2_MD5.png]]
 
 下面为使用`arguments`，在箭头函数中不能使用`arguments`
 
-![image-20221009211527021](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312859.png)
+![[00 assets/5c25ea896e75e61bcf752b7c573003e0_MD5.png]]
 
 因为`argument`中很多的方法都不存在，所以我们需要将`argument`转化为数组来处理
 
@@ -1366,7 +1366,7 @@ function fn() {
 fn(1, 2, 3, 4, 5);
 ```
 
-![image-20221009223250283](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312908.png)
+![[00 assets/13a1e587db9c8e6a23af60561d72ed4a_MD5.png]]
 
 # 8. 函数式编程
 
@@ -1374,11 +1374,11 @@ fn(1, 2, 3, 4, 5);
 
 ### 8.1.1 基本介绍
 
-![image-20221010150456476](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312944.png)
+![[00 assets/dda1757ed3c62fae873b9fbe689b1d9f_MD5.png]]
 
 ### 8.1.2 副作用
 
-![image-20221010181709373](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312984.png)
+![[00 assets/452111517c2a8c58ca1e8ba6ae2dce34_MD5.png]]
 
 ### 8.1.3 案例演示
 
@@ -1388,21 +1388,21 @@ fn(1, 2, 3, 4, 5);
 
 `不产生副作用`，对外面的数组`arr`不做修改。这个就是纯函数的概念
 
-![image-20221010182625046](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312313.png)
+![[00 assets/ba850aa544fcaa4551006359e3848079_MD5.png]]
 
 下面就是一种纯函数的处理方式，本质就是一种处理的思想。
 
-![image-20221010222921321](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312335.png)
+![[00 assets/1bbeeb2cad2e2beed44606ef1503e981_MD5.png]]
 
 ### 8.1.4 纯函数优势
 
-![image-20221010223238663](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312359.png)
+![[00 assets/d655a7aa22302819c32cb66e5d84401d_MD5.png]]
 
 ## 8.2 柯里化
 
 ### 8.2.1 基本介绍
 
-![image-20221010224005675](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312588.png)
+![[00 assets/eda146b7ea427a17d105a5ef8655a006_MD5.png]]
 
 ### 8.2.2 案例演示
 
@@ -1429,25 +1429,25 @@ var fn2 = (a) => (b) => (c) => a + b + c;
 console.log(fn(1, 2, 3), fn1(1)(2)(3), fn2(1)(2)(3));
 ```
 
-![image-20221010225201555](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312673.png)
+![[00 assets/7d4457c0f64fba3c82cd0d944ecddb48_MD5.png]]
 
 ### 8.2.3 柯里化优势
 
-![image-20221011104512341](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312827.png)
+![[00 assets/9d2c128f24cd06a514487834bc9484e5_MD5.jpeg]]
 
 > 函数单一职责
 
 即一个函数只处理一部分，如`a += 2`可以想象实际中就包含了`10+`的代码逻辑，后面也是一样的。这样就做到了`函数单一职责`，同时也做到了逻辑的复用
 
-![image-20221011104917909](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312910.png)
+![[00 assets/83a883f1e372e25c22c01ceddd650649_MD5.png]]
 
 > 逻辑复用
 
-![image-20221011105835565](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312935.png)
+![[00 assets/00bff75a32bdf432cac9f773bf41f44a_MD5.png]]
 
 > 逻辑复用 2
 
-![image-20221011133511529](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312010.png)
+![[00 assets/4510f5d5db8c96cfd2b0ea4d7104d5d6_MD5.jpeg]]
 
 ### 8.2.4 柯里化实现
 
@@ -1475,21 +1475,21 @@ let result = curry(sum);
 console.log(result(1)(2)(3)(4));
 ```
 
-![image-20221011171740564](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312136.png)
+![[00 assets/53d51b8371923421d1a3b4f1884d8d30_MD5.png]]
 
 下面为柯里化实现函数的解释
 
-![image-20221011173935468](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312591.png)
+![[00 assets/c2d0ebfe1a4bcd2044b69f67be142502_MD5.png]]
 
 ✨ 注意：需要注意一个点，假如要获取传递给函数参数的个数，可以使用`fn.length`的方式来获取
 
 其中比较难理解的就是递归的部分，这里可以参考阶乘的递归处理。
 
-![image-20221011174104593](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312615.png)
+![[00 assets/4a044db7bcbcca0ff6b46f1fcd080154_MD5.png]]
 
 还有一个迷惑的点就是`result1`的返回值的问题，明明返回的是`curried.call...`，为什么可以在该函数中调用到`curried`。这里是因为闭包的处理，所有可以访问到，遵循着作用域链来查找
 
-![image-20221011174258815](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312634.png)
+![[00 assets/16dbc02e0b34793891967b4d7460b862_MD5.png]]
 
 ## 8.3 组合函数
 
@@ -1548,7 +1548,7 @@ let result = composeFn(fn, fn1);
 console.log(result(2));
 ```
 
-![image-20221011195502656](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312656.png)
+![[00 assets/26e2f998f3488dc58a40852549518847_MD5.png]]
 
 # 9. with/eval
 
@@ -1556,63 +1556,63 @@ console.log(result(2));
 
 `with`相当于多加一层作用域来访问设定好的对象中的值。但是现在不建议来使用了，因为在`js`的严格模式中已经取消它了
 
-![image-20221011200550496](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312695.png)
+![[00 assets/a8e0afd2aeb29ec4276f7963b5af754d_MD5.png]]
 
 ## 9.2 eval
 
 可以传入字符串来执行函数
 
-![image-20221011200946165](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312761.png)
+![[00 assets/b71d095065cc96ff9aa9e56eac25aa1f_MD5.png]]
 
 现在已经不推荐使用了
 
-![image-20221011201143697](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312188.png)
+![[00 assets/9ed01a9542afeb1f775fdfa5cde03041_MD5.png]]
 
 # 10. 严格模式
 
 ## 10.1 基本介绍
 
-![image-20221011213537435](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312209.png)
+![[00 assets/ef126d1a2a71b8787c1dc1a870d42569_MD5.png]]
 
 下面 2 个是明显的错误，但是在浏览器是`静默错误`，即浏览器知道是错误的，但是不会执行
 
-![image-20221011213850934](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312232.png)
+![[00 assets/91c34f2575586c418d80560e019db181_MD5.png]]
 
 假如开启了严格模式的话，这些以前不会报错的代码，就会报错
 
-![image-20221011214009826](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312259.png)
+![[00 assets/9e0c1dc8c34aba890f28daf75936e9c2_MD5.png]]
 
 ## 10.2 开启严格模式
 
 > 全局开启
 
-![image-20221011214054520](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312302.png)
+![[00 assets/b98b59a5e59181c6656b0ae46d5e274d_MD5.png]]
 
 > 函数开启
 
-![image-20221011214124464](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312355.png)
+![[00 assets/bec4c9a2fd2df7a5f676bb9c4a5e437c_MD5.png]]
 
 ## 10.3 严格模式限制
 
-![image-20221011214148976](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312826.png)
+![[00 assets/408390dc48782157f03fd9b28854077c_MD5.png]]
 
 > 1.无法意外的创建全局变量
 
 其中`message`和`age`都会自动抬升为全局变量
 
-![image-20221011214426530](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312852.png)
+![[00 assets/7c12e9bf824db4b5a5520a3e9bbd4f46_MD5.png]]
 
 > 2.不允许函数有相同的参数
 
-![image-20221011214549016](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312883.png)
+![[00 assets/158ef32d3ad183389e80f3bda94b6661_MD5.png]]
 
 > 3.静默错误
 
-![image-20221011215200821](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312906.png)
+![[00 assets/7f70b322dd8c9e7144046bc9fd00b160_MD5.png]]
 
 > 4.不允许八进制
 
-![image-20221011215349438](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312937.png)
+![[00 assets/bcb87be4073e37d6469ad680d79a0f46_MD5.png]]
 
 > 5.with 语句不允许使用
 
@@ -1622,29 +1622,29 @@ console.log(result(2));
 
 自执行函数会指向为`undefined`，原本的自指向函数都是指向`Window`
 
-![image-20221011215701044](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312966.png)
+![[00 assets/5d25c929fddc8d435ea744570b50722c_MD5.jpeg]]
 
 同时这个就引出了`setTimeOut`的指向问题，在以前的`this`学习的时候说的`setTimeout`是直接执行，所以按照道理应该是`window`，但是实际情况并不是。所以可以猜测`setTimeout`使用的`apply`来改变指向
 
-![image-20221011220239279](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312501.png)
+![[00 assets/952ee3aaf9889e5b721be43189a9fb47_MD5.png]]
 
 # 11. 面向对象
 
 ## 11.1 基本介绍
 
-![image-20221011223056461](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312520.png)
+![[00 assets/f65305dab79489622d226108b610aa60_MD5.png]]
 
 > JavaScript 中的面向对象
 
-![image-20221011223637993](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312544.png)
+![[00 assets/6729ee87f794d79be61771b0c20e8b45_MD5.png]]
 
 下面为`new Object()`和`{ }`创建的方式，其中`{ }字面量`创建是`new Object`的语法糖
 
-![image-20221011223746567](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312571.png)
+![[00 assets/9810ae9dd75da7e795129b72c9b820bb_MD5.png]]
 
 > 获取/修改/删除
 
-![image-20221011224623612](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312598.png)
+![[00 assets/e3cb93d6ce340566d6087555c172be34_MD5.jpeg]]
 
 ## 11.2 属性描述符
 
@@ -1654,15 +1654,15 @@ console.log(result(2));
 
 使用`defineProperty`添加的属性是不可枚举的。你可以发现已经使用了`defineProperty`添加了`height`属性。但是在遍历`obj`的时候看不到，要获取只能`对象.属性值`。因为里面的`enumerable`默认被设置为`false`
 
-![image-20221011224719006](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312623.png)
+![[00 assets/64676d88601b300018e5bf19cf985243_MD5.png]]
 
 ### 11.2.2 描述符分类
 
-![image-20221011225022242](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312194.png)
+![[00 assets/627a583f25bffd2318c5483167207e76_MD5.png]]
 
 #### 11.2.2.1 数据描述符
 
-![image-20221011225232113](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312214.png)
+![[00 assets/e2802cfd00667bab708d457341a9ab45_MD5.png]]
 
 下面就是
 
@@ -1697,11 +1697,11 @@ obj.height = 1.6
 console.log(obj, obj.height)
 ```
 
-![image-20221011230319638](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312241.png)
+![[00 assets/7a4e6f612fceb73edcdff6a79248530d_MD5.png]]
 
 假如你在`defineProperty`中什么都不写的话，默认值为`false`，`value`的默认值为`undefined`
 
-![image-20221011230440033](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312269.png)
+![[00 assets/462ff1192c823e3ee8dc28b6c2cf4670_MD5.png]]
 
 #### 11.2.2.2 存取描述符
 
@@ -1733,7 +1733,7 @@ obj.name = "李四"; // 如果需要修改的话要使用_name来修改，这样
 console.log(obj.name);
 ```
 
-![image-20221016232916605](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312291.png)
+![[00 assets/af68f53ac84bd66376fda3c0cd0367fa_MD5.jpeg]]
 
 当然我们也可以不去写`defineProperty`的方法来定义，我们可以直接在对象里面定义`set`和`get`
 
@@ -1804,7 +1804,7 @@ obj.height = 1.70
 console.log(obj);
 ```
 
-![image-20221012131153141](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312309.png)
+![[00 assets/fe448a2f6b6912a1f9fcdf3be03e7dc3_MD5.png]]
 
 ### 11.2.4 属性方法
 
@@ -1829,13 +1829,13 @@ Object.seal(obj); // 禁止对象配置/删除
 Object.freeze(obj); // 禁止对象不可修改
 ```
 
-![image-20221012131604675](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312821.png)
+![[00 assets/57fa31d7daf77ab45bcf66d101d53dad_MD5.png]]
 
 ## 11.3 创建多个对象
 
 假如需要创建多个相似对象得时候，能想到得传统方法就是写多个变量
 
-![image-20221012132551814](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312839.png)
+![[00 assets/9fb46370b9946a16b9c3f24c0638ec26_MD5.png]]
 
 ### 11.3.1 工厂模式
 
@@ -1861,15 +1861,15 @@ var p2 = createPerson("李四", 20, 1.54, "湖北省");
 console.log(p1, p2);
 ```
 
-![image-20221012133320031](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312864.png)
+![[00 assets/0e3461982437dc16978cef6bb8e545b7_MD5.png]]
 
 但是这个工厂模式并不是很好得处理方式，因为无法区分是那个类。看下图就可以发现，是不是创建出来得对象不一样显示得前缀不一样
 
-![image-20221012133636668](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312892.png)
+![[00 assets/ae488fee5626604ae4346cb8851e620e_MD5.png]]
 
 ### 11.3.2 构造函数
 
-![image-20221012134118775](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312913.png)
+![[00 assets/0faba8976ac088465aaf401290f672d2_MD5.png]]
 
 下面就是构造函数得模式，比工厂模式更好
 
@@ -1891,13 +1891,13 @@ var p3 = new Person("张三", 18, 1.44, "北京市");
 var p4 = new Person("李四", 20, 1.54, "湖北省");
 ```
 
-![image-20221012134237409](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312949.png)
+![[00 assets/d33c2fc59a46edb28f78a3863420076a_MD5.png]]
 
 但是构造函数还是有一个缺点：**当你创建了一个对象，里面的函数都是重新创建的，并且放置在内存中。**
 
 这个相对来说比较浪费性能，所以对于这种效果基本一样的函数，我们可以放置在原型中
 
-![image-20221012173924709](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312472.png)
+![[00 assets/407922f52c34d3742ece78ef2809a7e0_MD5.png]]
 
 ## 11.4 原型
 
@@ -1905,7 +1905,7 @@ var p4 = new Person("李四", 20, 1.54, "湖北省");
 
 每一个对象都存在一个原型属性，即`__proto__`。每个函数都存在一个`prototype`
 
-![image-20221012175209950](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312493.png)
+![[00 assets/4a0aa8448c95453e301c0672bad4432d_MD5.png]]
 
 ### 11.4.2 隐式原型
 
@@ -1918,7 +1918,7 @@ console.log(obj.__proto__); // 浏览器提供的隐式原型
 console.log(Object.getPrototypeOf(obj)); // ES5之后提供的方法
 ```
 
-![image-20221012175747013](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312517.png)
+![[00 assets/f16fc26744ed5bd5686301d9145b5e6f_MD5.png]]
 
 ### 11.4.3 显式原型
 
@@ -1991,7 +1991,7 @@ console.log(Person.prototype.constructor);
 console.log(Object.getOwnPropertyDescriptors(Person.prototype));
 ```
 
-![image-20221012182447185](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312570.png)
+![[00 assets/56dbc856a5f577ee030d3201dc9255a8_MD5.png]]
 
 #### 11.4.3.3 批量修改原型属性
 
@@ -2034,19 +2034,19 @@ Object.defineProperty(Person.prototype, "constructor", {
 console.log(Person.prototype.constructor);
 ```
 
-![image-20221012184844494](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312613.png)
+![[00 assets/0adccd71bc736296af24976660eeaa14_MD5.png]]
 
 #### 11.4.3.3 函数添加原型
 
 下面的方式就是为函数添加原型的属性，每个用该函数创建的对象都可以获取到该原型属性
 
-![image-20221012185144550](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312192.png)
+![[00 assets/793609ffa54b5da3df41e217fb7ccd08_MD5.png]]
 
 ### 11.4.4 原型链
 
 #### 11.4.4.1 基本介绍
 
-![image-20221015223655069](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312213.png)
+![[00 assets/1040f252062cbbf254e977a543d46802_MD5.png]]
 
 其实这里就解释了上面的一个误区，访问的时候是访问`__proto__`，然后沿着原型链向上寻找
 
@@ -2069,7 +2069,7 @@ obj.__proto__.__proto__.__proto__ = {
 console.log(obj.address);
 ```
 
-![image-20221015223851563](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312240.png)
+![[00 assets/1388dc32d5d47f86c09ccfc58cad6947_MD5.png]]
 
 #### 11.4.4.2 区分构造器和对象构建
 
@@ -2077,7 +2077,7 @@ console.log(obj.address);
 
 > 函数构建
 
-![image-20221015225101920](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312273.png)
+![[00 assets/eb609ac96079296efe43e33b0259d3e9_MD5.png]]
 
 > 对象构建
 
@@ -2097,7 +2097,7 @@ var obj = new Object()
 
 #### 11.4.4.3 Object 的 prototype
 
-![image-20240503231321159](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032313305.png)
+![[00 assets/610e5d1dbeb48a8ab37eba003dd917af_MD5.png]]
 
 我们首先来看下`Object`函数的原型中具有那些属性
 
@@ -2105,31 +2105,31 @@ var obj = new Object()
 console.log(Object.getOwnPropertyDescriptors(Object.prototype));
 ```
 
-![image-20221015231531055](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312312.png)
+![[00 assets/eda2c02e1d4c304da5b5a80b5fa2f0ed_MD5.png]]
 
 其实`Object`本质也是一个函数，所以可以使用`new Object()`来创建对象。
 
-![image-20221015231807042](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312334.png)
+![[00 assets/ad83adbde7e2f9555530b8731b2a2ed6_MD5.png]]
 
 `Object`作为顶层的原型，其他的对象都会沿着`__proto__`向上查找，但是`Object`的原型对象中的`__proto__`为`null`，所以就不会向上寻找了
 
-![image-20221015232117923](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312034.png)
+![[00 assets/a28515f5d6ebafaac3c949a4b9b1a7a2_MD5.png]]
 
 这个为整个原型链的流程图。对象首先会从`obj`来寻找，然后再来沿着`__proto__`来寻找下面的对象，直到找到`Object`的原型的`__proto__`就会结束。
 
 其实本质就可以理解为一个名叫`Object`的函数，里面的原型包含了很多的方法，使用方法和平常使用构造器是一样的
 
-![image-20221015230816148](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312054.png)
+![[00 assets/ef95e615b6c3e192099840520a9f2ac1_MD5.png]]
 
 #### 11.4.4.4 构造器的 prototype
 
 其中`Person`的`prototype`的`__proto__`的也是指向着`Object`，所以这个就是继承的`Object`
 
-![image-20221015232902664](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312076.png)
+![[00 assets/16f66ce03e4229165a8b45e9fe2ac8e2_MD5.png]]
 
 ### 11.4.5 方法补充
 
-![image-20221016212241973](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312103.png)
+![[00 assets/251bbcb6b4a349921ac4ef2a2eed173b_MD5.png]]
 
 ```javascript
 var obj = {
@@ -2155,9 +2155,9 @@ console.log("name" in info);
 console.log("hobby" in info);
 ```
 
-![image-20221016223832751](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312126.png)
+![[00 assets/73262c825ef3b4fbd0281fbc953e2d13_MD5.png]]
 
-![image-20221016212253924](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312145.png)
+![[00 assets/4bccbd072dccd0f606211b86580de6e1_MD5.png]]
 
 ```javascript
 function inheritPrototype(SubType, SuperType) {
@@ -2186,7 +2186,7 @@ console.log(b1 instanceof Object);
 console.log(Boy.prototype.isPrototypeOf(b1))
 ```
 
-![image-20221016223844693](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312698.png)
+![[00 assets/2682e49216a4901d1253b7aeb1f4e43a_MD5.png]]
 
 ### 11.4.6 原型关系
 
@@ -2201,19 +2201,19 @@ var foo = new Function()
 
 首先`Foo()函数`的在创建的时候会将`prototype`赋值给`Foo原型对象`，然后`Foo原型对象`里面有一个`constructor`来指向本身的`Foo()函数`，并且`Foo()`本身作为一个对象，它会存在一个`__proto__`来指向`Function原型对象`。因为`Foo()`本身也是`new Function()`来创建的，所以`__proto__`指向构造器的原型对象。
 
-![image-20221016224842121](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312721.png)
+![[00 assets/573b3c239a84a3c18242a3a19a4092e1_MD5.jpeg]]
 
 下面为总的预览图，其中`Foo()`和`Function()`的关系可以参考上面的笔记
 
 因为`Object()`本质也是一个函数，所以它的`__proto__`指向的是`Function原型对象`，而他作为一个函数，他的`prototype`指向的是`Object原型对象`。而`Fnuction`和`Foo`的`原型对象`本身作为一个对象，指向的是`Object原型对象`。
 
-![image-20221016225208676](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312744.png)
+![[00 assets/09019b10ec9b69adbe9fad56841071e6_MD5.jpeg]]
 
 ## 11.5 继承
 
 ### 11.5.1 基本介绍
 
-![image-20221015222825212](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312773.png)
+![[00 assets/00d3553647024e2595abba9806d1cde6_MD5.jpeg]]
 
 ### 11.5.2 继承方法
 
@@ -2223,7 +2223,7 @@ var foo = new Function()
 
 我们再来看下`Object.create()`的底层实现。即`Object.create()`底层实现的功能和`createObject1()`是类似的，而`setPrototypeof()`的实现本质就和下面的`createObject2()`是差不多的
 
-![image-20221016174048261](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312793.png)
+![[00 assets/7ddb0cd0cd0a6e8c36d493f3ba598267_MD5.png]]
 
 下面为代码的实现
 
@@ -2275,31 +2275,31 @@ s1.say();
 
 因为`Object.create()`的版本可能比较高，所以可以使用`createObject()`来替换`Object.create()`
 
-![image-20221016203051023](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312846.png)
+![[00 assets/54eb5ce1a30b73e22e34c01953effc11_MD5.png]]
 
 #### 11.5.2.2 class 的继承
 
-![image-20221017090226869](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312495.png)
+![[00 assets/fda1138bd4311848232e063ffa2601d6_MD5.png]]
 
 1、这里需要特别提醒一个点，当我们使用 super 调用父元素的函数时，而这个函数正好使用 this 访问属性，那么这个 this 不是按照 js 之前的显式引入的对象，而是 子类 中的 this
 2、比如下方的图，你在 Person 类中使用 super 调用 Animal 的方法时，this 就是 Person，而不是 Animal
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202409232317010.png)
+![[00 assets/5b569bcf0f92b0b263789132eec50db9_MD5.png]]
 
 ### 11.5.3 继承内置类
 
 下面为继承`Array`，这样我们就可以在该类中编写方法，来实现数组的方法
 
-![image-20221017150856441](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312515.png)
+![[00 assets/253c815982936e97114465beadc1e2ce_MD5.png]]
 
 ### 11.5.4 类的混入
 
 下面的这个混入的方式本质是继承，只不过是使用了`js`中函数的技巧
 
-![image-20240503231419635](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032314783.png)
+![[00 assets/be872cae3d58f3a7217f7acc79eb7cd2_MD5.png]]
 
 假如学过了`react`的话可以参考下面的技巧
 
-![image-20240503231436467](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032314659.png)
+![[00 assets/3cb98562f277dbd7e79d252099bae41b_MD5.png]]
 
 ## 11.6 class
 
@@ -2311,41 +2311,41 @@ s1.say();
 
 最后还是会将`Person`的显式原型传递给`p1`，所以本质和以前的原型链是一样的
 
-![image-20221017083228286](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312565.png)
+![[00 assets/de2af937d36e018afed393613188a3ea_MD5.jpeg]]
 
 ### 11.6.2 构造函数
 
-![image-20240503231629149](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032316305.png)
+![[00 assets/560114c02729c8a8ca16d9010c1f7c10_MD5.png]]
 
 假如要使用的话，可以参考下面的。这里需要注意，一个类中只能存在一个构造函数，**不存在重载**
 
-![image-20221017083940258](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312598.png)
+![[00 assets/d26b29112b4743f48d7dc4fc19db4b54_MD5.png]]
 
 ### 11.6.3 定义方法
 
 在`class`中定义的方法，其实最后都会存入到他的原型里面。
 
-![image-20221017084518803](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312624.png)
+![[00 assets/3f7711478babfd8c8d7b275168d87db4_MD5.png]]
 
 ### 11.6.4 get/set
 
 1、假如要在类里面的属性定义`get`和`set`的话，可以参考下面的方式
 
-![image-20221017084811968](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312318.png)
+![[00 assets/bb5c435ec55e016e8a58c09d92a9aed2_MD5.png]]
 
 2、如果对`class`中的方法添加了`get`的话，就不需要添加`()`来调用了，直接当作属性使用即可
 
-![image-20230308213711496](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312338.png)
+![[00 assets/0f45348bd4991b27f504a0db9d42a957_MD5.png]]
 
 ### 11.6.5 静态方法
 
 创建静态方法
 
-![image-20221017085449546](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312358.png)
+![[00 assets/c604e36f2e58609f2ae1fc168addb3e8_MD5.png]]
 
 ### 11.6.6 重写方法
 
-![image-20221017091057783](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312380.png)
+![[00 assets/a5c6b3ef365c096bac18e23d0df7b187_MD5.png]]
 
 ### 11.6.7 babel 转换
 
@@ -2414,7 +2414,7 @@ var Person = /*#__PURE__*/ _createClass(function Person() {
 
 其中`_classCallCheck`是检测转换之后的类`Person`是否作为一个函数来调用
 
-![image-20221017102542754](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312399.png)
+![[00 assets/98b357c5403a919baa45c8d73a98a7da_MD5.png]]
 
 #### 11.6.7.2 常规使用
 
@@ -2681,15 +2681,15 @@ b1.running();
 
 其实`静态方法`和前面的为原型添加原型是一样的，只不过它是添加到`函数`的对象上面
 
-![image-20221017123707371](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312412.png)
+![[00 assets/fdc54a0a5cfe87d459412f08ea566881_MD5.png]]
 
 因为`function Person()`虽然是函数，但是本身其实是对象，这个在原型关系里面有介绍。所以静态方法本质也是对对象中的方法进行调用
 
-![image-20221017123914060](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312096.png)
+![[00 assets/992d49899648da73ab724b3f519c53ce_MD5.png]]
 
 #### 11.6.7.5 阅读源码
 
-![image-20221017124627550](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312115.png)
+![[00 assets/07332688b3790647b3930252c8d93ab6_MD5.png]]
 
 ## 11.7 多态
 
@@ -2697,15 +2697,15 @@ b1.running();
 
 对于传统语言来说，只有满足下面的 3 个条件才会体现出`多态`
 
-![image-20221017155454581](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312133.png)
+![[00 assets/d390cab05cb5b46fa8a5a4a54212de6c_MD5.png]]
 
 > ts 中对多态的体现
 
-![image-20221017155417838](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312154.png)
+![[00 assets/cee1fa415f9b38e07998b3c9e8a5d96d_MD5.png]]
 
 > js 中对多态的体现
 
-![image-20221017160144217](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312179.png)
+![[00 assets/25c59b62034af4b61243a030ded8625e_MD5.jpeg]]
 
 ## 11.8 方法
 
@@ -2713,13 +2713,13 @@ b1.running();
 
 1、如果想整个对象都不能被修改可以使用这个方式来冻结整个对象
 
-![image-20231210222148239](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312205.png)
+![[00 assets/3ee8bc594909f6b0378027453682c9c5_MD5.png]]
 
 # 12. AJAX
 
 ## 12.1 基本介绍
 
-![image-20221110104800839](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312721.png)
+![[00 assets/a96e960fc8799f74c1628d205ddb405f_MD5.png]]
 
 > 网页渲染过程 - 服务器端渲染
 
@@ -2733,69 +2733,69 @@ b1.running();
 
 ### 13.2.1 基本介绍
 
-![image-20221110123448240](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312798.png)
+![[00 assets/1828c10404abc0f492c0b5f213abc0fd_MD5.png]]
 
-![image-20221110123537052](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312827.png)
+![[00 assets/b8e699daeb7970ab1000bc7bed92b7da_MD5.png]]
 
 ### 13.2.2 HTTP 组成
 
-![image-20221110123700333](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312853.png)
+![[00 assets/e8eec589deab99439b7f982bc4598c43_MD5.png]]
 
 ### 13.2.3 HTTP 版本
 
-![image-20221110123728937](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312465.png)
+![[00 assets/3261fe15bea85dd062147385ac52f6f6_MD5.png]]
 
 ### 13.2.4 请求方式
 
-![image-20221110125333756](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312487.png)
+![[00 assets/7d2ae7e40a8552b7722bcb688b4339f9_MD5.png]]
 
 ### 13.2.5 请求头
 
-![image-20221110130139613](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312508.png)
+![[00 assets/6a1e56f701d8b14790dbaa003b8e1360_MD5.png]]
 
-![image-20221110130453952](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312532.png)
+![[00 assets/e9029203bf56e16b77a19b7c425eb89f_MD5.png]]
 
 ### 13.2.6 响应状态码
 
-![image-20221110195507165](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312565.png)
+![[00 assets/43d82455e3dbacb25da3f5b1be4dea6b_MD5.png]]
 
 ## 13.3 网络请求
 
 ### 13.3.1 基本使用
 
-![image-20221110200843007](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312589.png)
+![[00 assets/fe2a3bc854a7372f567a8c379a18c98f_MD5.png]]
 
 下面就是基本使用的代码
 
-![image-20221110203004915](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312197.png)
+![[00 assets/ed082cb30ae1e3fbe7a7bee7a8d606e0_MD5.png]]
 
 ### 13.3.2 xhr 状态
 
-![image-20221110202606186](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312220.png)
+![[00 assets/2bc8694e7a90a21176415ea2f8634758_MD5.png]]
 
 1、我们通过`xhr.readyState`来获取当前的状态。
 
 2、如果要获取服务器传输过来的数据，可以使用`xhr.response`来查看
 
-![image-20221110203030888](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312246.png)
+![[00 assets/ef52f5615ffb6c5751c8e85409256d0e_MD5.jpeg]]
 
 ### 13.3.3 关闭异步
 
 在`xhr`的`open方法`中包含第三个参数，我们设置为`false`的话就会关闭异步请求
 
-![image-20221110204620753](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312277.png)
+![[00 assets/a32bcbea460e80f911c4e92dc08fe821_MD5.png]]
 
 ### 13.3.4 事件监听
 
 对于`xhr`还存在下面很多的事件监听
 
-![image-20230111183237205](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312311.png)
+![[00 assets/1f487bd156ef06468d8e8e74c172d0e1_MD5.png]]
 
 > onload
 
 其中`onreadystatechange`只要请求发生了改变的话就会被调用，所以一次正常的请求会被调用`4`次。所以不是很节省资源，我们就可以使用`onload`来获取请求到的数据，因为这个是请求成功完成才被调用
 
-![image-20230111183532875](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312343.png)
+![[00 assets/a07f555b13cea1ed905f047a3b9a9755_MD5.png]]
 
 > onerror
 
@@ -2803,33 +2803,33 @@ b1.running();
 
 2、其实这里就要区别`状态码报错`和`连接错误`了，`状态码报错`其实是已经连接上服务器了，但是服务器返回给你的数据告诉你是错误的。但`连接错误`就是你连服务器的连接都没碰到
 
-![image-20230111220609959](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312912.png)
+![[00 assets/d30297f9402d0452457ff049ec2366f8_MD5.png]]
 
 ### 13.3.5 响应数据
 
 我们可以使用`responseType`来设置响应的类型
 
-![image-20230111215751813](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312933.png)
+![[00 assets/85b2588582fe94c49cd7cced6a262ddd_MD5.png]]
 
 ### 13.3.6 HTTP 状态
 
 其中`status`和`statusText`分别获取`状态码`和`状态描述`
 
-![image-20230111220141298](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312953.png)
+![[00 assets/467944151a64ee763ff8b2acb8550728_MD5.png]]
 
 ### 13.3.7 传递参数
 
-![image-20230112225921164](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312976.png)
+![[00 assets/d608d30f25abef5a10f713e48a4c2561_MD5.png]]
 
 > query、x-www-form-urlencoded、json
 
 我们可以使用下面的方式来发送请求
 
-![image-20230112233634416](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312010.png)
+![[00 assets/c55debc8329e1115de489d40ff71d569_MD5.png]]
 
 > formData
 
-![image-20230112234126467](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312065.png)
+![[00 assets/ac59f7f18f108a4e39e29fd747e8d5bd_MD5.png]]
 
 ### 13.3.8 超时时间/取消请求
 
@@ -2837,11 +2837,11 @@ b1.running();
 
 2、我们通过`abort()`函数，就可以取消此次请求
 
-![image-20230124122307759](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312679.png)
+![[00 assets/35463223f1e8ca7285591bd96c084341_MD5.png]]
 
 ## 13.4 请求封装
 
-![image-20230113222717313](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312702.png)
+![[00 assets/d40400041fc68ca21dcc8bbd050c84eb_MD5.png]]
 
 下面为实例代码
 
@@ -2973,19 +2973,19 @@ console.log(promiseXHR.xhr);
 
 ### 13.5.1 基本介绍
 
-![image-20230125180712570](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312726.png)
+![[00 assets/702e3f089393537eb564664e62beb4c9_MD5.png]]
 
-![image-20230126104432738](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312746.png)
+![[00 assets/4676d05821eafe8f3a6fe28d61231f24_MD5.png]]
 
 ### 13.5.2 基本使用
 
 1、下面就是对于`fetch`的基本使用，我的理解是在`ajax`的基础上进行了一次封装
 
-![image-20230125181818682](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312777.png)
+![[00 assets/a11be8ae5c699f625f1fbd1bc4a67f2d_MD5.png]]
 
 2、如果可以的话也可以使用`async/await`来优化代码
 
-![image-20230125182055435](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312796.png)
+![[00 assets/779b1c9d74353dd46c1b786e03fba094_MD5.png]]
 
 ### 13.5.3 传递参数
 
@@ -2993,11 +2993,11 @@ console.log(promiseXHR.xhr);
 
 > json
 
-![image-20230126104539599](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312439.png)
+![[00 assets/df419ca7e5bfaaf563c2aed178d0fbe4_MD5.png]]
 
 > formdata
 
-![image-20230126104606510](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312458.png)
+![[00 assets/531d50fd2ab88762b07c6ea38a46913d_MD5.png]]
 
 ## 13.6 文件上传
 
@@ -3005,21 +3005,21 @@ console.log(promiseXHR.xhr);
 
 1、其中`ajax`上传文件和`fetch`的一个区别就是`ajax`可以使用`onprogress`来进行监听文件上传进度
 
-![image-20230126105821010](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312477.png)
+![[00 assets/57ba8b5053a86c27f925a24162070fe4_MD5.png]]
 
 > fetch
 
-![image-20230126110320003](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312507.png)
+![[00 assets/666ee877780a0bba3604e5bd39aab6df_MD5.png]]
 
 # 13. 错误处理
 
 对于一些函数中无法解决得问题，我们可以直接使用`throw`来抛出错误
 
-![image-20221210201301991](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312533.png)
+![[00 assets/6494d151847bd6e9805a72628574fe08_MD5.png]]
 
 其中抛出错误得方式有下面得 4 种方式
 
-![image-20221210220933971](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312572.png)
+![[00 assets/4e6f266c9b7c096a860ed25774afdf06_MD5.png]]
 
 # 14. JSON
 
@@ -3029,33 +3029,33 @@ console.log(promiseXHR.xhr);
 
 ## 15.2 基本使用
 
-![image-20221207172837711](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312179.png)
+![[00 assets/3b6648423232089c1a7fdf33bc45505e_MD5.png]]
 
 ## 15.3 序列化
 
 ### 15.3.1 基本使用
 
-![image-20221207173838236](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312201.png)
+![[00 assets/de677fbfc63fe85115259f227c97b8a5_MD5.png]]
 
 ### 15.3.2 stringfy
 
 对于`stringfy()`存在下面的 3 个参数的使用
 
-![image-20221207180106060](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312223.png)
+![[00 assets/c01c54aef66ab6569bae952cc4d8cc71_MD5.png]]
 
 我们还可以对`object`中添加一个`toJSON()`的方法，这是因为每次调用`JSON.stringfy`的时候就会调用`object`中存在的方法，所以我们可以自定义该函数`序列化`之后的样子
 
-![image-20221207180303437](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312248.png)
+![[00 assets/0019ff85d73cee6ff73d98074bbd23b0_MD5.png]]
 
 ### 15.3.3 parse
 
-![image-20221207180752026](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312276.png)
+![[00 assets/f5921d27d9f52707b7146c1f9e450d85_MD5.png]]
 
 ## 15.4 深拷贝
 
 其实`JSON`可以对象进行深拷贝。但是这种方式有一个问题，就是不能对对象中得函数进行转换
 
-![image-20221207195124317](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312945.png)
+![[00 assets/478c516a7093f3cdad224cb88faa1ce7_MD5.png]]
 
 # 15. 数据存储
 
@@ -3065,7 +3065,7 @@ console.log(promiseXHR.xhr);
 
 2、`localStorage`生命周期是永远存在，除非手动删除。并且多窗口都是可以使用得
 
-![image-20221207223259342](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312966.png)
+![[00 assets/30a5c3b8cb0ce5c6c6aab458b9b69c2c_MD5.png]]
 
 ## 16.2 存储封装
 
@@ -3112,29 +3112,29 @@ class Storage {
 
 > 基本介绍
 
-![image-20221207235736207](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312986.png)
+![[00 assets/c596dff48c8f7231181e7567fe1055bd_MD5.png]]
 
 > 连接操作
 
-![image-20221208002223222](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312009.png)
+![[00 assets/a8f2d8750906e060d04c1d3830ed3925_MD5.png]]
 
 > 增加
 
 注意：一般是执行完操作之后进行回调。并且连接数据库也是需要消耗时间，而且连接时异步，所以尽量将事务放置在回调中处理，这样避免事务没开启得情况
 
-![image-20221208004127733](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312038.png)
+![[00 assets/482bffd2ab1eb0d0e4634e09c5cec7f5_MD5.png]]
 
 > 查询
 
-![image-20221208004759682](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312061.png)
+![[00 assets/5af070ea84377ac3680789a49b439731_MD5.png]]
 
 > 修改/删除
 
 其实修改和删除得本质是在查询得基础上进行处理，下面得操作获取来得游标
 
-![image-20221208005407743](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312754.png)
+![[00 assets/a09c60a79128dd55055636883ec4a7d5_MD5.png]]
 
-![image-20221208005703806](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312773.png)
+![[00 assets/7e7011b2cb48f829da398dd2f65f6423_MD5.png]]
 
 ## 16.4 Cookie
 
@@ -3146,7 +3146,7 @@ class Storage {
 
 ### 17.1 基本介绍
 
-![image-20221208135419303](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312797.png)
+![[00 assets/8a14c808c82fb1b31fc9a3ebc10a84d6_MD5.png]]
 
 ### 17.2 window
 
@@ -3154,25 +3154,25 @@ class Storage {
 
 > 作为全局对象
 
-![image-20221208135856806](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312828.png)
+![[00 assets/0f2e2edec082d686a9f91cebcfcac737_MD5.png]]
 
 > 作为浏览器连接得对象
 
 **MDN 网址**：[Window - Web API 接口参考 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/API/Window)
 
-![image-20221208140601999](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312856.png)
+![[00 assets/5033ebd361ec8f298414edd35d0e1664_MD5.png]]
 
 #### 17.2.2 基本使用
 
 下面为`window`中比较常见得属性、方法、事件
 
-![image-20221208142017696](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312884.png)
+![[00 assets/d4e27f62e31694e2aa4d79a13f133727_MD5.png]]
 
 #### 17.2.3 EventTarget
 
 当然`window`继承自`EventTarget`，本质其实是继承下面得 3 个方法
 
-![image-20221208142800222](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312541.png)
+![[00 assets/4564c4413cdac2ac9044e3df9bb67369_MD5.png]]
 
 ### 17.3 location
 
@@ -3180,17 +3180,17 @@ class Storage {
 
 下面为`location`常见得属性
 
-![image-20221208143323707](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312560.png)
+![[00 assets/cff304a5c1759af188a8fb956c972d7d_MD5.png]]
 
 下面是`jd`得`location属性`
 
-![屏幕截图 2021-12-09 122627](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312580.png)
+![[00 assets/918f7985f835a16ddfcd47c1ad0ab5f0_MD5.png]]
 
 #### 17.3.2 常见方法
 
-![image-20221208143916405](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312602.png)
+![[00 assets/41719b4ca17c6947aca1dc0794f0acbd_MD5.png]]
 
-![image-20221208144103540](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312628.png)
+![[00 assets/82c76540861b9acae48a5e6975917cd4_MD5.png]]
 
 ### 17.4 navigator
 
@@ -3223,17 +3223,17 @@ class Storage {
 
 假如我们看的是电脑端浏览器
 
-![屏幕截图 2021-12-10 222150](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312652.png)
+![[00 assets/0d9943ca7fcbf1b177096589e463e989_MD5.png]]
 
 假如我们使用手机端浏览器
 
-![屏幕截图 2021-12-10 222203](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312226.png)
+![[00 assets/44096d95a00ae8e2d5b54f8b724769ee_MD5.png]]
 
 ### 17.4 history
 
-![image-20221208144229559](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312246.png)
+![[00 assets/43b24d82a06f686ef031b024c21486d3_MD5.png]]
 
-![image-20221208144949392](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312266.png)
+![[00 assets/61b6711ada8e8eab017145bd8930b15d_MD5.png]]
 
 ## 16.2 DOM
 
@@ -3241,47 +3241,47 @@ class Storage {
 
 对于`DOM`来说就是按照下面得方式来做`架构`，其中`Document`和`Element`是并列关系
 
-![image-20221208225912870](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312291.png)
+![[00 assets/58a22b94f00fae253dbd34c9f4cd700c_MD5.png]]
 
 ### 17.2 EventTarget
 
 因为都是继承得`EventTarget`所以可以使用`addEventListener`...方法来对事件进行监听
 
-![image-20221208230606001](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312323.png)
+![[00 assets/d45075bc81b17561f545f450ad8776e6_MD5.png]]
 
 ### 17.3 Node
 
 **MDN 网址**：[Node - Web API 接口参考 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/API/Node)
 
-![image-20221208232034939](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312344.png)
+![[00 assets/1b7544ebe6bc22a1e6de5c24e6235999_MD5.png]]
 
 ### 17.4 Document
 
-![image-20221209232707347](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312962.png)
+![[00 assets/849703b9fe9f7277c54431bd5559b7d0_MD5.png]]
 
 ### 17.5 Element
 
-![image-20221209233143083](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312981.png)
+![[00 assets/6144d3f61e5419811a21b7bf67a5bbdf_MD5.png]]
 
 ## 16.3 事件监听
 
 ### 16.3.1 基本介绍
 
-![image-20221209233757540](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312004.png)
+![[00 assets/b83dfaa3b8b19aa7d90a56e0ceb5910e_MD5.png]]
 
-![image-20221209234342653](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312031.png)
+![[00 assets/68cd0dd278c8d4d3303893cc69c3a717_MD5.png]]
 
 ### 16.3.2 事件流
 
-![image-20221210163431698](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312056.png)
+![[00 assets/e6905020b968b04bd0d09ec3307b6ce2_MD5.png]]
 
-![image-20221210163401422](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312083.png)
+![[00 assets/5cbeae653f29d8a70180e89b9d263d22_MD5.png]]
 
 ### 16.3.3 event
 
 **MDN 文档**：[事件参考 | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/Events)
 
-![image-20221210164210843](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032312712.png)
+![[00 assets/024073bb8c9f3a92aa74f9229ac3ba57_MD5.png]]
 
 # 17.字符串
 
@@ -3290,7 +3290,24 @@ class Storage {
 视频教程: https://www.bilibili.com/video/BV1Wp4y1j79w?vd_source=8992a13080c32977bce93a5140823f3b
 
 针对码元码点这一块，其实本质就是有一些文字 emoji 的码元不是一个，而是两个
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202501192331242.png)
+![[00 assets/2e7e619ae467350719e34750ef5b8e41_MD5.png]]
 
 我们可以使用如下的方式来解决，也可以自己封装
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202501192332332.png)
+![[00 assets/98f1f0848f07e47bab6260f121ac5145_MD5.png]]
+
+
+# 18.位运算符
+
+1、因为`ESMAScrip`默认是`IEEE 754 64位格式`存储数据的，但位操作不能使用`64位`，所以会将数据先转为`32位`然后在进行位运算，然后再转为`64位`
+
+2、负值是按照二补数的形式来存储的，下面是负值的存储方式
+
+![[00 assets/14cebc3363b19dd84a3057f5474882a1_MD5.jpeg]]
+
+3、下面就是基本的位运算符
+
+![[00 assets/efdde59fa5c1719ddb207b1ddc88c748_MD5.jpeg]]
+
+![[00 assets/a11440cdced0a894142437a3a3862874_MD5.jpeg]]
+
+但是对于`>> << >>>`存在一些细节，比如`>>>`就是无符号右位移，对于正数来说问题不大，但是对于负数来说就有很大的区别了
