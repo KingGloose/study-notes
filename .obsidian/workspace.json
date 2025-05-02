@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/07 Vue.md",
+                "file": "03 前端/08 React.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "07 Vue"
+              "title": "08 React"
             }
           },
           {
@@ -133,7 +133,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 288.49999618530273
+    "width": 242.49999618530273
   },
   "right": {
     "id": "833a170ccf889101",
@@ -205,7 +205,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 282.5
+    "width": 277.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -221,17 +221,19 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "00 assets/a579ed5664732fe6498f793cd4649a11_MD5.jpeg",
-    "00 assets/Pasted image 20250502174839.png",
-    "00 assets/d0c46685b030efb5df496ab117e36f27_MD5.jpeg",
-    "00 assets/Pasted image 20250502174756.png",
-    "00 assets/ce7ba73eccd7a16b1ab3f0fe29fd2680_MD5.jpeg",
-    "00 assets/Pasted image 20250502174739.png",
-    "00 assets/047c47378911c6cb8aa621488065b46b_MD5.jpeg",
-    "00 assets/Pasted image 20250502174653.png",
-    "00 assets/584e26e93f17e3b7c7c5a6c28b2d4ab6_MD5.jpeg",
-    "00 assets/Pasted image 20250502174636.png",
-    "00 assets/9efd16574d1e70427e01d49bbe2e0cb2_MD5.jpeg",
+    "00 assets/6e427977b8da64c314a91f77d4633481_MD5.jpeg",
+    "00 assets/Pasted image 20250502182344.png",
+    "00 assets/89ec0d6223da7fa7a8048290bd1b2cb3_MD5.jpeg",
+    "00 assets/Pasted image 20250502182315.png",
+    "00 assets/b91b9f4312c4bb5cdd1efbcda90da95b_MD5.jpeg",
+    "00 assets/Pasted image 20250502182254.png",
+    "00 assets/9ce903807de9118b46ae026a074da2db_MD5.jpeg",
+    "00 assets/Pasted image 20250502182209.png",
+    "00 assets/a263a140e99b223b01fb6b271f348d19_MD5.jpeg",
+    "00 assets/Pasted image 20250502182111.png",
+    "00 assets/5738d9ee8b1e21deed9f4dafc90fafff_MD5.jpeg",
+    "03 前端/07 Vue.md",
+    "03 前端/08 React.md",
     "03 前端/06 Jquery.md",
     "03 前端/05 ECMAScript.md",
     "03 前端/03 JavaScript/Reflect.md",
@@ -248,8 +250,6 @@
     "03 前端/18 NestJS.md",
     "123.md",
     "03 前端/09 NodeJS.md",
-    "03 前端/08 React.md",
-    "03 前端/07 Vue.md",
     "README.md",
     "03 前端/24 Vite.md",
     "03 前端/25 Bun.md",
