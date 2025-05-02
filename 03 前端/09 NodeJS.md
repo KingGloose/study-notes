@@ -24,7 +24,7 @@
 
 首先`Node.js`也是`JS`，所以要运行在`JS运行引擎`中，这里主流的就是使用**V8**。但是`Node.js`并不运行在浏览器，而是在`服务器`中，所以也剔除了很多和浏览器不相关的东西，比如`HTML\CSS`、`Blink`......
 
-![image-20220806231837433](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324871.png)
+![[00 assets/ecce7f1a38c43d2081216e09f3f80a3d_MD5.png]]
 
 `V8引擎`中`浏览器`和`Node.js`的的关系
 
@@ -36,7 +36,7 @@
 
 下面就是`node.js`的另外一种原理图片，我们可以知道在**中间层**支持**事件循环队列**
 
-![image-20220820181731620](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324904.png)
+![[00 assets/0c8c4e81d92e854cf18689a8ff71cbd7_MD5.png]]
 
 下面是 Node.js 的基本架构，我们可以看到，Node.js 是运行在操作系统之上的，它底层由 V8 JavaScript 引擎，以及一些 C/C++ 写的库构成，包括 libUV 库、c-ares、llhttp/http-parser、open-ssl、zlib 等等。
 
@@ -46,7 +46,7 @@
 
 中间层之上就是 Node.js 的 API 层了，我们使用 Node.js 开发应用，主要是使用 Node.js 的 API 层，所以 Node.js 的应用最终就运行在 Node.js 的 API 层之上。
 
-![image-20220831095734746](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324911.png)
+![[00 assets/45a94aa6b718b8596c16e8ba3f3fef4c_MD5.jpeg]]
 
 > 内置模块
 
@@ -65,7 +65,7 @@ Node.js 内置的模块比较丰富，常用的主要是以下几个。
 
 > 应用场景
 
-![image-20220820182358095](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324922.png)
+![[00 assets/b25973939ce8f939d35a28e97653e0e4_MD5.png]]
 
 ## 1.2 安装
 
@@ -83,65 +83,65 @@ Node.js 中文文档：[Node.js 中文网 (nodejs.cn)](http://nodejs.cn/)
 
 ## 1.3 使用
 
-![image-20220807213714597](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324661.png)
+![[00 assets/b2b14ebf856b6d29e2269772e5070184_MD5.jpeg]]
 
 ## 1.4 REPL
 
 **REPL**是**Read-Eval-Print Loop**的简称，翻译为**"读取-求值-输出”循环**。REPL 是一个简单的、交互式的编程环境。其实浏览器的`console`就是一个基本的`REPL`
 
-![image-20220820195430924](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324679.png)
+![[00 assets/aa70f08ac1cdbe4c5e44ba30fad5479c_MD5.jpeg]]
 
 下面就是`Node`的`REPL`的环境
 
-![image-20220820195721706](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324696.png)
+![[00 assets/cb06014f1c67845bde6214f4f5a80f2a_MD5.png]]
 
 在`Node`的`REPL`也支持多行函数语句
 
-![image-20220820212212954](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324713.png)
+![[00 assets/3d8a41ab83401fe8faf7fcd349aa0ee9_MD5.png]]
 
 `Node`其实也有`浏览器`差不多的`window`对象，它就是`global`。但是`process`也是属于一种全局变量
 
-![image-20220820211707694](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324731.png)
+![[00 assets/563dcd6f69b74df5bca8de0d851da6e7_MD5.png]]
 
 ## 1.5 全局对象
 
 ### 1.5.1 特殊的全局对象
 
-![image-20220820215720174](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324764.png)
+![[00 assets/0e70e38e326dc022802e1e703a475866_MD5.png]]
 
 其中`__dirname`、`__filename`可以查看我下面的笔记
 
 #### 1.5.1.1 __dirname
 
 1、用于获取当前执行`js`文件的绝对路径
-![image-20220807222531697](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324252.png)
+![[00 assets/50f1100162cba87457df51da58308824_MD5.png]]
 
 2、为什么可以拿到 `__dirname` 本质是因为 NodeJS 是一个函数的环境 `function(xxx)` 那么可以直接拿到 `__dirname` ，如果你在 NodeJS 中使用 ESM 模块，就没有 `__dirname`，那么我们想使用 `__dirname` 该怎么做呢？
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202503072209040.png)
+![[00 assets/8555da7059229dbfe32029ba89df7279_MD5.png]]
 
 #### 1.5.1.2 \_\_filename
 
 这个和上面的`__dirname`的区别就是，就是这个全局对象是带有文件，但是上面的只能到文件夹
 
-![image-20220820220237645](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324277.png)
+![[00 assets/9da90f412408b9ecf046c3287d8fc6cf_MD5.png]]
 
 `__dirname`和`__filename`就是一种**特殊的全局变量**，算是全局变量。但是只能在模块中使用，并且控制台打印也是没有的
 
-![image-20220820220655498](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324305.png)
+![[00 assets/e75ee867d5e030d82f89a683e607ce09_MD5.jpeg]]
 
 ### 1.5.2 常见的全局对象
 
-![image-20220820222137555](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324353.png)
+![[00 assets/e747eb97f8e133f915afe7f0c80261b5_MD5.png]]
 
 #### 1.5.2.1 process
 
 我们在`node`的时候可以给运行环境传递参数
 
-![image-20220820213543865](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324377.png)
+![[00 assets/b775136f379bf0a436c1a8effa946683_MD5.png]]
 
 下面是关于`argv`的解释，`vetor`这种数据结构在`Java`集合里面提到过
 
-![image-20220820213901902](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324430.png)
+![[00 assets/236bd230caf0ef19c61144cd416ef96f_MD5.png]]
 
 \*`process.platform`可以获取电脑的平台
 
@@ -151,7 +151,7 @@ Node.js 中文文档：[Node.js 中文网 (nodejs.cn)](http://nodejs.cn/)
 
 这里有一个特别的数据，可以追溯调用栈，他就是`console.trace()`
 
-![image-20220820214754487](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324975.png)
+![[00 assets/b7265e9db28e367f0adc416a81ad045f_MD5.jpeg]]
 
 官方文档：[Console | Node.js v16.17.0 Documentation (nodejs.org)](https://nodejs.org/dist/latest-v16.x/docs/api/console.html)
 
@@ -177,61 +177,61 @@ process.nextTick(() => {
 });
 ```
 
-![image-20220820222304585](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324015.png)
+![[00 assets/e7fc9844ab96f45cdc2e8492f17384fb_MD5.png]]
 
 当然还有`clearSetTimeout`...等可以去清除定时器
 
 #### 1.5.2.4 global
 
-![image-20220820222454134](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324053.png)
+![[00 assets/de1d4f6c7cf8677a258a95c44238a3e3_MD5.png]]
 
 但是上面并不是`global`所有的内容，我们需要进入到`REPL`中，输入`global. + tab + tab`就可以去查看`global`所有的内容。
 
-![image-20220820222711404](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324081.png)
+![[00 assets/f95d3f3d2944a41821aa64256b99841b_MD5.png]]
 
 `global全局变量`和浏览器中的`window`有点像，但是并不完全像，我们可以看下面的例子
 
-![image-20220820223615140](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324109.png)
+![[00 assets/7a83129c252eb97384ea81ad56dcf86c_MD5.jpeg]]
 
 你放在`Node`中是不行的
 
-![image-20220820224501438](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324721.png)
+![[00 assets/6848f3051cbcf8b637c60f274202df32_MD5.png]]
 
 这是因为**window**本身是不分模块的，所以数据可以访问到。但是**node**是分模块的，假如你设置了一个变量，这样就干扰了各个模块的变量名
 
 下面就是`node`源码，它是通过`ObjectDefineProperty()`来对`global.process`中进行双向绑定
 
-![image-20220820225106791](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324744.png)
+![[00 assets/fb18ab74b0758992ef34d96cb366ce1c_MD5.png]]
 
 不是很清楚为什么进入到`node`的`REPL`的时候就可以去运行，并且可以查找到数据
 
-![image-20220820224630505](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324768.png)
+![[00 assets/384b91e4ca8aadc30fdc3c81702e4fc0_MD5.png]]
 
 ## 1.6 版本切换
 
 1、`nvm-window`用于`window`系统中`Node.js`的版本切换：[coreybutler/nvm-windows: A node.js version management utility for Windows. Ironically written in Go. (github.com)](https://github.com/coreybutler/nvm-windows)
 
-![image-20230219220324229](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324811.png)
+![[00 assets/595c979893c5e5b7788a137f6890083b_MD5.png]]
 
 2、注意我们安装`nvm`的时候不能出现中文路径。下面就是基本使用
 
-![image-20230219220511600](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324834.png)
+![[00 assets/b3f3b77fc47ca5037eb99a8952503c33_MD5.png]]
 
 3、我们也可以使用`n`工具来切换`nodejs`的版本
 
-![image-20230219220715970](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324891.png)
+![[00 assets/20cbd3374d57cdc6f71c8bbbe3af6b22_MD5.png]]
 
 ## 1.7 输入输出
 
-![image-20230219221100390](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324358.png)
+![[00 assets/fd4f9c1a6c4b581582219918a6752b52_MD5.png]]
 
 1、一般情况下我们是不会主动转入参数
 
-![image-20230219221046137](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324385.png)
+![[00 assets/b5b092f41e0f88c3d658a8d90ab11e97_MD5.png]]
 
 2、`argv`的名字由来
 
-![image-20230219221224204](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324410.png)
+![[00 assets/487b9eb26aa0d23c8e7a80b64d0dbac7_MD5.jpeg]]
 
 # 2. fs
 
@@ -245,15 +245,15 @@ npm install --save-dev @types/node
 
 在`Node.js`中`fs`模块很重要
 
-![image-20220823091940062](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324438.png)
+![[00 assets/249913fbb61e8ee790d37cb8f4ef72fc_MD5.png]]
 
 在 API 中大多数都提供了这三种操作方式
 
-![image-20220823092246990](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324461.png)
+![[00 assets/0783b1c85c632da9e40fdd7bd3d1b92c_MD5.png]]
 
 我们也可以使用下面的代码来查看`Node.js`有那些模块
 
-![image-20220902130116634](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324523.png)
+![[00 assets/67a5e6df0890c30005dbd947b1416fe3_MD5.jpeg]]
 
 ## 2.2 读取文件信息
 
@@ -269,7 +269,7 @@ console.log("他是同步执行代码");
 console.log(info);
 ```
 
-![image-20220823093137776](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324201.png)
+![[00 assets/616635ee65e9fabf88ff69781da28bd2_MD5.jpeg]]
 
 当然还有`fstatSync`，这个和`statSync`唯一的区别就是它是传入**文件描述符**，这个在下一节可以看到
 
@@ -287,7 +287,7 @@ fs.stat(filepath, (err, info) => {
 console.log("这是异步操作")
 ```
 
-![image-20220823093416159](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324222.png)
+![[00 assets/547f2fcf55de36c4d265d66f6ee655b6_MD5.png]]
 
 我们获取到文件信息，不仅仅是`字符数`、`时间`......还可以判断是否为`文件夹`或者`文件`
 
@@ -316,11 +316,11 @@ fs.promises.stat(filepath).then(info => {
 console.log("这是Promise的异步回调")
 ```
 
-![image-20220823093833663](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324247.png)
+![[00 assets/35aa31e12d8c06dab8e22faacac7a541_MD5.png]]
 
 ## 2.3 文件描述符
 
-![image-20220823094545335](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324267.png)
+![[00 assets/2c26afaebec433c524ba775dad7544d1_MD5.png]]
 
 我们可以使用`fs.open()`中的回调函数来获取该文件的文件描述符。使用这个文件描述符可以操作该文件，而不需要写该文件的路径
 
@@ -338,7 +338,7 @@ fs.open(filepath, (err, fd) => {
 })
 ```
 
-![image-20220823103352742](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324290.png)
+![[00 assets/e601fd2a0175737ad0198563327d2e81_MD5.png]]
 
 这里就是使用`fstat`来读取文件信息，这个和`stat`唯一的区别就是传入的第一个参数不同。`stat`传入的是文件路径，但是`fstat`传入的是文件描述符。同理`statSync`和`fstatSync`
 
@@ -364,17 +364,17 @@ fs.open(filepath, (err, fd) => {
 });
 ```
 
-![image-20220823104757410](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324316.png)
+![[00 assets/542a97864a7050735cf1e83e9648d0a0_MD5.png]]
 
 ## 2.4 写入和读取
 
 ### 2.4.1 基础使用
 
-![image-20220823111735143](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324835.png)
+![[00 assets/d70289c768dd6678c4cb4754ab0d2702_MD5.png]]
 
 下面就是**读取和写入**文件的 2 个方法`readFile`和`writeFile`
 
-![image-20220807220329322](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324858.png)
+![[00 assets/bd08f2e34d4721cd206acc105d29a784_MD5.jpeg]]
 
 ```javascript
 const fs = require("fs"); // 使用require来引入fs文件模块
@@ -421,7 +421,7 @@ fs.writeFile("1.txt", "太阳真好!", "utf-8", function (err) {
 
 **flag 查询**：[File system | Node.js v16.17.0 Documentation (nodejs.org)](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#file-system-flags)
 
-![image-20220823112012497](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324880.png)
+![[00 assets/0506f3c72a2e1c6ee7fd27f168891338_MD5.png]]
 
 > encoding
 
@@ -450,7 +450,7 @@ fs.readFile("./abc.txt", { encoding: "utf-8" }, (err, dataStr) => {
 });
 ```
 
-![image-20220823113703568](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324902.png)
+![[00 assets/981f3b7d5d851d0cd98e8f5dff81b121_MD5.png]]
 
 ## 2.5 文件夹操作
 
@@ -489,11 +489,11 @@ fs.readdir(dirname, (err, files) => {
 });
 ```
 
-![image-20220823115021411](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324940.png)
+![[00 assets/a01d8f8fd75aec4ade98012cfb5b2a65_MD5.png]]
 
 ✨ 这里有一个小坑，下面写的是一个读取文件夹下所有的文件，使用这种方式不行。假如采用硬编码的会导致可维护性很差，所以这就是一个小坑。
 
-![image-20220823151407137](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324984.png)
+![[00 assets/df77024045d8c25ae57769e761e621cd_MD5.jpeg]]
 
 下面就是读取文件夹中所有的文件，这里使用的`fs.stat()`来获取文件状态，判断是否为文件，然后再进行的嵌套递归
 
@@ -519,11 +519,11 @@ function getFiles(dirname) {
 getFiles(dirname);
 ```
 
-![image-20220823153410813](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324443.png)
+![[00 assets/f4125499ad789fef76460f210a7d9c58_MD5.png]]
 
 就是`readdir`有一个书写就是`{ withFileTypes:true }`。这样获取来的文件是一个对象数组，里面包含了文件的名称和状态
 
-![image-20220823154519148](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324462.png)
+![[00 assets/76330bad08d5cb3a6e8ca6a82c237cb2_MD5.png]]
 
 所以就不需要像上面的那种方式还需要自己来手写获取文件的状态，然后再来判断。其实也简单不了多少
 
@@ -549,7 +549,7 @@ function getFiles(dirname) {
 getFiles(dirname);
 ```
 
-![image-20220823154632227](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324483.png)
+![[00 assets/0841437f399656d0925f1de944daaaf9_MD5.png]]
 
 ### 2.5.3 文件夹重命名
 
@@ -576,17 +576,17 @@ let files = fs.readdirSync(__dirname);
 console.log(files)
 ```
 
-![image-20220910180352177](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324618.png)
+![[00 assets/52bd296fdb7f7b0e5d5052aebc59b7a5_MD5.jpeg]]
 
 ## 2.6 动态路径问题
 
 在`node.js`中，我们直接`node`的话就会进行路径的拼接来执行
 
-![image-20220807221346050](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324638.png)
+![[00 assets/5159d7863d8b9a3f581d7af5c180b4f3_MD5.png]]
 
 假如我们换一个路径来执行这个程序的话就会出现问题，这个时候根路径就出现问题了
 
-![image-20220807221559258](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324858.png)
+![[00 assets/dc04769d87a39feaec63e1d70ef300b8_MD5.png]]
 
 > 解决方法
 
@@ -634,7 +634,7 @@ while (i < 3) {
 
 将`src`文件下的内容拷贝到`dest`文件下
 
-![image-20220823191240014](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324947.png)
+![[00 assets/559cf080fa69f5f15220ce67feccfe8f_MD5.png]]
 
 # 3. path
 
@@ -644,39 +644,39 @@ while (i < 3) {
 
 但是为什么一定要使用`path`来进行拼接路径呢？不仅仅是因为语法规范，更是因为操作系统不一样，所以路径的名字也不一样，所以直接使用`path`的话就可以解决这个问题
 
-![image-20230218152508995](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324984.png)
+![[00 assets/1b7f722ed955073cfa71b51f0c09476c_MD5.png]]
 
 为什么会有`windows`和`Mac Linux`的路径区别呢？就是因为这个**可移植操作系统接口**
 
-![image-20230218152527480](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324016.png)
+![[00 assets/8fd3aa1709e1816b7b79414aa44613ba_MD5.png]]
 
 ## 3.2 基本 API
 
-![image-20230218152545579](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324135.png)
+![[00 assets/50f20b512f78b7e7bb0b6f45d6ab859a_MD5.png]]
 
 #### 3.2.1 path.dirname()
 
 `path.dirname`可以获取文件的根路径，但是不包含文件名
 
-![image-20220822113116380](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324278.png)
+![[00 assets/93ea493f124328de383c4be1a0984f57_MD5.png]]
 
 #### 3.2.2 path.basename()
 
 `path.basename()`方法，可以获取路径中的最后一部分，经常通过这个方法获取路径中的文件名
 
-![image-20220808104148906](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324593.png)
+![[00 assets/e7a58caf24e14d539d3e081dd574b807_MD5.jpeg]]
 
 #### 3.2.3 path.extname()
 
 使用`path.extname()`方法，可以获取路径中的扩展名部分
 
-![image-20220808104714069](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324615.png)
+![[00 assets/db5599a11b8764f14b5fe0eb214489f7_MD5.jpeg]]
 
 #### 3.2.4 path.join()
 
 `path.join()`方法可以将多个代码片段连接在一起，拼接成完整得路径字符串。并且你会发现使用这种方式，可以将原本`Linux和Mac`的`/`标识符改变为`\`，用于`windows`
 
-![image-20220808102656437](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324633.png)
+![[00 assets/9a0c3f2cfabd8a141172bc2eb8aa89b5_MD5.png]]
 
 #### 3.2.5 path.resolve()
 
@@ -696,15 +696,15 @@ path.resolve("../src/Code", "abc.txt") // D:\code\src\Code\abc.txt
 path.resolve("../src/Code", "/", "abc.txt") // D:\abc.txt
 ```
 
-![image-20220822234235687](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324722.png)
+![[00 assets/52d30050a648fc2e80b28857dc9df5bd_MD5.png]]
 
 4、对于`path.resolve()`必定是返回一个绝对路径
 
-![image-20230218154644896](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324760.png)
+![[00 assets/7456db68a1e0bb245b6cb900e883969f_MD5.png]]
 
 5、 在`webpack`中可以一般都是使用`path.resolve()`来解决这些问题
 
-![image-20230218152824962](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324164.png)
+![[00 assets/3b3e5286e280adbcdf049c8804c7287e_MD5.png]]
 
 #### 3.2.6 其他 API
 
@@ -788,7 +788,7 @@ function resolveHTML(dataStr) {
 
 该模块主要是为了开发`Web服务器`，对外提供资源
 
-![image-20220902231751467](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324185.png)
+![[00 assets/c2d919b0c62acce1fb5fd0fbe97ba25e_MD5.png]]
 
 ## 4.2 基本使用
 
@@ -863,17 +863,17 @@ server.listen(Http_Port, () => {
 
 查看`Node.js`的源码可以发现，其实本质是一样的`createServer`就是`new Server()`
 
-![image-20220902235505691](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324234.png)
+![[00 assets/6ec93ebf1c1af02c5cdd4e7429cea6ea_MD5.png]]
 
 ### 4.2.4 listen()
 
-![image-20220903093235808](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324288.png)
+![[00 assets/083b0f7658e1b50fb86d95f9fcd0b2d9_MD5.png]]
 
 当然`listen()`也包含 3 个参数
 
 > 参数一
 
-![image-20220903093348695](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324339.png)
+![[00 assets/2d77acfb01b4171632879a6b93d2d1db_MD5.png]]
 
 ```javascript
 // 假如你不写端口号的话，就默认分配端口号
@@ -883,23 +883,23 @@ server.listen(() => {
 });
 ```
 
-![image-20220903093538896](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324866.png)
+![[00 assets/714fdc0d5a80ec869be205ce15dc36b4_MD5.png]]
 
 > 参数二
 
-![image-20220903093559609](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324896.png)
+![[00 assets/f2e10b9186ff042db941aefc235fcaf7_MD5.png]]
 
 假如你的`主机host`设置为其他`ip`的话，就会导致其他 ip 访问不到。
 
-![image-20220903093745338](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324931.png)
+![[00 assets/f1cd86897befcc0721182fbd7e76028c_MD5.png]]
 
 假如你设置为`0.0.0.0`的话就不会有这些问题，默认`IPV4`都是可以访问的
 
-![image-20220903093924071](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324953.png)
+![[00 assets/5dffe630cfac28e530794e384a45fd44_MD5.png]]
 
 > 参数三
 
-![image-20220903094011783](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324990.png)
+![[00 assets/2085e35fb12fd15266999bbc5f09f990_MD5.png]]
 
 ## 4.2 req 和 res
 
@@ -907,27 +907,27 @@ server.listen(() => {
 
 #### 4.2.1.1 基本使用
 
-![image-20220903094755500](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324014.png)
+![[00 assets/61b3f8e9dc33831817169118f20bb188_MD5.png]]
 
 在`req`中也包含了很多的数据，可以使用`req`来查看
 
-![image-20220903095018857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324546.png)
+![[00 assets/35b9c3459a586f334bb53a7eacc1b92f_MD5.png]]
 
 #### 4.2.1.2 解析 url
 
 但是这里就有一个问题，假如传来的 url 是带`query`参数的，`req`获取到的`url`就是带参的，不方便判断
 
-![image-20220903100157576](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324570.png)
+![[00 assets/fbfca2ab7c61864bccdd3468a559d60c_MD5.png]]
 
 所以这个时候就需要使用`url模块`
 
-![image-20220903100506580](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324593.png)
+![[00 assets/657e203b8e459c8cfe274be4f6c328dd_MD5.jpeg]]
 
 #### 4.2.1.3 解析 query
 
 假如我们需要解析`query参数`，我们可以导入`queryString`参数，并且解析出来为对象
 
-![image-20220903100856028](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324617.png)
+![[00 assets/cfb1540f813297d6666a01ab2a21de90_MD5.png]]
 
 当然我们使用`queryString`模块的`parse()`来解析的时候可以传入第二个参数来做分隔，比如`qs.parse(url,"&")`这样就已`&`为基础来分隔整条`url`，而且`qs.parse()`的第二个参数默认就是`&`，第三个参数默认就是`=`，这样我们就可以分割`query`参数，比如`/login?name=zjh&age=18&weight=1.88`，最后分割出来就是`{name:zjh,age:18,weight:1.88}`
 
@@ -962,21 +962,21 @@ server.listen(Http_Port, "0.0.0.0", () => {
 });
 ```
 
-![image-20220903103434125](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324649.png)
+![[00 assets/60e9cd4306f878af94234caff4729fca_MD5.png]]
 
 #### 4.2.1.5 请求 header
 
-![image-20220903104746696](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324800.png)
+![[00 assets/ca0ce2de3bd0e42adf7535159d087b15_MD5.png]]
 
 > 1
 
-![image-20220903104512722](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324226.png)
+![[00 assets/a8d6ea4d2bcf8093cbca4afe21d4c311_MD5.png]]
 
 这个在`http`请求的测试软件中一般都会自动切换
 
 > 2.
 
-![image-20220903104610272](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324249.png)
+![[00 assets/de0f864a1fe6c461a62b449217124ffb_MD5.png]]
 
 1.在最后项目打包的时候`webpack`会对项目进行打包，但是这种打包还是不够。我们可以将`js`文件打包为`.gz`文件，只要`header`中包含`accept-encoding`的`gzip`，这样我们就可以发送`.gz`文件给浏览器进行解压，这样减少了传输的数据量
 
@@ -988,7 +988,7 @@ server.listen(Http_Port, "0.0.0.0", () => {
 
 假如我们追踪`createServer`回调函数中的`res`就会发现，其实`res`的本质就是`Stream.Writeable`
 
-![image-20220902233609492](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324279.png)
+![[00 assets/83b76402f9adec25112c89179b10314e_MD5.png]]
 
 我们使用`res`就可以给客户端来响应数据。其中`write`表示响应数据，但是不会关闭流，还可以继续响应。`end`表示响应最后一次，执行完毕就会关闭流
 
@@ -1036,7 +1036,7 @@ server.listen(8080, function () {
 });
 ```
 
-![image-20220808222818724](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324305.png)
+![[00 assets/da953f6f8c86db3182b21b2a0f95f598_MD5.png]]
 
 #### 4.2.2.3 设置状态码
 
@@ -1059,7 +1059,7 @@ server.listen(Http_Port, "0.0.0.0", () => {
 });
 ```
 
-![image-20220903144811397](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324415.png)
+![[00 assets/ce7aaa242d12e5be1677433d17af2746_MD5.png]]
 
 #### 4.2.2.4 响应 header
 
@@ -1090,11 +1090,11 @@ server.listen(Http_Port, "0.0.0.0", () => {
 
 我们进入到`http.get()`就可以知道，回调函数中传入的参数的类型是`IncomingMessage`
 
-![image-20220903151601338](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324593.png)
+![[00 assets/0dace8fcac5f8e53cb91cfaf6df425bc_MD5.png]]
 
 不是以前的以前`http.createServer()`中的`res`
 
-![image-20220903151759797](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324975.png)
+![[00 assets/ed3471a2a0f42c548f4e0e4fc46abc1b_MD5.png]]
 
 下面是使用`Node.js`给我的另外一个服务器发送请求
 
@@ -1113,7 +1113,7 @@ http.get("http://127.0.0.1:8080", (res) => {
 });
 ```
 
-![image-20220903153543452](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324992.png)
+![[00 assets/de90e59e59bf0063199939d26d6f442f_MD5.png]]
 
 下面是使用`http.request`的方式来发送`POST`，当然使用这种方式也可以发送多种请求，只 i 需要将`method`改为其他的请求的名字即可。
 
@@ -1140,11 +1140,11 @@ req.end();
 
 下面的发送`POST`请求的方式有一个小细节，假如你不去手动关闭`req.end()`的话，就会导致传输数据的阻塞，只有你手动关闭才能正常接收
 
-![image-20220903153837388](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324014.png)
+![[00 assets/61b3f8e9dc33831817169118f20bb188_MD5.png]]
 
 当你设置了`req.end()`的话就会正常接收数据
 
-![image-20220903153903586](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324036.png)
+![[00 assets/7cff8372dbe1ce49761b7fd09e94498b_MD5.png]]
 
 一般的开发中都会使用`axios`来发送网络请求，使用原生的方式比较少
 
@@ -1152,11 +1152,11 @@ req.end();
 
 下面是错误的示例，不能使用这种方式来处理文件上传。这里的整个思路是没问题的，客户端分批发送字节流数据，服务端使用流来接收。但是发送的数据包含`请求头数据，以及其他的数据`一起夹杂在流中，所以就会导致文件打不开
 
-![image-20220903160122062](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324212.png)
+![[00 assets/c7543a9395baf3be8a1510bd7f48d520_MD5.png]]
 
 下面使用原生的方式来处理文件上传，在项目中大部分都会使用框架
 
-![image-20220903161240704](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324357.png)
+![[00 assets/7fed0450b3b89fffc49a5a5c08a40add_MD5.png]]
 
 1.下面就是传输来的数据，可以发现头部的信息基本就是`header`信息，在`PNG`的后面就是真正需要存入的数据。
 
@@ -1164,7 +1164,7 @@ req.end();
 
 3.`--------------2157167123124131370\r\n`表示的是`boundary`，表示的是上一段数据和下一段数据的分隔符
 
-![image-20220903162056643](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324424.png)
+![[00 assets/a9a9f3a75ac85eec6b46c86462c36f66_MD5.png]]
 
 下面就是原生写`文件上传`的代码，主要还是字符串的删减
 
@@ -1225,7 +1225,7 @@ server.listen(Http_Port, "0.0.0.0", () => {
 
 这个其实时钟案例，我们不是将`HTML`中的`CSS`和`JS`拆分出来了吗？现在我们就需要请求`HTML`来实现效果
 
-![image-20220809083329624](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324507.png)
+![[00 assets/58130eae77ed98e6a615a031e6ee208c_MD5.png]]
 
 下面就是代码
 
@@ -1260,13 +1260,13 @@ server.listen(8080, function () {
 
 这里其实是需要注意的一个点，因为你请求了`HTML`的话，那么这个`HTML`也会去请求里面的`CSS`和`JS`，假如你加上第三句的话是请求不到，因为请求`CSS`和`JS`都需要走这个回调方法，如果没有匹配到`url`的话就不会请求到，所以需要加上第三句来保底
 
-![image-20220809083831914](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324527.png)
+![[00 assets/4c47addff0b6faff70693eb6f4100b03_MD5.png]]
 
 # 5. event
 
 ## 5.1 基本介绍
 
-![image-20220823192001478](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324733.png)
+![[00 assets/32610f65e0a067830ba253af96d12371_MD5.png]]
 
 ## 5.2 基本使用
 
@@ -1320,7 +1320,7 @@ console.log(emitter.listenerCount("click")); // 2. 获取该事件的个数
 console.log(emitter.listeners("click")); // 3. 获取该事件的监听
 ```
 
-![image-20220823195243479](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324056.png)
+![[00 assets/ab279de914f85f396ce037210905b9a8_MD5.png]]
 
 ## 5.4 其他 API
 
@@ -1358,19 +1358,19 @@ emitter.removeListener("click");
 
 1、该方法可以将基于回调的函数转换为基于`Promise`的函数
 
-![image-20220829221414260](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324077.png)
+![[00 assets/f889002040b1a44fb64f5187f60c8135_MD5.png]]
 
-![image-20240120234321364](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324098.png)
+![[00 assets/bd2f8ce8c5e355b9c3f3c9df9492d6a6_MD5.png]]
 
 ## 8.2 is......
 
 1、内部存在很多的`is`实现的方法，直接使用判断类型即可，但是要注意很多的`is...`在不同的版本被废弃了，使用的时候注意甄别
 
-![image-20240120234907008](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324158.png)
+![[00 assets/73da52f331dd1a48461e957c733cc5b6_MD5.png]]
 
 2、取而代之的是很多不常用的类型的判断
 
-![image-20240120234950857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324191.png)
+![[00 assets/c5ccbc637ebb81ad2ed12233b5a10cae_MD5.png]]
 
 ## 8.3 callbackify
 
@@ -1378,7 +1378,7 @@ emitter.removeListener("click");
 
 2、这个和`promisify`基本相反，这个是转为回调函数，但是他不仅仅可以转化`promise函数`，还可以转化普通函数
 
-![image-20240121000122885](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324481.png)
+![[00 assets/348e34be23395ed39cd6fddef0fe1edc_MD5.png]]
 
 # 6. 模块化
 
@@ -1388,7 +1388,7 @@ emitter.removeListener("click");
 
 ## 7.1 基本介绍
 
-![image-20220823221410872](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324437.png)
+![[00 assets/1c782cc6cdeac87756ad36a4f0f789a4_MD5.jpeg]]
 
 **npm 官网**：[npm (npmjs.com)](https://www.npmjs.com/)。具体的`npm`使用可以参考我**以前的笔记**
 
@@ -1410,11 +1410,11 @@ npm uninstall jquery	//卸载jquery
 
 ## 7.2 项目配置文件
 
-![image-20220823222528783](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324488.png)
+![[00 assets/a15f7e93b0121dbb5c1054b225f1051b_MD5.png]]
 
 下面就是`Vue cli4`、`Vue cli2`和`自己创建的文件`的配置文件的信息
 
-![image-20220823222639896](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324545.png)
+![[00 assets/52e167ee193e5d06a3880a2ef2f8a26b_MD5.png]]
 
 当然现在很多包都有自己的非标字段，可以参考下面的视频：[开源库中的 package【渡一教育】-村头一只鹅鹅-稍后再看-哔哩哔哩视频 (bilibili.com)](https://www.bilibili.com/list/watchlater?bvid=BV17s421N7qF&oid=1854283439)
 
@@ -1422,47 +1422,47 @@ npm uninstall jquery	//卸载jquery
 
 ### 7.3.1 基础属性
 
-![image-20220823222931870](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324086.png)
+![[00 assets/cef56077f0f9b873dc02fff9adce6aef_MD5.png]]
 
-![屏幕截图 2022-03-02 224507](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324109.png)
+![[00 assets/2d062ec304c8917d0fc112b4fe99508e_MD5.png]]
 
 ### 7.3.2 private
 
-![image-20220823222945969](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324131.png)
+![[00 assets/7f35568169381d11425dbe3a7c3ed6af_MD5.png]]
 
 当我们在`package.json`中配置了`private`为`true`的话就可以设置该项目为私有的
 
-![image-20220823223004664](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324153.png)
+![[00 assets/8a189a3c76172f9b4e34d8be233c0301_MD5.png]]
 
 ### 7.3.3 main
 
-![image-20220823223114138](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324181.png)
+![[00 assets/c2a99ba88847da19eba86cd1c9444faa_MD5.png]]
 
 这个`main`属性可以设置程序的入口，我们在自己写的项目中用处不是很大，因为大部分的操作都是使用`webpack`来操作的，所以我们设置这个属性没啥用。
 
 但是在你要发布的`npm`项目中就需要这个配置来作为入口，假如你不写的话可能别人下载你的包就不会被执行，来执行后续的操作
 
-![image-20220823223324439](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324256.png)
+![[00 assets/b590347e2f991e755d35e846caffd570_MD5.png]]
 
 ### 7.3.4 scripts
 
-![image-20220823223943630](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324777.png)
+![[00 assets/08fd534ec25bededb05cf7c799640429_MD5.png]]
 
 1、下面就是配置`scripts`中的信息
 
-![image-20220823224132971](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324798.png)
+![[00 assets/ba790261964e651521a751ffb53dc8c5_MD5.png]]
 
 2、假如我们在`script`中配置`start,test,stop,restart`就可以省略`run`，直接输入`npm start`...
 
-![image-20220823224403690](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324826.png)
+![[00 assets/9ae9dca517290a4e2f068a02fa034b52_MD5.png]]
 
 3、我们配置`scripts`属性的时候，可以不写`npx`或者`npm`的，因为我们配置之后会默认在该项目的`./node_modules/.bin`文件夹下面寻找。这一点非常重要，因为我们在查看`包版本`的时候就需要使用到这个知识
 
-![image-20230218175250296](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324855.png)
+![[00 assets/ae9c92ab9121ff6049a4feade2df8ac5_MD5.png]]
 
 ### 7.3.5 dependencies
 
-![image-20220823224722956](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324890.png)
+![[00 assets/44ac285d90024d588853fc7185a4ee4b_MD5.png]]
 
 其实在真实的开发中和`main`是一样的，基本不用区分这个 2 个属性，只要我们的项目中依赖了这个包`webpack`就会自动打包进去。
 
@@ -1470,11 +1470,11 @@ npm uninstall jquery	//卸载jquery
 
 ### 7.3.6 engines
 
-![image-20220823230304695](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324952.png)
+![[00 assets/0bd66424afc2e68bffbd606dc339ce1c_MD5.png]]
 
 ### 7.3.7 browserslist
 
-![image-20220823230327896](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324489.png)
+![[00 assets/256da5561bbb3b3b31ac5391999a04af_MD5.png]]
 
 ## 7.4 版本管理
 
@@ -1482,7 +1482,7 @@ npm uninstall jquery	//卸载jquery
 
 `2`表示大版本更新，`1`表示功能更新，`3`表示问题修正。`^`表示功能会更新，`~`表示功能不更新
 
-![image-20220823225500158](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324510.png)
+![[00 assets/6214567ca4b9c8bd99052eb98105a55d_MD5.png]]
 
 **npm**遵循下面 2 种方式来区分版本号
 
@@ -1494,13 +1494,13 @@ npm uninstall jquery	//卸载jquery
 
 ### 7.5.1 基本使用
 
-![image-20220823232100217](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324530.png)
+![[00 assets/066f570e59dd242d6cfc6b6d11f3e204_MD5.png]]
 
 下面的 3 种模式都是可以的，无非就是写法的不同
 
-![image-20220824104103936](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324551.png)
+![[00 assets/74360cdca1c65acd5aa12e2c4bf97459_MD5.png]]
 
-![image-20220825163812054](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324618.png)
+![[00 assets/15dd50a9eabd5de0383ce65d0b83ff1a_MD5.png]]
 
 还有很多的命令需要的时候可以查看官网：[CLI Commands | npm Docs (npmjs.com)](https://docs.npmjs.com/cli/v8/commands)
 
@@ -1510,57 +1510,57 @@ npm i axios@1.1.2 // 安装特定的版本
 
 ### 7.5.2 全局安装误解
 
-![image-20220823232208947](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324648.png)
+![[00 assets/9aa02dd3252d8f3e7d81121f6b673cf0_MD5.png]]
 
 其实我也有这样误解：**首先全局安装不等于全局引用**，你全局下载的包不一定会被全局引用。这里打个比方：你全局安装了`jquery`，这个包会放置在`C:\Users\张嘉辉\AppData\Roaming\npm\node_modules`路径下
 
 如果你使用了 nvm 来做 node 版本管理得话，可以在 nvm/node_modules 下面来寻找
 
-![image-20220824101226697](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324201.png)
+![[00 assets/f52fb7ecd5baa1bd6dccd50d52a8e14e_MD5.png]]
 
 但是你引入的时候，不可能引入到这个文件，除非你修改`npm`的全局路径。并且你会发现下面的路径根本和上面对不上，所以也不存在找到这一说
 
-![image-20220824101409986](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324227.png)
+![[00 assets/97167d7ccaf67839cedbe3d6a8c405a2_MD5.png]]
 
 但是，为什么全局安装工具就可以找到呢？这是因为你全局安装的是工具库的话就会自动在 node 在根目录下生成`cmd`可执行文件，假如你是安装的`jQuery`、`axios`...这种的，就不会生成可执行文件
 
-![image-20220824101629339](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324250.png)
+![[00 assets/90a1b37fbfcc2b58b74a3a9d3788f02d_MD5.png]]
 
 并且还配置了环境变量，所以我们在任何一个终端输入名字就可以定位到这里来执行。
 
-![image-20220824101044081](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324274.png)
+![[00 assets/5545f56c9f965c5d3dc861f28f844e87_MD5.png]]
 
 ### 7.5.3 npm i 原理
 
-![image-20220825093555090](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324304.png)
+![[00 assets/5bf47de7b2857a78b0687b03841dd9f1_MD5.png]]
 
 这里的构建依赖关系是因为一些包可能会重复依赖一个包。比如`webpack`和`aixos`同时依赖一个包的情况下，就会对让他们直接引入这个包，这是以前的依赖方式，就是一个树形结构。但是现在就是扁平化的模式，你引入的包都摊平在一起
 
-![image-20220825093628133](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324384.png)
+![[00 assets/0673bf560b48539d76c80859d017f7c5_MD5.png]]
 
 下面就是有无`package.lock.json`的描述
 
-![image-20220825110741902](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324815.png)
+![[00 assets/25a6dda1391ec8f0317c95f53934e78a_MD5.png]]
 
 我们安装`axois`可以发现，其实他也会安装其他的依赖
 
-![image-20220825112614523](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324843.png)
+![[00 assets/482f5080576d58919f69395bb55b005c_MD5.png]]
 
 我们再来看`axios`中的依赖`form-data`，里面也会引入其他的依赖
 
-![image-20220825112902245](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324958.png)
+![[00 assets/9ff89e686f43d40bd460014ff0733971_MD5.png]]
 
 ### 7.5.4 package-lock.json
 
-![image-20220825115214206](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032324980.png)
+![[00 assets/4fd471a92a22612697dfff81759b11ec_MD5.png]]
 
 但是最新的版本中会有一个`packages`的属性，官网对这个属性的解释：[package-lock.json |npm Docs (npmjs.com)](https://docs.npmjs.com/cli/v8/configuring-npm/package-lock-json#packages)。个人理解：可能是为包的名字打上属性
 
-![image-20220825115458292](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325006.png)
+![[00 assets/d466c9470a1d3b61619aba9bd90c6a4a_MD5.png]]
 
 我们在这里就会发现`package-lock.json`文件的作用了，原本的`package.json`文件只能记录你安装的包的版本，但是不会记录依赖的依赖的版本，下面的`follow-redirects`有 2 个不同的版本，虽然只是功能的升级。所以在传递代码的时候记得带上`package.lock.json`文件，不然会导致安装的版本不同
 
-![image-20220825163316242](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325107.png)
+![[00 assets/33a47a531543682d56168af622bc321a_MD5.png]]
 
 ### 7.5.5 缓存机制
 
@@ -1568,25 +1568,25 @@ npm i axios@1.1.2 // 安装特定的版本
 
 我们输入下面的命令可以查看`npm`的缓存文件的位置
 
-![image-20220825120417942](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325635.png)
+![[00 assets/db1f3df91fbcfbea774ca3d73f46da13_MD5.png]]
 
 我们打开文件夹之后，进入`npm-cache`就可以进入该文件的缓存目录了。其中`index-v5`就是`content-v2`的索引
 
-![image-20220825120642210](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325656.png)
+![[00 assets/e4d03101289ee71d3835678a7dad4f03_MD5.png]]
 
 我们随便打开`index-v5`其中的一个索引就会发现里面对应的是一个文件，通过算法来查找这些文件。
 
-![image-20220825162723577](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325673.png)
+![[00 assets/4e7884a85afc186e87866cd100612054_MD5.png]]
 
 我们将这些文件加上`.tgz`的后缀进行解压其实我们缓存中的依赖了
 
-![image-20220825163123535](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325692.png)
+![[00 assets/626dfe78cb7936bcfbc078ba618334a4_MD5.jpeg]]
 
 ## 7.6 其他工具
 
 ### 7.6.1 yarn
 
-![image-20220825170716816](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325727.png)
+![[00 assets/fa43163925dc00205b9b0e62dc097f90_MD5.png]]
 
 假如我们需要使用`yarn`来安装依赖的话
 
@@ -1596,35 +1596,35 @@ npm i yarn -g
 
 下面就是`yarn`和`npm`的命令的关系图，其实`yarn`和`npm`是差不多的
 
-![image-20220825170730117](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325241.png)
+![[00 assets/442702fdd48873d4e102878814434878_MD5.png]]
 
 ### 7.6.2 cnpm
 
-![image-20220825171645191](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325263.png)
+![[00 assets/42b9ba69acaa3fc15386a315c90bc1ab_MD5.jpeg]]
 
 ### 7.6.3 npx
 
-![image-20220825173432715](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325287.png)
+![[00 assets/7dd4bc9a79c5572585bb338e7d79cc54_MD5.png]]
 
 1、假如我们需要全局安装`webpack`的话需要输入`npm i webpack -g`和`npm i webpack-cli -g`
 
 这个时候我们在局部来安装`webpack`，再使用`webpack -v`来查看该工具的版本，很显然调用的是全局的`webpcck`，那要怎么才能使用局部的`webpack`呢？
 
-![image-20220825173639151](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325309.png)
+![[00 assets/cacc3024bc1a9ac3eefbc11ee0fa4e2b_MD5.png]]
 
 假如我们要执行局部的`webpack`，其实本质就是执行`node_modules/.bin/`下面的`webpack`文件
 
-![image-20220825173918836](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325350.png)
+![[00 assets/cdfb4c398f6073e8195a8989177d10db_MD5.png]]
 
 所以就会出现下面的 3 种方式来执行局部的`webpack`。这里要说下第二种方式，在`package.json`中配置`webpack`的话，会默认在最近的`node_modules`中去执行
 
-![image-20220825173445043](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325386.png)
+![[00 assets/92de8e055d23a96a8e2bfb702540b295_MD5.png]]
 
 2、但是这里存在一个特殊的情况，我们在查看`webpcak`的版本的时候就会一直查看全局的`webpack`版本。即便你在`node_modules\.bin`中或者使用`npx`查看版本也会查看全局版本
 
 并且因为`VSCode`权限问题，所以我们要查看`webpack`版本需要使用`管理员权限`，并且上述问题都是只有`webpack`才存在的问题
 
-![image-20230218205221163](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325893.png)
+![[00 assets/3ce8c398f38b81b28712cea504f31f43_MD5.jpeg]]
 
 ### 7.6.4 pnpm
 
@@ -1632,31 +1632,31 @@ npm i yarn -g
 
 原本使用`npm/yarn`的时候，每下载一个项目就会将原本所有的包下载一遍，这样就会导致项目越来越大。所以就可以使用 pnpm`对包进行`软链接`和`硬链接`处理来节约内存
 
-![image-20230218211708167](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325925.png)
+![[00 assets/24b050a5003593143b73af1cb2d501be_MD5.png]]
 
 #### 7.6.4.2 硬链接和软链接
 
 > 基本介绍
 
-![image-20230218214910863](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325025.png)
+![[00 assets/f1e8e5a7d18b25b62764602e95d7d06e_MD5.png]]
 
 > 基本使用
 
-![image-20230218215845150](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325047.png)
+![[00 assets/20beaaf33934de99f4ff516697be47df_MD5.png]]
 
 1、我们使用`硬链接`之后只要修改了其中的一个文件，建立链接的文件也可以进行同步
 
-![image-20230218225429883](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325068.png)
+![[00 assets/af700e7e4cc732373adf7bef25525aed_MD5.png]]
 
 2、其实就可以理解为操作系统中的`快捷方式`，如果你删除了原本的文件，这个软连接就会消失
 
-![image-20230218230120357](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325206.png)
+![[00 assets/443c1fbd18da020b4b7366d8d29dac7e_MD5.png]]
 
 #### 7.6.4.3 高效/节省磁盘
 
 `pnpm`会对你下载的包进行`硬链接`，所以我们构建项目直接将库中的数据读取即可，而且节省磁盘
 
-![image-20230218231002628](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325630.png)
+![[00 assets/5d9c6ca028ce5c93b46c657f3696fbc8_MD5.jpeg]]
 
 #### 7.6.4.4 非扁平化 node_modules
 
@@ -1664,37 +1664,37 @@ npm i yarn -g
 
 现在的`npm`就是下载的非扁平化的包`node_modules`，也就是会将不同的包都放置到`node_modules`中，不会再出现一个包中又出现`node_modules`。但是这种方式还是有问题，因为包都是扁平化的，所以我们可能存在引入没有下载包，也就是不能随意引入代码
 
-![image-20230218232915542](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325655.png)
+![[00 assets/67e7e96eb38a4b1e84ed6760271a4eba_MD5.png]]
 
 2、我们使用`pnpm add xxx`来下载包，因为是第一次下载所以并没有复用的包
 
 3、查看左边的标识箭头，可以看到其实底层的文件夹是使用的`软链接`来处理的，它会跳转到`硬链接`中
 
-![image-20230218233316240](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325679.png)
+![[00 assets/a30edca9b22a6539f08549d6a60e1ebc_MD5.png]]
 
 4、其中`pnpm`中包管理就是按照下面的方式来存储，都是`软链接和硬链接`组合来操作的
 
-![image-20230218234902121](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325704.png)
+![[00 assets/6c3332cb4599cebc770742ef270fe334_MD5.png]]
 
 5、我们再下载一遍`axios`的时候，就会发现速度很快，而且并没有下载包，而是直接复用
 
-![image-20230218235243588](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325850.png)
+![[00 assets/bfc98d0e615d119467d1b58703c229f4_MD5.png]]
 
 #### 7.6.4.5 基本操作
 
-![image-20230218235537764](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325396.png)
+![[00 assets/193af2c35f84965f015b17aae9ad3499_MD5.png]]
 
 #### 7.6.4.6 store 存储
 
-![image-20230219140859969](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325420.png)
+![[00 assets/ebd1a1f8806a77b3081fa08232c76af5_MD5.jpeg]]
 
 ## 7.8 发布项目
 
-![image-20220830223954011](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325446.png)
+![[00 assets/0b1f1e53ab6bb0c8d03da556a3b7671a_MD5.png]]
 
 假如你要发布的话，可能还需要注意下面的 4 个属性
 
-![image-20220902191620811](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325474.png)
+![[00 assets/a63e80178cc6585836541297a51133d1_MD5.png]]
 
 另外还需要一个`readme文档`，假如在项目里包含`readme文档`的话，到时候查看我们的项目就会在主页显示文档
 
@@ -1751,43 +1751,43 @@ npm install --registry=https://registry.npm.taobao.org
 
 我们通常情况下，是浏览器来处理图片和文件。并且一个图片其中的一个像素点的`rgb`值就是`0~255`，其中当`rgb`值为 0 时，二进制值就是`0000 0000`；当`rgb`值为 255 时，二进制就是`1111 1111`。就是这样一组的二进制值可以来展示一个图片
 
-![image-20220830224727051](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325880.png)
+![[00 assets/0447ff8fbb5e11cb1a7baae1daf1564d_MD5.png]]
 
 但是`Node.js`是服务器语言，不能依赖浏览器。所以`Node.js`就需要执行二进制流
 
-![image-20220830225701453](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325905.png)
+![[00 assets/e90003935a1ef51560ccd2eeec1d2221_MD5.png]]
 
 ### 9.1.2 字符串
 
-![image-20220831150303063](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325936.png)
+![[00 assets/12acf413dc3ad64d15d7e1b7ebfb72b0_MD5.png]]
 
 下面就是使用`Buffer`来存储的基本过程，因为`1111 -> f`，所以使用八位最大的 16 进制就是`ff`
 
 但是下面的这种方式已经过时了，不推荐使用这种方式
 
-![image-20220831151437720](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325071.png)
+![[00 assets/d14207270462f59f4ceeeb003fd39f95_MD5.png]]
 
 现在可以使用`Buffer.from()`来转换
 
-![image-20220831151741262](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325617.png)
+![[00 assets/faa634a180ac55c42fd576e4b036cf08_MD5.png]]
 
 大致的存储过程，将字符串`why`转换为`0000 0000`的八位二进制，然后转换为十六进制进行存储
 
-![image-20220831152037152](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325637.png)
+![[00 assets/fbff289ec0bccc7d70738706c2d02a9b_MD5.png]]
 
 ### 9.1.3 中文编码
 
 下面就是使用`utf8`和`utf16le`的编码差别，`utf8`对中文默认是 3 组 6 字节，而`utf16le`对中文默认是 2 组 4 字节
 
-![image-20220831152501040](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325654.png)
+![[00 assets/09493fc795ef3f892a1d7463972664fb_MD5.png]]
 
 假如我们来解码的话，默认也是使用`utf8`来解码的。假如你是使用`utf16le`来编码，却是`utf8`来解码的，就会出现乱码
 
-![image-20220831153227277](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325681.png)
+![[00 assets/7741840304d0e4ccb2005ca80dd39742_MD5.png]]
 
 ## 9.2 创建方式
 
-![image-20220831153353139](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325717.png)
+![[00 assets/05130d1b83256ccd9a476a6584f2ab1a_MD5.png]]
 
 Buffer 的官方文档：[Buffer | Node.js v18.8.0 Documentation (nodejs.org)](https://nodejs.org/dist/latest-v18.x/docs/api/buffer.html)
 
@@ -1795,7 +1795,7 @@ Buffer 的官方文档：[Buffer | Node.js v18.8.0 Documentation (nodejs.org)](h
 
 `Buffer.alloc()`里面可以传入一个值，就是要开辟的字节长度。假如是**1kb**的话就是**1024byte**，在`Buffer.alloc`里面写入的参数就是**1024**
 
-![image-20220831153841507](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325787.png)
+![[00 assets/64c24e1812a68c634cf34f2ddcf574a0_MD5.png]]
 
 ## 9.3 文件读取
 
@@ -1803,15 +1803,15 @@ Buffer 的官方文档：[Buffer | Node.js v18.8.0 Documentation (nodejs.org)](h
 
 下面的`readFile`的本质就是使用`Buffer`来读取进制流。
 
-![image-20220831154631527](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325187.png)
+![[00 assets/c28e0e0315163ea21634189e2530315e_MD5.png]]
 
 我们使用`readFile`也可以读取其他文件
 
-![image-20220831155044948](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325291.png)
+![[00 assets/e9c9534d38490cc6bbb67ccc98800d09_MD5.png]]
 
 下面就是使用`readFile`来读取其他文件，并且将读取到的进制流写入到另外一个文件中
 
-![image-20220831155201830](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325311.png)
+![[00 assets/537fe96d18b59de39b445e47c4f4deb1_MD5.png]]
 
 ### 9.3.2 Sharp 使用
 
@@ -1854,29 +1854,29 @@ sharp("./Login.png")
 
 ### 10.1.1 基本介绍
 
-![image-20220831194900405](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325335.png)
+![[00 assets/8a98a3878f1d54c73099bf81d6dac1f4_MD5.jpeg]]
 
 ### 10.1.2 进程和线程
 
-![image-20220831195008159](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325377.png)
+![[00 assets/6f540cc7fc6b1e84ddfd431d59b9e2bc_MD5.png]]
 
 ### 10.1.3 多进程多线程开发
 
-![image-20220831195642150](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325464.png)
+![[00 assets/7a70de12824c8e4f6045c40df3b56e17_MD5.png]]
 
 ### 10.1.4 JavaScript 和进程
 
-![image-20220831195803716](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325912.png)
+![[00 assets/54a5d53dec522bde4738607ba1b6443e_MD5.png]]
 
 ## 10.2 JS 执行过程
 
 ### 10.2.1 非异步执行
 
-![image-20220831200959561](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325941.png)
+![[00 assets/b96e4ee349487a90e8755bdd21f8a662_MD5.jpeg]]
 
 ### 10.2.2 异步执行
 
-![image-20220901101550109](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325979.png)
+![[00 assets/03f6def22d24b72b849725722ee68db9_MD5.png]]
 
 ## 10.3 浏览器事件循环
 
@@ -1904,21 +1904,21 @@ console.log(result);
 ```
 
 前面的`sum`和`bar`执行完毕之后。就轮到了最后的`setTimeOut`定时器，这个时候会将该`timer`函数保存在某一个位置，不阻塞后面的代码。当定时器时间到了之后，就会将`timer`函数放置再事件队列中，通过事件循环将`timer`函数丢到函数调用栈中被执行。注意，这个是浏览器中的事件循环
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202406031118418.png)
+![[00 assets/7c69d66d409b271a34da843de0fe8a04_MD5.png]]
 
 ## 10.4 宏任务和微任务
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202410171348777.png)
+![[00 assets/5bc101dc23948f55a308184b4bc62626_MD5.png]]
 
 但是既然有 2 个队列，那么事件循环是如何处理这 2 个队列。通过下面的代码就可以知道
 
 首先是优先执行`微任务`，当`微任务队列`都被事件循环压入函数调用栈之后，就会去执行`宏任务队列`。当处理了一个宏任务队列，就会去检查`微任务队列`是否其他任务。假如有的话就去处理`微任务队列`，假如没有的话就继续执行下一个`宏任务队列`中的函数。每次执行一个`宏任务队列`中的函数，就会去检查`微任务队列`
 
-![image-20220901153142851](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325638.png)
+![[00 assets/a0d215b0dbdf59164d46d6704e6bab92_MD5.png]]
 
 这个就很好的简述了上图代码的执行情况
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202410171348850.png)
+![[00 assets/6693cf7283aa529b46c5204810907541_MD5.png]]
 
 > 面试题
 
@@ -1965,11 +1965,11 @@ new Promise(function (resolve) {
 });
 ```
 
-![image-20220901192717142](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325683.png)
+![[00 assets/d7e09e81e369e9e6d21488530502cd9e_MD5.png]]
 
 这里其实有一个我以前理解不是很深的一个点，就是`new Promise()`中的回调函数，他其实不属于上面的事件循环的流程，而是直接在`script`中执行。而`then()`才是丢到微任务队列中执行。这就意味着`new Promise()`中先去执行，然后才会去执行`微任务`中的函数
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202410171348222.png)
+![[00 assets/44832039e41292c8b001cf9ab676a904_MD5.png]]
 
 这里有一个小知识，`async`和`await`可以看作是`Promise`的语法糖
 
@@ -1977,7 +1977,7 @@ new Promise(function (resolve) {
 
 2.`await`的下一条语句，可以看做是`then ( res => { 函数执行 } )`中的代码；
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202410171348979.png)
+![[00 assets/94e014decc4c5580eb3f0dea596efd3c_MD5.png]]
 
 看下下面执行的情况
 
@@ -2009,11 +2009,11 @@ new Promise(function (resolve) {
 });
 ```
 
-![image-20220901194211419](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325765.png)
+![[00 assets/856d0f27d4358ccc1130ba3df69101d8_MD5.png]]
 
 ## 10.5 Node 架构
 
-![image-20220901194702608](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325275.png)
+![[00 assets/dd213e62b3ea276a4c857667b417ac88_MD5.png]]
 
 我们在`Application`中写了一个`fs.readFile`，`js`本身不会去读取文件，首先是`V8`引擎来翻译，丢到`NodeAPI`中去读取文件，`NodeAPI`又会去调用`Libuv`来读取文件。最后其实就是`Libuv`来读取的文件。
 
@@ -2021,43 +2021,43 @@ new Promise(function (resolve) {
 
 > 基本介绍
 
-![image-20220901232425761](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325300.png)
+![[00 assets/4004979c185de71d09ff85a28008f3a0_MD5.png]]
 
 其实对于文件的操作就是使用`Libuv`来实现的，然后来调用`操作系统`设置好的文件操作
 
-![image-20220901232720420](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325331.png)
+![[00 assets/2fea8cfcb1f3572026f83e37a0f3765c_MD5.png]]
 
 当然操作系统也分为 2 种调用方式
 
-![image-20220901233052468](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325355.png)
+![[00 assets/694bc29c2711635b8d226bcba4340107_MD5.png]]
 
 > 非阻塞 IO 的缺点
 
-![image-20220901233454738](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325391.png)
+![[00 assets/686945bb15701cee4eed510b9e083f7e_MD5.png]]
 
 当然也是有解决的方法，这个在`Java`中有提到
 
-![image-20220901233517301](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325436.png)
+![[00 assets/6b0ceec87d40ec4a3ef56e489ce9a523_MD5.png]]
 
 在线程池只有很多正在等待的线程，比如`fs.readfile()`在`Application`端被书写，经过`V8`转义，`NodeAPI`的调用`Libuv`，这个时候就会调用线程池来读取文件。当读取完成之后，`libuv`就会将`fs.readFile()`中的回调函数压入`事件队列`中，通过`事件循环`将队列中的函数给`函数调用栈`，然后返回给`application`端被读取
 
 > 阻塞和非阻塞，同步和异步的区别
 
-![image-20220902091614026](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325994.png)
+![[00 assets/1d4d3953aed93ce55c67b83819728817_MD5.jpeg]]
 
 线程不安全是因为多个线程同时读取一个文件，可能一个线程在修改该文件，这就导致了文件读取的错误。但是其实这样`Node.js`就不会存在线程不安全的问题，多个线程读取完成之后，就会将注册的函数和取来的值一起放入事件队列中，通过事件循环来读取压入单线程的函数调用栈，一个个执行。
 
 ## 10.7 Node 事件循环
 
-![image-20220902110804039](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325021.png)
+![[00 assets/a34aeae0de7bf7312fbcbabe9a6aee96_MD5.png]]
 
 官方文档：[Node.js 事件循环，定时器和 process.nextTick() | Node.js (nodejs.org)](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/)
 
-![image-20220902110951652](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325049.png)
+![[00 assets/53eeb2ab32cb53b4975fcd0eae41717a_MD5.png]]
 
 ## 10.8 Node 宏任务和微任务
 
-![image-20220902111304214](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325083.png)
+![[00 assets/9212d21a8db8491f5eb9927e4eb7f184_MD5.png]]
 
 这个`Node.js`执行顺序又和`浏览器`不一样，首先是`tick`队列，然后是`Promise().then()`回调，然后就是`setTimeout`...按照上面的图依次向下执行
 
@@ -2102,29 +2102,29 @@ new Promise(function (resolve) {
 console.log("script end");
 ```
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202406101705342.png)
+![[00 assets/b63eb9840c8a59baa24df35f7ec2e8b3_MD5.png]]
 
 可以看下下面是为什么？
 
-![image-20220902130946248](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325173.png)
+![[00 assets/e45ca98c0f48905078b822572960ff75_MD5.png]]
 
 结果并不是想的那样
 
-![image-20220902185825779](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325750.png)
+![[00 assets/b4becc776abde048a9688b6d7dc162e1_MD5.png]]
 
 因为`setImmediate`属于`check`阶段，而`setTimeout`属于`timer`阶段。注意`poll`阶段会进行阻塞。
 
-![image-20220902184625342](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325773.png)
+![[00 assets/f86854b835f33851f7beed9829c3c9ce_MD5.png]]
 
 而且在执行循序中`check`阶段是在`Timer`阶段后面，所以可以得出`setTimeOut`比`setImmediate`先执行吗？不对
 
-![image-20220902184700815](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325797.png)
+![[00 assets/9931a41cc0290866541b1b89d564e4b0_MD5.jpeg]]
 
 `main`函数首先执行`setTimeout`函数，然后会将`setTimeout`中的回调函数给一个树形结构，当时间过去之后`时间循环`就会读取该树形结构的的回调函数，然后函数调用栈来执行。
 
 这里就会出现一个问题，将`setTimeOut`存入树形结构，然后再将该回调函数取出会有时间的损耗，假如存入就花费了`20ms`，但是事件循环初始化花费了`10ms`，这个时候就会优先来执行`setImmediate`。假如存入只花费了`5ms`的话，那就就会优先来执行`setTimeOut`，这就导致了执行顺序的问题
 
-![image-20220902190728831](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325822.png)
+![[00 assets/cea74c4672240161408b2afc02aca676_MD5.png]]
 
 # 11. stream
 
@@ -2132,25 +2132,25 @@ console.log("script end");
 
 > 基本介绍
 
-![image-20220902193305230](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325847.png)
+![[00 assets/792b1fb87b19845c80699451d6981c86_MD5.png]]
 
 > 读写文件的流
 
-![image-20220902193447737](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325904.png)
+![[00 assets/3503906604e0581809f62161e2649eea_MD5.png]]
 
 下面就是为所有流都是`EventEmitter`的实例，因为在源码部分基本就是通过`Stream`来实现的
 
-![image-20220902193912146](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325226.png)
+![[00 assets/c34c634590f5fc1c7539f437ece75d87_MD5.jpeg]]
 
 ## 11.2 Readable
 
 ### 11.2.1 基本介绍
 
-![image-20220902194237174](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325481.png)
+![[00 assets/d03cec5fa3550ff972f5e06411cbb19e_MD5.png]]
 
 这个时候我们就可以使用`Readable`来实现
 
-![image-20220902194305756](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325500.png)
+![[00 assets/097d5f2bbaddba62706348cddb23f29e_MD5.png]]
 
 假如想了解`Buffer`和`Stream`的话可以查看这个帖子：[理解 Node 中的 Buffer 与 stream - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/368045575)
 
@@ -2189,13 +2189,13 @@ read.on("close", () => {
 });
 ```
 
-![image-20220902200928927](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325520.png)
+![[00 assets/38283311e4ac5d73d4a903ee34de9946_MD5.png]]
 
 ## 11.3 Writeable
 
 ### 11.3.1 基本介绍
 
-![image-20220902201130229](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325570.png)
+![[00 assets/641c6e7d9ba3f1e95c05c00c72850430_MD5.jpeg]]
 
 ### 11.3.2 基本使用
 
@@ -2221,11 +2221,11 @@ writer.on("close", () => { // 方式二
 
 但是这里使用`Windows`电脑就会出现一个问题，将`flags`改成`a`不能正常的执行`start`，我们改成`r+`就可以使用
 
-![image-20220902230615805](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325652.png)
+![[00 assets/6be0433ec3fd9d48b9cfeb1d17eae989_MD5.png]]
 
 ## 11.4 pipe 方法
 
-![image-20220902210109764](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325991.png)
+![[00 assets/35449f792de7d64837dc79256ed8f1a4_MD5.png]]
 
 # 12. os
 
@@ -2233,13 +2233,13 @@ writer.on("close", () => { // 方式二
 
 > 输出系统版本信息
 
-![image-20230911215148948](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325019.png)
+![[00 assets/72c654ec0c37e196dd5db462ffb2911b_MD5.jpeg]]
 
 > 输出用户目录
 
 1、返回用户目录，原理就是在`windows`执行 `echo %USERPROFILE%`，在`posix`中执行`$HOME`
 
-![image-20230911215317793](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325112.png)
+![[00 assets/80d0473e67706b583b8d2e1bd7837dd6_MD5.png]]
 
 > 输出 CPU 信息
 
@@ -2273,11 +2273,11 @@ writer.on("close", () => { // 方式二
 ]
 ```
 
-![image-20230911215542967](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325135.png)
+![[00 assets/28511c21aed600de82172e268cbcf4f0_MD5.png]]
 
 > 输出网络信息
 
-![image-20230911220607623](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325189.png)
+![[00 assets/cde8f737467af4946616c4954096552b_MD5.jpeg]]
 
 ## 12.2 案例
 
@@ -2287,7 +2287,7 @@ writer.on("close", () => { // 方式二
 
 2、`exec`可以执行`命令`，本质就是在控制台中输入执行
 
-![[00 assets/be4ccb736a8de8219737e9e238d90872_MD5.png]]
+![[00 assets/1adcf930623a745e3726c6210f7910b4_MD5.jpeg]]
 
 # 13. process
 
@@ -2299,11 +2299,11 @@ writer.on("close", () => { // 方式二
 
 2、`process.argv`可以获取执行当前线程中的参数，主要用于一些开发包工具中
 
-![image-20230911223644463](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325713.png)
+![[00 assets/d1cc493d918e424370c70807e7c2e47c_MD5.png]]
 
 3、`process.memoryUsage()`获取系统内存使用量，这个主要是做性能优化的
 
-![image-20230911223744648](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325732.png)
+![[00 assets/e3b61531363705f6bc29278ba329c698_MD5.png]]
 
 ```bash
 {
@@ -2317,23 +2317,23 @@ writer.on("close", () => { // 方式二
 
 4、下面为主要使用方式
 
-![image-20230911223157112](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325751.png)
+![[00 assets/49d3e5322839605a5d2acf995656b57d_MD5.png]]
 
 5、`process.env`表示获取当前系统的所有环境变量
 
-![image-20230911224158802](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325779.png)
+![[00 assets/8a2f9a244493c606f50b27cdf88aa543_MD5.png]]
 
 并且该环境变量是可以被修改的，但是只是当前进程中被修改，不会影响全局的变量使用
 
-![image-20230911224252111](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325890.png)
+![[00 assets/74ccb67b3b49f0b16e254b42b0e8f621_MD5.jpeg]]
 
 > 退出进程
 
-![image-20230911223944253](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325442.png)
+![[00 assets/18cbb83cbebf0fbe49776edcf46ef09b_MD5.png]]
 
 1、如果按照下面的方式来执行，就会在`2s`的时候退出当前进程，所以`5s`的定时器就会被挂载，不能被执行
 
-![image-20230911223957513](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325463.png)
+![[00 assets/bd96a9b1c760f0526fab0dfa76b5b68f_MD5.png]]
 
 ## 13.2 子线程
 
@@ -2355,15 +2355,15 @@ uid <number> 设置该进程的用户标识。（详见 setuid(2)）
 gid <number> 设置该进程的组标识。（详见 setgid(2)）
 ```
 
-![image-20230912223447301](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325485.png)
+![[00 assets/40a1efa4619dfc7f5c0d984f0ca1e6c1_MD5.jpeg]]
 
 3、如果只是单个指令的话，也可以使用`execSync`来处理，这个表示同步的方式来调用
 
-![image-20230912223729314](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325504.png)
+![[00 assets/b36bd75d2e6c85ddbc30aceb9f42db09_MD5.png]]
 
 4、使用`execFile`也可以运行可执行文件
 
-![image-20230912223909912](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325544.png)
+![[00 assets/08a72ef9bfff4909d3267fa19565871e_MD5.jpeg]]
 
 ### 13.2.2 spawn
 
@@ -2373,7 +2373,7 @@ gid <number> 设置该进程的组标识。（详见 setgid(2)）
 
 3、并且对于`exec`、`spwan`之间的底层原理的实现是`exec` -> `execFile` -> `spawn`，`exec`是基于`execFile`实现的
 
-![image-20230912224242679](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325589.png)
+![[00 assets/ddbb660a2b7ccb9002ac2c3815651432_MD5.png]]
 
 ### 13.2.3 fork
 
@@ -2383,7 +2383,7 @@ gid <number> 设置该进程的组标识。（详见 setgid(2)）
 
 3、我们使用`fork`会创建一个子线程来执行该`js模块`，我们可以与该子线程之间进行通讯
 
-![image-20230912224858175](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325123.png)
+![[00 assets/485bf1b284fab74f7e49e06939186e10_MD5.png]]
 
 ## 13.3 案例
 
@@ -2398,13 +2398,13 @@ set NODE_ENV=production  	#windows
 export NODE_ENV=production 	#posix
 ```
 
-![image-20230911224915013](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325145.png)
+![[00 assets/985494700f39b3e53962eaf8cc83432b_MD5.png]]
 
 > 调用 Java 程序
 
 1、可以使用`exec`来调用`.java`编译之后的`.class`文件
 
-![image-20230912223129834](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325165.png)
+![[00 assets/c1e2b998a4b211bf050aab9ba901e868_MD5.jpeg]]
 
 # 14. ffmpeg
 
@@ -2412,7 +2412,7 @@ export NODE_ENV=production 	#posix
 
 1、进入网站下载：[Builds - CODEX FFMPEG @ gyan.dev](https://www.gyan.dev/ffmpeg/builds/)，并且将该`ffmpeg`配置环境变量即可，控制台输入`ffmpeg`可以打印字符就代表安装完成
 
-![image-20240120231440273](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325189.png)
+![[00 assets/eb652773020cdbf8bc3dbe9b11170245_MD5.jpeg]]
 
 > 转化视频格式
 
@@ -2420,51 +2420,51 @@ export NODE_ENV=production 	#posix
 
 2、不仅仅是`.avi`，还可以转化为`.gif`等格式
 
-![image-20240120232045800](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325219.png)
+![[00 assets/d9bcc49ed6308e58ca7df5931e6a7082_MD5.jpeg]]
 
 > 提取音频
 
 1、这里直接改为`mp3`即可，就可以提取出音频
 
-![image-20240120232501657](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325267.png)
+![[00 assets/c77717879a8d7c91fb4ea9f76a210f49_MD5.png]]
 
 > 裁剪视频
 
 1、`-ss`表示从多少开始，`-to`表示多少结束
 
-![image-20240120232702074](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325146.png)
+![[00 assets/aca56b258c6225c36e9f49af6d258c8e_MD5.png]]
 
 > 添加/删除水印
 
 1、下面的参数就是为视频添加一个`zjh`的水印，并且设置了他的颜色为白色
 
-![image-20240120233909892](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325168.png)
+![[00 assets/f72d651d971f2a7849ebd0882f378e08_MD5.png]]
 
 2、使用`delogo`来删除水印
 
-![image-20240120234000689](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325191.png)
+![[00 assets/cbddd4b6cb36358389585a84443468d2_MD5.jpeg]]
 
 # 12. express
 
 ## 12.1 基本介绍
 
-![image-20220903223542284](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325219.png)
+![[00 assets/457761969ad529f8870fe0d9a90006ee_MD5.png]]
 
 **express 官网**：[Express - 基于 Node.js 平台的 web 应用开发框架 - Express 中文文档 | Express 中文网 (expressjs.com.cn)](https://www.expressjs.com.cn/)
 
 其实`express`的本质就是一个中间件
 
-![image-20220903230435333](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325245.png)
+![[00 assets/7949ee3231eef9ba76751614c7afa3ee_MD5.jpeg]]
 
 ## 12.2 基本使用
 
 ### 12.2.1 使用脚手架
 
-![image-20220903224307142](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325272.png)
+![[00 assets/bf7b47a5716c3a8093cb363a29579327_MD5.png]]
 
 经过上面的处理就会发现已经将项目创建完成了
 
-![image-20220903224239306](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325044.png)
+![[00 assets/2107ad0373a5b82ec31a25d7a24a0557_MD5.jpeg]]
 
 ### 12.2.2 常规方式
 
@@ -2504,11 +2504,11 @@ app.listen(80, () => {
 
 这里有一个小知识，就是`app.get()`...中的回调函数本质也是一个中间件。`app.method`就是一种特殊的中间件
 
-![image-20220903231007943](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325066.png)
+![[00 assets/b1850b997fdbf0e5f1187e5eb7b50d3b_MD5.jpeg]]
 
 ## 12.3 参数解析
 
-![image-20220904232215684](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325090.png)
+![[00 assets/33ea3b0507d5e0ad5d0b0da43d456fb7_MD5.png]]
 
 ### 12.3.1 json,urlencoded
 
@@ -2548,7 +2548,7 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-![image-20220904000130379](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325116.png)
+![[00 assets/0d1d4142a28de564dba8a70a760f69d9_MD5.png]]
 
 > json urlencoded
 
@@ -2612,7 +2612,7 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-![image-20220904154923058](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325149.png)
+![[00 assets/20b381f72d421940e48c94f34837d75a_MD5.png]]
 
 ### 12.3.3 文件上传
 
@@ -2620,11 +2620,11 @@ app.listen(HTTP_PORT, () => {
 
 这里有一个小问题，假如你将`app.use(upload.any())`写在`upload.single()`前面就会出现这样的问题。
 
-![image-20220904223602833](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325193.png)
+![[00 assets/eccec669ee52cb9e0daa8dfb4c205813_MD5.jpeg]]
 
 可以查看官方文档，可以发现官方的处理方式，不允许`app.any()`作为全局使用
 
-![image-20220904230111935](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325671.png)
+![[00 assets/2b62f3f1b7eea09f535929859d34e87e_MD5.png]]
 
 下面就是上传文件的整体代码。并且解决了上面的`Unexpected end of form`的问题，我们将上传的中间件写在`app.use(upload.any())`前面就可以了
 
@@ -2683,7 +2683,7 @@ app.post("/upload", upload.single("image"), (req, res, next) => {
 });
 ```
 
-![image-20220904225941243](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325691.png)
+![[00 assets/41f4899a8203db1d7857b527d5704fe1_MD5.jpeg]]
 
 这个时候我们也可以上传多个文件和输出多个文件的信息
 
@@ -2695,15 +2695,15 @@ app.post("/upload", upload.array("image"), (req, res, next) => {
 });
 ```
 
-![image-20220904225923166](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325711.png)
+![[00 assets/89e337f1938595beff54d7ea7a68a008_MD5.jpeg]]
 
 我们上传文件的时候使用的就是下面的格式来上传多个文件
 
-![image-20220904225827456](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325734.png)
+![[00 assets/e05cbc7d028f7237f98d23d231942f4c_MD5.png]]
 
 假如我们需要限制上传的个数也可以使用下面的方式
 
-![image-20220904230633761](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325775.png)
+![[00 assets/569daf9765e9c88a3244f0e0dd54cd12_MD5.png]]
 
 下面是实例的代码
 
@@ -2737,7 +2737,7 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-![image-20220904232842950](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325148.png)
+![[00 assets/d857b64af5945749c2d65b8cc2f13dfa_MD5.png]]
 
 ## 12.4 显示日志
 
@@ -2753,11 +2753,11 @@ npm i morgan // 先下载morgan
 
 我们需要写`WriteStream`添加到`morgan`中，用于数据的写入
 
-![image-20220904231803708](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325165.png)
+![[00 assets/86ad10cc87d48b6f7313032716401a81_MD5.png]]
 
 下面就是日志文件的显示
 
-![image-20220904231847135](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325189.png)
+![[00 assets/4eb5ee954d1b4fe514785a26783a4d44_MD5.jpeg]]
 
 下面就是带有日志记录、文件上传、请求响应的代码
 
@@ -2823,19 +2823,19 @@ app.listen(HTTP_PORT, () => {
 
 1、用 `createLogger` 创建了 `logger 实例`，指定 level、format、tranports。level：打印的日志级别、format：日志格式、transports：日志的传输方式，我们指定了 `Console 和 File` 两种传输方式。
 
-![image-20231220225116387](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325220.png)
+![[00 assets/5de9aff5c37cc0f037a493c148e048f8_MD5.png]]
 
 2、如果出现未捕获的异常，可以使用`exceptionHandlers`来记录
 
-![image-20231221090935871](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325281.png)
+![[00 assets/d3b60a1aad0eb8900ccb8c8caa96616b_MD5.png]]
 
 3、我们也可以使用下面的方式创建多个`logger`实例，各司其职
 
-![image-20231221090519978](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325313.png)
+![[00 assets/ed679110cceeb33079028dfcd7c7d452_MD5.png]]
 
 4、还可以使用`rejectionHandlers`来捕获`Promise`出现的异常
 
-![image-20231221091316770](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325947.png)
+![[00 assets/92455026580dc8e83c7b0a21652b379f_MD5.jpeg]]
 
 > transports
 
@@ -2845,15 +2845,15 @@ transports 文档：[winston/docs/transports.md at a7c2eec1ef2209022f5420a314b74
 
 2、下面是一个`http库`，他会请求对应的地址，并且将打印的参数传递过去
 
-![image-20231220231630917](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325969.png)
+![[00 assets/d55afa037a58f93077daa6252150fae5_MD5.png]]
 
 3、当然我们也可以使用时间的库，这样即可按照时间来打印日志
 
-![image-20231220231742548](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325992.png)
+![[00 assets/379396e013088dff0905f30559d8eee2_MD5.png]]
 
 4、同时他也支持动态添加`transports`
 
-![image-20231220232441278](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325023.png)
+![[00 assets/55eca2857357a57871be31f4911973d1_MD5.png]]
 
 5、如果需要直接在社区中查找对应的`transports`即可
 
@@ -2867,15 +2867,15 @@ transports 文档：[winston/docs/transports.md at a7c2eec1ef2209022f5420a314b74
 
 1、下面是`format`的几个模式
 
-![image-20231221083959936](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325085.png)
+![[00 assets/bdea9b479924dd6bac3cd0de0cf7118f_MD5.jpeg]]
 
 2、我们也可以使用`winston.format.combine()`来添加组合`format`
 
-![image-20231221085842154](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325971.png)
+![[00 assets/c370da49a2d99010694cf8c1fca88e53_MD5.png]]
 
 3、可能不同的`transports`存在许多的`format`，分别设置即可
 
-![[00 assets/c26c0ca4c25a3d85eee5f77bf74efb94_MD5.png]]
+![[00 assets/3534b2975327eda47319e7bbaa2b405e_MD5.jpeg]]
 
 ## 12.5 响应数据
 
@@ -2896,7 +2896,7 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-![image-20220905201455689](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325015.png)
+![[00 assets/072fde14044b3a6f0db424fd52eeadf1_MD5.png]]
 
 假如我们使用`express`的形式来发送`JSON`数据的话，直接使用`res.json()`就可以了
 
@@ -2913,31 +2913,31 @@ app.get("/login", (req, res, next) => {
 
 下面就是路由的使用
 
-![image-20220905205100253](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325040.png)
+![[00 assets/9df2aebd09bef724ffd9d402eed4a98b_MD5.png]]
 
 假如我们去访问的话没啥问题
 
-![image-20220905205123638](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325061.png)
+![[00 assets/e7303cba6a02b68325c32368c01fe543_MD5.png]]
 
 ## 12.7 静态资源托管
 
-![image-20220811225740716](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325077.png)
+![[00 assets/10721197290e87e7e7524f6dae510f73_MD5.png]]
 
 1、我们这里使用`app.use(express.static("public"))`来托管该目录下的资源，这样我们直接在 url 里面输入`http://127.0.0.1:80/index.html`就可以进行访问，而不需要去输入文件地址
 
-![image-20220905210329379](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325666.png)
+![[00 assets/e07e34d16a5b9978007c193605a12252_MD5.png]]
 
 并且我们也可以一次性去挂载多个静态文件，假如在 public 文件夹下面没有相应的文件，就会去 files 文件下去寻找
 
-![image-20220811230951661](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325689.png)
+![[00 assets/d204a61804c8acb5154e6a1e307cceb3_MD5.png]]
 
 假如我们要访问里面的文件，直接输入文件名就可以访问到。因为你设置了静态部署的话，就默认摊在一个文件夹中被读取，客户端这里输入的和服务器端是不一样的
 
-![image-20220905210550225](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325712.png)
+![[00 assets/f2f11e12addace4fefa7f0ca94e0e2ea_MD5.png]]
 
 使用上面的方式就是**从上往下寻找**，但是我们使用这种方式指定访问前缀
 
-![image-20220811231314246](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325738.png)
+![[00 assets/0997a7b55e764c4293da0b0a2d54eb3e_MD5.png]]
 
 2、如果外面使用静态资源托管来处理`Vue`打包之后的项目，可能存在路由问题，比如前端路由显示`/device/index`，但是这只是`spa`中`Vue`的前端路由显示的。这个时候我们刷新浏览器的话，就会导致使用该地址请求服务器，这个时候肯定是没有对应的前端路由，而且也不会有对应的`html`文件，因为这里使用的是`spa`页面
 
@@ -2945,13 +2945,13 @@ app.get("/login", (req, res, next) => {
 
 参考文章：[connect-history-api-fallback 库的理解\_astonishqft 的博客-CSDN 博客](https://blog.csdn.net/astonishqft/article/details/82762354)
 
-![image-20230810114900421](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325763.png)
+![[00 assets/324b6a1c9780b0963151573f60c54303_MD5.png]]
 
 ## 12.8 错误处理
 
 下面的方式来处理不是很好，因为判断的逻辑。到时候查询的逻辑都是写在一起的，这样会导致逻辑糅合在一起
 
-![image-20220905211833493](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325832.png)
+![[00 assets/f07af98793e199a758077235d2cc098f_MD5.png]]
 
 错误码总结：[Koa(koa.js)中文网 -- 基于 Node.js 平台的下一代 web 开发框架 (koajs.com.cn)](https://www.koajs.com.cn/#response)
 
@@ -3019,7 +3019,7 @@ app.listen(HTTP_PORT, () => {
 
 ## 13.1 基本介绍
 
-![image-20220905231820922](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325434.png)
+![[00 assets/223bfc528b717727f01198bad6ac9c64_MD5.png]]
 
 **Koa 官方文档**：[Koa(koa.js)中文网 -- 基于 Node.js 平台的下一代 web 开发框架 (koajs.com.cn)](https://www.koajs.com.cn/#)
 
@@ -3035,7 +3035,7 @@ npm i koa  // 下载koa
 
 假如是`express`的话，就是超出时间默认关闭连接
 
-![image-20220906130332510](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325462.png)
+![[00 assets/9bf498646dbedfea2c7fab8d8a66b033_MD5.png]]
 
 当然下面的网络请求和响应的方式和`express`还是有不一样的地方
 
@@ -3060,11 +3060,11 @@ app.listen(HTTP_PORT, () => {
 
 ```
 
-![image-20220906131231335](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325485.png)
+![[00 assets/611d5f21e9a375c487be4dcd83c41f2d_MD5.png]]
 
 ## 13.3 路由使用
 
-![image-20220906131631433](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325512.png)
+![[00 assets/b494b20a910280e31f8a2c4197dabb08_MD5.png]]
 
 很显然这种方式非常非常的麻烦，所以我们可以`kao-router`第三方库来解决
 
@@ -3072,19 +3072,19 @@ app.listen(HTTP_PORT, () => {
 npm i koa-router
 ```
 
-![image-20220906134036424](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325538.png)
+![[00 assets/38187d3bfa54b4a835cd1218fac95cef_MD5.png]]
 
 假如我们添加`app.use(userRouter.allowedMethods())`这个中间件，就可以修改默认报错的信息
 
-![image-20220906160453571](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325590.png)
+![[00 assets/0d21a41b35bf223392375f2cd7f0a64d_MD5.png]]
 
 这样默认回复的报错内容就不一样了
 
-![image-20220906160357709](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325225.png)
+![[00 assets/03d00941160e0dc3a117f9a51f906251_MD5.png]]
 
 下面为报错默认回复的信息
 
-![image-20220906160608434](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325244.png)
+![[00 assets/ec2409a48b3db15d9bac572be3091fb5_MD5.png]]
 
 ## 13.4 参数解析
 
@@ -3119,7 +3119,7 @@ app.listen(HTTP_PORT, () => {
 
 ```
 
-![image-20220906162215461](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325263.png)
+![[00 assets/75c5887593478e167be9e6d277ad1328_MD5.png]]
 
 ### 13.4.2 json,urlencoded
 
@@ -3157,13 +3157,13 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-![image-20220906164318621](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325293.png)
+![[00 assets/04a13c7ccdf097cfd5ae2bdfc29a8062_MD5.jpeg]]
 
 2、可能存在上传时请求体过大的情况，我们需要配置`koa-bodyparser`
 
 参考文章：[解决 koa request entity too large - 慕尘 - 博客园 (cnblogs.com)](https://www.cnblogs.com/baby123/p/13359472.html#:~:text=解决的方法 const koaBody %3D require ('koa-body')%3B const bodyParser,jsonLimit%3A"10mb" }))%3B app.use (bodyParser ({ formLimit%3A"10mb"%2C jsonLimit%3A"10mb" }))%3B)
 
-![image-20230917212505310](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325316.png)
+![[00 assets/ab79d810e9035fa32464ba495f1b8ea2_MD5.png]]
 
 ### 13.4.4 form-data
 
@@ -3202,7 +3202,7 @@ app.listen(HTTP_PORT, () => {
 
 上面接收的都是文本数据
 
-![image-20220906165759778](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325339.png)
+![[00 assets/d6c8456ab06c986e421c58c66c9a08bb_MD5.png]]
 
 下面就是使用该插件来提供上传文件的操作，其实和`express`是一样的。这些操作可以参考我前面的笔记
 
@@ -3247,13 +3247,13 @@ app.listen(HTTP_PORT, () => {
 
 ✨ 这里有一个小坑，这里保存文件写的属性的`key`必须是`storage`，假如是`{avaterStorage : avaterSorage}`就会读取不到
 
-![image-20220923152108489](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325845.png)
+![[00 assets/85fe2501cbca7e471277a16de95a8d61_MD5.png]]
 
 ## 13.5 数据响应
 
 下面为常见的数据响应的方式
 
-![image-20220906171811703](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325863.png)
+![[00 assets/606baf2f84054a72797b5189b0db7b0e_MD5.png]]
 
 `koa`发送的数据类型会自动修改，假如你发送的是纯文本类型，`Content-type`就会设置为`text/plain`。假如你发送的是对象，数组类型的话，`Content-type`就会设置为`application/json`数据
 
@@ -3297,7 +3297,7 @@ app.listen(HTTP_PORT, () => {
 
 为什么可以简写，因为本质是在内部做了一个代理模式，这个在源码里面有
 
-![image-20220906182943159](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325887.png)
+![[00 assets/b0690de1161777db83356aec944c69d2_MD5.png]]
 
 ## 13.6 静态服务器
 
@@ -3324,15 +3324,15 @@ app.listen(HTTP_PORT, () => {
 
 这里就可以部署静态资源，来加载使用`Vue`搭建的网页
 
-![image-20220906184638119](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325915.png)
+![[00 assets/5e678483681a0980dea633288cb93dcf_MD5.png]]
 
 使用`./dist`路径就是表示的项目根目录下面的`dist`文件夹
 
-![image-20230409101254101](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325963.png)
+![[00 assets/46f36276585a7d6648345497c2ad2c2a_MD5.jpeg]]
 
 因为现在很多的网页都是 SPA 网页，静态部署网页可能需要安装下面的库
 
-![image-20231029193349380](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325043.png)
+![[00 assets/f00e8b70cd63560b8d71124c69786f87_MD5.jpeg]]
 
 ## 13.7 错误处理
 
@@ -3365,7 +3365,7 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-![image-20220906190525244](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325613.png)
+![[00 assets/271783b8d1cd4ed81a6ee604ad84b631_MD5.png]]
 
 ## 13.8 Koa 源码分析
 
@@ -3373,29 +3373,29 @@ app.listen(HTTP_PORT, () => {
 
 其实本质就是导出了一个`Application`，在里面进行了初始化的操作
 
-![image-20220906191157971](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325633.png)
+![[00 assets/b5e6cdbc21edd85939e18e16e68baf78_MD5.png]]
 
 > 监听操作
 
 其实`app.listen()`的本质就是创建一个`server`来监听
 
-![image-20220906191405118](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325661.png)
+![[00 assets/7b62ce17ad87f305817c07e7ea75c5ec_MD5.png]]
 
 > 注册中间件
 
 其实注册中间件的本质就是将这个中间件塞到`middleware`数组里面
 
-![image-20220906191457171](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325687.png)
+![[00 assets/580dea69aac342a4c4b96ba2086a7595_MD5.png]]
 
 > 监听回调
 
 当响应客户端数据的时候，本质就是`server`的响应，也就是执行这里面的`this.callback()`
 
-![image-20220906191650118](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325711.png)
+![[00 assets/d2ce71a4509a5e3d3cb9471e5090da09_MD5.png]]
 
 这里的`compose`是将所有的中间件都传输给`fn`
 
-![image-20220906192015275](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325759.png)
+![[00 assets/4a0d43d4826df97702b4c4a8fd0ae1fa_MD5.png]]
 
 略...后面执行了很多操作，建议自己看源码
 
@@ -3436,7 +3436,7 @@ app.listen(HTTP_PORT, () => {
 
 当`middleware3`执行完毕，就是去执行`middleware2`中`next()`下面的语句，执行完毕就会去执行`middleware1`中`next()`下面的语句。其实本质就是在方法中去调用其他方法
 
-![image-20220906223411698](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325420.png)
+![[00 assets/daaf966639a262b11d499a6427ce3615_MD5.png]]
 
 > express - 异步方式
 
@@ -3475,7 +3475,7 @@ app.listen(HTTP_PORT, () => {
 
 结果就可以看出来，最后接口里面的数据没有连接到`req.message`上面。因为这个请求是异步请求，请求数据之后，依旧会执行后面的代码，所以不会将数据添加上去。
 
-![image-20220906232908589](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325444.png)
+![[00 assets/a07dba168bd05cba7d0375df94e531df_MD5.png]]
 
 假如要使用的话，可以使用函数来处理
 
@@ -3545,13 +3545,13 @@ app.listen(HTTP_PORT, () => {
 
 我们使用这个方式就可以添加上去，因为`koa`本身调用`next()`的时候返回的是`Promise`，但是在`express`中调用`next()`并不是`Promise`，我们添加`async`和`await`是没用的。
 
-![image-20220907130534547](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325467.png)
+![[00 assets/6220a5ab185e7f62e350ba8ab7b630ee_MD5.png]]
 
 ## 13.10 洋葱模型
 
 这个是对应上面的`13.9 对比express`
 
-![image-20220907132143900](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325492.png)
+![[00 assets/2a724102d3d379a3817ea9b77ff89982_MD5.png]]
 
 ## 13.11 Cookie,Session
 
@@ -3561,11 +3561,11 @@ app.listen(HTTP_PORT, () => {
 
 ## 9.1 基本介绍
 
-![image-20220812133427872](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325549.png)
+![[00 assets/543e854b449a084bc8133ede30b144c1_MD5.png]]
 
 我感觉其实本质就是路由守卫，在跳转路由之前执行操作
 
-![image-20220903230828209](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325095.png)
+![[00 assets/fcf555de03ecbb1b310316d2c7f7ed3f_MD5.png]]
 
 ## 9.2 中间件分类
 
@@ -3625,7 +3625,7 @@ app.listen(80, function () {
 });
 ```
 
-![image-20220812135516913](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325118.png)
+![[00 assets/a0a860efb884988685fb9f5fc9ce1372_MD5.jpeg]]
 
 ### 9.2.2 路径匹配中间件
 
@@ -3646,7 +3646,7 @@ app.listen(Http_Port, () => {
 
 ```
 
-![image-20220903233323681](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325134.png)
+![[00 assets/70d86187451b297e9ad4b0569cd29176_MD5.png]]
 
 ### 9.2.3 路径方法中间件
 
@@ -3731,23 +3731,23 @@ app.listen(80, function () {
 
 ### 9.4.1 应用级别中间件
 
-![image-20220812141728012](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325160.png)
+![[00 assets/1d92d14def640b20922adbc4665f2b50_MD5.png]]
 
 ### 9.4.2 路由级别中间件
 
-![image-20220812141828178](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325205.png)
+![[00 assets/d8e3b8e2e93ee76d7e0589350c3810da_MD5.png]]
 
 ### 9.4.3 错误级别中间件
 
-![image-20220812142011667](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325278.png)
+![[00 assets/fc36888e04ace87b0470e48c812bd36a_MD5.png]]
 
 下面就是错误级别中间件的使用方式
 
-![image-20220812143244347](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325809.png)
+![[00 assets/ab95a89e271356d5ddbabeaf6fed42ce_MD5.png]]
 
 ### 9.4.4 Express 内置中间件
 
-![image-20220812143522293](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325831.png)
+![[00 assets/c056ec7541639b41919863ad0b77afa9_MD5.jpeg]]
 
 > express.json()
 
@@ -3821,31 +3821,31 @@ app.listen(80, function () {
 
 `qs`是用于将字符串对象解析为 js 对象的
 
-![image-20220819102717211](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325856.png)
+![[00 assets/5e5355bf2d5c20a696df3146598bd00c_MD5.jpeg]]
 
 > 防盗链
 
 1、可能存在一些资源只在自己的域名下访问，但是其他域名不允许访问，这里是通过`referer`来判断
 
-![image-20230315103541640](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325884.png)
+![[00 assets/0698e324c0a8fc3a35149480613a8f0a_MD5.png]]
 
 2、下面就是实现的原理，只要监测到请求的地址中和自己本身的`referer`不匹配的话就不去继续请求，这样就实现了防盗链的效果
 
-![image-20230315103259939](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325909.png)
+![[00 assets/9c055be90649375a0ad938fdf2341415_MD5.jpeg]]
 
 # 15. 数据库
 
 ## 15.1 基本介绍
 
-![image-20220907133502566](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325966.png)
+![[00 assets/18d41f059972ac9ee4654ee3b0bf9d87_MD5.png]]
 
 我们也可以对数据库进行分类
 
-![image-20220907133519942](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325498.png)
+![[00 assets/9c96f955b9f8d9405aa61c8575ed5124_MD5.png]]
 
 数组库的组织方式
 
-![image-20220907160204998](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325519.png)
+![[00 assets/808de6aa8ed6e09409b0af53f3129f86_MD5.png]]
 
 ## 15.2 mysql 基础
 
@@ -3863,11 +3863,11 @@ npm i mysql
 
 但是这里会有一个小问题，就是 mysql 的`版本问题`，假如你是`mysql8`以上的版本就会出现下面的错误
 
-![image-20220819220201831](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325541.png)
+![[00 assets/ff104273ad40e0d25ca1222e8621bbc9_MD5.png]]
 
 这其实是因为 Node 不支持最新版本的 mysql 的密码加密方式，所以这个时候就需要设置 mysql 的加密方式了，将加密方式改为这种就可以正常连接了
 
-![image-20220819220307625](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325575.png)
+![[00 assets/89b1f755aafffe09f6786add1c00858d_MD5.jpeg]]
 
 下面就是`连接mysql`和`执行sql`
 
@@ -3934,13 +3934,13 @@ db.query(sqlStr4, user4.id, (err, results) => {
 
 但是这里涉及了一个概念就是标记删除，我们可以将设置一个状态属性来标记这个字段将要删除
 
-![image-20220819223748901](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325691.png)
+![[00 assets/b8d0ff7236ad3a8788697807f4cff632_MD5.png]]
 
 ## 15.4 mysql2
 
 ### 15.4.1 基本介绍
 
-![image-20220908100233643](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325079.png)
+![[00 assets/4c84728565e5457f130d8c59fdc3c2ee_MD5.png]]
 
 **mysql2 官方文档**：[node-mysql2/documentation_zh-cn at master · sidorares/node-mysql2 (github.com)](https://github.com/sidorares/node-mysql2/tree/master/documentation_zh-cn)
 
@@ -3980,11 +3980,11 @@ connect.query(statment, (err, result, fields) => {
 });
 ```
 
-![image-20220908101112834](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325189.png)
+![[00 assets/e56bacdce777c7e61fd78241996fc90a_MD5.png]]
 
 我们可以看到回调中第三个参数`fields`，里面包含了数组中每个列得相关信息
 
-![image-20220908102008380](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325207.png)
+![[00 assets/388644b9401e947a08153f2f0f89676c_MD5.png]]
 
 当然官方也提供非回调得方式，`connect`都可以进行`Promise()`化。**官方文档中提到了很多得写法**，可以去看看
 
@@ -4022,7 +4022,7 @@ main()
 // 官方文档还有很多得写法
 ```
 
-![image-20220908105039328](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325227.png)
+![[00 assets/c9df93104e1debcc9804e221e55ea9e9_MD5.png]]
 
 ### 15.4.3 关闭数据库
 
@@ -4042,7 +4042,7 @@ connect.destroy()
 
 ### 15.4.4 预编译语句
 
-![image-20220908102230224](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325280.png)
+![[00 assets/6ddc1f6d8a459aeca161dc09bda3ed96_MD5.png]]
 
 这里建议使用`预编译语句`，当你多次执行这条语句内部并不会多次执行，而是将以前查询到得语句给你。而且使用预编译语句可以防止`sql注入`
 
@@ -4069,11 +4069,11 @@ connect.execute(statment, [1, "英语"], (err, result, fields) => {
 });
 ```
 
-![image-20220908103208032](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325346.png)
+![[00 assets/224d6bb755b90b94794db90bdc32d6d9_MD5.png]]
 
 ### 15.4.5 连接池
 
-![image-20220908103329999](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325869.png)
+![[00 assets/3cf5887def658fcaaa94749929a087e9_MD5.png]]
 
 1、我们创建连接池得时候使用`mysql.createPool()`
 
@@ -4100,7 +4100,7 @@ connect.execute(statment, [1, "英语"], (err, result, fields) => {
 
 2、需要操作数据库的时候，建立连接，用完之后释放连接。但这样性能并不高。因为数据库的连接建立还是很耗时的，而且一个连接也不够用。我们一般都是用连接池来管理。连接池中放着好几个 mysql 的连接对象，用的时候取出来执行 sql，用完之后放回去，不需要断开连接。
 
-![image-20231223163247709](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325902.png)
+![[00 assets/a521d206c0ad73b3c233bba59c2add20_MD5.png]]
 
 3、当然对于连接池存在很多其他配置，也就是下面的内容，而且可以使用`mysql2/promise`来导出异步
 
@@ -4133,11 +4133,11 @@ const mysql = require('mysql2/promise');
 
 ### 15.5.1 基本介绍
 
-![image-20220908105755058](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325924.png)
+![[00 assets/682c4d9a418cef81d4a0acb3d26b27da_MD5.png]]
 
 其实`ORM`得本质就是下面图
 
-![image-20220908111006937](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325948.png)
+![[00 assets/e5f05b79dd2835b0e409b8dcddd20250_MD5.png]]
 
 Node.js 中 ORM 介绍：[ORM 实例教程 - 阮一峰的网络日志 (ruanyifeng.com)](https://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html)
 
@@ -4215,7 +4215,7 @@ students.init(
 );
 ```
 
-![image-20220908133708137](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325993.png)
+![[00 assets/da1ba91e2041163acdbc8b8abd581c6c_MD5.jpeg]]
 
 ### 15.5.4 执行 sql
 
@@ -4246,7 +4246,7 @@ async function query() {
 query();
 ```
 
-![image-20220908134105725](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325080.png)
+![[00 assets/dd8d850eff2f33941cb8200049c490d5_MD5.png]]
 
 > 插入
 
@@ -4261,7 +4261,7 @@ async function query() {
 query();
 ```
 
-![image-20220908134834840](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325558.png)
+![[00 assets/0fb34f8f954337104753a9c67e591f7e_MD5.png]]
 
 > 更新
 
@@ -4282,7 +4282,7 @@ async function query() {
 query();
 ```
 
-![image-20220908134815743](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325577.png)
+![[00 assets/da436310843ea5b6c9c2d87816d23c14_MD5.png]]
 
 ### 15.5.5 多对多关系
 
@@ -4417,7 +4417,7 @@ async function query() {
 query();
 ```
 
-![image-20220908202301896](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325592.png)
+![[00 assets/5802008c0bea9522aeaeb3a391a5bf1b_MD5.png]]
 
 ## 15.6 typeorm
 
@@ -4437,21 +4437,21 @@ query();
 
 5、`poolSize`是指定数据库连接池中连接的最大数量
 
-![image-20231224220731786](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325614.png)
+![[00 assets/9025dab619253cd84308f405846e6fcc_MD5.png]]
 
 5、我们看下代码， 有一个`entity`，通过装饰器声明了主键列和其他的列，这个就是数据库中的结构，我们以对象的形式映射出来
 
 6、我们使用`save`和`find`来保存和查找对应的数据
 
-![image-20231223232928056](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325676.png)
+![[00 assets/d436a8fe82b78bd790f191f44654f297_MD5.png]]
 
 7、我们开启`typeorm`的`logging`可以看到本质就是自动生成`sql`语句
 
-![image-20231223233156795](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325731.png)
+![[00 assets/a0ddc019316fd6eb5917d920cdbf5dbc_MD5.png]]
 
 8、并且会开启事务，我们可以提交和回滚
 
-![image-20231223233302588](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325066.png)
+![[00 assets/36e6ad7451247f86b6df2d14bf68c2ec_MD5.png]]
 
 ### 15.6.3 增删改查
 
@@ -4461,7 +4461,7 @@ query();
 
 2、当然我们也可以手动来设置`Entity`来控制表的字段
 
-![image-20231224222402541](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325279.png)
+![[00 assets/fa7e556d4d9c961da90c75c3cb2b2cbe_MD5.png]]
 
 3、当然我们也可以修改里面的数据类型，还可以设置一些其他的配置
 
@@ -4473,7 +4473,7 @@ query();
 
 ​ `@Column` 映射属性和字段的对应关系。通过 `name` 指定字段名，`type` 指定映射的类型，`length` 指定长度，`default` 指定默认值。`nullable` 设置 NOT NULL 约束，`unique` 设置 UNIQUE 唯一索引。`type` 这里指定的都是数据库里的数据类型
 
-![image-20231224223102077](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325310.png)
+![[00 assets/8a140094ed1449e9556dc261b1738620_MD5.jpeg]]
 
 #### 15.6.3.2 添加
 
@@ -4483,13 +4483,13 @@ query();
 
 1、使用`save`来插入数据，如果`id`相同的话就会变为`update`，前提是`id`为主键才能实现
 
-![image-20231224225157080](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325333.png)
+![[00 assets/535823f689281935f024c129d1ea6360_MD5.png]]
 
 > 多条数据
 
 2、如果我们想要插入多条数据，使用下面的方式
 
-![image-20231224225801102](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325375.png)
+![[00 assets/5da6991cc12e39f87cab8368496aad85_MD5.png]]
 
 #### 15.6.3.3 删除
 
@@ -4497,13 +4497,13 @@ query();
 
 1、使用`delete`来删除数据，下面默认选择的主键来删除
 
-![image-20231224225939025](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325494.png)
+![[00 assets/60d265f9c6e2487375cf57943d90e8a0_MD5.png]]
 
 2、`delete` 和 `remove` 的区别是，`delete` 直接传 id、而 `remove` 则是传入 entity 对象
 
 3、目前看只能使用主键 id 来删除数据，以后有时间查看一下文档
 
-![image-20231224230526530](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325109.png)
+![[00 assets/416bb955a19ffbba79013ce8e70ace97_MD5.png]]
 
 #### 15.6.3.4 查询
 
@@ -4511,69 +4511,69 @@ query();
 
 1、使用`find`来查询表中所有数据
 
-![image-20231224232801683](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325129.png)
+![[00 assets/92285f93ee0a253bf74d9a811bb9b784_MD5.png]]
 
 2、当然我们也可以添加一些条件，`In()`表示的就是`mysql`中的`in`
 
-![image-20231224234059403](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325150.png)
+![[00 assets/ec727cc4945b8df4ae989f6b72ebfb18_MD5.jpeg]]
 
 ##### 15.6.3.4.2 findBy
 
 1、可以通过 `findBy` 方法根据条件查询
 
-![image-20231224232921938](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325170.png)
+![[00 assets/0f670f502319cea8ced09f52dccbce9c_MD5.png]]
 
 ##### 15.6.3.4.3 findAndCount
 
 1、此外，你还可以用 `findAndCount` 来拿到有多少条记录
 
-![image-20231224233034504](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325194.png)
+![[00 assets/061f5d4864970cf0980264f360933d70_MD5.jpeg]]
 
 ##### 15.6.3.4.4 findAndCountBy
 
 1、还可以添加查询条件
 
-![image-20231224233126900](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325221.png)
+![[00 assets/be949839019293f6bfa2e4cdc32da5e0_MD5.png]]
 
 ##### 15.6.3.4.5 findOne
 
 1、使用`findOne`表示查询一条数据，可以添加查询条件
 
-![image-20231224233813230](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325909.png)
+![[00 assets/c55423f079c84578fd4bd4dcec7aa5f1_MD5.jpeg]]
 
 ##### 15.6.3.4.6 findOneBy
 
 1、通过`xxx`值查询一条数据
 
-![image-20231224234228987](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325927.png)
+![[00 assets/8057f4b7c89249b1a0379ebeb65ef303_MD5.png]]
 
 ##### 15.6.3.4.7 findOneOrFail / findOneByOrFail
 
 1、`findOneOrFail` 或者 `findOneByOrFail`，如果没找到，会抛一个 `EntityNotFoundError` 的异常
 
-![image-20231224234522917](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325945.png)
+![[00 assets/39bf116de27f28118312134baeb068fa_MD5.jpeg]]
 
 ##### 15.6.3.4.8 query
 
 1、还可以用 `query` 方法直接执行 `sql` 语句
 
-![image-20231224234759970](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325964.png)
+![[00 assets/905704c4b7273e5383831d1771dae9da_MD5.png]]
 
 2、不仅仅是普通的`select`，还可以执行一些其他的语句
 
-![[00 assets/42e09a091f6b67c5d4dcdc29b35d2d6b_MD5.png]]
+![[00 assets/09f6dbe6d28e7fa83dbb7d4e1a964599_MD5.jpeg]]
 
 #### 15.6.3.5 querybuilder
 
 1、一般情况下，复杂 `sql` 语句不会直接写，而是会用 `query builder`，下面就是一个简单的使用
 
-![image-20231224235839507](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325008.png)
+![[00 assets/220603d1a2f6b7879597a7f73c881e45_MD5.png]]
 
 2、用 `query builder` 和我用 `find` 指定 `where` 有什么区别么？比如这种复杂的关联查询
 
 3、涉及到多个表，也就是多个 `Entity `的关联查询，就得用 `query builder` 了。简单点查询直接 `find` 指定 `where` 条件就行。
 
-![image-20231224235942727](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325740.png)
+![[00 assets/7c6ce38761d149a6aba2d1363d7049a8_MD5.png]]
 
 ### 15.6.4 getRepository
 
@@ -4583,17 +4583,16 @@ query();
 
 2、可以先调用 `getRepository` 传入 `Entity`，拿到专门处理这个 `Entity` 的增删改查的类，再调用这些方法
 
-![image-20231225000430449](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325798.png)
+![[00 assets/3ea0c0061c7d397e9b9422146a5471fc_MD5.jpeg]]
 
 3、我们查看查看下面的代码，可以发现不用写那么多的`AppDataSource.manager(User)`，而是使用统一的`user_repo`即可
 
-![image-20240115214923809](D:\%23\1.5 Node.js\NodeJS.assets\image-20240115214923809.png)
-
+![[00 assets/45da58f77dcbaf770563e9b7303f158b_MD5.jpeg]]
 ### 15.6.5 事务
 
 1、使用`transaction`可以开启事务
 
-![image-20231225000303546](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325831.png)
+![[00 assets/c7665e0df0f2520718214fb2dc1bd63e_MD5.jpeg]]
 
 ### 15.6.6 关系
 
@@ -4607,19 +4606,19 @@ query();
 
 4、同时设置外键得时候，还可以设置`mysql`得联级关系
 
-![image-20231227110927645](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325851.png)
+![[00 assets/2b1cc4eb472fa3d53270238117c48ace_MD5.png]]
 
 可以看到数据库中填写了对应得数据
 
-![image-20231227111326978](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325876.png)
+![[00 assets/6eed7f78ec9289edad5dfff725df87c5_MD5.png]]
 
 5、同时我们还可以设置`cascade`为`true`，该联级关系是`typeorm`中维护得，告诉 `typeorm` 当你增删改一个 `Entity` 的时候，是否级联增删改它关联的 `Entity` 因为我们手动设置了`OnetoOne`得关系，并且直接传入了`user`，可以只保存`idcard`即可自动更新插入`user`得数据
 
-![image-20231227111519947](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325651.png)
+![[00 assets/9af5fd81f12897d2442dfbf86f2c8cd9_MD5.png]]
 
 6、我们还可以设置联级查询，设置`relations`即可，他会联级一起查询
 
-![image-20231227111955357](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325672.png)
+![[00 assets/5f86a63341f187686d87c1ca1918ab0c_MD5.png]]
 
 #### 15.6.6.2 一对多
 
@@ -4631,15 +4630,15 @@ query();
 
 2、`many`指的是`employee`，也就是`employee`作为外键来指向`department`，这就是`ManyToOne`
 
-![image-20240116140158073](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325692.png)
+![[00 assets/debec2a39eb29255380c9762bdc51de7_MD5.png]]
 
 3、创建之后保存即可，和上面类似
 
-![image-20240116142042135](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325720.png)
+![[00 assets/622c33465e843a0d5f0b5a010ba28312_MD5.png]]
 
 4、当然还可以设置`cascade`，他使用`typeorm`来自动保存联级，这样我们就不需要额外写`Department`的保存了
 
-![image-20240116142509061](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325744.png)
+![[00 assets/2775a60916113e3583e4be67c42c67f7_MD5.png]]
 
 > OneToMany
 
@@ -4649,27 +4648,26 @@ query();
 
 3、并且这里我们将`manyToOne`的`cascade`移到`department`中，如果 2 边都编写的话就变成依赖循环了
 
-![image-20240118231351334](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325785.png)
+![[00 assets/e97809b57aa69ee3902e551e6dcde071_MD5.png]]
 
 4、这里我们可以看到，因为为`department`添加了`employee`，所以这里需要将数据传递给`department`来处理，和上面的不同
 
-![image-20240118231857731](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325906.png)
+![[00 assets/629548ffa985622f55087afb86de79aa_MD5.png]]
 
 5、并且`relations`本质就是一个`left join ... on ...`，我们也可以使用`query builder`来处理
 
-![image-20240119202106310](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325930.png)
+![[00 assets/b6b048beda501283ca71a868bb0a9d6d_MD5.jpeg]]
 
-![image-20240119202125096](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325950.png)
 
 6、删除的时候也是一样，要先删除`employee`，才能删除`department`，这个和`mysql`是一致的
 
 7、或者在创建的时候设置配置外键`onDelete`的属性即可，这里一定要设置给`Employee`，不能设置给`Department`。这里我就不是很理解了，因为大部分的关系都是给`one`的部分，理所应当也要把`onDelete`给`one`的部分，但是却给了`more`的部分
 
-![image-20240119221447438](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325976.png)
+![[00 assets/053a1972b4ebac38acc00edeb2d753ad_MD5.png]]
 
 我们删除`department`的时候，`employee`也会同步删除
 
-![image-20240119221513466](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325003.png)
+![[00 assets/8c26a8ce86d79beb4bc883c997392834_MD5.png]]
 
 #### 15.6.6.3 多对多
 
@@ -4677,29 +4675,29 @@ query();
 
 2、这里解释一下下面的第二个参数的作用，也就是`() => tag.articles`的作用，这个是手动指定外键。因为在多对多的关系中他们不存储外键，所以需要手动指定
 
-![image-20240120002430574](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325029.png)
+![[00 assets/776cfe3ef3210262b2c89d0f9ce1cc11_MD5.png]]
 
 3、因为如果当前 `Entity` 对应的表是包含外键的，那它自然就知道怎么找到关联的 `Entity`。但如果当前 `Entity` 是不包含外键的那一方，怎么找到对方呢？这时候就需要手动指定通过哪个外键列来找当前 Entity 了。之前 `OneToOne`、`OneToMany` 都是这样
 
 4、一对多的 `department` 那方，不维护外键，所以需要第二个参数来指定通过哪个外键找到 department
 
-![image-20240120003011716](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325043.png)
+![[00 assets/415a7a7ff42a2736034c67599b62598d_MD5.png]]
 
 5、下面就是存储并且查找对应的数据
 
-![image-20240120003058015](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325067.png)
+![[00 assets/4dc1012d9a8def96e73de961205f5b2c_MD5.png]]
 
 可以看到这里多对多的的模型已经构建出来了
 
-![image-20240120002336463](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325106.png)
+![[00 assets/e0932adf9e9d3a0ce54053a5e9aaed20_MD5.jpeg]]
 
 6、当然我们也可以去更新`article`，他也会自动维护中间表
 
-![image-20240120003630310](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325132.png)
+![[00 assets/6af71c329f69b3d2bde9ccd237d1e077_MD5.jpeg]]
 
 7、至于删除就简单了，因为中间表的外键设置了 `CASCADE` 的级联删除，这样只要你删除了 `article` 或者 `tag`，它都会跟着删除关联记录。
 
-![image-20240120003712257](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325153.png)
+![[00 assets/754af3221e777c3389f17b0c92b02d6a_MD5.png]]
 
 ## 15.6 Mongodb
 
@@ -4715,7 +4713,7 @@ query();
 
 2、这里使用`once`函数表示，只连接一次并且执行内部函数，如果掉线之后并不会再次连接。而`on`就会一直询问`mongodb`连接
 
-![image-20230331202526573](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325178.png)
+![[00 assets/625fbeeb07fce9b9bf635951b6001eae_MD5.png]]
 
 ## 15.7 redis
 
@@ -4725,11 +4723,11 @@ query();
 
 3、下面为基本的使用，主要是用于查询所有的`keys`
 
-![image-20231224140459518](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325100.png)
+![[00 assets/40cd2ad97441b2c14713691098a35530_MD5.png]]
 
 4、还有一些其他命令，这里直接可以参考`redis`的命令即可，基本是一致的
 
-![image-20231224140558526](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325118.png)
+![[00 assets/07111b629c8aa9b59ffbadd46a347641_MD5.png]]
 
 # 16. 解决跨域
 
@@ -4737,7 +4735,7 @@ query();
 
 1、主要是因为现在前后端分离之后导致的问题，对于现在前端和后端的服务器不是一样的
 
-![image-20230701191049683](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325139.png)
+![[00 assets/bf2b4bf4e57e3a36717469bad333f29c_MD5.jpeg]]
 
 2、下面是模拟的代码，其中一份是前端代码，其中一份是后端代码，我们使用不同的方式来代理前端网页的时候就会出现不同的结果
 
@@ -4797,19 +4795,19 @@ app.listen(8000, () => {
 </html>
 ```
 
-![image-20230701220415436](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325166.png)
+![[00 assets/668c198f3299cd3c3dff81dd10d83f6d_MD5.jpeg]]
 
 ## 8.2 解决方案
 
 下面是比较常见的跨域的解决方式，上面使用`node.js`作为一个静态服务器就是`方案一`
 
-![image-20230701221237959](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325191.png)
+![[00 assets/4c06d0d31ecd8cf1a47b45fcd3b2adde_MD5.png]]
 
 ### 8.2.1 CORS
 
 > 基本介绍
 
-![image-20230701222959099](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325213.png)
+![[00 assets/16d0d9e869a67271470f140a564f357d_MD5.png]]
 
 > 基本使用
 
@@ -4817,21 +4815,21 @@ app.listen(8000, () => {
 
 2、但是这种解决方式用的并不多
 
-![image-20230701223239393](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325931.png)
+![[00 assets/9cc822d7578708bf7b4a24e221f55e11_MD5.png]]
 
 3、这里有一个坑，我们在使用`kao2-cors`的跨域库的时候，我们需要在`router`注册之前使用，不然无法使用
 
-![image-20240306104147336](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325954.png)
+![[00 assets/6986cbd1145c255bed2d5b9a7f62c1da_MD5.jpeg]]
 
 ### 8.2.2 node 代理服务器
 
 1、这个解决方式就是`webpack`中常见的`proxy`代理服务器的方式
 
-![image-20230701225239551](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325974.png)
+![[00 assets/f6dc3c14196e091468fadf04e61cdabd_MD5.png]]
 
 下面就是整体的结构图
 
-![image-20230701231008454](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325998.png)
+![[00 assets/9b0d70a960829e180ca854df5cfe7e18_MD5.png]]
 
 2、下面就是使用`http-proxy-middleware`中间件配合`express`来搭建的代理服务器
 
@@ -4839,7 +4837,7 @@ app.listen(8000, () => {
 
 3、对于`webpack`的代理服务器的本质就是下面的方式，但是要主要这个代理服务器只是`开发时依赖`，如果我们使用`webpack`打包之后就不存在这个代理服务器了
 
-![image-20230701231827605](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325019.png)
+![[00 assets/29aa2f570e6ff5ee37237873af472cf5_MD5.png]]
 
 ### 8.2.3 nginx 反向代理
 
@@ -4847,11 +4845,11 @@ app.listen(8000, () => {
 
 2、下面是`nginx`的代理处理，只是简单的将`http://localhost:80`转发到了`http://localhost:8000`中
 
-![image-20230702121028676](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325044.png)
+![[00 assets/18e2706dfdae039cc0ad32fbe94e8865_MD5.png]]
 
 3、如果是真实的线上环境的话，其实就是`nginx`代理`静态资源`，随后同一端口的中再去代理转发`API服务器`
 
-![image-20230702122130411](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325854.png)
+![[00 assets/94a47c778079ddcb87cd82c8cd81a60a_MD5.png]]
 
 # 17. 项目实战
 
@@ -4859,7 +4857,7 @@ app.listen(8000, () => {
 
 ### 16.1.1 项目介绍
 
-![image-20220908202348032](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325871.png)
+![[00 assets/0e953ea6829aa4853db44e5b52a0ef8a_MD5.png]]
 
 ### 16.1.2 项目搭建
 
@@ -4872,25 +4870,25 @@ npm i koa // 安装koa
 
 > 2.规定目录的划分
 
-![image-20220908221008695](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325891.png)
+![[00 assets/f97de7bc0daa25bbf948dc9e82153ebf_MD5.png]]
 
 当然我们也可以来参考`egg.js`的目录规范：[目录规范 | Egg (eggjs.github.io)](https://eggjs.github.io/zh/guide/directory.html)
 
 我们再来配置我们项目的目录。然后配置`npm`的启动
 
-![image-20220908221735035](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325917.png)
+![[00 assets/e66f9c6113660d9fb0063d4e3f9c0bf5_MD5.png]]
 
 我们再对业务进行分包，这样分离方便维护。这是暂时是对`app`的分离
 
-![image-20220908222544522](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325941.png)
+![[00 assets/3721c1c4ce70caee5497d5d24547d316_MD5.png]]
 
 > 3.应用配置信息写到环境变量
 
-![image-20220908222922329](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325973.png)
+![[00 assets/85cbf9aba662cf90cdb39c11c7488808_MD5.png]]
 
 因为在项目中人数较多，很多配置的敏感信息不能被暴露，所以需要写一个配置文件。在根目录下创建一个`.env`文件。我们可以使用文件导入的形式来获取这些信息
 
-![image-20220908223314946](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325544.png)
+![[00 assets/5b83b8d735b7048dc99590e7be37ce6b_MD5.png]]
 
 但是并不是很方便，所以这里需要使用`dotenv`，`dotenv`官网：[dotenv - npm (npmjs.com)](https://www.npmjs.com/package/dotenv)
 
@@ -4902,67 +4900,67 @@ npm i dotenv // 安装dotenv
 
 下面的导出的写法，其实是因为赋值运算符优先执行右边的语句，右边为`解构赋值`然后作为对象导出
 
-![image-20220908224821656](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325567.png)
+![[00 assets/d4286e7a65e31f0abf38eab8cd01b05b_MD5.png]]
 
 ### 16.1.3 postman
 
 我们接口测试使用的是`postman`，我们可以设置集合，对这次项目的接口进行管理
 
-![image-20220909130115718](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325586.png)
+![[00 assets/38be29163601378250a769d454af1193_MD5.png]]
 
 我们还需要配置环境，可能开发、测试、上线服务器都是不一样的，我们设置环境可以方便切换
 
-![image-20220909130727813](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325609.png)
+![[00 assets/c11f3ea649406c260a949e79bea4e7e4_MD5.png]]
 
 这样我们直接切换环境，可以改变`{{baseURL}}`的值，这样可以方便端口调试
 
-![image-20220909130835060](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325630.png)
+![[00 assets/034c306e87ade8eea338fa684cf2e6ee_MD5.png]]
 
 ### 16.1.4 用户注册接口
 
 我们首先将路由抽取出来放在一个单独的文件夹`router`中，因为后期有很多的路由接口。在文件命名上，也可以参考，这里使用的是`user.router.js`，假如以后有其他模块也叫做`user.js`的话就可以很好的区分
 
-![image-20220909162542666](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325705.png)
+![[00 assets/b05e05d36359111f3429a5584a7baf0b_MD5.png]]
 
 我们再来将路由中的方法进行拆分，因为该路由下面的接口也会很多，所以我们简化其中的代码。但是不仅仅只是简化其中的代码，这里涉及到了拆分的思想。作为路由的文件就做好路由跳转的事情。
 
-![image-20220909165404873](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325273.png)
+![[00 assets/be4ccb736a8de8219737e9e238d90872_MD5.png]]
 
 这里再来拆分查询数据的代码
 
-![image-20220909165715475](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325293.png)
+![[00 assets/ae91cf76c1314e2cf81c44cc2b8832fe_MD5.png]]
 
 最后安装上`koa-bodyparser`就可以解析`json`数据，注意中间件是从上往下执行
 
-![image-20220909165816274](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325315.png)
+![[00 assets/a1e48959f28f2e1b0d77429bd0dd5d34_MD5.png]]
 
 ### 16.1.5 数据库连接
 
 因为数据库是`全局`的，所以我们按照目录划分需要写在`app`中。首先要`npm i mysql2`，并且数据库的配置信息都要写在`.env`中，通过`dotenv`来读取操作
 
-![image-20220909175722220](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325343.png)
+![[00 assets/df761840518ce20ecdfc7742bf8eb2ec_MD5.png]]
 
 我们在封装好的`UserService`中进行数据的查询
 
-![image-20220909190220573](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325362.png)
+![[00 assets/b02f007daf31b1193d45cca34b0bf9a1_MD5.png]]
 
 ### 16.1.6 错误判断
 
 在路由跳转的时候执行中间件`verifyUser`对传输来的数据进行判断。然后在`error-handle.js`中对这个中间件的逻辑进行编写
 
-![image-20220909200822721](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325421.png)
+![[00 assets/91cba583cb62a21d24a06c61db1e64cf_MD5.png]]
 
 我们再来编写专门收集错误类型的`error-type.js`文件
 
-![image-20220909201221488](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325150.png)
+![[00 assets/df060f8aa6df990676f6e026e6862157_MD5.png]]
 
 我们再来编写专门处理错误类型的函数
 
-![image-20220909213030893](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325169.png)
+![[00 assets/e245479310c01144e9b22bc5471f7930_MD5.png]]
 
 我们再来编写该用户是否存在的代码，原理其实是一样的
 
-![image-20220909220032943](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325193.png)
+![[00 assets/c8cb4e6cf2b22647100071dd8477dd6b_MD5.png]]
 
 ## 16.2 day02
 
@@ -4970,11 +4968,11 @@ npm i dotenv // 安装dotenv
 
 在对路由中输入的用户名和密码进行验证之后。再去对密码进行加密处理，密码最好不要明文存储
 
-![image-20220910141736070](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325223.png)
+![[00 assets/337b073aff060a37a5af066f2aea8992_MD5.png]]
 
 这个就是处理密码加密的代码，我们可以使用`Node.js`中内置的加密模块来处理
 
-![image-20220910142039217](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325249.png)
+![[00 assets/110248b65f1687c78102b5212c0a044b_MD5.png]]
 
 ### 16.2.2 登录验证
 
@@ -4982,17 +4980,17 @@ npm i dotenv // 安装dotenv
 
 下面的整个流程就是这样的，按照上面的流程来书写就没问题
 
-![image-20220910175442484](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325265.png)
+![[00 assets/2f2cde47ee118c9a7aa6762bfed620db_MD5.png]]
 
 ### 16.2.3 动态加载路由
 
 我们在`index.js`文件中一直引入路由很麻烦，所以我们需要做出改进
 
-![image-20220910175854007](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325947.png)
+![[00 assets/f8098468cddf6d131b35945dfbb0a65a_MD5.png]]
 
 再在`router`文件夹下面编写加载路由的`.js`文件，用于动态加载路由。只要在该目录下的路由都会自动加载
 
-![image-20220910230610299](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325968.png)
+![[00 assets/5e5083be33d49bb1a6f592631efc0435_MD5.png]]
 
 因为传入的`app`是一个对象，所以我们使用他的中间件导入的路由会以内存地址的形式来存储，所以不会存在函数结束，数据都丢失的情况，也就达到了路由动态加载的效果。但是这只是一种猜测
 
@@ -5000,7 +4998,7 @@ npm i dotenv // 安装dotenv
 
 #### 16.2.4.1 基本介绍
 
-![image-20220911154717795](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325994.png)
+![[00 assets/6c4d8522f1b0bb7b909e47344099c957_MD5.png]]
 
 #### 16.2.4.2 cookie
 
@@ -5008,31 +5006,31 @@ npm i dotenv // 安装dotenv
 
 对于`Cookie`有不同的划分，这个在以前的学习中确实不是很清楚。其中就划分了内存`Cookie`和硬盘`Cookie`
 
-![image-20220911160102104](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325017.png)
+![[00 assets/f0ad0b2f9c27127609e9214f0da97b57_MD5.png]]
 
 ##### 16.2.4.2.2 常见属性
 
 下面就是`Cookie`的常见属性
 
-![image-20220911175144416](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325046.png)
+![[00 assets/9e2ca6d57dabd132de3c921fed543ad7_MD5.png]]
 
 ##### 16.2.4.2.3 客户端添加 Cookie
 
 下面就是在客户端添加`Cookie`值
 
-![image-20220911174845714](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325126.png)
+![[00 assets/80d45294c447222f44673a888ccca163_MD5.png]]
 
 下面就是添加的`Cookie`值。注意这个`Cookie`是没有设置任何属性值的，所以他是内存`Cookie`，关闭浏览器就会自动清除这个`Cookie`，假如我们设置了过期时间的话就会转变为硬盘`Cookie`
 
-![image-20220911174818471](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325702.png)
+![[00 assets/6ec7b4e8eb5397f446d5ed5878d4dedc_MD5.png]]
 
 我们关闭浏览器，再次打开的时候你会发现`Cookie`消失了，这就是没有设置属性值的效果
 
-![image-20220911203409912](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325725.png)
+![[00 assets/60c7656aceb3274b84fcaf1a29314064_MD5.png]]
 
 当然我们也可以设置属性值`max-age`来将内存`Cookie`转变为存储`Cookie`，并且可以设置最大存储时间，到了时间之后，就会自动消失
 
-![image-20220911180041769](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325743.png)
+![[00 assets/7ff26ac4b6f0b898dcdc9c6adaed5fa5_MD5.png]]
 
 ##### 16.2.4.2.4 服务端添加 Cookie
 
@@ -5069,11 +5067,11 @@ app.listen(8001, () => {
 });
 ```
 
-![image-20220911220531539](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325771.png)
+![[00 assets/c22dcd51e39e68fd7ebe8ee5cf0f11e5_MD5.png]]
 
 为什么后台可以获取到`Cookie`值，这是因为在网络请求中会自动携带上
 
-![image-20220911220636599](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325798.png)
+![[00 assets/ddc13ee9456bc482ede2d87a700c0850_MD5.png]]
 
 \*`cookie`存在一个`httponly属性`这个是指，只能使用`http`来设置。这样我们需要删除得话，就需要使用`name="";max-age:0;`就可以手动删除`cookie`了
 
@@ -5129,7 +5127,7 @@ app.listen(8001, () => {
 });
 ```
 
-![image-20220911224955610](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325866.png)
+![[00 assets/93c1fb9ea36a1ccd7c4617f8cc2cfc8c_MD5.png]]
 
 但是我们这样配置之后，假如有人修改`sessionid`里面的值不还是不行，所以我们需要设置`signed`的值为 true，现在默认就是 true。而且我们也可以通过`app.keys`的方式来加密内容
 
@@ -5150,11 +5148,11 @@ app.use(session);
 
 添加签名之后就会多一个`session.slg`的字段，这个就是加密的签名
 
-![image-20220911230309996](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325341.png)
+![[00 assets/3ae947c53a0e811fdf65cd7540b6dac1_MD5.png]]
 
 假如这个时候我们来修改其中的任何一个值，就会导致数据问题
 
-![image-20220911230558894](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325361.png)
+![[00 assets/b847825dfcf5e281b647a0dfd4c3d48c_MD5.jpeg]]
 
 #### 16.2.4.4 token
 
@@ -5162,25 +5160,25 @@ app.use(session);
 
 在上面介绍的`Cookie`和`Session`其实不是很好
 
-![image-20220912192918550](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325382.png)
+![[00 assets/cbf8642d293936d915fabbc4676078d3_MD5.png]]
 
 这里缺点主要就是下面的 2 点，上面的问题都是可以解决的。第一个就是不能解决不同客户端的问题。
 
 第二个就是不能解决服务器集群的问题，假如密文是通过`Session`是通过服务器 1 来加密的，但是`Nginx`是将该数据转发给服务器 2 了，这个时候服务器 2 并没有服务器 1 的密钥，所以数据根本解析不了。但是这些问题都是可以解决的，但是不是很好，所以就会出现 token
 
-![image-20220912193227217](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325403.png)
+![[00 assets/6b87d8bddd19967d593838c33bab7268_MD5.png]]
 
 这个时候就可以使用`token`来处理
 
-![image-20220912194824301](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325563.png)
+![[00 assets/f56823971e93437ae941ce616b1abc6a_MD5.png]]
 
 ##### 16.2.4.4.2 JWT
 
-![image-20220912195825628](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325064.png)
+![[00 assets/667c673efe0c4515ef986ad400709aac_MD5.png]]
 
 这里需要注意一点，就是`jwt`是自带公钥的。所以所有人都可以解密`jwt`来获取信息，但是不能自己捏造`jwt`来传输，这个没用。`jwt.io`可以在没有公钥的情况下读取信息，但是不能修改
 
-![image-20220915171913625](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325085.png)
+![[00 assets/58dbf62f2c25ec7a9c380deb11466066_MD5.png]]
 
 也可以看下`JWT`的场景：[深入理解 JWT 的使用场景和优劣 (qq.com)](https://mp.weixin.qq.com/s?__biz=MzI0NzEyODIyOA==&mid=2247483918&idx=1&sn=12683bae55f2ab1a8281ab398472362f&chksm=e9b58bc5dec202d385d1c1d861f7e0ff495296ed9387b32a8d01ae195eae03688e5aeebe6396&token=1557545914&lang=zh_CN#rd)
 
@@ -5188,11 +5186,11 @@ app.use(session);
 
 1、在`postman`中我们添加授权，这样每次的请求都会自动在`header`中加上`token`值。一般我们都会去使用`Bearer Token`的模式
 
-![image-20220913092120362](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325106.png)
+![[00 assets/f363364082c28b0b42d4943b72507f90_MD5.png]]
 
 2、如果我们想要自动保存`token`，还需要手动编写测试接口
 
-![image-20230827100113625](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325132.png)
+![[00 assets/e903aa70d5cfdf90028d0ac0bad241fd_MD5.png]]
 
 ##### 16.2.4.4.3 基本使用
 
@@ -5249,21 +5247,21 @@ app.listen(8001, () => {
 
 当然在开发中不可能将`token`以数据的形式发送，一般都是直接加在`header`中，一起发送过来。所以我们可以借助`postman`来添加，这个参考`16.2.4.4.4 postman鉴权`，下面就是`token`解析出来的值了
 
-![image-20220913102300665](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325234.png)
+![[00 assets/2b197f70a7f0c522be80fd09bcdb0d2c_MD5.png]]
 
 ##### 16.2.4.4.4 非对称加密
 
 大致就是这样，持有`privateKey`的用户系统，可以颁发`token`。持有`publicKey`的可以验证`token`。这个就是非对称加密。
 
-![image-20220913160555333](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325993.png)
+![[00 assets/c26c0ca4c25a3d85eee5f77bf74efb94_MD5.png]]
 
 下面就是基本介绍
 
-![image-20220913161046252](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325013.png)
+![[00 assets/4896b6dc20652a4eccbc2481fa84985a_MD5.png]]
 
 我们也可以使用`SSL`来生成一个非对称加密，这里演示的是`windows`系统的`git`来生成的
 
-![image-20220913161120804](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325034.png)
+![[00 assets/f80aea16285fe6893c58767158429e93_MD5.png]]
 
 ```bash
 /* 先输入openssl */
@@ -5286,7 +5284,7 @@ rsa -in private.key -pubout -out public.key
 
 这个时候我们就可以生成私钥和公钥
 
-![image-20220913231852253](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325058.png)
+![[00 assets/2866a98ee5a305b0ae51cde1a8d05ccb_MD5.png]]
 
 ##### 16.2.4.4.5 非对称加密基本使用
 
@@ -5342,11 +5340,11 @@ app.listen(8001, () => {
 
 我们将通过私钥加密之后信息读取出来，注意上面。在加密传递给客户端的时候，使用的私钥加密，但是需要读取信息的时候，就是使用的公钥来解密的
 
-![image-20220913232051939](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325082.png)
+![[00 assets/62d287932dc57bf03b1130fef0e7ba99_MD5.png]]
 
 这个时候就会好奇，假如我们加密的时候使用公钥的话，能成功加密吗？答案是否定的，公钥是不能颁发`Token`的，所以我们使用公钥去加密的话会报错
 
-![image-20220913232421549](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325137.png)
+![[00 assets/3bc7e44630f0f5e8137e68e1f3d099d0_MD5.png]]
 
 假如别人不知道我们的私钥，他就不能颁发`Token`。虽然他能获取到公钥，他也只能解析出信息，但是不能伪造`token`来调用接口
 
@@ -5356,25 +5354,25 @@ app.listen(8001, () => {
 
 首先是来加密信息，发给前端来保存
 
-![image-20220914111326604](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325776.png)
+![[00 assets/e3790d102717cf7b57f823962f820965_MD5.png]]
 
 然后我们对发送来的`token`进行解密
 
-![image-20220914111415528](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325797.png)
+![[00 assets/466c88c4b2ce84e10b7968b88805887e_MD5.png]]
 
 MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
 
 这里还有一个对于`postman`的操作，可以自动化设置`token`值，不必我们每次都添加。在服务器发送给客户端的接口里面写上这一段，就可以自动获取`token`到全局
 
-![image-20220914111831940](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325835.png)
+![[00 assets/2ac009865815a9582c0137c11b2313fc_MD5.png]]
 
 这里就会自动填充
 
-![image-20220914111747826](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325890.png)
+![[00 assets/a2c716df279fcd3c4b131092eb36e440_MD5.png]]
 
 这里还需要注意一个`fs`读取的问题，因为我们使用的`npm`来执行的。本质就是将我们写的代码都存在`main.js`来执行，所以这个读取文件也需要修改，应该是按照`main.js`为基础来编写路径的，但是又可能搞混，这里直接就是`path`来拼接了
 
-![image-20220914112143422](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325918.png)
+![[00 assets/95b48af00116373c4feefdd7e1cdcaf9_MD5.png]]
 
 ### 16.2.5 查看动态
 
@@ -5384,17 +5382,17 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 首先来看路由的特点，`post`的请求方式就是添加，下面的 2 条`get`请求就是查询，不做修改。这个就是`restful`风格的接口模式
 
-![image-20220914171324083](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325944.png)
+![[00 assets/cb2c712f15a56469f3527edecc075e7d_MD5.png]]
 
 > 2.
 
 这个就是编写一般接口的逻辑，首先增加中间件来对数据进行判断。然后在`Controller`中添加创建的方法
 
-![image-20220914171739490](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325546.png)
+![[00 assets/061f9b34cb18286c0a4e6d973f62d3d2_MD5.png]]
 
 再将对执行`sql`执行放在`service`中
 
-![image-20220914171652939](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325565.png)
+![[00 assets/070cd2af3f0e56ae64f5876637b6e3fa_MD5.png]]
 
 最后返回数值
 
@@ -5402,15 +5400,15 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 这个就是通过数据库表中的`user_id`到用户表中查询到的数据
 
-![image-20220914214817680](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325585.png)
+![[00 assets/a3b25403413c81ac21f1f5e217516dbe_MD5.png]]
 
 在返回的时候就需要按照这种格式来返回
 
-![image-20220914172050961](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325615.png)
+![[00 assets/d063d79c671d74f081177aa75821a1d0_MD5.png]]
 
 这里的查询格式为左连接来查询到改动态下面的用户，并且使用了`JSON_OBJECT`将其转化为对象格式
 
-![image-20220914172017405](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325645.png)
+![[00 assets/507c8286095d1b482efb205fe2d28dfc_MD5.png]]
 
 并且这里还有一个思想，就是这个`sql`很长，所以我们可以抽取出来复用
 
@@ -5422,11 +5420,11 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 但是这里有一个抛出异常的问题。我们在这里执行语句，假如出现错误的话，因为我们没有使用`try-catch`包裹，所以这里抛出的异常会抛出给上一个函数，假如上一个函数也没有处理的话，又会抛出。
 
-![image-20220914225707894](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325699.png)
+![[00 assets/0b5dc1ed18027b218ca0dfad7dad083d_MD5.png]]
 
 所以为了代码的健壮性，我们应该为这些函数包裹`try-catch`。一般的处理时包裹`sql`处理语句
 
-![image-20220914225850624](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325269.png)
+![[00 assets/cfda65ce44aa1bc6e0de7b7a565fb895_MD5.png]]
 
 ### 16.3.2 删除文章
 
@@ -5444,13 +5442,13 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 3.并且这里还有一个`comment_id`设置外键为自己的这个表。这样就可以体现出不同的层级
 
-![image-20220917103944105](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325288.png)
+![[00 assets/b2c5d6ed7761189ba926ff326175cc39_MD5.png]]
 
 ### 16.3.4 回复评论
 
 按照上面的数据库解释，这里回复也是存在一个表中。这个表示回复`id`为 2 的评论值
 
-![image-20220917162830614](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325310.png)
+![[00 assets/192f4301e2b80df3c4352978faadaec4_MD5.png]]
 
 这个就是评论回复的数据库思路。其实里面的业务代码很简单，按照流程来处理即可
 
@@ -5458,7 +5456,7 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 注意这里的使用。因为他们验证权限很类似（只需要修改查询的`sql`和获取到`params`值），而且代码可以复用，但是验证权限需要知道他们的区别。
 
-![image-20220917163121129](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325335.png)
+![[00 assets/427cda34ed8e81c45c4b6f90a644de0f_MD5.png]]
 
 所以这里就有 2 个思路
 
@@ -5466,17 +5464,17 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 将要处理的函数作为返回值处理，并且将高阶函数的参数作为区分。这也就可以动态调节里面值得变化了。也让这个`verifyPermission`得职能就扩大了
 
-![image-20220917163513171](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325361.png)
+![[00 assets/b0cf89f61832270e4eb6821384fd113f_MD5.png]]
 
 然后将验证是否存在得`sql`进行修改，这样就可以动态修改
 
-![image-20220917163805755](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325449.png)
+![[00 assets/f42e68b7e9a0469719c23913397e70e5_MD5.png]]
 
 这段得使用在我得笔记`JS高级`里面也有，可以参考
 
 > 2.如果后续的接口都是按照`restful`风格来编写得话。可以直接获取`params`得参数的键来区分。
 
-![image-20220917164045143](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325888.png)
+![[00 assets/a714b53ed56dc3527b7991ddb412b4ee_MD5.png]]
 
 ### 16.3.6 删除评论
 
@@ -5484,15 +5482,15 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 > 1.编写路由
 
-![image-20220917164221038](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325908.png)
+![[00 assets/b8089c1e940616dfa970bc2d1b5081ae_MD5.png]]
 
 > 2.编写 Controller
 
-![image-20220917164236644](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325926.png)
+![[00 assets/c69b7e1e6f64f2aefadcfdc0b29215c2_MD5.png]]
 
 > 3.编写 sql 执行
 
-![image-20220917164310054](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325963.png)
+![[00 assets/3f92b238a980dfbb65ff85f717ee9d8e_MD5.png]]
 
 完成，基本这就是编写业务代码的全部。后面的非特殊处理，基本都是这个套路
 
@@ -5502,11 +5500,11 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 我们在这里加上一个子查询即可，这样就可以查询到个数
 
-![image-20220918125821648](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325052.png)
+![[00 assets/61bfdc6cfa8f6f6a95fc24cd1c58f502_MD5.png]]
 
 只要`moment_id`是一样的，就可以链接到`moment`表查询到该动态的评论个数
 
-![image-20220918125946233](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325495.png)
+![[00 assets/59b5d7193796951561f1a873a8908986_MD5.png]]
 
 ### 16.4.2 获取评论
 
@@ -5514,19 +5512,19 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 将获取评论的接口和获取动态的接口分离来处理。这样直接获取`moment_id`即可
 
-![image-20220920223420511](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325513.png)
+![[00 assets/83d303df102808824c811856eb520b63_MD5.png]]
 
 > 方案二
 
 在获取动态的时候，顺便获取该动态下面的评论，这里的难点主要是`sql语句`的编写。假如对于`sql`语句实在不知道怎么编写的话，可以参考下面的思路
 
-![image-20220918215414938](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325533.png)
+![[00 assets/4b63c74466776cc6328b70577b2f191d_MD5.png]]
 
 ### 16.4.3 标签开发
 
 1.因为`标签`和`帖子`是多对多的关系，在`mysql`课中学过，多对多最好的处理方式就是建立中间表，即这里创建`moment_label`表来作为中间表
 
-![image-20220922104517260](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325557.png)
+![[00 assets/bf5f7f825a7a6af6497be831d9d52f76_MD5.png]]
 
 2.这里还有一个联合主键的概念。这个和普通主键是一样的，这里可以将他们 2 个字段连在一体作为主键来处理
 
@@ -5536,7 +5534,7 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 3.这里再来解释一下`on update cascade...`的使用，其实就是下面的图，只要`buildings`表更新或者删除，就更新和删除下面的`rooms`表。类比到这里就是，只要`label`表或者`moment`表更新或者删除就会影响`label_moment`表中的数据，这样做的好处就是方便更新数据，不需要你手动来维护了
 
-![image-20220922115650250](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325602.png)
+![[00 assets/74358590b5a76ac44f15e79e8f7ed553_MD5.png]]
 
 4.所以这里的标签开发。首先是分析数据模式，这个功能的模式就是`多对多`，一个文章可以使用多个标签，多个文章可以复用多个标签。然后就是构建数据库，是多对多所以需要设置`中间表`。并且构建外键的时候也是一样的，当更新和删除需要更新和删除，所以需要将中间表的外键的`on update 和 on delete`设置为`cascade`
 
@@ -5546,11 +5544,11 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 剩下的就是后台关心的事情，假如用户添加的标签，数据库中不存在的话，就会自动添加到数据库中。并且该文章没有有该标签的话，就会自动与标签建立联系，假如有的话就会跳过
 
-![image-20220922210332484](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325669.png)
+![[00 assets/579b0c0813e7c87bde0287af45375952_MD5.png]]
 
 剩下的逻辑就很简单了，大致逻辑就是如此
 
-![image-20220922210745765](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325031.png)
+![[00 assets/305f02ee9620bd9c6cc19695b3e92a94_MD5.png]]
 
 ### 16.4.5 动态显示标签
 
@@ -5558,13 +5556,13 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 可以参考`16.4.2`的编写方式
 
-![image-20220923101840196](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325113.png)
+![[00 assets/c136c1894a20cae75d7b97b078c675f7_MD5.png]]
 
 > 方式二
 
 单独再来写一个接口，或者数据库查询的方式。来单独处理，这个也是我比较推荐的方式。下面的方式和`16.4.2`又不一样，下面的是将各个步骤写为单独的方式。但是`16.4.2`是写一个`sql`直接处理完返回
 
-![image-20220922215848398](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325139.png)
+![[00 assets/e70993c31402a71254ae80f4ad1e7e4b_MD5.png]]
 
 ## 16.5 day05
 
@@ -5572,15 +5570,15 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 首先来编写上传图像的中间件
 
-![image-20220923152315227](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325158.png)
+![[00 assets/773731407dfdd8409967fd30e6eec4e3_MD5.png]]
 
 这中间的逻辑在`13.4.4`里面有讲，这里有一个`storage`的小坑需要注意一下
 
-![image-20220923152355080](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325233.png)
+![[00 assets/3dd51c52b8490ff6db7c1bdb842b110c_MD5.png]]
 
 然后再保存到数据库中即可
 
-![image-20220923152447727](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325296.png)
+![[00 assets/3bdac696efc0aec8db40bb3f57e94017_MD5.png]]
 
 ### 16.5.2 头像查看
 
@@ -5588,29 +5586,29 @@ MDN 响应状态码：[HTTP 响应状态码 - HTTP | MDN (mozilla.org)](https://
 
 2.当我们从数据库中查询到头像数据之后，可以创建流来传输给服务器
 
-![image-20220923160352242](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325795.png)
+![[00 assets/3b06af5ca16cf11585d168ebe9cc15ac_MD5.png]]
 
 但是这种形式浏览器并不知道是什么文件，所以默认是直接下载处理的
 
-![image-20220923160520210](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325813.png)
+![[00 assets/0ac4f487c823b14e3ea56867b6b92373_MD5.png]]
 
 3.假如我们需要让浏览器知道这是一个图片，就需要设置`Content-Type`来传输了，这个时候就是直接显示的图片
 
-![image-20220923160719200](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325833.png)
+![[00 assets/71ba73eb160d01889df2f713cf8b6c83_MD5.png]]
 
 4.当然这里还有一个细节就是变量都抽出来作为常量，后续只需要修改这一处就可以了
 
-![image-20220923160815474](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325856.png)
+![[00 assets/6b26d6106ce72f5ee8bf5fea382f606c_MD5.png]]
 
 ### 16.5.3 用户头像
 
 当添加头像数据之后，去更新用户的头像数据，这里可以直接拼接获取，也最好做成拼接获取即可
 
-![image-20220923163113628](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325896.png)
+![[00 assets/cd761dd7ead0c252b22e067697bf63b9_MD5.png]]
 
 下面就是数据库中的存放的数据模式
 
-![image-20220923163319924](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325945.png)
+![[00 assets/0e13568c7e3f0000ae15427461714886_MD5.png]]
 
 ### 16.5.4 动态配图
 
@@ -5624,7 +5622,7 @@ npm i jump // 使用工具库
 
 下面就是基本的使用，这里将图片压缩为`1280`、`640`、`320`的格式
 
-![image-20220924210155385](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325521.png)
+![[00 assets/49d7e2c95a1060f3f13ae2ee555bc521_MD5.png]]
 
 # 18. 云服务器部署
 
@@ -5634,21 +5632,21 @@ npm i jump // 使用工具库
 
 我们不仅仅可以使用`XShell`来连接`linux`服务器。我们也可以使用`git bash`来连接`linux`服务器
 
-![image-20220924233447819](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325545.png)
+![[00 assets/8526f84196c033cd73734147e6bde87e_MD5.png]]
 
 当然我们这里使用`XSehll`来连接
 
-![image-20230306090621311](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325572.png)
+![[00 assets/d479ef0f4417eea77a0e3e081460ab99_MD5.png]]
 
 ## 17.2 Node.js
 
 因为服务器选择是`8.2`，所以是自带`dnf`的，下面可以使用`dnf --help`来查看该版本是否安装过`dnf`
 
-![image-20220924233711922](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325596.png)
+![[00 assets/bac8d933cbe917d1763f50bf0bec8812_MD5.png]]
 
 1.首先来搜索是否包含`Node.js`的包，可以使用命令`den search dnf`。很明显假如要安装的话，就安装下面的`Nodejs.x84_64`的版本
 
-![image-20220924234019323](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325619.png)
+![[00 assets/bc1e19951bc7741fed5bafe978f76afc_MD5.png]]
 
 2.当然我们也可以通过`dnf info nodejs`来查看你要下载的`node.js`的信息
 
@@ -5663,7 +5661,7 @@ dnf install nodejs
 
 但是下载的并不是`nodejs`的最新版本，而是比较老的
 
-![image-20220925185743221](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325202.png)
+![[00 assets/e2f85a69f1c7a1b69571ad36b1400687_MD5.png]]
 
 4.所以我们可以去更新`nodejs`的版本
 
@@ -5681,7 +5679,7 @@ n
 
 这里我们选择`lts`的最新版本
 
-![image-20220925190115422](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325226.png)
+![[00 assets/a07abd8122d5e896125c064f9108a6cd_MD5.png]]
 
 ✨ 如果使用`n`来切换`nodejs`的版本之后`服务器`没有反应的话
 
@@ -5693,7 +5691,7 @@ n
 
 [node: /lib64/libm.so.6: version `GLIBC_2.27' not found - 丁少华 - 博客园 (cnblogs.com)](https://www.cnblogs.com/dingshaohua/p/17103654.html)
 
-![image-20231115232715588](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325245.png)
+![[00 assets/985c116a1409974dea892fc2dacd7292_MD5.png]]
 
 2、因为 CentOS7 版本比较低，所以很多的功能都没有，需要一个个安装依赖库太麻烦了，可以直接使用二进制包来处理
 
@@ -5701,7 +5699,7 @@ n
 
 因为使用阿里云给的方式可以安装，因为是软链接设置了，没有环境变量，所以使用下面的方式可以设置环境变量，这样就可以全局使用`pm2`和`n`类似的工具库了
 
-![image-20231117201318982](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325268.png)
+![[00 assets/1e939c7feb3f7cf08394d6577f14d6fc_MD5.png]]
 
 [解决 linux 中使用 npm 全局安装的命令无法运行-CSDN 博客](https://blog.csdn.net/weixin_44509607/article/details/103083280)
 
@@ -5754,23 +5752,23 @@ mysql -u root -p	# 后面输入密码即可
 
 1.这里我们使用`navicat`来连接数据库，点击连接。其中主机就是你的服务器的`ip地址`。
 
-![image-20220925193743158](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325292.png)
+![[00 assets/9de1b3d4eda6735327a731a27713ace0_MD5.png]]
 
 2.但是我们这样填写之后肯定是连接不上的，因为我们服务器的`3306`端口并没有开启。这个时候就需要添加规则来开放`3306`端口
 
-![image-20220925193653245](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325366.png)
+![[00 assets/c85e6e1edf008a0b07468626abfda720_MD5.png]]
 
 3.这之后还是不能连接，我们可以查看`msql`中的`user`表。可以发现`root`用户名的`host`是`localhost`，所以连接不上
 
-![image-20220925194447959](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325752.png)
+![[00 assets/e9a1161aa1949a8bf5fd984b998a1b5a_MD5.png]]
 
 我们需要去修改`root`的`host`为`%`，这里就需要使用到`mysql`的`update`，`update user set host = "%" where user = "root";`
 
-![image-20220925194700063](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325769.png)
+![[00 assets/665878eaba252f7e2a6d74b092d77096_MD5.png]]
 
 4.假如还是连接不上的，就需要清除缓存了。输入下面的指令来重新授权，`flush privileges;`
 
-![image-20220925195539297](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325788.png)
+![[00 assets/a273ee2410fcdf87b6127dc6f1b5081a_MD5.png]]
 
 你安装`mysql`可能存在密码一直错误的情况，不要信网上的修改`authentication_string`，这个是凭证信息，修改也没用，最多置空就行，可以参考下面的文章来配置
 
@@ -5780,11 +5778,11 @@ mysql -u root -p	# 后面输入密码即可
 
 我们将在本地建立好的`mysql`转储为`sql`文件
 
-![image-20220925200049849](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325893.png)
+![[00 assets/6ecf8581879533d22f4e904d9c0b1620_MD5.png]]
 
 可以看到这里有运行`sql文件`，直接将刚刚保存的`sql`文件运行即可
 
-![image-20220925200216319](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325929.png)
+![[00 assets/6e4f36f2d6f1bba74b5550c3329d3b41_MD5.png]]
 
 ## 17.4 手动部署
 
@@ -5792,7 +5790,7 @@ mysql -u root -p	# 后面输入密码即可
 
 使用`xftp`将`nodejs`的文件丢到服务器执行即可
 
-![image-20220925202739365](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325218.png)
+![[00 assets/256d7b24979be4f88db1b3f9373b87bd_MD5.png]]
 
 ### 17.4.2 git 部署
 
@@ -5800,7 +5798,7 @@ mysql -u root -p	# 后面输入密码即可
 
 1.首先将代码都上传到`github`中，现在已经上传完成
 
-![image-20220925204020596](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325270.png)
+![[00 assets/35909a0d2b957c55428420111e97c645_MD5.png]]
 
 2.这个时候服务器是没有安装`git`的，所以我们需要安装`git`
 
@@ -5813,11 +5811,11 @@ dnf intall git
 
 这个时候输入下面的指令就可以`clone`项目到本地了
 
-![image-20220925204319267](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325469.png)
+![[00 assets/3c0f335926231b95b29837f1d8507f0a_MD5.png]]
 
 这个时候我们就可以看到下面已经被`clone`的文件了
 
-![image-20220925204846733](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325486.png)
+![[00 assets/a407d0add32869efc329390a4a197ade_MD5.png]]
 
 #### 17.4.2.2 vscode 连接 ssh
 
@@ -5825,33 +5823,33 @@ dnf intall git
 
 我们来下载`remote-ssh`来进行`ssh`的连接
 
-![image-20220925205052393](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325570.png)
+![[00 assets/b04fd92d94ef97e5176c41f045a84d48_MD5.png]]
 
 这个时候我们输入上面的命令就可以连接了
 
-![image-20220925205150703](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325909.png)
+![[00 assets/545b6c4a24f31215b438b3d17ac0a791_MD5.png]]
 
 这里可以看到已经连接上远程了，选择你要展示的文件夹即可
 
-![image-20220925205333450](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325930.png)
+![[00 assets/ee799543d5f6a58857cd20b529512ce4_MD5.png]]
 
 这个时候就可以看到已经完成了
 
-![image-20220925210134140](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325954.png)
+![[00 assets/a835fd2dcf374cdaeed5254aa6671e0f_MD5.png]]
 
 #### 17.4.2.3 执行
 
 这个时候我们再来`npm install`就可以在`vscode`中进行安装
 
-![image-20220925210551255](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325007.png)
+![[00 assets/20f851583b86dcfc7749516a2f207634_MD5.png]]
 
 我们再来执行即可（假如报错的话要注意有没有安装`nodemon`），这样就可以开启服务器版本的`nodejs`
 
-![image-20220925210855946](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325098.png)
+![[00 assets/fdc5ee1ccc64b6f6338224f295a987f0_MD5.png]]
 
 ✨ 注意：这里我开启的端口是`8000`，但是该服务器的并没有开启端口`8000`，所以我们需要到控制台来开启
 
-![image-20220925211538282](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325552.png)
+![[00 assets/f340fd9ee8d00891755443b37f2ef3fa_MD5.png]]
 
 还有一个问题就是我们使用`vscode`使用插件通过`ssh`来启动的`nodejs`，这就意味着只要本机的`vscode`关闭，服务器的`nodejs`的服务也会关闭
 
@@ -5889,7 +5887,7 @@ pm2 start app.js -i 4
 
 我们使用下面的命令来持久开启`nodejs`的进程
 
-![image-20220925213414925](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325575.png)
+![[00 assets/cf02796870f1fee0e7d3e0fd5129e7f6_MD5.png]]
 
 ## 17.5 自动部署
 
@@ -5897,7 +5895,7 @@ pm2 start app.js -i 4
 
 我们需要使用`Jenkins`来进行自动化部署，其实`Jenkins`的运行机制就是本地写完代码`push`到`git`上，然后到了一个时间就自动获取`git`的最新版本，然后再`npm i`添加最新的包，然后重新`pm2`
 
-![image-20220925214227422](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325593.png)
+![[00 assets/06f26b064b4634bf9f83f0ee5ca5147c_MD5.png]]
 
 我们使用下面的方式来安装`java`
 
@@ -5925,7 +5923,7 @@ wget -o /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/je
 rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 ```
 
-![image-20220925220137286](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325627.png)
+![[00 assets/c2ac0a5ea46cdc1f51b2cc02e4b036d4_MD5.png]]
 
 ### 17.5.3 使用
 
@@ -5966,7 +5964,7 @@ pm2 delete 0									# pm2 删除
 
 1、输入`pm2 logs`可以查看日志，并且`pm2`会将日志文件保存到下面对的路径中方便查找，也可以`pm2 logs 进程名 / 进程id`来针对进程进行查找
 
-![image-20231222143811901](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325678.png)
+![[00 assets/4f5888850262dca27272f2029cdee168_MD5.png]]
 
 2、使用 `pm2 flush` 或者 `pm2 flush 进程名|id`来清空日志
 
@@ -5989,7 +5987,7 @@ pm2 scale main +3					# 动态添加3个
 
 1、使用`pm2 monit`，可以查看监控，可以看到不同进程的 cpu 和内存占用情况
 
-![image-20231222155552908](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325724.png)
+![[00 assets/5b4641ebea34ee68e82c3323db8e56c2_MD5.png]]
 
 ### 1.6 配置文件启动
 
@@ -5999,7 +5997,7 @@ pm2 scale main +3					# 动态添加3个
 
 3、使用`pm2 start ecosystem.config.js`，可以批量执行脚本
 
-![image-20231222160702963](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032325320.png)
+![[00 assets/0a67d8a91835d230847eaff034e8bffb_MD5.png]]
 
 ### 1.7 docker 启动 pm2
 
