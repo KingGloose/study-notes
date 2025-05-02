@@ -14,21 +14,21 @@ vue 是一套用于构建用户界面的**渐进式**JS 框架，vue 可以自�
 
 > Vue 地位
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319132.png" alt="image-20220930092036824" style="zoom:67%;" />
+![[00 assets/abd25b27a88bb40e3d8f7b251181039c_MD5.jpeg]]
 
 > 优点
 
 **1.**采用组件化的模式，提高代码复用率，且让代码更好维护，其中一个组件就是一个 vue 文件格式
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319135.png" alt="屏幕截图 2022-03-03 170917" style="zoom:67%;" />
+![[00 assets/50baf26f2614d8ce65eb33099592eab8_MD5.jpeg]]
 
 **2.**声明式编码，不需要直接操作 DOM，提高开发效率。具体的介绍可以参考`Vue3 1.3 声明式编程和命令式编程`的介绍
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319127.png" alt="屏幕截图 2022-03-03 171345" style="zoom:67%;" />
+![[00 assets/f767cf7ac8fa1760820a551a1db341e9_MD5.jpeg]]
 
 **3.**使用虚拟 DOM——优秀的 Diff 算法，尽量复用 DOM 节点。提高渲染的效率，并且更好的支持跨平台
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319151.png" alt="屏幕截图 2022-03-03 171949" style="zoom:67%;" />
+![[00 assets/7b64c2a5a7f91647a2738773e7faadd0_MD5.jpeg]]
 
 ![[00 assets/67cf32f436ce047acaaedec867604696_MD5.jpeg]]
 
@@ -2426,7 +2426,7 @@ export default {
 
 我们使用全局事件总线的话，不仅仅可以父子组件通信，还可以祖孙组件通信，还可以非关系组件通信。也就是可以理解为可以**任意组件之间通信**
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319231.png" alt="屏幕截图 2022-03-24 164803" style="zoom: 67%;" />
+![[00 assets/6c665d743c148e8634b094411164fcd8_MD5.jpeg]]
 
 #### 2.2.6.2 hy-event-store
 
@@ -2452,7 +2452,7 @@ npm i hy-event-store
 
 ![[00 assets/54db226747f3fa2727561b209343d11f_MD5.jpeg]]
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319982.png" alt="image-20221103130557797" style="zoom:67%;" />
+![[00 assets/1d1b8d83b775976207c671131faeb12a_MD5.jpeg]]
 
 > 移除事件总线
 
@@ -4327,7 +4327,7 @@ npm i vant   // 安装vant
 
 大致开发成这个样子
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319384.png" alt="image-20221113172712572" style="zoom:67%;" />
+![[00 assets/65d6938567897f8267d1387784660e99_MD5.jpeg]]
 
 #### 9.2.3.1 获取地址
 
@@ -4345,7 +4345,7 @@ npm i vant   // 安装vant
 
 因为一些界面不需要显示`tabbar`，所以这里需要对一些界面进行特殊的处理
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319438.png" alt="image-20221112194404028" style="zoom: 50%;" />
+![[00 assets/2fa5f5ad3ea9941f5f42a6265457f05d_MD5.jpeg]]
 
 > 1.
 
@@ -4365,7 +4365,7 @@ npm i vant   // 安装vant
 
 #### 9.2.3.3 搜索栏和 tab 栏
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032319105.png" alt="image-20221112225127696" style="zoom: 80%;" />
+![[00 assets/7355301a14f6d5beb6a1248133353145_MD5.jpeg]]
 
 下面就是开发`搜索栏`和`tab`栏，这里就是使用的`vant`来开发的
 
@@ -4459,7 +4459,7 @@ npm i vant   // 安装vant
 
 所以我们这里需要使用到`index-list`属性来重新定义一个动态的`索引栏`
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032320438.png" alt="image-20221113172319072" style="zoom: 67%;" />
+![[00 assets/3a97dd179214bf696c80e4b5e8c4fc44_MD5.jpeg]]
 
 我们这里使用`computed`来处理这里动态展示数据的要求。这里的索引主要是依靠`van-index-anchor`来处理，不是按照里面的`index`来对应，而是个数来处理
 
@@ -4651,7 +4651,7 @@ export default useScroll;
 
 1、我们在首页点击了房间的信息，就需要跳转到房间的详情页
 
-<img src="https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032320898.png" alt="image-20230309203302211" style="zoom:67%;" />
+![[00 assets/6498c7010f525125463134df718e9a24_MD5.jpeg]]
 
 2、首先我们先搭建页面，这里取名为`detail`
 
