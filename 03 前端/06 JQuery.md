@@ -1339,7 +1339,7 @@ each 就很像前面的 foreach，就是一个个循环，其中回调函数里�
 
 ```
 
-![[00 assets/71423694c50fce5bd232b04c17d2e53d_MD5.png]]
+![[00 assets/05674b07701d1476973fc3c59e6ac455_MD5.jpeg]]
 
 在 JQuery 里面还有一个遍历的方式，这个是可以遍历任何对象
 

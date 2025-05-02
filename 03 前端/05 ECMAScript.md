@@ -41,7 +41,7 @@ console.log(name);
 
 假如我们要传递引用类型的话。结果是不会报错的，这是因为，我们保存的是`obj`的地址值
 
-![image-20221017165345908](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317776.png)
+![[00 assets/cdafff26c6426c11c54db501a69d8928_MD5.png]]
 
 ### 2.3 作用域提升
 
@@ -67,15 +67,15 @@ let a = 123;
 
 但是事实并非如此
 
-![image-20221017170224636](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317812.png)
+![[00 assets/b33cb5c9b3149643467a8205c2d5ba96_MD5.png]]
 
-![image-20221017170435412](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317802.png)
+![[00 assets/ec775425b0fc134497a1b3cacc4901b2_MD5.png]]
 
 ### 2.4 和 window 关系
 
 在以前的`var`声明的对象都会添加到`window`中，因为在`GO`中的`window`指向的是`this`，所以在全局创建的变量都会保存到`GO`中，也就是`window`
 
-![image-20221017172254129](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317797.png)
+![[00 assets/d853e64dde1ff5babc2db101876c4583_MD5.png]]
 
 但是在`ES6`之后，这个可以参考我`JS高级 - 环境`的笔记。
 
@@ -83,11 +83,11 @@ let a = 123;
 
 因为以前都是`window`指向着`GO`，但是现在使用`let/const`就不会保持同步了。
 
-![image-20221017191056246](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317800.png)
+![[00 assets/c704a72f5d0489e063bc6782c80b922d_MD5.png]]
 
 下面为`variables_`的源码，下面的注释就已经写了
 
-![image-20221017191312802](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317823.png)
+![[00 assets/ddcd9e409eaa5e43cdf1dbc10291820f_MD5.png]]
 
 ## 3. 块级作用域
 
@@ -113,7 +113,7 @@ console.log(a);
 console.log(a, fn, Person);
 ```
 
-![image-20221017192754720](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317478.png)
+![[00 assets/650e1f12362fe10dffb8e4714012a623_MD5.png]]
 
 ### 3.2 使用场景
 
@@ -138,41 +138,41 @@ for (let i = 1; i < 10; i++) {
 
 其中`for`对于块级作用域最常见，比如说下面的这个场景，我们获取到元素并且给他添加点击事件。
 
-![image-20221019104842403](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317496.png)
+![[00 assets/5766016fa8bc31270b18a9577e4fced8_MD5.png]]
 
 但是我们在函数内部获取`i`的时候，一直都是`i`的最大值。因为我们定义`var`的时候块级作用域约束不到他，所以他会添加到全局，所以获取到的就是`for循环`加到最大值
 
-![image-20221019104954084](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317513.png)
+![[00 assets/477c9b71362711aa8de4a9b66f30768e_MD5.png]]
 
 假如需要解决的话，就需要使用到函数作用域来处理
 
-![image-20221019105503291](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317528.png)
+![[00 assets/9dbd37f71c7925eb1db627a8c48d2e16_MD5.png]]
 
 或者直接使用`let`来处理也可以，这样处理是最好的
 
-![image-20221019105557233](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317546.png)
+![[00 assets/12d250d4636f7f86296b92de23be6e88_MD5.png]]
 
 ### 3.3 for 中的 let
 
 实际上我们在使用`for`来遍历的时候，是创建一个个的块级作用域。假如是`var`的话就是一个`var`，所以每个块级作用域访问的时候都是访问的这个`var`
 
-![image-20221019110146294](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317562.png)
+![[00 assets/7acd4eb6b7341959965ff5f3ea8743ba_MD5.png]]
 
 ### 3.4 暂时性死区
 
-![image-20221019111339398](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317101.png)
+![[00 assets/ec767f4dc379930c7451be0ed4665951_MD5.png]]
 
 假如按照`var`来写的变量，在初始的时候会将改该变量写入`GO`中，为`undefined`。所以访问不会报错，但是没有值
 
-![image-20221019111539474](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317121.png)
+![[00 assets/c613060ae00eca24f324b662c1054450_MD5.png]]
 
 假如我们只要块级作用域中使用了`let/const`的话，就会报错了。
 
-![image-20221019112034185](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317139.png)
+![[00 assets/4880667dce0cd2d92c95423bbff1eef2_MD5.png]]
 
 ### 3.5 var/let/const 选择
 
-![image-20221020162831479](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317156.png)
+![[00 assets/204db614c373655d9cf226c2820dfce8_MD5.png]]
 
 ## 4. 变量的解构赋值
 
@@ -200,11 +200,11 @@ let [itema, itemb, itemc, itemd, iteme = "老七"] = PersonName;
 console.log(itema, itemb, itemc, itemd, iteme);
 ```
 
-![image-20221017162632835](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317176.png)
+![[00 assets/460f98bbaa6ec8994bc43ad38d42520b_MD5.jpeg]]
 
 对于`解构赋值`得数组形式，还有一个用途就是交换数据，不需要声明第三方变量
 
-![image-20230218132508511](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317239.png)
+![[00 assets/5e1330e0071facf6501b60633583d7a0_MD5.jpeg]]
 
 ### 4.2 对象结构
 
@@ -232,11 +232,11 @@ let { address = "北京市" } = Person;
 console.log(NewAddress, address);
 ```
 
-![image-20221017163054698](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317836.png)
+![[00 assets/a759fedf9cc6418add4dedf33ed315e9_MD5.png]]
 
 ### 4.3 解构场景
 
-![image-20221017163158898](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317855.png)
+![[00 assets/d1e025428ccf168ace8b4ddcc73b710a_MD5.png]]
 
 ## 7. 模板字符串
 
@@ -269,25 +269,25 @@ let b = `${a}bbb`;
 
 我们书写函数，其返回值也可以编入到模板字符串中
 
-![image-20221020163346734](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317874.png)
+![[00 assets/a1aa93cb2f9347a841a5e57486eb3a11_MD5.png]]
 
 3、并且使用模板字符串会将插入的字符串都使用`toString()`来转为字符串再插入
 
-![image-20231209134904938](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317896.png)
+![[00 assets/20e25ad4ac0c375af059247dd0324536_MD5.jpeg]]
 
 ### 7.2 标签模板字符串
 
 我们也可以直接在函数的后面编写**``**，这样可以直接执行该函数。其中第一个参数就是**非变量参数**，后面的就是**${ }**中的值
 
-![image-20221020163857594](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317913.png)
+![[00 assets/c24b7441021f26a8cbb66b9d56d76ac1_MD5.png]]
 
 假如我们在后面编写字符串的话，就会自动切割`${ }`数据和非`${ }`字符串。
 
-![image-20221020164437679](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317935.png)
+![[00 assets/f0d8eae5a3258c55af55108bfd594ac3_MD5.png]]
 
 在`React`中的`styled-components`中是一种比较常用这种模式
 
-![image-20221020170103875](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317416.png)
+![[00 assets/df0365131fab7962101d59ae99d83b76_MD5.png]]
 
 ## 8. 对象简化写法
 
@@ -326,7 +326,7 @@ person[name + " zss"] = "key可以拼接"
 console.log(person);
 ```
 
-![image-20221017161123274](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317436.png)
+![[00 assets/d8251b9e441c51fc91d2ccad267777a8_MD5.jpeg]])
 
 ## 9. 箭头函数
 
@@ -412,11 +412,11 @@ fn(1,2);
 
 **解构赋值结合**，而且假如你在对象里面没写 age 的值的话，也可以写一个初始值
 
-![image-20221020170910998](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317460.png)
+![[00 assets/45757d08a7520b8841ea013abb5f511b_MD5.png]]
 
 或者可以使用这种写法
 
-![image-20221020171401352](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317506.png)
+![[00 assets/ef59fc4fb65e8b38d6039a26572cd896_MD5.jpeg]]
 
 ## 11. 剩余参数
 
@@ -456,7 +456,7 @@ function fn(){
 fn(person);
 ```
 
-![屏幕截图 2022-02-17 173615](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317529.png)
+![[00 assets/76a8ccf5ac948805320babf439e72abf_MD5.png]]
 
 但是我们使用扩展运算符的话，就把原本的数组分为三个了，你使用 arguments[0]的话就是张三，假如不使用扩展运算符的话就是数组对象
 
@@ -474,7 +474,7 @@ function fn(){
 fn('张三','李四','王五');
 ```
 
-![屏幕截图 2022-02-17 173857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317555.png)
+![[00 assets/1faff29c480debd0c170bcb2985eb36b_MD5.png]]
 
 ## 13. Symbol
 
@@ -482,11 +482,11 @@ fn('张三','李四','王五');
 
 1、`ES6`引入了一个新的原始数据类型`Symbol`，表示独一无二的值，它是 JS 的第七种数据类型
 
-![image-20231209142846199](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317990.png)
+![[00 assets/4944232ebb70086edb1810dc73df9b0c_MD5.png]]
 
 2、`Symbol`实例是唯一、不可变的，可以用作**非字符串形式的对象属性**，所以使用他没有属性冲突的危险
 
-![image-20231209170928957](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317019.png)
+![[00 assets/138a72af043c8d9c7b703d706a1bd746_MD5.png]]
 
 ### 13.2 基本使用
 
@@ -496,7 +496,7 @@ fn('张三','李四','王五');
 
 2、并且`Symbol`不能实例化，只能使用函数的形式
 
-![image-20231209171023875](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317051.png)
+![[00 assets/5336ce5daae61a67ab2d7fad1d594f0c_MD5.png]]
 
 #### 13.2.2 Symbol.for()
 
@@ -504,17 +504,17 @@ fn('张三','李四','王五');
 
 如果想详细知道幂等操作可以查看下面的链接：[(1 封私信 / 80 条消息) 什么是幂等？如何解决幂等性问题？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/534651475)
 
-![image-20231209171459545](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317105.png)
+![[00 assets/b6694fc4898743d5abc7ac5bc86c973a_MD5.png]]
 
 2、并且直接使用`Symbol.for()`全局注册表中创建的`Symbol`实例和直接使用`Symbol()`创建的`Symbol`实例也不相同
 
-![image-20231209171723301](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317118.png)
+![[00 assets/8fc881d6b382fc7b0ef98e100d410990_MD5.png]]
 
 #### 13.2.3 Symbol.keyFor()
 
 1、使用`Symbol.keyFor()`来在`全局注册表`中查找对应的`key`，否则就返回`undefined`
 
-![image-20231209172137194](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317135.png)
+![[00 assets/d3095b0b9536fd535bd4ccc1a2dcb190_MD5.png]]
 
 ### 13.3 对象属性
 
@@ -524,25 +524,25 @@ fn('张三','李四','王五');
 
 3、如果想要获取`name`和`symbol`的话，可以使用`Reflect.ownKeys`来获取
 
-![image-20231209172757201](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317584.png)
+![[00 assets/afb24503739ae480fc7b3518917694e0_MD5.png]]
 
 4、使用`Object.getOwnPropertyDescriptors`也可以获取所有的`key`包括`Symbol`，并且获取对应属性的描述
 
-![image-20231209173210789](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317606.png)
+![[00 assets/f07901221c730809f47d19e34254df86_MD5.png]]
 
 5、当然我们可以使用`Object.defineProperty`来为对象创建对应的`Symbol key`
 
-![image-20221020211236310](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317627.png)
+![[00 assets/dce48f17fe3e8b892cb100a4bb42c9e8_MD5.png]]
 
 假如想进一步了解的话可以参考这个网站：[Symbol - ECMAScript 6 入门 (ruanyifeng.com)](https://es6.ruanyifeng.com/#docs/symbol)
 
 **注意**：同时这里有一个小细节，我们使用 `defineProperty` 添加的属性，如果我们后续即便重新覆盖了一遍，依旧会保留该属性值的属性，可以参考下图
 
-![image-20240412174226687](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317646.png)
+![[00 assets/565d1e2b2603ee47469831cab90624ab_MD5.png]]
 
 ### 13.4 遍历 Symbol
 
-![image-20231209173757139](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317684.png)
+![[00 assets/f7fe2f1367124b92c5a0276fd8911ad9_MD5.png]]
 
 ### 13.5 内置 Symbol
 
@@ -550,25 +550,25 @@ fn('张三','李四','王五');
 
 1、当然除了普通的同步迭代器，还存在一个异步迭代器，我们使用`Symbol`也是可以模拟出来的，它会根据迭代的方式，一步步按照同步的方式来执行，每隔 3s 就会进行下一步
 
-![image-20231209235712265](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317716.png)
+![[00 assets/3fe37c0e3eb211e13ab8e635c2438cb9_MD5.png]]
 
 2、下面是使用`生成器yield`来实现的异步迭代器
 
-![image-20231210132000557](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317591.png)
+![[00 assets/09b8e6bc58e01cd93c09a9eb75119963_MD5.png]]
 
 下面是`JS高级程序设计`中的异步迭代器，实现的功能基本类似
 
-![image-20231210164954664](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317620.png)
+![[00 assets/b9a0f612f7ae9800bceff121d4311403_MD5.png]]
 
 3、但是我一直挺好奇这个异步迭代器的具体使用场景在那里
 
 4、**注意**：上述我都是自己写了迭代器来使用，如果我不使用迭代器来使用的话，就存在下面的问题。比如我自己写的迭代器，也是按照 JS 高级程序设计中编写的，时间图应该是这样的，所以总共是 9s
 
-![image-20231210172421609](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317642.png)
+![[00 assets/646a41eb242c424f612e4b438f945bc0_MD5.png]]
 
 但是我自己来写一个 Promise 数组的话，时间图是这样的，也就是总时长是 3s，和预期不一样，这就和`Promise.all`是一样的
 
-![image-20231210172609756](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317663.png)
+![[00 assets/3e964a84919385b8d6d2b7e6d769a34d_MD5.png]]
 
 暂时不是很清楚上面代码那里存在问题，如果以后的我看到后可以解答一下
 
@@ -576,11 +576,11 @@ fn('张三','李四','王五');
 
 1、检测构造器对象是否认可一个对象是它的实例，一般情况下使用`instanceof`操作符来处理，在`ES6`之后使用`Symbol.hasInstace`来处理
 
-![image-20231210173251143](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317685.png)
+![[00 assets/dccd414cc4a262464b7f72753d42d7b4_MD5.png]]
 
 #### 13.5.3 Symbol.isConcatSpreadable
 
-![image-20231210173649283](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317703.png)
+![[00 assets/48cdee1fa4acb4bad5d3eecd36c7bdfd_MD5.png]]
 
 #### 13.5.4 Symbol.iterator
 
@@ -590,23 +590,23 @@ fn('张三','李四','王五');
 
 1、默认情况下使用`String.match`是使用`Symbol.match`，那么这个也可以改写。而且我们为`match`传输非正则值得话，会导致该值自动转为`RegExp对象`，所以我们可以手动修改该默认模式
 
-![image-20231210193600573](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317304.png)
+![[00 assets/03827aa0a7a9b46abe4eaef71f99df95_MD5.png]]
 
 2、当然我们可以使用`[Symbol.match]`来重写`match`默认模式
 
-![image-20231210193959717](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317326.png)
+![[00 assets/8e29ec95fe3cc912a6e27fda4e02f049_MD5.png]]
 
 #### 13.5.5 Symbol.replace
 
 1、使用`[Symbol.replace]`也可以改变`replace`得默认行为，因为和`Symbol.match`得特性一样，如果为`String.replace`传入非正则表达式，那么就会将该值转为`RegExp对象`
 
-![image-20231210194902834](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317354.png)
+![[00 assets/a1aced0cb36ab886f307e64ef7d2629a_MD5.png]]
 
 #### 13.5.6 Symbol.search
 
 1、整体和`Symbol.match`的特性一致，这里就不赘述了
 
-![image-20231210195420833](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317398.png)
+![[00 assets/e2aec76026bed88e51b3f0b9e70d6f1c_MD5.png]]
 
 #### 13.5.7 Symbol.species
 
@@ -616,23 +616,23 @@ fn('张三','李四','王五');
 
 3、下图中`personArray`和`animalArray`属于派生类
 
-![image-20231210201944683](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317439.png)
+![[00 assets/7a6ec5e8722d9ba682ca186c14deada8_MD5.png]]
 
 #### 13.5.8 Symbol.split
 
 1、和`Symbol.match`类似，直接参考之前的就行
 
-![image-20231210203218986](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317479.png)
+![[00 assets/2bd4e8c0b2908ffd11462473046e9541_MD5.jpeg]]
 
 #### 13.5.9 Symbol.toPrimitive
 
 1、很多情况下有很多人会将对象转为原始类型，比如如下情况
 
-![image-20231210203602149](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317022.png)
+![[00 assets/c9bc6d3d8185148c7019898f1341037b_MD5.jpeg]]
 
 2、为了改变这样的默认行为，可以使用`Symbol.toPrimitive`
 
-![image-20231210203934413](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317055.png)
+![[00 assets/a1a643db22d94e5a2fd9a3e4bb6beb47_MD5.png]]
 
 #### 13.5.10 Symbol.toStringTag
 
@@ -640,7 +640,7 @@ fn('张三','李四','王五');
 
 2、按照正常输出模式`Person`为`[Object Object]`，实际却输出了`[Object Person]`，和预期不符合，这里以后可以留意一下
 
-![image-20231210204534741](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317078.png)
+![[00 assets/87db7b0de405f5fb45d2a39a7306dcd6_MD5.png]]
 
 ## 14. 迭代器
 
@@ -664,77 +664,77 @@ for(let i in name){
 
 可以理解为迭代器（Itreator）是一种`接口`，为各种不同数据结构提供统一的访问机制，任何数据结构只要部署了`Itreator`接口，就可以完成遍历操作。其中对于`迭代器`就需要实现`next()方法`
 
-![image-20221128112040431](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317106.png)
+![[00 assets/87a5968c271b1fe7f47b04a52f393c13_MD5.png]]
 
 其中对于`next()`函数的返回值就是按照下面的方式来处理的
 
-![image-20221128111512602](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317140.png)
+![[00 assets/7a81f570250385d82506ff550e10c3f3_MD5.png]]
 
 假如你要简单的实现的话，可以理解为按照下面的方式来处理
 
-![image-20221128121933649](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317187.png)
+![[00 assets/94d539f248e8561f25c50465dad65097_MD5.png]]
 
 ### 14.2 可迭代对象
 
 1、先来区分`可迭代对象`和`迭代器`，它们的的英文分别为`iterable protocol`和`iterator protocol`。这里我们改造了`14.1`的`迭代器`，手写了一个`可迭代对象`
 
-![image-20221128121550426](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317763.png)
+![[00 assets/096af217e6dec0fb1733fbd07a4d48ba_MD5.png]]
 
 2、我们使用`for of`来遍历对象，可以发现`obj`并不是一个`可迭代对象`
 
-![image-20221128120916641](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317787.png)
+![[00 assets/ccefea6138c313df50010d51f3d600f2_MD5.png]]
 
 通过`for of`遍历`可迭代对象`可以知道`for of`的原理。取出对象中的`[Symbol.iterator]`，调用`next()`方法，判断`done`的值，取出`value`值
 
-![image-20221128122023988](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317813.png)
+![[00 assets/5b143fbddb8d9f72cf500026f7ab110c_MD5.png]]
 
 ### 14.3 内置可迭代对象
 
-![image-20221128141434435](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317847.png)
+![[00 assets/e957aea1c424bf11899e077d27739bdb_MD5.png]]
 
 其实说白了就是内部会内置一个`[Symbol.Iterator]`属性
 
-![image-20221128142407855](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317866.png)
+![[00 assets/8535c05f40438d76ec9c1619cc26c244_MD5.png]]
 
 可迭代对象的应用
 
-![image-20221128143209997](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317887.png)
+![[00 assets/0ab798072b22dfa996e54067609e95ff_MD5.png]]
 
 1、对于`展开语法`本质也是使用的`迭代器`来遍历处理的
 
-![image-20221128143932792](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317517.png)
+![[00 assets/51ffc563ac63be274193e874e42993f5_MD5.png]]
 
 对象使用`展开语法`的本质其实并不是使用的迭代器来处理的，而是`ES9`新增的特性
 
-![image-20221128144216300](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317537.png)
+![[00 assets/e19a6d051e198652e3903b72ab540ec8_MD5.png]]
 
 2、`解构赋值`本身也是实现的`迭代器`
 
-![image-20221128150913808](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317558.png)
+![[00 assets/eff8f316c669f04ec89be342f7cfb738_MD5.png]]
 
 3、当我们给一些构造函数传入数据的时候，内部其实也是使用的`迭代对象`
 
-![image-20221128151200429](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317594.png)
+![[00 assets/ffe7e0dfc44bac265ed61cb96e3adc37_MD5.png]]
 
 4、`Promise.all`本身也存在`迭代对象`
 
-![image-20221128151328638](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317634.png)
+![[00 assets/2bb79e1353510e356796c5f2de34da99_MD5.png]]
 
 ### 14.4 自定义迭代类
 
-![image-20221128152440548](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317669.png)
+![[00 assets/ee2cf19a8c9d747f1af510bea2e8a7fe_MD5.png]]
 
 1、使用下面的方式就实现了`自定义迭代类`
 
-![image-20221128152855220](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317193.png)
+![[00 assets/caef2efa95a88f5ea86cbd52f17e6326_MD5.png]]
 
 假如是函数的话就使用下面的方式来自定义迭代器
 
-![image-20221128153542340](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317223.png)
+![[00 assets/706a77cf33178613e5c3254e5a8a2b61_MD5.png]]
 
 2、假如我们想要提前结束迭代器，并且实现监听的话，需要给返回的`[Symbol.iterator]`添加一个`return`函数
 
-![image-20221128153827392](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317242.png)
+![[00 assets/98b74f64833570ea64f9d517f87f52b4_MD5.png]]
 
 ## 15. 生成器
 
@@ -744,37 +744,37 @@ for(let i in name){
 
 `生成器`就是一个特殊的`迭代器`，使用`yield`是划分代码块的，也就是`分隔符`
 
-![image-20221128155140873](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317269.png)
+![[00 assets/4a6450a3a9eadc2237da20fe1de09266_MD5.png]]
 
 既然是`特殊的迭代器`，那么我们使用`for of`来遍历循环也可以
 
-![image-20221128155331758](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317297.png)
+![[00 assets/b924129e8b1686ba2f62146bbe887038_MD5.png]]
 
 ### 15.2 返回值/参数
 
 1、其中`yield`是暂停函数的执行，后面的参数是作为返回值。`return`表示结束函数
 
-![image-20221128160155549](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317352.png)
+![[00 assets/e0c4809a11b501b5813817ffa0d4d4e6_MD5.png]]
 
 2、要给第二段代码中传入参数就需要从第一个`yield`的返回值获取
 
-![image-20221128161038641](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317948.png)
+![[00 assets/09060bc21258524364f694b70824c504_MD5.png]]
 
 3、这里需要强调一个点就是关于给 next() 传递参数的问题，你执行 next() 其实是执行 yield 之上的代码，可以理解为一个指针指向到了 yield 这行，并且这个指针是指向到 "=" 这里，也就是还没执行赋值操作
 
 4、当你执行下一个 next 函数的时候，传递的参数才会进行赋值操作，可以查看下图来理解其中的顺序关系
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202409141726359.png)
+![[00 assets/2e8c8f962dfc68cc457b76076b3d4f29_MD5.png]]
 
 ### 15.3 终止执行
 
-![image-20221128162650917](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317977.png)
+![[00 assets/9f656737ec6ea55e69a5cc70e843d0d5_MD5.png]]
 
 ### 15.4 抛出异常
 
 使用`throw()`可以抛出异常，抛出异常的位置在上一个`yield`。假如你是要`try-catch`来包裹的话，依旧会执行第二段代码，也就相当于你使用`throw()`顺便执行了`next()`和`报错`
 
-![image-20221128163011165](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317035.png)
+![[00 assets/25e658971b750a6fde606f43fd089202_MD5.png]]
 
 ## 16. Promise
 
@@ -804,7 +804,7 @@ Promise 是一门新的技术(ES6 规范)，并且是 JS 中`进行异步编程`
 
 回调函数嵌套调用, 外部回调函数异步执行的结果是嵌套的回调执行的条件
 
-![image-20220604231948285](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317072.png)
+![[00 assets/0c50da5c3ff8e4951a6f5987731ac5c1_MD5.png]]
 
 **2.回调地狱的缺点**
 
@@ -818,7 +818,7 @@ promise `链式调用`，用来解决回调地狱问题，但是`只是简单的
 
 比如下面的`sendRequest()方法`，对于一些库可能存在不同的调用方式，可能会有很大的学习成本。所以就会存在`Promise`，其中`Promise`就翻译为`承诺`，就是指定一个统一的规范，以后按照`Promise`调用即可。
 
-![image-20221127160558490](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317103.png)
+![[00 assets/12ef4215a5621fb12f14ec1ee2d56dfe_MD5.png]]
 
 #### 16.1.3 初识 Promise
 
@@ -1031,7 +1031,7 @@ mineReadFile("./1.txt").then(
 
 下面就是 Promise 对象上面的三个值
 
-![image.png](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202406101029834.png)
+![[00 assets/aff2b6d3899794392ce691856e8e66ea_MD5.png]]
 
 ##### 16.1.5.1 PromiseState
 
@@ -1054,15 +1054,15 @@ new Promise((res,rej)=>{
 
 2、传入另外一个`Promise`，那么该`Promise`的控制就不会被移交给传入的`Promise`
 
-![image-20221127163056404](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317768.png)
+![[00 assets/954b356b0afa844deb3baa755e81c0ec_MD5.png]]
 
 3、传入的对象中包含`then方法`，那么就会执行`对象`中的方法
 
-![image-20221127163152769](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317786.png)
+![[00 assets/f96def5aef716bae0f322aeef726af06_MD5.png]]
 
 #### 16.1.6 Promise 工作流程
 
-![image-20220605152339572](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317803.png)
+![[00 assets/30c5dc05a1e9d621de3f55792dc4262d_MD5.png]]
 
 ### 16.2 Promise 的 API
 
@@ -1090,7 +1090,7 @@ new Promise((res,rej)=>{
 console.log("bbbb")
 ```
 
-![image-20220605153142500](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317822.png)
+![[00 assets/18dd21b82fba91437d7cf060c4857dad_MD5.png]]
 
 #### 16.2.2 Promise.prototype.then()
 
@@ -1168,7 +1168,7 @@ p1.catch((reason)=>{
 console.log(p1);
 ```
 
-![image-20220605155632266](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317841.png)
+![[00 assets/912dae95798eb21cbffe39bef5598293_MD5.png]]
 
 #### 16.2.5 Promise.reject()
 
@@ -1186,7 +1186,7 @@ const p1 = Promise.reject(
 console.log(p1);
 ```
 
-![image-20220605155913918](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317865.png)
+![[00 assets/fbd2f7324b33a08fc562caccc681cf57_MD5.png]]
 
 #### 16.2.6 Promise.all()
 
@@ -1210,7 +1210,7 @@ const result = Promise.all([p1, p2, p3]);
 console.log(result);
 ```
 
-![image-20220605160403528](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317389.png)
+![[00 assets/4ac3d9c40fc02b69783e5e2d0d7b76f9_MD5.png]]
 
 假如里面有一个失败的话，其结果就是失败
 
@@ -1229,7 +1229,7 @@ const result = Promise.all([p1, p2, p3]);
 console.log(result);
 ```
 
-![image-20220605204501160](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317411.png)
+![[00 assets/e142e3bd0cfa49fe5eeb05e3ee759f67_MD5.png]]
 
 #### 16.2.7 Promise.race()
 
@@ -1252,7 +1252,7 @@ console.log(result);
 
 ```
 
-![image-20220605204930781](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317430.png)
+![[00 assets/6a121a1cb282f242472eaa0f0cf230b0_MD5.png]]
 
 #### 16.2.8 Promise.allSettled()
 
@@ -1289,7 +1289,7 @@ p.then((value)=>{
 })
 ```
 
-![image-20220605205655828](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317454.png)
+![[00 assets/e3bb16991076d35e22513304b3639423_MD5.png]]
 
 #### 16.3.3 改变状态和 then 指定回调那个先？
 
@@ -1343,7 +1343,7 @@ let result = p.then((value) => {
 console.log(result);
 ```
 
-![image-20220605213307875](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317474.png)
+![[00 assets/65b1aa2981a75a7fc8ded166ae709648_MD5.png]]
 
 这个 Promise 的返回值是由里面的 resolve() / reject()回调函数决定的，其结果和 Promise.resolve()是一样的规律
 
@@ -1357,7 +1357,7 @@ let result = p.then((value) => {
 console.log(result);
 ```
 
-![image-20220605213740579](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317526.png)
+![[00 assets/b2bc818f28cf757fc0389cb52ea50d39_MD5.png]]
 
 假如我们返回 Promise 对象，返回 resolve() 状态的 Promise 的话，结果就是 resolve
 
@@ -1373,7 +1373,7 @@ let result = p.then((value) => {
 console.log(result);
 ```
 
-![image-20220605223325128](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317819.png)
+![[00 assets/46548ee9061cbd8ff273b6e85adcc0f2_MD5.png]]
 
 #### 16.3.5 串联任务
 
@@ -1421,8 +1421,7 @@ p.then((value) => {
   });
 
 ```
-
-![image-20220605224717270](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317896.png)
+![[00 assets/4c6b490831f20cc092bc3e8c744b15e9_MD5.jpeg]]
 
 #### 16.3.7 如何中断 Promide 链？
 
@@ -2750,7 +2749,7 @@ async function fn() {
 fn();
 ```
 
-![image-20220607163943022](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317916.png)
+![[00 assets/37f993d7deff4af3f5462f3bcd2072a4_MD5.png]]
 
 #### 16.5.3. async 和 await 实践
 
@@ -2801,7 +2800,7 @@ GetAjax("http://gmall-h5-api.atguigu.cn/api/product/getBaseCategoryList")
 
 ### 17.1 基本介绍
 
-![image-20221026191219899](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317938.png)
+![[00 assets/cf35f1dcd6598963f7271e84ff06ff90_MD5.png]]
 
 Set 是一种新的数据结构 Set 集合，他类似于数组，但是值是唯一的，并且这个集合实现了 Iterator 接口，所以可以使用 for..of 来遍历
 
@@ -2811,11 +2810,11 @@ let s = new Set(["1", "2", "3", "4", "1"]); // Set的一个功能就是对数组
 console.log(s, ...s); // Set也支持扩展运算符(...)
 ```
 
-![image-20221026191115688](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317993.png)
+![[00 assets/2640d19f6fda960bfe62d9a3c8e8003d_MD5.png]]
 
 假如你传入的是对象的话，就不会去重。因为对象的本质就是一个内存地址，每创建一个对象内存地址都不一样
 
-![image-20221026190657580](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317071.png)
+![[00 assets/51a6a65a3de1a42b42f0b7b8322303f9_MD5.png]]
 
 ### 17.2 常用方法
 
@@ -2845,13 +2844,13 @@ s.forEach((ele) => {
 
 其中`WeakSet`对对象的引用就是一个弱引用
 
-![image-20221026194830206](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317261.png)
+![[00 assets/205d6b6cf90714aca0b316c7e5a54d6e_MD5.jpeg]]
 
 ### 17.4 WeakSet
 
-![image-20221026195714972](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317413.png)
+![[00 assets/30626b44550c670536a2127654a6d8bb_MD5.png]]
 
-![image-20221026195903717](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317436.png)
+![[00 assets/fdcb13b99256695ef4aa6e3fc8be51f0_MD5.png]]
 
 ```javascript
 let ws = new WeakSet();
@@ -2862,13 +2861,13 @@ ws.add({ name: "张三" });
 
 下面为解释，其中有一个点就是为什么不能使用`Set`。因为`Set`是一个强引用，后期假如要消除对象`p = null`的时候，因为`Set`也强引用了一份，所以并不会删除该对象，还需要`Set`来删除一份，才能消除该对象。
 
-![image-20221028083820114](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317459.png)
+![[00 assets/920b8dea9fa66248ee5c5351c8c2f679_MD5.png]]
 
 ## 18. Map
 
 ### 18.1 基本介绍
 
-![image-20221028091656426](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317506.png)
+![[00 assets/7f81ae26d37cd1aa0bc256a63ef9056b_MD5.png]]
 
 ```javascript
 //set方法就是添加值
@@ -2896,11 +2895,11 @@ const m1 = new Map([
 console.log(m1)
 ```
 
-![image-20221028090516235](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317640.png)
+![[00 assets/d689898237809c436fe6ff4601e25721_MD5.png]]
 
 ### 18.2 常见方法
 
-![image-20221028091744290](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317031.png)
+![[00 assets/8bd288c2ff02f924fb1612798ee92e7f_MD5.png]]
 
 当然 Map 还有其他的一些 API
 
@@ -2943,11 +2942,11 @@ m.forEach((ele, key) => {
 });
 ```
 
-![image-20221028091347243](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317054.png)
+![[00 assets/b0c9990bf559a09b857bfa3aa753c4ff_MD5.png]]
 
 ### 18.3 WeakMap
 
-![image-20221028092734965](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317124.png)
+![[00 assets/3b3c34c6170732777ecbe890d835746f_MD5.png]]
 
 因为`WeakMap`没有实现迭代器，所以不能被遍历
 
@@ -2964,7 +2963,7 @@ ws.delete(obj); // 4. 删除
 console.log(ws);
 ```
 
-![image-20221028093009748](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317150.png)
+![[00 assets/7dd3d8d07a5db8ce32a182cf5b024107_MD5.png]]
 
 `WeakMap`得应用场景比`WeakSet`好很多，其中就是就是`Vue3`得响应式场景
 
@@ -3003,7 +3002,7 @@ ObjNameFnArr.forEach((ele) => {
 });
 ```
 
-![image-20221028095620864](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317180.png)
+![[00 assets/88a811ee894cee3b376b1174387110e5_MD5.png]]
 
 ## 19. class
 
@@ -3166,7 +3165,7 @@ let p1 = new boy('张三',10,'男')
 p1.say();
 ```
 
-![屏幕截图 2022-02-18 172550](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317306.png)
+![[00 assets/69381750b28764deed8e7a5a33641cf0_MD5.png]]
 
 ### 19.4 getter 和 setter
 
@@ -3254,7 +3253,7 @@ console.log(Object.assign(p1,p2));
 
 模块化是将一个大的程序，拆分为许多的小文件，然后将小文件组合起来
 
-![屏幕截图 2022-02-18 195939](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317643.png)
+![[00 assets/5d3ac69c44c54f270dcd9bcae2fc2743_MD5.png]]
 
 **express**表示规定模块的对外接口
 
@@ -3441,7 +3440,7 @@ console.log(f2);
 console.log(f3);
 ```
 
-![屏幕截图 2022-02-18 203109](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317662.png)
+![[00 assets/efe3e592d0f0bd23d9d9bfc17a31360d_MD5.png]]
 
 ### 22.5 babel 转换
 
@@ -3494,11 +3493,11 @@ $('body').css('background','pink');
 
 ### 23.1 基本介绍
 
-![image-20221031194903880](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317678.png)
+![[00 assets/bc901b9e5a7d96417f5e8a51921b96c2_MD5.png]]
 
 ### 23.2 基本使用
 
-![image-20221031194917564](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317698.png)
+![[00 assets/debfb9de3e5db6d438eb111fba346523_MD5.png]]
 
 下面为基本使用的过程，假如我们需要使用到监听需要使用`proxy`对象来操作
 
@@ -3540,15 +3539,15 @@ console.log("name" in objProxy);
 delete objProxy.name;
 ```
 
-![image-20221031195853977](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317755.png)
+![[00 assets/e4572afad8bdbbd94698c2374f097a23_MD5.png]]
 
 ### 23.3 捕获器
 
-![image-20221031201746183](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317806.png)
+![[00 assets/86b83b8f8ff733fafb0a91a678765842_MD5.png]]
 
 下面时`apply`、`construct`的捕获器的使用案例
 
-![image-20221031202508028](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317253.png)
+![[00 assets/31ca669c8e2b388e9b98493f2820161a_MD5.png]]
 
 ## 24. Reflect
 
@@ -3919,7 +3918,7 @@ let result = new Set(arr);
 console.log(result);
 ```
 
-![屏幕截图 2022-02-18 160928](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317214.png)
+![[00 assets/994c25a8cf6545479444f3c5fc4d23cc_MD5.png]]
 
 这里我们使用扩展运算符，将数组序列转换为数组
 
@@ -3929,7 +3928,7 @@ let result = [...new Set(arr)];
 console.log(result);
 ```
 
-![屏幕截图 2022-02-18 161058](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317239.png)
+![[00 assets/71a7e5545066aa591ecf835291540435_MD5.png]]
 
 **交集**
 
@@ -4020,23 +4019,23 @@ console.log(Object.keys(Person)); // 获取对象中所有得keys
 console.log(Object.values(Person)); // 获取对象中所有得values
 ```
 
-![image-20221029081809400](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317261.png)
+![[00 assets/fc3e7d6d418542737fce3c1ccbdcb935_MD5.png]]
 
 当然`values()`也可以来拆分字符串
 
-![image-20221029081942555](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317279.png)
+![[00 assets/65cf1a137366148893615a7cc89ac1a0_MD5.png]]
 
 ## 2 entries
 
 将传入得数据转换为`[[keys,value]]`得形式，为了方便遍历得操作
 
-![image-20221029082341248](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317742.png)
+![[00 assets/081dbb657fe76c6d90a08ce131c3607b_MD5.png]]
 
 ## 3 padding
 
 对字符串得首尾进行填充，第一个参数为填充之后得字符串得长度，第二个参数是要填充得字符
 
-![image-20221029082730070](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317762.png)
+![[00 assets/bda1ebacddc748e20ce71673908ead21_MD5.png]]
 
 ## 4. getOwnPropertyDescriptors
 
@@ -4053,7 +4052,7 @@ let Person ={
 console.log(Object.getOwnPropertyDescriptors(Person));
 ```
 
-![屏幕截图 2022-02-19 164652](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317796.png)
+![[00 assets/77d47b1ff429d8b5ba33bd21b37d17bc_MD5.png]]
 
 # 21. ES9
 
@@ -4073,7 +4072,7 @@ con({
 });
 ```
 
-![屏幕截图 2022-02-19 165451](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317838.png)
+![[00 assets/8ac14920232e9c95488de4a43e502b66_MD5.png]]
 
 ## 2. 扩展运算符
 
@@ -4094,7 +4093,7 @@ const l = {...p1,...p2,...p3};
 console.log(l);
 ```
 
-![屏幕截图 2022-02-19 165849](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317860.png)
+![[00 assets/142ff4b969c078ff1ef1d8cc408e4c38_MD5.png]]
 
 # 22. ES10
 
@@ -4102,29 +4101,29 @@ console.log(l);
 
 这个在 ES8 里面的`entries`的逆运算，`entries`是将对象、数组、字符串的属性转换为`二维数组`，而它可以转换为对象形式
 
-![image-20221029091144488](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317896.png)
+![[00 assets/ba72f0050fa98e604ade9daa728b05fe_MD5.png]]
 
 当然这个`API`也是有自己得应用场景得
 
-![image-20221029092005237](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317314.png)
+![[00 assets/7b53fe01cb8ea3b72d7861626b3b213f_MD5.png]]
 
 ## 2. trimLeft/trimRight
 
-![image-20221029090616872](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317338.png)
+![[00 assets/b86b3b15ae3da902eab7c35d6302b2ee_MD5.png]]
 
 ## 3. flat
 
 `flat`是将**高维数组转换为低维数组**。flat 方法里面的参数，表示消除的维数
 
-![image-20221029090525113](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317363.png)
+![[00 assets/e52ae35a96c94ba7681a2d2fb727079a_MD5.png]]
 
 ## 4. flatmap
 
-![image-20221029090652052](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317382.png)
+![[00 assets/22de1b5cb0d8b80a6e76bfd5d3f02f15_MD5.png]]
 
 下面就是其中得一个应用场景，首先是`item.split()`是将字符切割为一个数组了，最后返回得值为`[[Hello,World],[hello lyh],[my,name,is,coderwhy]]`，但是`flatMap`最后会做一个`flat`得操作。
 
-![image-20221029090912389](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317404.png)
+![[00 assets/10ebf38791d6b701e74e4be0855f3d0b_MD5.png]]
 
 ## 4.Symbol 扩展
 
@@ -4199,7 +4198,7 @@ main({
 
 假如`main`里面不传入参数呢？这样就会导致报错
 
-![屏幕截图 2022-02-19 181857](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317467.png)
+![[00 assets/e4b1bd4603f369923706351190a197c3_MD5.png]]
 
 `?.`是判断前面的有没有，没有的话就返回 undefined，有的话就连接后面的
 
@@ -4211,7 +4210,7 @@ function main(config){
 main()
 ```
 
-![image-20221029105746058](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317881.png)
+![[00 assets/d38b7aa9a0eee47082e34a416f48e402_MD5.png]]
 
 ## 5. 动态 import
 
@@ -4258,17 +4257,17 @@ export function say(){
 
 对于`JS`能处理数字最大只有下面的 2 个，其中`MAX_SAFE_INTEGER`表示可以操作的安全数字
 
-![image-20221029092442691](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317905.png)
+![[00 assets/fc1f0c7abf44d7b6c3523164271f4d7a_MD5.png]]
 
 这是 ES11 新引入的数据类型，用于扩大最大数值
 
-![image-20221029092922583](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317922.png)
+![[00 assets/8d50b0df2ef39c2e3e0d4d53e576c3e2_MD5.png]]
 
 ## 7. globalThis
 
 绝对全局对象，这样就可以忽略环境直接操作，也就是在`浏览器`下面运行是`Window`，在`Node.js`下面运行的是`global`
 
-![image-20221029110807340](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317940.png)
+![[00 assets/1e80505ab34f0d407450759fbe057f95_MD5.png]]
 
 ## 8. ??
 
@@ -4276,7 +4275,7 @@ MDN 参考文档：[空值合并运算符（??） - JavaScript | MDN (mozilla.or
 
 以前对于这种需求都是使用`foo || "hello World!"`的方式来处理的，但是这种处理方式不是很好，因为当`foo`为`0或者""`的时候就会判断为`Hello World!`
 
-![image-20221029093441766](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317988.png)
+![[00 assets/7ba2529b19d6e4bcf85e87930ce552d7_MD5.png]]
 
 # 24. ES12
 
@@ -4284,15 +4283,15 @@ MDN 参考文档：[空值合并运算符（??） - JavaScript | MDN (mozilla.or
 
 可以使用`_`来连接数字，来表达大的数据
 
-![image-20221020173926402](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317022.png)
+![[00 assets/927bf5101dabc250444fe723c8dfa976_MD5.png]]
 
 ## 2. FinalizationRegistry
 
 这是一个类，作为`GC`的`Hook`。只要被注册的对象被销毁，就会执行自定义函数
 
-![image-20221029120921813](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317415.png)
+![[00 assets/b706b6d9f4be848fd884a0a0ead031bc_MD5.png]]
 
-![image-20221029120953129](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317433.png)
+![[00 assets/60e2e3569bb553ee3f2f7c9f2a151d1b_MD5.png]]
 
 ## 3. WeakRef
 
@@ -4314,7 +4313,7 @@ console.log(info.deref().name); // info.deref()是用于获取原本的对象
 obj = null;
 ```
 
-![image-20221029121829510](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317453.png)
+![[00 assets/0d3c8cf61fee796e15c71d9a59fa4c5d_MD5.png]]
 
 ## 4 . 逻辑赋值运算
 
@@ -4345,4 +4344,4 @@ let obj1 = {
 console.log(obj1.name ??= "Hello World!")
 ```
 
-![image-20221029123641147](https://knowledge-picture.oss-cn-wuhan-lr.aliyuncs.com/202405032317479.png)
+![[00 assets/4b3e34b65a2a8370c7fd0ffceb396149_MD5.png]]
