@@ -113,7 +113,7 @@ npm update -g @nestjs/cli		// 更新nestjs/cli
 
 3、对应的`nest generate controlle xxx`和`nest generate service xxx`也是一样的效果
 
-![[00 assets/774f15046a3f761a46704728d257b8ae_MD5.png]]
+![[00 assets/98228faf5fe9ca0d8dd31fefaf7cc5ae_MD5.jpeg]]
 
 4、当然，如果是要完整生成一个模块的代码，不需要一个个生成，可以用`nest generate resource xxx`。它会让你选择是哪种代码，因为 `nest` 支持 `http、websocket、graphql、tcp` 等，其中 `http` 表示 `REST 风格 api`
 
@@ -181,7 +181,7 @@ npm update -g @nestjs/cli		// 更新nestjs/cli
 
 3、`--debug` 是启动调试的 `websocket 服务`，用来 `debug`
 
-![[00 assets/8b112c1808de23c4799b93a53e0ad497_MD5.png]]
+![[00 assets/bbf2e49932d68b57c06a7bb5212a9417_MD5.jpeg]]
 
 4、`--exec` 可以指定用什么来跑，默认是用 `node` 跑，你也可以切换别的 `runtime`
 
@@ -439,7 +439,7 @@ node 调试文章参考：[nodejs 各种姿势断点调试 - 掘金 (juejin.cn)]
 
 2、可以看到获取到的`Test01Service`已经被调用了
 
-![[00 assets/cc993a9003e37d89fa6547f9b2786054_MD5.png]]
+![[00 assets/4df4dfa624cbfce0f6dcb51627f76de1_MD5.jpeg]]
 
 ## 6.2 forwardRef
 
@@ -447,7 +447,7 @@ node 调试文章参考：[nodejs 各种姿势断点调试 - 掘金 (juejin.cn)]
 
 2、其中依赖循环就是下图，`appModule`引入`Test01Module`会自动递归创建它的依赖，而它的依赖又依赖了这个 `Test02Module`，所以没法创建成功，拿到的就是 undefined
 
-![[00 assets/4be13051b42f6eb164eac7e5bb25b515_MD5.png]]
+![[00 assets/d56145b867b9242abf0753dc4d294683_MD5.jpeg]]
 
 3、这个时候就需要`forwardRef`来处理，这样就可以正常运行了
 
@@ -475,7 +475,7 @@ node 调试文章参考：[nodejs 各种姿势断点调试 - 掘金 (juejin.cn)]
 
 传入动态模块的参数可以直接注入
 
-![[00 assets/af1f9ecda3d042ca633d7198a02efba4_MD5.png]]
+![[00 assets/3057176b9633fd67ae5be42f6624efc8_MD5.jpeg]]
 
 3、这里的 register 方法其实叫啥都行，但 nest **约定**了 3 种方法名：register、forRoot、forFeature。我们约定它们分别用来做不同的事情，注意是约定，不是强制：
 
@@ -527,7 +527,7 @@ node 调试文章参考：[nodejs 各种姿势断点调试 - 掘金 (juejin.cn)]
 
 1、因为我们使用的是基于`Express`，所以也提供了全局中间件的处理方式
 
-![[00 assets/1779f71e888f7414b21433a580cee7d5_MD5.png]]
+![[00 assets/b9d3e8c5fa7b40ab192c8ba262a60ed9_MD5.jpeg]]
 
 2、这部分可以参考`nodejs`中`express`的笔记，基本是一致的
 
@@ -543,7 +543,7 @@ node 调试文章参考：[nodejs 各种姿势断点调试 - 掘金 (juejin.cn)]
 
 3、如果你添加了路由的话就只会匹配对应路由去执行中间件，`test01*`表示`test01`开头的路由，`test01/queryLog`也可以匹配
 
-![[00 assets/9b61a8c91d4da126cbcff2d1a80d7c80_MD5.png]]
+![[00 assets/f507024ee56a2c4bcb970670038d30de_MD5.jpeg]]
 
 4、**注意**，一般情况下是在`app.module`中去注册，即便如上图在`test01.module`中注册也是可以正常运行
 
@@ -575,7 +575,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 2、还有一种全局注入的方式，就是在`app_modules`中使用`providers`来注入，`provider`必须是`APP_GUARD`才能全局生效
 
-![[00 assets/f0185a5c024b51e54af7473488125b5f_MD5.png]]
+![[00 assets/407c1dd2053ca76088ed8d48f11e1881_MD5.jpeg]]
 
 3、存在上面 2 种方式来全局注入，他们之间有什么区别吗？第一种方式是手动 `new 的 Guard 实例`，不在 `IoC 容器`里，而用 `provider`的方式声明的 `Guard` 是在 `IoC 容器`里的，可以注入别的 `provider`
 
@@ -605,7 +605,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 6、如果该接口存在权限注解就进行判断，没有就放行。因为`ExceptionContext`继承自`ArgumentsHost`，所以自然存在`switchToHttp()...`函数
 
-![[00 assets/03a97bad8d6d22c2ac0b0f6cfc82edb0_MD5.png]]
+![[00 assets/f409da5b3f08c8e6550c14c2b2d3f204_MD5.jpeg]]
 
 7、因为**Interceptor**也存在`ExceptionContext`，所以和上述一致
 
@@ -633,7 +633,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 2、因为注入到了`ioc容器`了，所以也可以注入对应的`Service`
 
-![[00 assets/048e99bf91b1f8f5c69d45056b14cfd6_MD5.png]]
+![[00 assets/7857a25182ef25fdda36a1452040f6e9_MD5.jpeg]]
 
 > 全局使用 - main.ts 使用 use - 不进入 IOC 容器
 
@@ -695,9 +695,9 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 1、`Pipe` 是管道的意思，用来对参数做一些检验和转换，可以使用`nest g pipe validate --no-spec --flat`来创建
 
-![[00 assets/77711964840d8c9edc482bbb6c08220d_MD5.png]]
+![[00 assets/cec6b7d5c1264b1eb4b39397e771ee21_MD5.jpeg]]
 
-![[00 assets/45836d974146d105523312801aa6b148_MD5.png]]
+![[00 assets/0c5fbf7dabf98dd6c5dce5744acceed0_MD5.jpeg]]
 
 2、`Pipe` 要实现 `PipeTransform` 接口，实现 `transform` 方法，里面可以对传入的参数值 `value` 做参数验证，比如格式、类型是否正确，不正确就抛出异常。也可以做转换，返回转换后的值
 
@@ -729,11 +729,11 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 1、和上述的`guard`类似，也是存在 2 种方式来创建
 
-![[00 assets/9b61a8c91d4da126cbcff2d1a80d7c80_MD5.png]]
+![[00 assets/f796765b0f4d58bce137d3d5ef59e2a4_MD5.jpeg]]
 
 2、并且注意全局级别真的是全局生效，即便不写也可以使用，默认为每个参数注解添加`pipe`
 
-![[00 assets/382e66d59dc663edef0fb7069dafaee2_MD5.png]]
+![[00 assets/b8645d19d19d55c0c22fb5fe6bd0f9e2_MD5.jpeg]]
 
 ### 7.5.2 内置 Pipe
 
@@ -745,7 +745,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 2、如果传入的参数不能转为数字类型，就会报错
 
-![[00 assets/958b42b21a9a7cb218e32d34e6d65fb3_MD5.png]]
+![[00 assets/ef2852d79fee181d09e8c96745cf9249_MD5.jpeg]]
 
 3、我们也可以`new ParseIntPipe()`来创建`pipe`，并且可以在创建的适合传入参数
 
@@ -765,7 +765,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 1、和`ParseIntPipe`使用方式类似，可以转为`flaot`类型
 
-![[00 assets/4064a271c3220a5e2d3491b0547c3647_MD5.png]]
+![[00 assets/3ae20097fc500e98e1b131e05fde930b_MD5.jpeg]]
 
 #### 7.5.2.3 ParseBoolPipe
 
@@ -877,7 +877,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 5、不仅如此，你也可以自定义一个`Exception`
 
-![[00 assets/94ea1709dfa92a184ec68a23afd59eb2_MD5.png]]
+![[00 assets/640948a769c6688923db1aa05fc3d2bd_MD5.jpeg]]
 
 > Controller 级别
 
@@ -932,7 +932,7 @@ Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前�
 
 ![[00 assets/774f15046a3f761a46704728d257b8ae_MD5.png]]
 
-![[00 assets/8f5ac82b937be69ccaec4f00c331cbea_MD5.png]]
+![[00 assets/22db318aea8ed4033bfc942795b9f9a9_MD5.jpeg]]
 
 这种按照下标取参数的写法不太建议用，因为不同上下文参数不同，这样写就没法复用到 `ws、tcp` 等上下文了，一般是这样来使用的
 
@@ -1140,7 +1140,7 @@ queryString.stringify({
 
 1、因为也是在`body`中，所以直接使用`@Body`装饰器即可获取参数
 
-![[00 assets/45836d974146d105523312801aa6b148_MD5.png]]
+![[00 assets/5bfa0d109390b0f43163924e299825c0_MD5.jpeg]]
 
 2、当然我们也可以为`@Body`添加参数校验，这里需要注意一定都是`IsString`，因为`form-data`默认传输的就是`string`
 

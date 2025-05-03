@@ -14,7 +14,7 @@
 
 > 跨平台发展史
 
-![[00 assets/68debc2cc68a3e99d731f3f7c71bb644_MD5.png]]
+![[00 assets/7a43b44288377b60cb009a5bdd71b502_MD5.jpeg]]
 
 > 跨平台对比
 
@@ -184,7 +184,7 @@ adb devices # 查看配置是否成功
 
 1、对于局部样式不需要写`scoped`，可以直接使用
 
-![[00 assets/3d087b7cb3f111ff7958b60713ff0a52_MD5.png]]
+![[00 assets/56c16574b6e6c5b564f6f68ec7ce1393_MD5.jpeg]]
 
 ### 2.2.3 全局数据
 
@@ -222,7 +222,7 @@ adb devices # 查看配置是否成功
 
 1、如果想要配置`tabbar`的话可以参考文档的`API`，下面只是一个示例代码
 
-![[00 assets/e50276f2689ad99e4213e1db6cf30dcf_MD5.png]]
+![[00 assets/835acc817f93707eec0ed00a2cdcc0af_MD5.jpeg]]
 
 ## 2.4 manifest.json
 
@@ -260,7 +260,7 @@ adb devices # 查看配置是否成功
 
 1、我这里使用方式一来按照组件，我们点击官网找到自己想要的组件
 
-![[00 assets/d8d3728e881bd0114ef5866b1326e42e_MD5.png]]
+![[00 assets/709bb0ff3dd24854d0fa1b1d97bcf9c4_MD5.jpeg]]
 
 进入之后点击下载插件并且导入项目即可
 
@@ -292,7 +292,7 @@ adb devices # 查看配置是否成功
 
 1、我们需要重写样式就需要引入`uni-scss`的文件，才能进行重写
 
-![[00 assets/efef93845dd2e0bb54ce3aa391a57a4b_MD5.png]]
+![[00 assets/17f433dc8adcbbe9c21e130ec0fba4ad_MD5.jpeg]]
 
 2、更加详细的重写参考官网即可
 
@@ -308,7 +308,7 @@ adb devices # 查看配置是否成功
 
 2、这是作为一个表单最基本的`HTML结构`
 
-![[00 assets/fc686feb6a6842cd3e7918b5a4322c3a_MD5.png]]
+![[00 assets/8615cd17453a938f446f81827e6cc7a4_MD5.jpeg]]
 
 这里是对应的逻辑部分，因为需要使用到`form`内部的方法，我们需要获取它的`ref`
 
@@ -463,7 +463,7 @@ const eventChannel = instance.getOpenerEventChannel();
 
 1、对于网络请求基本和微信小程序是类似的，直接套用即可
 
-![[00 assets/585045760e5e0d1870bdaf5e6298bdd1_MD5.png]]
+![[00 assets/652952e0ab34f5451d1789abeaaae0af_MD5.jpeg]]
 
 2、但是对于网络请求也和之前一样，直接封装使用
 

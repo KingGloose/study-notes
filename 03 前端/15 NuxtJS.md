@@ -6,11 +6,11 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 > SPA
 
-![[00 assets/86badacba5b27223f6a5e1e616c2fe1b_MD5.png]]
+![[00 assets/e7a742f2487852519b5825e1ba88ba0c_MD5.jpeg]]
 
 > SPA 优缺点
 
-![[00 assets/ccbec265f1cb9fc82f94eb0c3b86606d_MD5.png]]
+![[00 assets/d0ed15d9a650ab40cb9a070e9cf7c05d_MD5.jpeg]]
 
 ## 1.2 SEO
 
@@ -40,13 +40,13 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 > SSR 解决方案
 
-![[00 assets/9fc07053787b43cd7f48a2f3e2a0a180_MD5.png]]
+![[00 assets/ebdaf85a28ba6d3611b45ae066d10e26_MD5.jpeg]]
 
 # 2. 非框架编写
 
 ## 2.1 Node Server
 
-![[00 assets/9c0117a6ade2e40940e28fadbb6eaf7f_MD5.png]]
+![[00 assets/c62fc4a36ce32f2f6dca62d11fc332eb_MD5.jpeg]]
 
 1、我们使用`SSR`的之前，最好搭建一个`node server`服务
 
@@ -74,7 +74,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 2、这里我们正常编写`.vue`的项目
 
-![[00 assets/0d6d73cd848dbde2c98914988ba03a97_MD5.png]]
+![[00 assets/1ae3b610ea442b504edc26d61440902e_MD5.jpeg]]
 
 3、针对`SSR`的应用需要导出`createSSRApp`来创建`vue实例`
 
@@ -134,7 +134,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 1、我们在`开发环境`中，会出现下面的警告信息，这个需要我们额外配置，告诉`Vue Tree Shark`的处理
 
-![[00 assets/5ee41787d5e53c6c2e4243201f03d9d4_MD5.png]]
+![[00 assets/a4ceaf330f16276e4f86cfa35764dc4e_MD5.jpeg]]
 
 2、添加这些属性，告诉`Vue`不需要将这些代码打包即可
 
@@ -196,7 +196,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 3、正常编写`pinia`的配置
 
-![[00 assets/83ab72e7adc70231fa4a07fb484c2332_MD5.png]]
+![[00 assets/5f78bb878425aad334eaa71deeb1895b_MD5.jpeg]]
 
 4、在`服务器端`开启`pinia`
 
@@ -204,7 +204,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 5、在`客户端`注册`pinia`
 
-![[00 assets/cc3be9a286c728fabba71f17769cbc47_MD5.png]]
+![[00 assets/c2f6d85d3e24a6d9828090974e4c4967_MD5.jpeg]]
 
 6、然后对应的页面中使用即可
 
@@ -218,7 +218,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 > 发展史
 
-![[00 assets/c5117166ff07f52ebe005d922ac32b00_MD5.png]]
+![[00 assets/13e5ff743adce0a5f8b0d1c72553cfea_MD5.jpeg]]
 
 > Nuxt3 特点
 
@@ -280,7 +280,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 8、这个配置不单单只能写这些配置，如下图就可以直接在这里编写修改`启动`端口号
 
-![[00 assets/f862cdd360f9382dfa01ff6f6e612484_MD5.png]]
+![[00 assets/008729c8da187423517a1607d632c5b2_MD5.jpeg]]
 
 ### 4.3.2 AppConfig
 
@@ -294,7 +294,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 3、我们也可以将这些配置抽取出去为`app.config.ts`，该配置文件的优先级高于`nuxt.config.ts`
 
-![[00 assets/533a94fccd89e6af59d412914fcdec81_MD5.png]]
+![[00 assets/7d106adf7def91e6943e2f05a6aedd44_MD5.jpeg]]
 
 > RuntimeConfig vs AppConfig
 
@@ -320,7 +320,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 5、这里的配置只针对该页面来配置，如果切换页面就会使用`nuxt.config.ts`的配置
 
-![[00 assets/f520d3d54adb1be1dbd0223deffa3cb8_MD5.png]]
+![[00 assets/1ec84bca883034684bdadb79af625943_MD5.jpeg]]
 
 6、当然我们还可以直接在`template`中编写，这些配置优先级是`内置组件 > useHead > Nuxt.config.ts`
 
@@ -330,7 +330,7 @@ coderwhy - 前端系统课 - SSR 服务器端渲染
 
 1、我们可以配置`ssr`来开启和关闭渲染模式的配置
 
-![[00 assets/a6bc9f14253857d2021f756667365b3c_MD5.png]]
+![[00 assets/246f6f3b672fcc1280b6bc4a2dccb27f_MD5.jpeg]]
 
 # 5. 内置组件
 
@@ -404,7 +404,7 @@ pnpm add sass -D	// 安装库
 
 更多的可以参考官网：[Assets · Get Started with Nuxt](https://nuxt.com/docs/getting-started/assets)
 
-![[00 assets/c4328f668818a994ce2884743dc2f8c9_MD5.png]]
+![[00 assets/1f7117bce866a809d74d728d3ce6fab8_MD5.jpeg]]
 
 ![[00 assets/eb31c597ae2a99c1e05ee2d340b9fb94_MD5.png]]
 
@@ -436,7 +436,7 @@ pnpm add sass -D	// 安装库
 
 3、使用类名的形式即可
 
-![[00 assets/13b313e37845dd2ba6c778bf4243e4da_MD5.png]]
+![[00 assets/8e14d82404a7638c841ff8a0f37724e5_MD5.jpeg]]
 
 # 7. 页面/导航
 
@@ -478,7 +478,7 @@ pnpm add sass -D	// 安装库
 
 > navigateTo
 
-![[00 assets/f520d3d54adb1be1dbd0223deffa3cb8_MD5.png]]
+![[00 assets/6ab6620257ba99798132730055c8d21a_MD5.jpeg]]
 
 1、我们使用`navigateTo()`可以进行路由跳转
 
@@ -542,7 +542,7 @@ pnpm add sass -D	// 安装库
 
 2、而`about`作为二级路由，也可以进行切换，这就是路由的嵌套`about路由`嵌套到了`app`中了
 
-![[00 assets/6798e8ec2de1d293e8667c327e1b1f5e_MD5.png]]
+![[00 assets/9a441279838ae7415f41e73365d81e7f_MD5.jpeg]]
 
 ## 7.8 路由中间件
 
@@ -606,7 +606,7 @@ pnpm add sass -D	// 安装库
 
 2、其编写原则也基本类似，Nuxt.js 支持自动导入的模式，在`layouts/default.vue`表示默认导入的布局
 
-![[00 assets/6144940aeceb8211bc43e44d82004373_MD5.png]]
+![[00 assets/c4c593c33c62fcc269abeae47be712d3_MD5.jpeg]]
 
 3、最后会将页面插入到`slot`中显示
 
@@ -618,7 +618,7 @@ pnpm add sass -D	// 安装库
 
 5、可能存在一些页面使用`layout1`的情况，而一些页面使用`layout2`，所以这里可以通过`definePageMete`来定义使用的`layout`布局
 
-![[00 assets/679b058f735a4809647c14e6a07f68b6_MD5.png]]
+![[00 assets/92366419600dec87d047376ff391a370_MD5.jpeg]]
 
 对应的`login页面`就是使用`custom-layout`布局
 
@@ -722,7 +722,7 @@ pnpm add sass -D	// 安装库
 
 3、并且里面还存在很多的`options`，这个可以直接上`nuxt3`的官网来查看
 
-![[00 assets/3f0beffaf5b2e4fa7006da93612d0476_MD5.png]]
+![[00 assets/988cef60f6316606f36e42e9bfacee0b_MD5.jpeg]]
 
 ### 12.3.2 lazy
 

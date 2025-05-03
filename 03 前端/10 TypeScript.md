@@ -19,7 +19,8 @@
 ![[00 assets/a50741744c050c742d8bd81b39b38a6d_MD5.png]]
 
 > 类型带来的问题
-> ![[00 assets/05f7a9af969d620ac20327be31b5e8aa_MD5.png]]
+
+ ![[00 assets/05f7a9af969d620ac20327be31b5e8aa_MD5.png]]
 
 ![[00 assets/005b83a289ce8e4f445c1bf90a49e6da_MD5.png]]
 
@@ -494,7 +495,7 @@ ObjectLiteral = upperCaseObject;//ok
 
 3、**解构元组**
 
-![[00 assets/b26573adcf364ed4eef99dee47b2f05f_MD5.png]]
+![[00 assets/8e5aec978881ac0c77a65918a79a6def_MD5.jpeg]]
 
 4、**可选参数；剩余参数**
 
@@ -502,7 +503,7 @@ ObjectLiteral = upperCaseObject;//ok
 
 ### 4.3.4 enum
 
-![[00 assets/74a7a585c5a675a88617fde29fe51bf6_MD5.png]]
+![[00 assets/d45fb71e608ed3e67304a5d847fdfc0b_MD5.jpeg]]
 
 ![[00 assets/ada342ac6e4d0528c5f9cd8e8d830098_MD5.png]]
 
@@ -625,7 +626,7 @@ let p1: Person = { name: "张三", age: 18 };
 
 2、当我们按照下面的互斥的方式，最后推算出来的结果为`never`。当然最好还是不要按照下面的方式来写`&`
 
-![[00 assets/0ef6569e565a3d2d4160c48fb2101b5f_MD5.png]]
+![[00 assets/9614f4a7f2b2148d3b93e0efa1d9b394_MD5.jpeg]]
 
 ### 4.6 类型断言
 
@@ -799,7 +800,7 @@ a[0] = 20;	//Error 因为我们对元组设置了只读
 
 ## 10.3 成员修饰符
 
-![[00 assets/3c9b6db4ed6fdb484029d381518bd04d_MD5.png]]
+![[00 assets/5877b1ac61f5f2796d755ebc947e4ebe_MD5.jpeg]]
 
 ![[00 assets/371d899465854b32243eae9cd46c9723_MD5.png]]
 
@@ -832,11 +833,11 @@ tsc index.ts -t es6 	// 编译为es6版本
 
 对于`抽象类`首先要理解`多态`的处理，先看下面的处理方式。我们每写一个`形状`就需要多写一个类型，这样非常麻烦，所以需要一个方式来解决这个问题
 
-![[00 assets/a5c14a4e496a654c0a447f8692df726d_MD5.png]]
+![[00 assets/fcfd8a60006b39c05aa5affe969339a5_MD5.jpeg]]
 
 所以我们需要使用到`继承`来处理上面的问题，我们编写一个`shape`父类，作为下面子类集合的抽象。**我们调用的虽然是父类的方法，但是我们传入的是子类的对象，表现出来的也是子类行为**，即一个对象表现出来的不同的行为这个就是**多态**
 
-![[00 assets/a7306f697f12e09805ffa7025618d39d_MD5.png]]
+![[00 assets/1f63507c7ba7e0215d22d650f770b81c_MD5.jpeg]]
 
 但是作为一个父类我们并不需要调用它，而且方法也不需要实现，所以我们就需要使用`abstract`来表示一个抽象类，下面就是对`Shape`进行的抽象处理
 
@@ -876,7 +877,7 @@ tsc index.ts -t es6 	// 编译为es6版本
 
 ### 10.6.3 多个签名
 
-![[00 assets/a5c14a4e496a654c0a447f8692df726d_MD5.png]]
+![[00 assets/9014ddac7a4f30645c7a9c0a62f7f7fa_MD5.jpeg]]
 
 > 要求 1
 
@@ -946,7 +947,7 @@ type Point = PointX & {
 
 ### 10.7.3 区别
 
-![[00 assets/5431f52d46e54a40e8e0cc28b1adecea_MD5.png]]
+![[00 assets/38c6791b19f736501eff7557bfcf13e3_MD5.jpeg]]
 
 # 6. 泛型
 
@@ -976,7 +977,7 @@ type Point = PointX & {
 
 对于`类`，我们也可以使用`泛型`
 
-![[00 assets/60b811fe286565fff9cb095812852e80_MD5.png]]
+![[00 assets/23fd4dd2349f2270f880fdfb51e12d94_MD5.jpeg]]
 
 ## 6.4 泛型约束
 
@@ -1138,7 +1139,7 @@ type Point = PointX & {
 
 对于自定义声明存在下面的一个使用场景，我们在`index.html`中编写`script`，并且在里面定义的变量。在使用`webpack`编译之后会引入`bundle.js`，所以按理说应该是不会报错的，但是在`index.ts`中报错了，所以为了避免这样的情况，就需要自定义声明
 
-![[00 assets/91d47b9633ba28d7d1e8b528ccc05722_MD5.png]]
+![[00 assets/8ccd34cc24f890da5ff24199abf199ce_MD5.jpeg]]
 
 所以就需要使用`declare`来声明类型，这样就可以解决上面的问题。并且它可以声明`变量/函数/对象`
 
@@ -1353,7 +1354,7 @@ type Point = PointX & {
 
 ## 12.1 Partial
 
-![[00 assets/667536e5947642e42ba603d2678f4310_MD5.png]]
+![[00 assets/bab1627b05b9c3d34513b7b1191ee928_MD5.jpeg]]
 
 ## 12.2 Required
 
