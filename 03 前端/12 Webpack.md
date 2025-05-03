@@ -125,7 +125,7 @@ module.exports = {
 
 1、所以我们就需要使用`loader`来处理`webpack`不能打包的文件
 
-![[00 assets/291210827a2040858690423f3602838e_MD5.png]]
+![[00 assets/765e9ea72e966e2577b9eca4b71dc7a0_MD5.jpeg]]
 
 2、对于`css-loader`存在下面的方式来处理，现在基本都是使用`配置方式`来处理样式文件
 
@@ -135,13 +135,13 @@ module.exports = {
 
 ![[00 assets/f6ce2ade6e116dabdf3633c7ce345b6d_MD5.png]]
 
-![[00 assets/572c27066586650c086474dd5961c001_MD5.png]]
+![[00 assets/7f36ba0d3838fef8de59e1acc638e7c0_MD5.jpeg]]
 
 ### 3.1.3 style-loader
 
 1、对于`css-loader`只能加载解析`CSS`，但是我们需要将`CSS`加载到`index.html`中
 
-![[00 assets/697563fd8c832c176cf752640fcce753_MD5.png]]
+![[00 assets/ab05076421b6ed6bbd5b9a6149d2fc0a_MD5.jpeg]]
 
 2、我们下载`style-loader`，然后再该`rules`中配置`style-loader`即可，并且执行的顺序是从右向左处理
 
@@ -190,7 +190,7 @@ module.exports = {
 
 2、我们需要引入`样式文件`才能被`webpack`打包处理，这里可以参考`webpack依赖图`
 
-![[00 assets/539a07c249cb7e4fbd1c7052089220a0_MD5.png]]
+![[00 assets/c29a9a7d6786a7ca36b533eb7747af2d_MD5.jpeg]]
 
 3、我们再手动引入打包好的`css`文件即可，后面会有`webpack`插件会自动引入`script`
 
@@ -311,7 +311,7 @@ pnpm add postcss-loader autoprefixer -D	// 安装postcss autoprefixer
 
 2、在`bundle.js`文件中创建该图片的地址，并写入引入的元素中
 
-![[00 assets/82b99b727d037f9e46877b96a9382315_MD5.png]]
+![[00 assets/f6cb8643260a93f5540fc2dbbb1d2391_MD5.jpeg]]
 
 > asset/inline
 
@@ -319,7 +319,7 @@ pnpm add postcss-loader autoprefixer -D	// 安装postcss autoprefixer
 
 ![[00 assets/9a5bf8b2d5bfdfd5410c6b3f41c21199_MD5.png]]
 
-![[00 assets/2c30a2bb0e07c9a938d48c929b735676_MD5.png]]
+![[00 assets/bfc4b768c405b5f16ac184db7b849b57_MD5.jpeg]]
 
 > asset
 
@@ -329,11 +329,11 @@ pnpm add postcss-loader autoprefixer -D	// 安装postcss autoprefixer
 
 所以就存在下面得打包方式，当资源没达到一定得大小，就打包到`.js`中。
 
-![[00 assets/82b99b727d037f9e46877b96a9382315_MD5.png]]
+![[00 assets/5eb7c62e21dceb79fca0d0b6c1c3bef8_MD5.jpeg]]
 
 2、并且这个打包资源也可以修改输出名称
 
-![[00 assets/5db578e933e81dc3f2d471cb08e0f5ac_MD5.png]]
+![[00 assets/130babb7b8e9becaf993452eb6db65e3_MD5.jpeg]]
 
 ![[00 assets/f2138dcdb0ed094a82d96ba96261ee10_MD5.png]]
 
@@ -341,7 +341,7 @@ pnpm add postcss-loader autoprefixer -D	// 安装postcss autoprefixer
 
 1、只要是和`webpack`使用，并且要触发某一个转化的情况下，都需要安装`loader`
 
-![[00 assets/dae63c8d98dabd44c3f1e51cee77773b_MD5.png]]
+![[00 assets/09d8aa7b6fea1f92892cfe1cd2ba43fc_MD5.jpeg]]
 
 2、因为这个是配合`webpack`使用，所以没有使用`命令行`就不需要安装`@babel/cli`
 
@@ -489,7 +489,7 @@ pnpm add react react-dom
 
 > 基本使用
 
-![[00 assets/59951f79b1da6fb56bb05bdd9f471953_MD5.png]]
+![[00 assets/8299b10509f9c0085c2d649f21d881a4_MD5.jpeg]]
 
 其实上面的`title`属性会填充到`html-webpack-plugin`中的`.ejs`中进行处理
 
@@ -505,17 +505,17 @@ pnpm add react react-dom
 
 当然我们也可以自定义`html`模板，这样就可以针对性的生成 html
 
-![[00 assets/24dcfe7ee0f8f32210a70d9bb4cf3bc4_MD5.png]]
+![[00 assets/1b193740b361babcf6240b58effbd844_MD5.jpeg]]
 
 ## 5.4 DefinePlugin
 
 1、我们在自定义`HTML模板`的时候存在`<%= BASE_URL %>`这样的模板，所以我们不能使用`HtmlWebpackPlugin`插件，这里`webpack`内置了该插件
 
-![[00 assets/237471b3334bfbb51494434f5a1c0a86_MD5.png]]
+![[00 assets/b7f0ac1bd4467c1719eb50caa018be8f_MD5.jpeg]]
 
 2、按照下面的配置，不仅仅是可以编译`.html`中的数据，还可以为全局设置变量
 
-![[00 assets/5b73b0f62a278cb1c4e24e066a850a92_MD5.png]]
+![[00 assets/2e3c5ab9adc6679db4607c91fddc8943_MD5.jpeg]]
 
 ![[00 assets/a7b8848f7e3086ee4a24387cec31b28e_MD5.png]]
 
@@ -751,7 +751,7 @@ sayHello();
 
 1、`开发(development)`时使用比较多，其特点就是生成速度比较快，而且有错误信息提示，但是精度不是很高
 
-![[00 assets/965bab44895130c07e6decb01b8d2b83_MD5.png]]
+![[00 assets/7ec08c976a0c56bfffbf8ee6fecdf03d_MD5.jpeg]]
 
 > eval-source-map
 
