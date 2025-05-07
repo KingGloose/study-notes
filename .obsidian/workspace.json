@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "03 前端/08 React.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "08 React"
             }
           },
           {
@@ -133,7 +133,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 310.5
+    "width": 276.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -205,7 +205,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 277.5
+    "width": 281.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -221,6 +221,17 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "00 assets/b96392ab4048cae69a1f8203adacb1ef_MD5.jpeg",
+    "00 assets/Pasted image 20250507235937.png",
+    "00 assets/475b969ab3d1ea6f809e8d3f68fa34f2_MD5.jpeg",
+    "00 assets/Pasted image 20250507235903.png",
+    "00 assets/d7f9e7cbe4855d09c83b4d8204c24c4b_MD5.jpeg",
+    "00 assets/Pasted image 20250507232645.png",
+    "03 前端/22 Gulp.md",
+    "03 前端/23 Rollup.md",
+    "03 前端/21 Monorepos.md",
+    "03 前端/08 React.md",
+    "README.md",
     "03 前端/19 单元测试.md",
     "03 前端/18 NestJS.md",
     "00 assets/5bfa0d109390b0f43163924e299825c0_MD5.jpeg",
@@ -228,11 +239,6 @@
     "00 assets/22db318aea8ed4033bfc942795b9f9a9_MD5.jpeg",
     "00 assets/Pasted image 20250503002401.png",
     "00 assets/640948a769c6688923db1aa05fc3d2bd_MD5.jpeg",
-    "00 assets/Pasted image 20250503002332.png",
-    "00 assets/3ae20097fc500e98e1b131e05fde930b_MD5.jpeg",
-    "00 assets/Pasted image 20250503002247.png",
-    "00 assets/ef2852d79fee181d09e8c96745cf9249_MD5.jpeg",
-    "00 assets/Pasted image 20250503002230.png",
     "03 前端/17 Electron.md",
     "03 前端/16 NextJS.md",
     "03 前端/15 NuxtJS.md",
@@ -242,7 +248,6 @@
     "03 前端/11 微信小程序.md",
     "03 前端/10 TypeScript.md",
     "03 前端/09 NodeJS.md",
-    "03 前端/08 React.md",
     "03 前端/07 Vue.md",
     "03 前端/06 Jquery.md",
     "03 前端/05 ECMAScript.md",
@@ -252,11 +257,6 @@
     "03 前端/02 CSS3.md",
     "03 前端/01 HTML5.md",
     "01 基础/06 网络安全.md",
-    "01 基础/05 设计模式.md",
-    "01 基础/04 计算机网络.md",
-    "01 基础/03 Docker.md",
-    "01 基础/02 Linux.md",
-    "01 基础/01 Git.md",
     "未命名",
     "03 前端/00 源码分析",
     "99 其他",
