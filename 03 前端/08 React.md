@@ -3206,21 +3206,26 @@ export default requestService;
 > 路由配置
 
 1、参考之前的笔记来配置即可，但是因为目前使用的是`typescript`来搭建的项目，所以可能部分存在差异
-
 2、首先就是创建文件，之前创建`.js`文件的时候也可以使用`jsx`的语法，但是对于`ts`来说就不行了，所以需要编写`.tsx`的文件
-
 3、然后就是类型导入，对于`react-router-dom`来说，我们编写`routes`最好不要写成`any[]`类型。最好的方式就是导入类型`RouteObject`，它内部提供了对于的类型
-
 ![[00 assets/50085bd5d8c25f4729e1fe1a2fdeb9cf_MD5.png]]
 
 4、依旧使用之前的方式来做路由映射
-
 ![[00 assets/be6e3a963e8cb22441fb039a948036d4_MD5.png]]
 
 对应的`index.tsx`的配置也是使用下面的方式来处理
-
 ![[00 assets/75f30f1d1553ba3aa66ce8810557271a_MD5.png]]
 
 5、且需要注意一个点，对于`React`即便你没有使用导入的`React`，也需要导入，不然就会报错
-
 ![[00 assets/ccffd3d49d13b0d4fc2b12db8a002875_MD5.png]]
+
+6、最终我们配置了二级路由，这里和Vue基本一致，不再赘述了，而且针对每个页面都可以配置路由懒加载
+7、针对二级路由的话，需要配置 `Suspense` 组件来作为临时的显示，不然整个二级路由都会跳转
+8、二级路由中的显示可以使用 `Outline` 来作为占位使用
+![[00 assets/475b969ab3d1ea6f809e8d3f68fa34f2_MD5.jpeg]]
+![[Pasted image 20250507235937.png]]
+### 7.1.5 props 约束
+
+1、针对 React 比较推荐使用下面的方式来编写 `React.FC<Props>`，这样不仅针对函数式组件`Discover`进行语法提示，还可以直接泛型表示参数参数类型，并且伴有语法提示
+2、针对现在的语法，我们可以直接传入 `<span>` 作为插槽，但是他没有语法报错？这是因为React底层针对这里的泛型Props做了交叉类型Children，这样就不存在语法错误了
+![[00 assets/d7f9e7cbe4855d09c83b4d8204c24c4b_MD5.jpeg]]
