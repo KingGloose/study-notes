@@ -2495,45 +2495,34 @@ npm i --save-dev @faker-js/faker
 #### 6.2.5.2 Redux
 
 1、安装`Redux`这里使用`RTK`的解决方案，`npm install @reduxjs/toolkit react-redux`
-
 2、安装之后使用`configureStore`来创建`store`
-
 ![[00 assets/ad0c4ab6751629730302789a0e205b09_MD5.png]]
 
 3、我们创建一个`createSlice`，并且传入对应的参数
-
 4、因为我们需要`dispatch`，所以还需要手动导入函数，并且导出函数
-
 5、最后导出的就是`countSlice`的`reducer`
-
 ![[00 assets/3c4827fe775beff4327eb60d56e1ced4_MD5.png]]
 
 6、使用`Provider`来为组件引入`store`
-
 ![[00 assets/a1f8ed6db12c745a068f024c7c9d7b9f_MD5.png]]
 
-8、因为这里使用的是`Hook`的写法，所以这里也修改为`Redux Hook`
-
+7、因为这里使用的是`Hook`的写法，所以这里也修改为`Redux Hook`
 ![[00 assets/b0ab7b66e4a05b1509250d81b7577e8c_MD5.png]]
 
 > 原始配置
 
 1、因为很多老项目都是使用的`react-redux`而非`rtk`，所以这里也创建一个原始`redux`的配置方式
-
 ![[00 assets/ca628c9d752d085b4e9b36a12c45839a_MD5.png]]
 
 2、依旧使用`rtk`来管理数据
-
 ![[00 assets/8ee53e73591b7eaa21cf68b3eef6623f_MD5.png]]
 
 3、在`redux`的插件中也可以看到响应的数据
-
 ![[00 assets/eb8203ada9f725891b88dcc3670129bd_MD5.png]]
 
 #### 6.2.5.3 Axios
 
 1、封装`axios`请求，这个在我之前就已经封装完毕了
-
 ```javascript
 import axios from "axios";
 import { BASE_URL, TIMEOUT } from "./config";
@@ -2588,12 +2577,11 @@ export default requestService;
 ```
 
 2、然后正常测试封装的`axios`是否可以使用即可
-
 ![[00 assets/786996987c3c94d0f7509b525f2f86db_MD5.png]]
 
 ## 6.3 Header 头部
 
-### 6.3.1 \*基础搭建 - 结构搭建
+### 6.3.1 基础搭建 - 结构搭建
 
 ![[00 assets/5f155a19825cd4f5cff2f4b674bd1ac2_MD5.png]]
 
@@ -2621,7 +2609,7 @@ export default requestService;
 
 ![[00 assets/03801f8616ce61091b78779b64e8a084_MD5.png]]
 
-### 6.3.2 \*Logo 搭建 - SVG 使用
+### 6.3.2 Logo 搭建 - SVG 使用
 
 1、对于`svg`的使用也存在 3 种方式
 
@@ -2645,7 +2633,7 @@ export default requestService;
 
 ![[00 assets/5fee36e72a8ce2cab620a38b1364f87c_MD5.png]]
 
-### 6.3.3 \*主题配置 - 主题文件
+### 6.3.3 主题配置 - 主题文件
 
 1、对于主题配置也存在 2 种方式，这里使用方式二来配置
 
@@ -2665,7 +2653,7 @@ export default requestService;
 
 ![[00 assets/22cb3f1c395eb134108b15e3934ab61e_MD5.png]]
 
-### 6.3.4 \*菜单搭建 - flex 值/样式抽取
+### 6.3.4 菜单搭建 - flex 值/样式抽取
 
 ![[00 assets/e494b9405ab660d001a86645b87fc6f5_MD5.png]]
 
@@ -3201,9 +3189,7 @@ export default requestService;
 
 ![[00 assets/423090fd8d975eb2040dd783bf55b6a7_MD5.png]]
 
-### 7.1.4 全家桶配置
-
-> 路由配置
+### 7.1.4 路由配置
 
 1、参考之前的笔记来配置即可，但是因为目前使用的是`typescript`来搭建的项目，所以可能部分存在差异
 2、首先就是创建文件，之前创建`.js`文件的时候也可以使用`jsx`的语法，但是对于`ts`来说就不行了，所以需要编写`.tsx`的文件
@@ -3223,9 +3209,14 @@ export default requestService;
 7、针对二级路由的话，需要配置 `Suspense` 组件来作为临时的显示，不然整个二级路由都会跳转
 8、二级路由中的显示可以使用 `Outline` 来作为占位使用
 ![[00 assets/475b969ab3d1ea6f809e8d3f68fa34f2_MD5.jpeg]]
-![[Pasted image 20250507235937.png]]
+
 ### 7.1.5 props 约束
 
 1、针对 React 比较推荐使用下面的方式来编写 `React.FC<Props>`，这样不仅针对函数式组件`Discover`进行语法提示，还可以直接泛型表示参数参数类型，并且伴有语法提示
 2、针对现在的语法，我们可以直接传入 `<span>` 作为插槽，但是他没有语法报错？这是因为React底层针对这里的泛型Props做了交叉类型Children，这样就不存在语法错误了
 ![[00 assets/d7f9e7cbe4855d09c83b4d8204c24c4b_MD5.jpeg]]
+
+### 7.1.6 Redux配置
+
+1、`npm i @reduxjs/toolkit react-redux`
+
