@@ -3198,7 +3198,6 @@ export default requestService;
 
 4、依旧使用之前的方式来做路由映射
 ![[00 assets/be6e3a963e8cb22441fb039a948036d4_MD5.png]]
-
 对应的`index.tsx`的配置也是使用下面的方式来处理
 ![[00 assets/75f30f1d1553ba3aa66ce8810557271a_MD5.png]]
 
@@ -3218,5 +3217,5 @@ export default requestService;
 
 ### 7.1.6 Redux配置
 
-1、`npm i @reduxjs/toolkit react-redux`
-
+1、`npm i @reduxjs/toolkit react-redux`，按照如下图中的方式就可以创建
+![[00 assets/d649eba69552405a32e803bff80c256d_MD5.jpeg]]
