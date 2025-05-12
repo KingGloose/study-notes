@@ -3219,3 +3219,11 @@ export default requestService;
 
 1、`npm i @reduxjs/toolkit react-redux`，按照如下图中的方式就可以创建
 ![[00 assets/d649eba69552405a32e803bff80c256d_MD5.jpeg]]
+
+2、但是在完成如上的编写之后，在使用的时候是没有类型推导的，需要额外编写类型推导的函数
+![[00 assets/d285a5acce118b139c66cba3c7a30aeb_MD5.jpeg]]
+这里针对`useSelector`本质是下面这段工具类型来做推导的
+![[00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg]]
+
+3、如下图就是完整的使用方式
+![[00 assets/cf805e35601e167eff9b4f640b13c087_MD5.jpeg]]
