@@ -3227,3 +3227,19 @@ export default requestService;
 
 3、如下图就是完整的使用方式
 ![[00 assets/cf805e35601e167eff9b4f640b13c087_MD5.jpeg]]
+
+### 7.1.7 网络请求封装
+
+1、网络请求得封装参考我之前得代码即可
+2、左半边得代码就是 React 针对网络请求得处理，因为怕每次渲染都重新请求一次，所以可以放在 `useEffect` 来做请求，第二个参数传入 `[]`，那么这个执行不依赖任何数据
+![[00 assets/69f94a32597c175b3f7976d13b028304_MD5.jpeg]]
+
+### 7.1.8 区分开发环境
+
+1、可以使用 `webpack` 提供得变量来区分
+![[00 assets/42ecd38ba941dd82cb307134e707bce2_MD5.jpeg]]
+为什么使用 `process.env.NODE_ENV` 有语法呢？可以查看 `react-app-env.d.ts`，它帮你配置了
+![[00 assets/2bea0fec0a2ef292d615c5342e0ae435_MD5.jpeg]]
+
+2、或者在根目录配置 `.env` 来做处理，每个配置必需使用 `REACT_APP_???` 来做开头
+![[00 assets/d973c8bad85888f196b700d6e00e2074_MD5.jpeg]]

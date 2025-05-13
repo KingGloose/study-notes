@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/08 React.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "08 React"
-            }
-          },
-          {
-            "id": "3ed20eb5e5968d36",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03 前端/26 esbuild.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "26 esbuild"
+              "title": "README"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -119,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 287.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -207,23 +192,30 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "00 assets/2bea0fec0a2ef292d615c5342e0ae435_MD5.jpeg",
+    "00 assets/Pasted image 20250514004314.png",
+    "00 assets/d973c8bad85888f196b700d6e00e2074_MD5.jpeg",
+    "00 assets/Pasted image 20250514004018.png",
+    "00 assets/Pasted image 20250514004016.png",
+    "00 assets/42ecd38ba941dd82cb307134e707bce2_MD5.jpeg",
+    "00 assets/Pasted image 20250514003946.png",
+    "00 assets/69f94a32597c175b3f7976d13b028304_MD5.jpeg",
+    "00 assets/Pasted image 20250514003531.png",
+    "08 AI/01 MCP.md",
+    "07 嵌入式/01 ESP8266.md",
+    "06 Rust/01 Rust.md",
+    "05 数据库/02 MongoDB.md",
+    "05 数据库/01 MySql.md",
+    "04 Java/02 JavaWeb.md",
+    "04 Java/01 Java基础.md",
+    "03 前端/08 React.md",
+    "README.md",
     "00 assets/e157914b070a3d283aab75c5ea040613_MD5.jpg",
     "03 前端/23 Rollup.md",
     "03 前端/26 esbuild.md",
     "03 前端/25 Bun.md",
     "03 前端/10 TypeScript.md",
-    "03 前端/08 React.md",
     "00 assets/cf805e35601e167eff9b4f640b13c087_MD5.jpeg",
-    "00 assets/Pasted image 20250513000058.png",
-    "00 assets/d285a5acce118b139c66cba3c7a30aeb_MD5.jpeg",
-    "00 assets/Pasted image 20250512235628.png",
-    "00 assets/2f6e2f2e469e2749b10b0d10667ceb49_MD5.jpeg",
-    "00 assets/Pasted image 20250512232920.png",
-    "00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg",
-    "00 assets/Pasted image 20250512232850.png",
-    "00 assets/d649eba69552405a32e803bff80c256d_MD5.jpeg",
-    "00 assets/Pasted image 20250512230308.png",
-    "README.md",
     "123.md",
     "03 前端/03 JavaScript/Reflect.md",
     "03 前端/03 JavaScript.md",
@@ -236,13 +228,6 @@
     "03 前端/15 NuxtJS.md",
     "03 前端/14 前端可视化.md",
     "03 前端/13 Uniapp.md",
-    "03 前端/12 Webpack.md",
-    "03 前端/11 微信小程序.md",
-    "03 前端/09 NodeJS.md",
-    "03 前端/07 Vue.md",
-    "03 前端/06 Jquery.md",
-    "03 前端/05 ECMAScript.md",
-    "03 前端/04 JavaScript高级.md",
     "未命名",
     "03 前端/00 源码分析",
     "99 其他",
