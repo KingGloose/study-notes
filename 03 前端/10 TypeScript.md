@@ -424,7 +424,7 @@ ObjectLiteral = upperCaseObject;//ok
 5、针对调用签名还存在如下的写法
 ![[00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg]]
 6、大致可以理解为传入的泛型的参数是作为 `TState` 来使用的，他返回的函数 `useSelector` 就可以传入泛型 `useSelector<number>` 那么这里的 `number` 就是 `TSelected`，本质是返回的函数的泛型的写法，前面的`<TSelected>`泛型本质是调用是函数类型
-![[00 assets/2f6e2f2e469e2749b10b0d10667ceb49_MD5.jpeg]]
+![[00 assets/f2af8f8e2e201ff4360332345ec93074_MD5.jpeg]]
 
 #### 4.9.3 构造签名
 
