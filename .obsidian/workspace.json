@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "614d7ca51fc8876c",
+        "id": "c348eae75b01d19b",
         "type": "tabs",
         "children": [
           {
-            "id": "10ede6d493daf5e0",
+            "id": "bb589d396d914668",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "03 前端/08 React.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/workspace.json",
+                "bFile": ".obsidian/workspace.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "08 React"
-            }
-          },
-          {
-            "id": "3ed20eb5e5968d36",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03 前端/26 esbuild.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "26 esbuild"
+              "icon": "diff",
+              "title": "Diff: workspace.json"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -119,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 311.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -191,7 +176,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,36 +187,31 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "8000354fce86ae5c",
+  "active": "bb589d396d914668",
   "lastOpenFiles": [
-    "00 assets/e157914b070a3d283aab75c5ea040613_MD5.jpg",
-    "03 前端/23 Rollup.md",
-    "03 前端/26 esbuild.md",
-    "03 前端/25 Bun.md",
-    "03 前端/10 TypeScript.md",
     "03 前端/08 React.md",
-    "00 assets/cf805e35601e167eff9b4f640b13c087_MD5.jpeg",
-    "00 assets/Pasted image 20250513000058.png",
-    "00 assets/d285a5acce118b139c66cba3c7a30aeb_MD5.jpeg",
-    "00 assets/Pasted image 20250512235628.png",
-    "00 assets/2f6e2f2e469e2749b10b0d10667ceb49_MD5.jpeg",
-    "00 assets/Pasted image 20250512232920.png",
-    "00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg",
-    "00 assets/Pasted image 20250512232850.png",
-    "00 assets/d649eba69552405a32e803bff80c256d_MD5.jpeg",
-    "00 assets/Pasted image 20250512230308.png",
-    "README.md",
-    "123.md",
-    "03 前端/03 JavaScript/Reflect.md",
+    "03 前端/10 TypeScript.md",
+    "03 前端/26 esbuild.md",
+    "00 assets/e157914b070a3d283aab75c5ea040613_MD5.jpg",
+    "00 assets/3c04654041c2ad0eb4d457526c6e8b4a_MD5.jpeg",
+    "00 assets/9b601ee714903e63027f8d37004ee3b2_MD5.jpeg",
+    "00 assets/a0567fc11a81cc502ad2a33192ad54d3_MD5.jpeg",
+    "00 assets/639ec2d0cf42f86676eece6348b2b8f0_MD5.jpeg",
+    "00 assets/d98854712e7cdaa669cae0ea1ad71815_MD5.jpeg",
+    "00 assets/b96392ab4048cae69a1f8203adacb1ef_MD5.jpeg",
+    "00 assets/645f067d17437408d7b45e0cd59e6d6f_MD5.jpeg",
+    "00 assets/f2af8f8e2e201ff4360332345ec93074_MD5.jpeg",
     "03 前端/03 JavaScript.md",
-    "03 前端/22 Gulp.md",
-    "03 前端/21 Monorepos.md",
+    "03 前端/24 Vite.md",
+    "99 其他/在 Windows VSCode 中按照 mono 字体.md",
+    "README.md",
     "03 前端/19 单元测试.md",
     "03 前端/18 NestJS.md",
+    "00 assets/5bfa0d109390b0f43163924e299825c0_MD5.jpeg",
     "03 前端/17 Electron.md",
     "03 前端/16 NextJS.md",
     "03 前端/15 NuxtJS.md",
@@ -242,7 +223,12 @@
     "03 前端/07 Vue.md",
     "03 前端/06 Jquery.md",
     "03 前端/05 ECMAScript.md",
+    "03 前端/03 JavaScript/Reflect.md",
     "03 前端/04 JavaScript高级.md",
+    "03 前端/02 CSS3.md",
+    "03 前端/01 HTML5.md",
+    "01 基础/06 网络安全.md",
+    "01 基础/05 设计模式.md",
     "未命名",
     "03 前端/00 源码分析",
     "99 其他",

@@ -3207,23 +3207,23 @@ export default requestService;
 6、最终我们配置了二级路由，这里和Vue基本一致，不再赘述了，而且针对每个页面都可以配置路由懒加载
 7、针对二级路由的话，需要配置 `Suspense` 组件来作为临时的显示，不然整个二级路由都会跳转
 8、二级路由中的显示可以使用 `Outline` 来作为占位使用
-![[00 assets/475b969ab3d1ea6f809e8d3f68fa34f2_MD5.jpeg]]
+![[00 assets/645f067d17437408d7b45e0cd59e6d6f_MD5.jpeg]]
 
 ### 7.1.5 props 约束
 
 1、针对 React 比较推荐使用下面的方式来编写 `React.FC<Props>`，这样不仅针对函数式组件`Discover`进行语法提示，还可以直接泛型表示参数参数类型，并且伴有语法提示
 2、针对现在的语法，我们可以直接传入 `<span>` 作为插槽，但是他没有语法报错？这是因为React底层针对这里的泛型Props做了交叉类型Children，这样就不存在语法错误了
-![[00 assets/d7f9e7cbe4855d09c83b4d8204c24c4b_MD5.jpeg]]
+![[00 assets/3c04654041c2ad0eb4d457526c6e8b4a_MD5.jpeg]]
 
 ### 7.1.6 Redux配置
 
 1、`npm i @reduxjs/toolkit react-redux`，按照如下图中的方式就可以创建
-![[00 assets/d649eba69552405a32e803bff80c256d_MD5.jpeg]]
+![[00 assets/9b601ee714903e63027f8d37004ee3b2_MD5.jpeg]]
 
 2、但是在完成如上的编写之后，在使用的时候是没有类型推导的，需要额外编写类型推导的函数
-![[00 assets/d285a5acce118b139c66cba3c7a30aeb_MD5.jpeg]]
+![[00 assets/639ec2d0cf42f86676eece6348b2b8f0_MD5.jpeg]]
 这里针对`useSelector`本质是下面这段工具类型来做推导的
-![[00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg]]
+![[00 assets/a0567fc11a81cc502ad2a33192ad54d3_MD5.jpeg]]
 
 3、如下图就是完整的使用方式
-![[00 assets/cf805e35601e167eff9b4f640b13c087_MD5.jpeg]]
+![[00 assets/d98854712e7cdaa669cae0ea1ad71815_MD5.jpeg]]
