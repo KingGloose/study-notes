@@ -3243,3 +3243,22 @@ export default requestService;
 
 2、或者在根目录配置 `.env` 来做处理，每个配置必需使用 `REACT_APP_???` 来做开头
 ![[00 assets/d973c8bad85888f196b700d6e00e2074_MD5.jpeg]]
+
+
+## 7.2 业务编写
+
+### 7.2.1 Header编写
+
+这是实现得功能点
+![[00 assets/c4005d0974edbf4c539101989263b6b8_MD5.jpeg]]
+
+1、首先要说一下针对样式得处理，目前项目中使用得 `styled-components`，这个可以直接参考之前得笔记
+![[00 assets/aa8464cadacf6eb62e193ac096b898e7_MD5.jpeg]]
+
+2、我们可以定义 `theme` 来做 `mixin`，按照如下方式来做处理
+![[00 assets/85f2f47823d086f044974560cd772d49_MD5.jpeg]]
+
+3.基本就是如下得结构，这里可以说得就是针对 `NavLink` 得使用，因为导航栏需要纪录你的点击，如果你自己做得话会比较麻烦，而且还要考虑记录，但是你可以直接使用 `react-router-dom` 中得 `NavLink` 来做处理，他会自动赋值 `.active` 等类，这个可以自定义，这个也可以参考我之前得笔记
+![[00 assets/19c6e9b6892cd08dcb7453d4819cf774_MD5.jpeg]]
+
+
