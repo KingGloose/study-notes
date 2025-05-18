@@ -3262,3 +3262,16 @@ export default requestService;
 ![[00 assets/19c6e9b6892cd08dcb7453d4819cf774_MD5.jpeg]]
 
 
+### 7.2.2 service/store 业务使用
+
+1、首先就是针对 service/store 如何去划分业务结构，另外一个就是按照功能来划分。如果是业务划分如下图，就是将对应的 service/store 放在一起，如果是功能来划分的话，就是将这些代码放在 views 中，按照组件的形式来存储
+![[00 assets/1d5a881a169c0fa7398ba0ce78944072_MD5.jpeg]]
+
+2、这里我就依照业务来做划分，并编写请求的函数
+![[00 assets/a04e2ea29672e497658e0d233395e2da_MD5.jpeg]]
+
+3、在 store 中使用 createAsyncThunk 中发送异步请求，在 extraReducers 中添加 pending、fulfilled、rejected 状态的回调函数，针对 initalState 需要编写类型最好抽取出来单独放置
+![[00 assets/aee3aaad4f3e6ad8641fec8103855c00_MD5.jpeg]]
+
+4、业务层面要使用的话，需要使用 useDispatch 来导出 dispatch 去执行 fetchAction 的操作，使用 useSelector 来导出状态数据
+![[00 assets/33eb27d83fc74cf63a7c25c077380e5b_MD5.jpeg]]
