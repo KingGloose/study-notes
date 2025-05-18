@@ -1394,6 +1394,9 @@ npm i styled-components		// 安装styled
 
 ![[00 assets/969c23f8a8a48304bd3f2d1c2754a32a_MD5.png]]
 
+3、如果你想让你创建的 a标签 带有自己的属性就可以按照下面的方式
+![[00 assets/61fb3511b1779af3d6d361e93670bfe8_MD5.jpeg]]
+
 ##### 2.14.2.4.3 高级特性
 
 > 1、样式抽取
@@ -2253,17 +2256,13 @@ npm i react-router-dom	// 安装
 ![[00 assets/442a1b4c34569a62e6974ef1693e67bb_MD5.png]]
 
 1、下面就是引入`DOM`的操作
-
 ![[00 assets/5bc643224002098f198ba7d654eefeba_MD5.png]]
 
 2、这里验证每次返回出来得`ref`都是同一个`ref`
-
 ![[00 assets/d3894f8bb6700c6742999120aabed595_MD5.png]]
 
 3、其中保存上一次保存值得功能在`useCallBack`中性能优化中使用过，可以回去参考
-
 4、下面就是如何在父组件创建`ref`，绑定子组件得`DOM`元素
-
 ![[00 assets/b4797a80f726262cd621a984a257ea48_MD5.png]]
 
 ## 5.9 useImperativeHandle
@@ -3272,6 +3271,17 @@ export default requestService;
 
 3、在 store 中使用 createAsyncThunk 中发送异步请求，在 extraReducers 中添加 pending、fulfilled、rejected 状态的回调函数，针对 initalState 需要编写类型最好抽取出来单独放置
 ![[00 assets/aee3aaad4f3e6ad8641fec8103855c00_MD5.jpeg]]
+或者按照如下图的方式来编写，这种写法更加简单，但是不能精细调整 pending、rejected 状态
+![[00 assets/bd399ed9275c7ac4526a74e2881ebf8c_MD5.jpeg]]
 
 4、业务层面要使用的话，需要使用 useDispatch 来导出 dispatch 去执行 fetchAction 的操作，使用 useSelector 来导出状态数据
 ![[00 assets/33eb27d83fc74cf63a7c25c077380e5b_MD5.jpeg]]
+
+
+### 7.2.3 useRef 类型绑定
+
+1、如果你在 TS 中使用 ref 来拿取组件实例会导致类型报错
+![[00 assets/9168921b326d8a6d9de3428cbfa130d1_MD5.jpeg]]
+
+2、我们需要使用 ElementRef 来获取组件的实例，并且要给一个初始化值 null
+![[00 assets/713a5cbf93007ae4c83b94bbc32b4cea_MD5.jpeg]]
