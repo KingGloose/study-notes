@@ -1,8 +1,8 @@
-**视频讲解**[尚硅谷 Web 前端 HTML5&CSS3 初学者零基础入门全套完整版\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1XJ411X7Ud?spm_id_from=333.788.b_636f6d6d656e74.4)
+视频讲解：[尚硅谷 Web 前端 HTML5&CSS3 初学者零基础入门全套完整版\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1XJ411X7Ud?spm_id_from=333.788.b_636f6d6d656e74.4)
 
-**视频讲解**Codewhy - 前端系统课 - HTML
+视频讲解：Codewhy - 前端系统课 - HTML
 
-# 1. 基础入门
+# 1 基础入门
 
 ## 1.1 基本介绍
 
@@ -123,7 +123,7 @@ description 是设置网页的描述的，比如你搜索了一个网站，网�
 3. 对于结构`从内到外`的`编写样式`
 4. 去除重复的代码；相同的样式抽到一个`class`中，不同的就设置一个单独的`class`
 
-# 2. 常见元素
+# 2 常见元素
 
 ## 2.1 块元素
 
@@ -726,7 +726,7 @@ br 标记表示换行
 
 ![[00 assets/46c3d51364dff69163081e12ac9bb41b_MD5.png]]
 
-# 3. 基础概念
+# 3 基础概念
 
 ## 3.1 字符实体
 
@@ -746,383 +746,23 @@ br 标记表示换行
 
 ![[00 assets/5a0f6b34fd0aa930c88f1e97cb413b99_MD5.png]]
 
-# 4. 列表
 
-## 4.1 有序列表
+# 4 表单
 
-![[00 assets/d6b2d3d7757bbfdc9dbc6915c0157acb_MD5.png]]
+[[03 前端/01 HTML/分支-HTML/表单]]
 
-> 列表嵌套
+# 5 表格
 
-![[00 assets/d8de8f18469656d059fbfe243a4094f3_MD5.png]]
+[[表格]]
 
-> 样式重置
+# 6 列表
 
-```css
-list-style:none  /* 重置列表的样式 */
-```
+[[列表]]
 
-## 4.2 无序列表
+# 7 音视频
 
-![[00 assets/fbb3dcc93c8112e8f95ff5fdf9c95b96_MD5.png]]
+[[音视频]]
 
-## 4.3 定义列表
+# 8 Emmet
 
-![[00 assets/ab2b27f86b5ba87bd4c0025e9aacf589_MD5.png]]
-
-# 6. 表格
-
-## 6.1 基本使用
-
-现在对于`HTML`属性来说，已经不建议使用`table`的属性来设置样式了，而是比较推荐`CSS`处理
-
-![[00 assets/29e1cfa663c55ac4ab76a837926b4a4c_MD5.png]]
-
-其中表格的内容是`tr`包裹`td`来处理
-
-![[00 assets/791886ee2396185e7ec67ad4ae231e2b_MD5.png]]
-
-## 6.2 语义化处理
-
-对于`表格`新增加了下 main 的几个元素，假如我们使用这个方式也会提高`SEO`
-
-![[00 assets/69ea8c1f23f8b58bc8cc5e6a6910f714_MD5.png]]
-
-下面为基本的使用方式
-
-![[00 assets/6103178e49ea6d726c6f68200cb09d56_MD5.png]]
-
-## 6.3 单元格合并
-
-![[00 assets/9b4f7883010ed6442a63458fd8649df1_MD5.png]]
-
-> colspan
-
-![[00 assets/170fb5e279d6e1375739f64a796a0023_MD5.png]]
-
-> rowspan
-
-![[00 assets/39536231fb0637294c62e919271db043_MD5.png]]
-
-> 案例
-
-![[00 assets/e4cfcf4f209194ecbf69e521286c4c3a_MD5.png]]
-
-## 6.4 间隔变颜色
-
-这个我们一般使用`结构伪类`来处理
-
-![[00 assets/24afedf07b0c3a26c8a6fcf1ae631450_MD5.png]]
-
-# 7 表单
-
-## 7.1 input
-
-### 7.1.1 常见属性
-
-`input`存在很多的属性，下面为经常使用的属性。其中对于`input`是否为行内可替换元素，官方没有明确的规定，而是根据不同的场景来展示不同的属性
-
-![[00 assets/a10c6dc53d6e0a680df51e6127555c41_MD5.jpeg]]
-
-`input`也存在一些常见的布尔属性
-
-![[00 assets/9486a42620df7b6a157bc763d344557a_MD5.png]]
-
-### 7.1.2 type
-
-假如需要使用的话可以参考`MDN文档`：[：输入（表单输入）元素 - HTML（超文本标记语言） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input)
-
-> type 属性
-
-1、`text`：表示输入的是文本类型
-
-2、`password`：表示输入的是密码
-
-3、`checkbox`：设置多选框
-
-4、`radio`：设置单选框
-
-5、`button`：设置按钮，这个可以使用`<button>`标签代替
-
-6、`radio`：设置单选框
-
-7、`button`：设置为按钮
-
-8、`submit`：设置提交按钮，表面和`button`一样，但是它的默认行为不一样，它可以将数据提交给服务器
-
-> 不常见类型
-
-1、`date`：表示输入的是日期，但是各个浏览器的值不一样，所以不是很推荐使用
-
-2、`url`：专门用来输入网址
-
-3、`tel`：专门用来输入电话号码
-
-4、` search`：专门用来输入搜索关键字的文本框
-
-5、`range`：设置一个滑动的条
-
-6、`number`：设置只能输入数字
-
-7、`reset`：设置重置按钮
-
-其中对于`form`来说，`name`不仅仅是唯一标识符，用途可以用于区分`radio`和`checkbox`，而且是作为`key`存在。`value`就是作为提交的时候`value`的存在
-
-![[00 assets/12519a2463890b9de959137c24e8c512_MD5.png]]
-
-### 7.1.3 label
-
-**MDN 文档参考**：[ - HTML（超文本标记语言） | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label)
-
-我们可以使用`label`属性来关联`input`的操作，假如想要知道详细的使用方式可以参考`MDN文档`中的解释
-
-![[00 assets/f20e60cac72862c036bda883757d85f2_MD5.gif]]
-
-假如你将`input`包在`label`中就不用编写`for`也可以实现相应的效果
-
-![[00 assets/43a5897cce86b616fef4c82ae43194ca_MD5.png]]
-
-## 7.2 select
-
-下面就是`select`的基本使用
-
-![[00 assets/009de1c4753b1055227217dc78fb7f3f_MD5.png]]
-
-假如我们想要给`select`分组的话，就可以使用`optgroup`来处理
-
-![[00 assets/68a201f57b9e1b4fa1490c5caf89f9c2_MD5.png]]
-
-## 7.3 textarea
-
-下面为`textarea`基本的使用
-
-![[00 assets/c9c27e1016b4f1cc0e4ed819b99fa7c8_MD5.png]]
-
-## 11.1 表单设置
-
-设置一个表单时是使用 from 属性，可选值有 action，表示表单要提交的服务器的地址
-
-### 11.1.1 input
-
-#### 11.1.1.1 autocomplete
-
-启用自动完成功能的表单，on 就是打开，off 是关闭
-
-```html
-<!DOCTYPE html>
-<html>
-	<head> 
-		<meta charset="utf-8"> 
-		<title>菜鸟教程(runoob.com)</title> 
-	</head>
-	<body>
-
-		<form action="demo-form.php" autocomplete="on">
-			First name:<input type="text" name="fname"><br>
-			Last name: <input type="text" name="lname"><br>
-			E-mail: <input type="email" name="email" autocomplete="off"><br>
-			<input type="submit">
-		</form>
-	</body>
-</html>
-```
-
-![[00 assets/fac2388fad114f3ca55191949ff334a3_MD5.png]]
-
-#### 11.1.1.2 maxlength
-
-属性规定 < input > 元素中允许的最大字符数
-
-#### 11.1.1.3 size
-
-size 属性规定以字符数计的 < input > 元素的可见宽度
-
-```html
-<!DOCTYPE html>
-<html>
-<head> 
-<meta charset="utf-8"> 
-<title>菜鸟教程(runoob.com)</title> 
-</head>
-
-<body>
-
-<form action="demo_form.php">
-  Email: <input type="text" name="email" size="35"><br>
-  PIN: <input type="text" name="pin" maxlength="4" size="4"><br>
-  <input type="submit" value="提交">
-</form>
-</body>
-</html>
-```
-
-![[00 assets/f571a9e025f043ea38b892bc0c9d47d6_MD5.png]]
-
-#### 11.1.1.5 pattern
-
-设置正则表达式的，基本不怎么用
-
-#### 11.1.1.6 placeholder
-
-设置提示框里面的提示内容
-
-```html
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body>
-		<input type="text" placeholder="这里输入文字"/>
-	</body>
-</html>
-```
-
-![[00 assets/b3de755d0becfec4d2b9343f080fab1d_MD5.png]]
-
-#### 11.1.1.7 required
-
-设置用户必填写表单
-
-# 8. Emmet
-
-> ！
-
-直接生成`HTML5`的代码片段
-
-> ">"父子元素 "+"兄弟元素
-
-![[00 assets/2b2367d31799bf32cf4fe629dbbc731c_MD5.png]]
-
-> "\*"多个 "^"上一级
-
-![[00 assets/0804974c4fa45c333de58f39ba59ab20_MD5.png]]
-
-> () 分组
-
-![[00 assets/406a94fec1a44989020e7992fc4d3a55_MD5.png]]
-
-> 属性(id 属性、class 属性、普通属性){}(内容)
-
-![[00 assets/df53841c0e8adc39e408aac7283e896b_MD5.png]]
-
-> $ 数字
-
-![[00 assets/ac5d1ab88c4b1c6a1300e2c9773e52bd_MD5.png]]
-
-```bash
-ul>li{电脑列表$}*100 	// 生成100个ul>li标签，里面的显示电脑列表1、电脑列表2....
-```
-
-> 隐式标签
-
-![[00 assets/6ab1fadbac824ef879d072fd3aaaaf43_MD5.png]]
-
-> CSS
-
-![[00 assets/3fa8d0ac04ce2bbbe52d1168d0a72c1b_MD5.png]]
-
-# 5. 音视频播放
-
-## 9.1 audio 标签
-
-引入音频文件
-
-### 9.1.1 src 属性
-
-```html
-<audio src="./soc/mm.mp3"></audio>
-```
-
-这样是不行的，用户不能去控制
-
-### 9.1.2 controls 属性
-
-假如你想用户去控制的话
-
-```html
-<audio src="./soc/mm.mp3" controls></audio>
-```
-
-### 9.1.3 autoplay 属性
-
-表示进入浏览器就自动播放音乐
-
-```html
-<audio src="./soc/mm.mp3" controls autoplay></audio>
-```
-
-假如你要循环播放的话，就加上 loop
-
-```html
-<audio src="./soc/mm.mp3" controls autoplay loop></audio>
-```
-
-### 9.1.4 source 属性
-
-这个为了兼容性的问题
-
-```html
-<audio>
-	对不起你的浏览器不支持，请升级浏览器
-    <source src="./soc/mm.mp3">
-    <source src="./soc/mm.ogg">//这个是为了不同版本的浏览器，支持不一样的文件类型
-</audio>
-```
-
-或者下面的办法，下面这个是直接兼容所有的版本的浏览器
-
-```html
-<audio>
-    <source src="./soc/mm.mp3">
-    <source src="./soc/mm.ogg">//这个是为了不同版本的浏览器，支持不一样的文件类型
-    <embed src="./soc/mm.ogg" type="audio/mp3" width="300" hight="300">
-</audio>
-```
-
-## 9.2 video 标签
-
-引入视频文件，基本和 audio 一样
-
-```html
-<video>
-    <source src="./soc/mm.mp4">
-    <source src="./soc/mm.webm">//这个是为了不同版本的浏览器，支持不一样的文件类型
-    <embed src="./soc/mm.webm" type="video/mp3">//为了兼容IE8以后的浏览器
-</video>
-```
-
-preload，这个是当视频没有及时播放的时候，可以显示一个东西
-
-## 9.3 视频编解码器
-
-视频编解码器定义了多媒体数据流编码和解码的算法。其中编码器主要是对数据流进行编码操作，用于存储和传输。
-
-### 9.3.1 H.264
-
-H.264 是国际标准化组织（ISO）和国际电信联盟（ITU）共同提出的继 MPEG4 之后的新一代数字视频压缩格式
-
-### 9.3.2 Theora
-
-Theora 是免费开放的视频压缩编码技术，可以支持从 VP3 HD 高清到 MPEG-4/DiVX 视频格式
-
-### 9.3.3 VP8
-
-VP8 是第八代的 On2 视频，能以更少的数据提供更高质量的视频，而且只需较小的处理能力即可播放视频
-
-## 9.4 音频编解码器
-
-音频编解码器定义了音频数据流编码和解码的算法。与视频编解码器的工作原理一样，音频编码器主要用于对数据流进行编码操作，解码器主要用于对音频文件进行解码
-
-### 9.4.1 ACC
-
-ACC 是高级音频编码（英文：Advanced Audio Coding）的简称，该音频编码是基于 MPEG-2 的音频编码技术，目的是取代 MP3 格式。
-
-### 9.4.2 MP3
-
-MP3 是“MPEG-1 音频层 3”的简称。它被设计用来大幅度地降低音频数据量。
-
-### 9.4.3 Ogg
-
-Ogg 全称为 Ogg Vorbis，是一种新的音频压缩格式，类似于 MP3 等现有的音乐格式。OGG Vorbis 有一个很出众的特点，就是支持多声道。
+[[Emmet]]

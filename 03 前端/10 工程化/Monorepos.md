@@ -43,7 +43,7 @@
 
 ![[00 assets/88d6b4f224fe391ca025ecdd8da7fdb9_MD5.png]]
 
-针对 `npm link` 的本质就是软链接，可以参考 [[21 Monorepos#^f024dc]]，在全局库中图标的左下角出现了箭头的标识
+针对 `npm link` 的本质就是软链接，可以参考 [[Monorepos#^f024dc]]，在全局库中图标的左下角出现了箭头的标识
 ![[00 assets/6bebd577a812e8b10b6a695a61da79a2_MD5.png]]
 
 # 2. lerna
@@ -152,7 +152,7 @@
 
 # 4. pnpm + changeset
 
-**目前文章是基于 yarn + changeset 来做得修改 [[21 Monorepos#^2bdf54]]，所以下面只叙述差异点**
+**目前文章是基于 yarn + changeset 来做得修改 [[Monorepos#^2bdf54]]，所以下面只叙述差异点**
 
 1、`workspaces` 编写位置不同，需要单独写一个 `pnpm-workspace.yaml`，这里的 `package.json` 直接使用 `npm init -y` 就行，不需要使用 `npm init -w packages/core -y`
 ![[00 assets/8daa24def0598b8c10fbdf102edec05f_MD5.png]]
