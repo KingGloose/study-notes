@@ -1,5 +1,5 @@
 
-## 1. includes
+# 1. includes
 
 `includes`是用来检测数组中是否包含某个元素
 
@@ -20,7 +20,7 @@ if (num.includes(2, 1)) {
 console.log(num.includes(NaN));
 ```
 
-## 2. 指数运算符
+# 2. 指数运算符
 
 ```javascript
 // 1. 以前的处理方式
