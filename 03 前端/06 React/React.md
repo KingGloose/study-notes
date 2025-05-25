@@ -2733,3 +2733,11 @@ export default requestService;
 
 2、我们需要使用 ElementRef 来获取组件的实例，并且要给一个初始化值 null
 ![[00 assets/713a5cbf93007ae4c83b94bbc32b4cea_MD5.jpeg]]
+
+
+## 7.3 其他
+
+### 7.3.1 组件泛型
+
+1、我们在调用组件的时候可以传入泛型，具体组件的写法可以参考右边处理，本质就是函数泛型
+![[00 assets/8c38b5c6dfbc67448700e96ef76954da_MD5.jpeg]]
