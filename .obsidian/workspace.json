@@ -8,31 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "934711cbbe246f32",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
             "id": "6a15b5e4eeeb64c3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/06 React/ReactRouter.md",
+                "file": "03 前端/06 React/React.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ReactRouter"
+              "title": "React"
+            }
+          },
+          {
+            "id": "a12997b2e54a6a19",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/06 React/React.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "React"
             }
           }
         ],
@@ -119,7 +119,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281.5
+    "width": 287.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -207,7 +207,14 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "00 assets/8c38b5c6dfbc67448700e96ef76954da_MD5.jpeg",
+    "00 assets/Pasted image 20250526001117.png",
+    "03 前端/08 Typescript/TypeScript.md",
+    "00 assets/d2264e9d54353be11a8671fe1699bdd1_MD5.jpeg",
+    "00 assets/Pasted image 20250526000814.png",
+    "00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg.md",
     "03 前端/06 React/React.md",
+    "03 前端/06 React/ReactRouter.md",
     "03 前端/06 React/分支-React/React 源码.md",
     "README.md",
     "00 assets/0a26864efaac52e357aa61158b828e0c_MD5.jpeg",
@@ -217,14 +224,10 @@
     "00 assets/8d9b294ef4912947d538ec0abea3c87c_MD5.jpeg",
     "00 assets/Pasted image 20250525172802.png",
     "00 assets/7e7027588d8f9e41432af2869da4ce63_MD5.jpeg",
-    "00 assets/Pasted image 20250525172504.png",
-    "00 assets/3b38ca8fbd4a089011b482a165d6f087_MD5.jpeg",
-    "00 assets/Pasted image 20250525165148.png",
     "03 前端/05 Vue/Vue.md",
     "03 前端/05 Vue/Pinia.md",
     "03 前端/05 Vue/分支-Vue/Vue 源码.md",
     "03 前端/05 Vue/分支-Vue/Vue 原理.md",
-    "03 前端/06 React/ReactRouter.md",
     "03 前端/06 React/Redux.md",
     "03 前端/05 Vue/分支-Vue/Vue 项目.md",
     "03 前端/05 Vue/Vuex.md",
@@ -240,9 +243,6 @@
     "03 前端/04 Jquery/Jquery.md",
     "03 前端/03 JavaScript/JavaScript高级.md",
     "03 前端/03 JavaScript/JavaScript.md",
-    "03 前端/02 CSS/CSS.md",
-    "03 前端/02 CSS/分支-CSS/盒子.md",
-    "03 前端/02 CSS/分支-CSS/其他.md",
     "03 前端/06 React/分支-React",
     "03 前端/20 构建工具",
     "03 前端/05 Vue/未命名",

@@ -421,9 +421,7 @@ ObjectLiteral = upperCaseObject;//ok
 4、需要区分`调用签名`和`函数类型表达式`的格式
 ![[00 assets/3ceb4cb07095459b506fe71707a8cdd7_MD5.png]]
 
-5、针对调用签名还存在如下的写法
-![[00 assets/d5873a5b0eb728b3391b5148c94d1209_MD5.jpeg]]
-6、大致可以理解为传入的泛型的参数是作为 `TState` 来使用的，他返回的函数 `useSelector` 就可以传入泛型 `useSelector<number>` 那么这里的 `number` 就是 `TSelected`，本质是返回的函数的泛型的写法，前面的`<TSelected>`泛型本质是调用是函数类型
+5、大致可以理解为传入的泛型的参数是作为 `TState` 来使用的，他返回的函数 `useSelector` 就可以传入泛型 `useSelector<number>` 那么这里的 `number` 就是 `TSelected`，本质是返回的函数的泛型的写法，前面的`<TSelected>`泛型本质是调用是函数类型
 ![[00 assets/f2af8f8e2e201ff4360332345ec93074_MD5.jpeg]]
 
 #### 4.9.3 构造签名
@@ -966,13 +964,15 @@ type Point = PointX & {
 
 ## 6.2 泛型接口
 
-我们可以给`接口`来定义`泛型`
-
+1、我们可以给`接口`来定义`泛型`
 ![[00 assets/4e577e5ce85ee1e19e91db1689798d03_MD5.png]]
 
-对于`泛型`我们也可以`赋默认值`
-
+2、对于`泛型`我们也可以`赋默认值`
 ![[00 assets/50cd3a88fabe68978fc7ecdf9734df7a_MD5.png]]
+
+3、如果是箭头函数的话可以这样编写，如果你是在 `.tsx` 文件中泛型就需要编写为 `<T,>(a: T)`避免和`tsx`语法重复
+![[00 assets/d2264e9d54353be11a8671fe1699bdd1_MD5.jpeg]]
+
 
 ## 6.3 泛型类
 
