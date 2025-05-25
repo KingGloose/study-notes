@@ -3160,13 +3160,16 @@ export default {
 
 # 4. 脚手架 - Setup
 
+## 4.1 基本介绍
+
 ![[00 assets/d66aabe4c5288cdbeb666a70eb48efb0_MD5.png]]
 
-> 基本使用
+## 4.2 基本使用
 
 ![[00 assets/6ee7e7b0f3c4926d3754eacdbf8a763e_MD5.png]]
 
-> props
+
+## 4.3 props
 
 1、现在使用`setup`语法糖需要使用`defineProps`来接收
 
@@ -3192,13 +3195,14 @@ export default {
 
 ![[00 assets/c28e28121f1a92505e706cf7dac05edb_MD5.png]]
 
-> emits
+## 4.4 emits
 
 需要使用`defineEmits`来提前注册`emits`事件
 
 ![[00 assets/b8f77bf8aa11601e36cdf4c2bdb2f601_MD5.png]]
 
-> ref
+
+## 4.5 ref
 
 1、使用`defineExpose`来提前暴露想要暴露的数据，比如：直接使用`RefHome.value.showMessage()`来外部调用
 
@@ -3555,9 +3559,6 @@ const shuffleNum = () => (nums.value = shuffle(nums.value));
 
 在`ES6-ES12`的笔记里面记录了手写响应式原理，可以参考
 
-# 6. 前端路由 - VueRouter
-
-[[VueRouter]]
 
 # 10. 前台项目 - 弘源旅途
 
@@ -5708,6 +5709,3 @@ npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 
 7、按照这样的方式我们就搭建了一个很严密的`git`提交验证流程
 
-# 12. 项目部署
-
-[[前端部署]]
