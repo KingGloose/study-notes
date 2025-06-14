@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "99 其他/在 Windows VSCode 中安装 mono 字体.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "在 Windows VSCode 中安装 mono 字体"
             }
           }
         ]
@@ -104,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 246.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -192,6 +192,11 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "03 前端/99 解决方案",
+    "03 前端/未命名.md",
+    "99 其他/在 Windows VSCode 中安装 mono 字体.md",
+    "README.md",
+    "未命名.md",
     "03 前端/21 微前端/微前端/微前端技术优劣.md",
     "00 assets/67c7eb687869f45529ad2f792532c370_MD5.jpeg",
     "00 assets/Pasted image 20250610003517.png",
@@ -206,7 +211,6 @@
     "00 assets/Pasted image 20250609235642.png",
     "00 assets/751d8f4a54e5befb6559a08568038b8b_MD5.jpeg",
     "00 assets/Pasted image 20250609235600.png",
-    "README.md",
     "03 前端/21 微前端",
     "03 前端/03 JavaScript/ECMAScript.md",
     "03 前端/03 JavaScript/JavaScript.md",
@@ -214,7 +218,6 @@
     "03 前端/03 JavaScript/分支-JavaScript/PerformanceEntry.md",
     "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
     "03 前端/03 JavaScript/JavaScript高级.md",
-    "未命名.md",
     "03 前端/99 公共/Axios.md",
     "03 前端/99 公共/Monorepos.md",
     "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
@@ -228,8 +231,6 @@
     "03 前端/05 Vue/Vue.md",
     "03 前端/05 Vue/Pinia.md",
     "03 前端/05 Vue/分支-Vue/Vue 源码.md",
-    "03 前端/05 Vue/分支-Vue/Vue 原理.md",
-    "03 前端/06 React/Redux.md",
     "03 前端/06 React/分支-React",
     "03 前端/20 构建工具",
     "03 前端/05 Vue/未命名",
