@@ -254,7 +254,7 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 
 ![[00 assets/484e10c5e3d6b0fab63ebe78de9862ea_MD5.png]]
 
-3、复制到`Gitee`得个人中心即可，这样每次请求得时候，直接将私钥给服务器与你输入得公钥对比即可，就不需要使用账户和密码存储了
+3、我们将 `公钥` 复制到`Gitee`得个人中心即可，这样每次请求得时候，直接将私钥给服务器与你输入得公钥对比即可，就不需要使用账户和密码存储了
 
 ![[00 assets/2fabfcc72d9aa828f500e10e6cbb9a17_MD5.png]]
 
