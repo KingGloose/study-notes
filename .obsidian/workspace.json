@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99 其他/在 Windows VSCode 中安装 mono 字体.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "在 Windows VSCode 中安装 mono 字体"
+              "title": "README"
             }
           }
         ]
@@ -63,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "file:git",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -104,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 246.5
+    "width": 272.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -186,16 +186,17 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "01 基础/01 Git.md",
+    "README.md",
+    "99 其他/在 Windows VSCode 中安装 mono 字体.md",
     "03 前端/99 解决方案",
     "03 前端/未命名.md",
-    "99 其他/在 Windows VSCode 中安装 mono 字体.md",
-    "README.md",
     "未命名.md",
     "03 前端/21 微前端/微前端/微前端技术优劣.md",
     "00 assets/67c7eb687869f45529ad2f792532c370_MD5.jpeg",
@@ -236,7 +237,6 @@
     "03 前端/05 Vue/未命名",
     "03 前端/19 Vite",
     "03 前端/18 Webpack",
-    "03 前端/99 公共",
-    "03 前端/03 JavaScript/分支-ECMAScript"
+    "03 前端/99 公共"
   ]
 }
