@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "bce893e0af9c6a07",
+        "id": "78fdb46c74b6e598",
         "type": "tabs",
         "children": [
           {
-            "id": "6a15b5e4eeeb64c3",
+            "id": "b9c9b77bb11fe697",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03 前端/05 Vue/分支-VueRouter/源码解析.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "源码解析"
+              "title": "新标签页"
             }
           }
         ]
@@ -190,8 +186,9 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "8000354fce86ae5c",
+  "active": "b9c9b77bb11fe697",
   "lastOpenFiles": [
+    "03 前端/05 Vue/分支-VueRouter/源码解析.md",
     "00 assets/659da30276c2961673c710f9e42059f4_MD5.jpeg",
     "00 assets/Pasted image 20250701005909.png",
     "00 assets/4e30c8ab0831ab788489b722ce941f02_MD5.jpeg",
@@ -202,9 +199,7 @@
     "00 assets/Pasted image 20250701004652.png",
     "00 assets/886ec1b20d3c8b3e7587a49ad82a0690_MD5.jpeg",
     "00 assets/Pasted image 20250701004555.png",
-    "00 assets/81f4408a577e6327e8e9daf82c181bdd_MD5.jpeg",
     "03 前端/05 Vue/VueRouter.md",
-    "03 前端/05 Vue/分支-VueRouter/源码解析.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/21 微前端/微前端.md",
     "README.md",
