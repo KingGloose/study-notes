@@ -11,10 +11,14 @@
             "id": "b9c9b77bb11fe697",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/02 CSS/分支-CSS/定位.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "定位"
             }
           }
         ]
@@ -100,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 301.5
+    "width": 261.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -186,8 +190,13 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "b9c9b77bb11fe697",
+  "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "03 前端/02 CSS/CSS.md",
+    "README.md",
+    "99 其他/安装 mono 字体.md",
+    "99 其他/Windows 开启 Hyperv.md",
+    "03 前端/05 Vue/VueRouter.md",
     "03 前端/05 Vue/分支-VueRouter/源码解析.md",
     "00 assets/659da30276c2961673c710f9e42059f4_MD5.jpeg",
     "00 assets/Pasted image 20250701005909.png",
@@ -199,24 +208,20 @@
     "00 assets/Pasted image 20250701004652.png",
     "00 assets/886ec1b20d3c8b3e7587a49ad82a0690_MD5.jpeg",
     "00 assets/Pasted image 20250701004555.png",
-    "03 前端/05 Vue/VueRouter.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/21 微前端/微前端.md",
-    "README.md",
     "03 前端/01 HTML/分支-HTML/表单.md",
     "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
     "03 前端/03 JavaScript/JavaScript高级.md",
     "03 前端/03 JavaScript/JavaScript.md",
     "03 前端/03 JavaScript/ECMAScript.md",
     "03 前端/01 HTML/HTML.md",
-    "03 前端/02 CSS/CSS.md",
     "03 前端/02 CSS/TailwindCSS.md",
     "03 前端/99 公共/Monorepos.md",
     "03 前端/99 公共/Axios.md",
     "03 前端/99 公共/前端部署.md",
     "03 前端/99 公共/前端监控.md",
     "03 前端/99 公共/国际化i18n.md",
-    "99 其他/在 Windows VSCode 中安装 mono 字体.md",
     "03 前端/20 构建工具/Gulp.md",
     "03 前端/20 构建工具/EsBuild.md",
     "01 基础/01 Git.md",
