@@ -166,3 +166,7 @@ npm i vue-router // 下载vue路由
 
 ![[00 assets/eb717b3679f5ba3172a047512efeadce_MD5.jpeg]]
 
+
+# 9 路由模式
+
+[[路由模式]]
