@@ -1,0 +1,49 @@
+# 1 基本介绍
+
+官网介绍：[MicroApp](https://micro-zoe.github.io/doc/zh/)
+
+1、微前端的概念是由ThoughtWorks在2016年提出的，它借鉴了微服务的架构理念，核心在于将一个庞大的前端应用拆分成多个独立灵活的小型应用，每个应用都可以独立开发、独立运行、独立部署，再将这些小型应用融合为一个完整的应用，或者将原本运行已久、没有关联的几个应用融合为一个应用。微前端既可以将多个项目融合为一，又可以减少项目之间的耦合，提升项目扩展性，相比一整块的前端仓库，微前端架构下的前端仓库倾向于更小更灵活。
+
+2、它主要解决了两个问题：
+- 1、随着项目迭代应用越来越庞大，难以维护。
+- 2、跨团队或跨部门协作开发项目导致效率低下的问题。
+![[00 assets/c144bc97a4ec1afe8be90db8ca599ce6_MD5.jpeg]]
+
+3、在`micro-app`之前，业内已经有一些开源的微前端框架，比较流行的有2个：`single-spa`和`qiankun`。
+
+4、`single-spa`是通过监听 url change 事件，在路由变化时匹配到渲染的子应用并进行渲染，这个思路也是目前实现微前端的主流方式。同时`single-spa`要求子应用修改渲染逻辑并暴露出三个方法：`bootstrap`、`mount`、`unmount`，分别对应初始化、渲染和卸载，这也导致子应用需要对入口文件进行修改。因为`qiankun`是基于`single-spa`进行封装，所以这些特点也被`qiankun`继承下来，并且需要对webpack配置进行一些修改。
+
+5、`micro-app`并没有沿袭`single-spa`的思路，而是借鉴了WebComponent的思想，通过CustomElement结合自定义的ShadowDom，将微前端封装成一个类WebComponent组件，从而实现微前端的组件化渲染。并且由于自定义ShadowDom的隔离特性，`micro-app`不需要像`single-spa`和`qiankun`一样要求子应用修改渲染逻辑并暴露出方法，也不需要修改webpack配置，是目前市面上接入微前端成本最低的方案。
+![[00 assets/39c4ef05dd69d8001a29a007c0433e82_MD5.jpeg]]
+
+6、micro-app优势
+- 使用简单：我们将所有功能都封装到一个类WebComponent组件中，从而实现在基座应用中嵌入一行代码即可渲染一个微前端应用。
+- 功能强大：`micro-app`提供了`js沙箱`、`样式隔离`、`元素隔离`、`路由隔离`、`预加载`、`数据通信`等一系列完善的功能。
+- 兼容所有框架：为了保证各个业务之间独立开发、独立部署的能力，`micro-app`做了诸多兼容，在任何前端框架中都可以正常运行。
+
+# 2 基本使用
+
+快速接入：[快速开始 | MicroApp](https://micro-zoe.github.io/doc/zh/start.html#%E4%B8%BB%E5%BA%94%E7%94%A8)
+
+1、我们使用 Vue2 作为主应用，分别接入 React、Vue2、Vue3
+2、`npm i @micro-zoe/micro-app` 安装
+![[00 assets/01f90517f70c56240b057ea72240a897_MD5.jpeg]]
+
+3、针对 micro-app 主要存在几种路由模式，称为虚拟路由系统：[虚拟路由系统 | MicroApp](https://micro-zoe.github.io/doc/zh/router.html)，我这里主要使用的是 `native-scope模式`
+![[00 assets/b28a43d5f0056adf7937808e5f2cbb65_MD5.jpeg]]
+
+4、我们在主应用中启动即可，并且在主应用中编写路由，其中子应用的路由 path 编写为 `/xxx*` 表示非严格模式，都会匹配到这里
+![[00 assets/5913a494b7c8852a52ba5a40f5abd000_MD5.jpeg]]
+
+5、我们使用 `micro-app` 标签作为入口
+- name 表示唯一标识
+- url 是你应用启动的地址，也就是加载 index.html 的位置
+- baseroute 表示路由前缀
+- router-mode 表示路由模式，现在最新版本使用的 search 模式，将子应用路由带到 query 参数中，我手动切换到了 native-scope 模式来处理
+![[00 assets/bd9eeaa3822c715ff0e905540c60a0eb_MD5.jpeg]]
+
+6、其实子应用路由使用 `window.__MICRO_APP_BASE_ROUTE__` 来作为前缀，这个主要是 `Native` 模式来做配置，这是为什么呢？具体可以参考：[MicroApp](https://micro-zoe.github.io/doc/zh/browser-router.html)
+
+总结：因为子应用和主应用路由系统不是公用的一套，而是各自一套，那么路由检测也是一套。所以在 vue-router 中添加 base 来当作 scope 作用域来使用，避免路由冲突
+
+![[00 assets/e2d15cce3d4876cb0bf399a9cc577b48_MD5.jpeg]]

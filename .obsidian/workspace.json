@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "78fdb46c74b6e598",
+        "id": "127d6189617f9ead",
         "type": "tabs",
         "children": [
           {
-            "id": "b9c9b77bb11fe697",
+            "id": "01256a1d0629e1d2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/99 公共/主题切换.md",
+                "file": "03 前端/20 微前端/微前端/MicroApp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "主题切换"
+              "title": "MicroApp"
             }
           }
         ]
@@ -104,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 256.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -176,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 282.5
+    "width": 252.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,43 +192,43 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
-    "03 前端/07 NodeJS/Koa.md",
-    "03 前端/99 公共/主题切换.md",
-    "03 前端/04 Jquery/Jquery.md",
-    "03 前端/02 CSS/分支-CSS/Flex.md",
-    "README.md",
-    "03 前端/05 Vue/VueRouter.md",
-    "03 前端/05 Vue/分支-VueRouter/路由模式.md",
-    "03 前端/02 CSS/分支-CSS/定位.md",
-    "03 前端/02 CSS/CSS.md",
-    "99 其他/安装 mono 字体.md",
-    "99 其他/Windows 开启 Hyperv.md",
-    "03 前端/05 Vue/分支-VueRouter/源码解析.md",
-    "00 assets/659da30276c2961673c710f9e42059f4_MD5.jpeg",
-    "00 assets/Pasted image 20250701005909.png",
-    "00 assets/4e30c8ab0831ab788489b722ce941f02_MD5.jpeg",
-    "00 assets/Pasted image 20250701005632.png",
-    "00 assets/dade39510c2ecbebc545be7ebe1600ac_MD5.jpeg",
-    "00 assets/Pasted image 20250701004853.png",
-    "00 assets/b693d8d6e584399ce98e2424762aa2e9_MD5.jpeg",
-    "00 assets/Pasted image 20250701004652.png",
-    "00 assets/886ec1b20d3c8b3e7587a49ad82a0690_MD5.jpeg",
-    "00 assets/Pasted image 20250701004555.png",
-    "03 前端/05 Vue/分支-VueRouter",
+    "00 assets/e2d15cce3d4876cb0bf399a9cc577b48_MD5.jpeg",
+    "00 assets/Pasted image 20250803011351.png",
+    "00 assets/bd9eeaa3822c715ff0e905540c60a0eb_MD5.jpeg",
+    "00 assets/Pasted image 20250803011119.png",
+    "00 assets/b28a43d5f0056adf7937808e5f2cbb65_MD5.jpeg",
+    "00 assets/Pasted image 20250803010948.png",
+    "00 assets/Pasted image 20250803010946.png",
+    "00 assets/5913a494b7c8852a52ba5a40f5abd000_MD5.jpeg",
+    "00 assets/Pasted image 20250803010818.png",
+    "00 assets/Pasted image 20250803010527.png",
+    "00 assets/01f90517f70c56240b057ea72240a897_MD5.jpeg",
     "03 前端/20 微前端/微前端.md",
-    "03 前端/01 HTML/分支-HTML/表单.md",
-    "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
-    "03 前端/03 JavaScript/JavaScript高级.md",
-    "03 前端/03 JavaScript/JavaScript.md",
-    "03 前端/03 JavaScript/ECMAScript.md",
-    "03 前端/01 HTML/HTML.md",
+    "03 前端/20 微前端/微前端/MicroApp.md",
+    "03 前端/02 CSS/SCSS.md",
     "03 前端/02 CSS/TailwindCSS.md",
-    "03 前端/99 公共/Monorepos.md",
-    "03 前端/03 JavaScript/Axios.md",
-    "03 前端/99 公共/前端部署.md",
-    "03 前端/99 公共/前端监控.md",
-    "03 前端/99 公共/国际化i18n.md",
-    "03 前端/18 Webpack/Gulp.md",
+    "03 前端/02 CSS/CSS.md",
+    "03 前端/03 JavaScript/分支-JavaScript/函数.md",
+    "03 前端/03 JavaScript/分支-JavaScript/模板字符串.md",
+    "03 前端/10 工程化/工程化.md",
+    "03 前端/10 工程化/脚手架.md",
+    "03 前端/19 Vite/EsBuild.md",
+    "README.md",
+    "03 前端/03 JavaScript/分支-JavaScript/DOM.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Atomics.md",
+    "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Set.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Symbol.md",
+    "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
+    "03 前端/03 JavaScript/分支-JavaScript/requestAnimationFrame.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Reflect.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Proxy.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Primise.md",
+    "03 前端/03 JavaScript/分支-JavaScript/PerformanceEntry.md",
+    "03 前端/03 JavaScript/分支-JavaScript/IIFE优化.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Console.md",
+    "03 前端/03 JavaScript/分支-ECMAScript/ES12.md",
+    "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案",
     "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
     "03 前端/20 微前端/微前端",
