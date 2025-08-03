@@ -2,5 +2,9 @@
   "obsidian-git",
   "obsidian-local-images-plus",
   "obsidian-image-toolkit",
-  "obsidian-quiet-outline"
+  "obsidian-quiet-outline",
+  "editing-toolbar",
+  "at-symbol-linking",
+  "manual-sorting",
+  "editor-width-slider"
 ]
