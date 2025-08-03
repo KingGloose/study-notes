@@ -21,9 +21,11 @@
 - 功能强大：`micro-app`提供了`js沙箱`、`样式隔离`、`元素隔离`、`路由隔离`、`预加载`、`数据通信`等一系列完善的功能。
 - 兼容所有框架：为了保证各个业务之间独立开发、独立部署的能力，`micro-app`做了诸多兼容，在任何前端框架中都可以正常运行。
 
-# 2 基本使用
+# 2 基本接入
 
 快速接入：[快速开始 | MicroApp](https://micro-zoe.github.io/doc/zh/start.html#%E4%B8%BB%E5%BA%94%E7%94%A8)
+
+>Vue2 作为主应用 / 接入 Vue2 子应用
 
 1、我们使用 Vue2 作为主应用，分别接入 React、Vue2、Vue3
 2、`npm i @micro-zoe/micro-app` 安装
@@ -47,3 +49,10 @@
 总结：因为子应用和主应用路由系统不是公用的一套，而是各自一套，那么路由检测也是一套。所以在 vue-router 中添加 base 来当作 scope 作用域来使用，避免路由冲突
 
 ![[00 assets/e2d15cce3d4876cb0bf399a9cc577b48_MD5.jpeg]]
+
+7、如果是 Webpack 项目的话，需要添加跨域申请，Vite 是默认开启的
+![[00 assets/b8c47474ddb11df4767acc666d160f49_MD5.jpeg]]
+
+>接入 React
+
+
