@@ -1,3 +1,8 @@
 {
-  "cssTheme": "Things"
+  "cssTheme": "Things",
+  "baseFontSizeAction": true,
+  "interfaceFontFamily": "HarmonyOS Sans",
+  "accentColor": "",
+  "monospaceFontFamily": "JetBrains Mono",
+  "textFontFamily": "HarmonyOS Sans"
 }
