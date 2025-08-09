@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d1a63e91972edd5d",
+        "id": "f5735538a7d4e640",
         "type": "tabs",
         "children": [
           {
-            "id": "3e9f72fbb9909514",
+            "id": "f88e6725c2f95c23",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "03 前端/20 微前端/微前端/MicroApp.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "MicroApp"
             }
           }
         ]
@@ -59,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "file:git",
+                "query": "requestIdle",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 286.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -126,13 +130,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "03 前端/06 React/React.md",
+                "file": "03 前端/20 微前端/微前端/MicroApp.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "React 的大纲"
+              "title": "MicroApp 的大纲"
             }
           },
           {
@@ -141,7 +145,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "03 前端/20 微前端/微前端/MicroApp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +155,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "README 的反向链接列表"
+              "title": "MicroApp 的反向链接列表"
             }
           },
           {
@@ -172,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 252.5
+    "width": 392.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,20 +193,26 @@
   },
   "active": "8000354fce86ae5c",
   "lastOpenFiles": [
+    "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
     "03 前端/20 微前端/微前端/MicroApp.md",
-    "03 前端/20 微前端/微前端/微前端技术优劣.md",
+    "00 assets/acff2d877597bf03916d3e81b44bb17d_MD5.jpeg",
+    "00 assets/Pasted image 20250809185028.png",
+    "00 assets/db4e4f564bfb04eddcae4686338db48c_MD5.jpeg",
+    "00 assets/Pasted image 20250809184126.png",
+    "00 assets/c97bde960869c3710f63235b695ae9ef_MD5.jpeg",
+    "00 assets/Pasted image 20250809184112.png",
+    "00 assets/b7126cd1f4439ebb7ef5716d3cf05b75_MD5.jpeg",
+    "00 assets/Pasted image 20250809183840.png",
+    "00 assets/Pasted image 20250809183834.png",
+    "00 assets/c6f34de9c4925d6a6f55ec29eaa555a9_MD5.jpeg",
     "README.md",
-    "00 assets/b8c47474ddb11df4767acc666d160f49_MD5.jpeg",
-    "00 assets/Pasted image 20250803013015.png",
-    "00 assets/e2d15cce3d4876cb0bf399a9cc577b48_MD5.jpeg",
-    "00 assets/Pasted image 20250803011351.png",
-    "00 assets/bd9eeaa3822c715ff0e905540c60a0eb_MD5.jpeg",
-    "00 assets/Pasted image 20250803011119.png",
-    "00 assets/b28a43d5f0056adf7937808e5f2cbb65_MD5.jpeg",
-    "00 assets/Pasted image 20250803010948.png",
-    "00 assets/Pasted image 20250803010946.png",
-    "00 assets/5913a494b7c8852a52ba5a40f5abd000_MD5.jpeg",
+    "03 前端/05 Vue/Vue.md",
     "03 前端/20 微前端/微前端.md",
+    "99 求职/八股记录/redux的实现原理.md",
+    "03 前端/03 前端.md",
+    "未命名.canvas",
+    "02 算法/02 算法.md",
+    "03 前端/20 微前端/微前端/微前端技术优劣.md",
     "03 前端/02 CSS/SCSS.md",
     "03 前端/02 CSS/TailwindCSS.md",
     "03 前端/02 CSS/CSS.md",
@@ -216,15 +226,9 @@
     "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
     "03 前端/03 JavaScript/分支-JavaScript/Set.md",
     "03 前端/03 JavaScript/分支-JavaScript/Symbol.md",
-    "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
     "03 前端/03 JavaScript/分支-JavaScript/requestAnimationFrame.md",
     "03 前端/03 JavaScript/分支-JavaScript/Reflect.md",
     "03 前端/03 JavaScript/分支-JavaScript/Proxy.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Primise.md",
-    "03 前端/03 JavaScript/分支-JavaScript/PerformanceEntry.md",
-    "03 前端/03 JavaScript/分支-JavaScript/IIFE优化.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Console.md",
-    "03 前端/03 JavaScript/分支-ECMAScript/ES12.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案",
     "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
