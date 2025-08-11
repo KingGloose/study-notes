@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/20 微前端/微前端/MicroApp.md",
+                "file": "99 其他/Mac 如何安装 Node 低版本.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MicroApp"
+              "title": "Mac 如何安装 Node 低版本"
             }
           }
         ]
@@ -99,12 +99,11 @@
               "title": "标签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 264.5
+    "width": 250.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -191,13 +190,14 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "8000354fce86ae5c",
+  "active": "3e9f72fbb9909514",
   "lastOpenFiles": [
+    "03 前端/20 微前端/微前端/MicroApp.md",
+    "99 其他/Mac 如何安装 Node 低版本.md",
     "03 前端/20 微前端/微前端.md",
     "03 前端/11 Uniapp/Uniapp.md",
     "99 求职/八股记录.md",
     "99 其他/安装 mono 字体.md",
-    "03 前端/20 微前端/微前端/MicroApp.md",
     "03 前端/20 微前端/微前端/微前端技术优劣.md",
     "README.md",
     "00 assets/b8c47474ddb11df4767acc666d160f49_MD5.jpeg",
@@ -228,7 +228,6 @@
     "03 前端/03 JavaScript/分支-JavaScript/Reflect.md",
     "03 前端/03 JavaScript/分支-JavaScript/Proxy.md",
     "03 前端/03 JavaScript/分支-JavaScript/Primise.md",
-    "03 前端/03 JavaScript/分支-JavaScript/PerformanceEntry.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案",
     "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
