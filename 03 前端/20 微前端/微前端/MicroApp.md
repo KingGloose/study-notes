@@ -25,7 +25,7 @@
 
 快速接入：[快速开始 | MicroApp](https://micro-zoe.github.io/doc/zh/start.html#%E4%B8%BB%E5%BA%94%E7%94%A8)
 
->Vue2 作为主应用 / 接入 Vue2 子应用
+## 2.1 主应用接入
 
 1、我们使用 Vue2 作为主应用，分别接入 React、Vue2、Vue3
 2、`npm i @micro-zoe/micro-app` 安装
@@ -53,6 +53,74 @@
 7、如果是 Webpack 项目的话，需要添加跨域申请，Vite 是默认开启的
 ![[00 assets/b8c47474ddb11df4767acc666d160f49_MD5.jpeg]]
 
->接入 React
+## 2.2 React 接入
 
-1、
+1、我们访问会加载到 React 的子应用
+![[00 assets/e74a236639f4c2d86c2aef12b4a0e6fd_MD5.jpeg]]
+
+2、然后再 React 中引入 Router，但是最好做一个路由前缀，避免有问题
+![[00 assets/11bb1b37229c827efbc4d0385760cf95_MD5.jpeg]]
+
+3、如果在 React 中发现静态资源无法加载，可以参考下面的内容：[React](https://cangdu.org/micro-app/docs.html#/zh-cn/framework/react)
+![[00 assets/71c1258bb5b37ff31d1edc2447dc1f7b_MD5.jpeg]]
+
+## 2.3 Vite 接入
+
+1、Vite 作为子应用存在一系列的问题，并且接入 Vite 应用可以直接参考这里的教程：[Vite](https://cangdu.org/micro-app/docs.html#/zh-cn/framework/vite)
+![[00 assets/685d252ad9c82e71a4c26cf000f7f06e_MD5.jpeg]]
+
+2、首先来说 Vite 作为子应用需要修改的地方，路由需要修改成 Hash 路由，并且还要加载 Vite 插件
+![[00 assets/c38f55e6943ffd92322dc96fd93a5edb_MD5.jpeg]]
+
+3、针对基座应用需要关闭沙盒等，还要给 Vite 子应用编写 plugins
+![[00 assets/bed0c6cf11b6696772cb0bace5c3ea23_MD5.jpeg]]
+
+# 3 基础API
+
+## 3.1 生命周期
+
+1、可以直接参考文档：[生命周期](https://cangdu.org/micro-app/docs.html#/zh-cn/life-cycles)
+![[00 assets/b7126cd1f4439ebb7ef5716d3cf05b75_MD5.jpeg]]
+
+## 3.2 性能/内存优化
+
+1、文档：[高级功能](https://cangdu.org/micro-app/docs.html#/zh-cn/advanced?id=_2%e3%80%81%e6%80%a7%e8%83%bdamp%e5%86%85%e5%ad%98%e4%bc%98%e5%8c%96)
+![[00 assets/db4e4f564bfb04eddcae4686338db48c_MD5.jpeg]]
+
+## 3.3 JS 隔离
+
+1、文档：[JS沙箱](https://cangdu.org/micro-app/docs.html#/zh-cn/sandbox)，针对子应用的 window 使用 Proxy 来做代理实现
+![[00 assets/acff2d877597bf03916d3e81b44bb17d_MD5.jpeg]]
+
+
+## 3.4 CSS 隔离
+
+1、文档：[样式隔离](https://cangdu.org/micro-app/docs.html#/zh-cn/scopecss)，它的本质和 Vue 的 Scoped 是差不多的
+
+
+## 3.5 资源共享
+
+1、文档：[静态资源](https://cangdu.org/micro-app/docs.html#/zh-cn/static-source?id=%e8%b5%84%e6%ba%90%e5%85%b1%e4%ba%ab)
+
+
+## 3.6 预加载
+
+1、文档：[预加载](https://cangdu.org/micro-app/docs.html#/zh-cn/prefetch)
+
+2、预加载的本质就是使用的 [[requestIdleCallback]] API 在空闲的时间来预加载数据
+
+
+
+# 4 数据通信
+
+
+
+
+
+# 99 渲染原理
+
+1、其实原理的本质就是 Web Component（Custom Element） + HTML Entry
+![[00 assets/b73c612373c3b9991c128bf33ab11a1a_MD5.jpg]]
+
+2、当我们通过路由匹配到之后，如果是 css 的话就会远程加载然后通过 style 来加载，如果是 JS 的话就是通过 eval 来加载渲染页面
+![[00 assets/2801d78716ea5ad6edc0312f8af0ce0a_MD5.jpeg]]
