@@ -1,7 +1,7 @@
 {
   "lastVersion": "3.1.18",
   "aestheticStyle": "default",
-  "positionStyle": "following",
+  "positionStyle": "top",
   "menuCommands": [
     {
       "id": "editing-toolbar:editor-undo",
@@ -323,7 +323,7 @@
   "customCommands": [],
   "viewTypeSettings": {
     "quiet-outline": true,
-    "markdown": false
+    "markdown": true
   },
   "toolbarBackgroundColor": "rgba(var(--background-secondary-rgb), 0.7)",
   "toolbarIconColor": "var(--text-normal)",
