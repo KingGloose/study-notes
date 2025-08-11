@@ -99,11 +99,12 @@
               "title": "标签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 250.5
+    "width": 287.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -190,7 +191,7 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "3e9f72fbb9909514",
+  "active": "8000354fce86ae5c",
   "lastOpenFiles": [
     "03 前端/20 微前端/微前端/MicroApp.md",
     "99 其他/Mac 如何安装 Node 低版本.md",
