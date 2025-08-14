@@ -322,8 +322,9 @@
   "formatBrushes": {},
   "customCommands": [],
   "viewTypeSettings": {
-    "quiet-outline": true,
-    "markdown": true
+    "quiet-outline": false,
+    "markdown": true,
+    "meld-encrypted-view": true
   },
   "toolbarBackgroundColor": "rgba(var(--background-secondary-rgb), 0.7)",
   "toolbarIconColor": "var(--text-normal)",

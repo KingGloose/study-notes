@@ -110,11 +110,27 @@
 2、预加载的本质就是使用的 [[requestIdleCallback]] API 在空闲的时间来预加载数据
 
 
-
 # 4 数据通信
 
+microapp 本质就是发布订阅模式来做数据通信
 
+![[00 assets/16cdbeecb76e855991efa9422cc4ad2d_MD5.jpeg]]
 
+## 4.1 基座 -> 子应用
+
+文档：[数据通信](https://cangdu.org/micro-app/docs.html#/zh-cn/data?id=%e4%b8%80%e3%80%81%e5%ad%90%e5%ba%94%e7%94%a8%e8%8e%b7%e5%8f%96%e6%9d%a5%e8%87%aa%e5%9f%ba%e5%ba%a7%e5%ba%94%e7%94%a8%e7%9a%84%e6%95%b0%e6%8d%ae)
+
+1、可以按照如下的方式来发送、接收数据
+
+![[00 assets/a85114f22ae0a0a088f32dd2fae6741a_MD5.jpeg]]
+
+## 4.2 子应用 -> 基座
+
+![[00 assets/469626c8091a9f0df1375283d07e3dc7_MD5.jpeg]]
+
+## 4.3 全局数据
+
+文档：[数据通信](https://cangdu.org/micro-app/docs.html#/zh-cn/data?id=%e5%85%a8%e5%b1%80%e6%95%b0%e6%8d%ae%e9%80%9a%e4%bf%a1) 基本和上述同理
 
 
 # 99 渲染原理

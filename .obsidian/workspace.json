@@ -11,10 +11,14 @@
             "id": "fa2ca0b8d55d8cfa",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "README"
             }
           }
         ]
@@ -99,7 +103,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 292.5
+    "width": 294.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -171,7 +175,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 252.5
+    "width": 326.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,26 +190,26 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "4be5f39306c3c567",
+  "active": "fa2ca0b8d55d8cfa",
   "lastOpenFiles": [
+    "03 前端/20 微前端/微前端/微前端技术优劣.md",
     "README.md",
+    "00 assets/469626c8091a9f0df1375283d07e3dc7_MD5.jpeg",
+    "00 assets/Pasted image 20250811233546.png",
+    "00 assets/16cdbeecb76e855991efa9422cc4ad2d_MD5.jpeg",
+    "00 assets/Pasted image 20250811232544.png",
+    "00 assets/a85114f22ae0a0a088f32dd2fae6741a_MD5.jpeg",
+    "00 assets/Pasted image 20250811232342.png",
+    "00 assets/05fd4469b8061ed30bf34e8c55e53d9d_MD5.jpeg",
+    "00 assets/Pasted image 20250811231305.png",
+    "00 assets/17fd8af1c4c1ae8f71fdbf874792c642_MD5.jpeg",
+    "00 assets/Pasted image 20250811231231.png",
     "99 其他/Mac 如何安装 Node 低版本.md",
     "03 前端/20 微前端/微前端/MicroApp.md",
     "03 前端/20 微前端/微前端.md",
     "03 前端/11 Uniapp/Uniapp.md",
     "99 求职/八股记录.md",
     "99 其他/安装 mono 字体.md",
-    "03 前端/20 微前端/微前端/微前端技术优劣.md",
-    "00 assets/b8c47474ddb11df4767acc666d160f49_MD5.jpeg",
-    "00 assets/Pasted image 20250803013015.png",
-    "00 assets/e2d15cce3d4876cb0bf399a9cc577b48_MD5.jpeg",
-    "00 assets/Pasted image 20250803011351.png",
-    "00 assets/bd9eeaa3822c715ff0e905540c60a0eb_MD5.jpeg",
-    "00 assets/Pasted image 20250803011119.png",
-    "00 assets/b28a43d5f0056adf7937808e5f2cbb65_MD5.jpeg",
-    "00 assets/Pasted image 20250803010948.png",
-    "00 assets/Pasted image 20250803010946.png",
-    "00 assets/5913a494b7c8852a52ba5a40f5abd000_MD5.jpeg",
     "03 前端/02 CSS/SCSS.md",
     "03 前端/02 CSS/TailwindCSS.md",
     "03 前端/02 CSS/CSS.md",
@@ -223,7 +227,6 @@
     "03 前端/03 JavaScript/分支-JavaScript/requestAnimationFrame.md",
     "03 前端/03 JavaScript/分支-JavaScript/Reflect.md",
     "03 前端/03 JavaScript/分支-JavaScript/Proxy.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Primise.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案",
     "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
