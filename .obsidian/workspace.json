@@ -8,17 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "134dee4f39c82661",
+            "id": "3e9f72fbb9909514",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08 AI/01 MCP.md",
+                "file": "99 其他/Mac 如何安装 Node 低版本.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 MCP"
+              "title": "Mac 如何安装 Node 低版本"
+            }
+          },
+          {
+            "id": "5f48ee47eff6c79c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99 其他/Mac 如何安装 Node 低版本.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mac 如何安装 Node 低版本"
             }
           }
         ]
@@ -100,10 +114,11 @@
             }
           }
         ]
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 275.5
+    "width": 301.5
   },
   "right": {
     "id": "833a170ccf889101",
@@ -191,7 +206,7 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "134dee4f39c82661",
+  "active": "5f48ee47eff6c79c",
   "lastOpenFiles": [
     "00 assets/a708a63cbb42dc7a9eca4e44fc419edb_MD5.jpeg",
     "00 assets/Pasted image 20250826011545.png",
@@ -213,11 +228,23 @@
     "03 前端/03 JavaScript/分支-JavaScript/Atomics.md",
     "03 前端/06 React/React.md",
     "03 前端/20 微前端/微前端/MicroApp.md",
-    "03 前端/20 微前端/微前端/微前端技术优劣.md",
+    "conflict-files-obsidian-git.md",
     "99 其他/Mac 如何安装 Node 低版本.md",
+    "00 assets/a7b7dca157beed865c80e0f8cfe85834_MD5.jpeg",
+    "00 assets/676039b31c7c22ec132d89fd579f6fc1_MD5.jpeg",
+    "00 assets/c97bde960869c3710f63235b695ae9ef_MD5.jpeg",
+    "00 assets/c6f34de9c4925d6a6f55ec29eaa555a9_MD5.jpeg",
+    "00 assets/e01d0eef107ddc2ceab95d210c2b4fa2_MD5.jpeg",
+    "00 assets/9f1102175392e0f0cbeb3ae9d5e46ee6_MD5.jpeg",
+    "00 assets/b73c612373c3b9991c128bf33ab11a1a_MD5.jpg",
+    "00 assets/35f2a99e1d4ccadf42577eff96c0a8a5_MD5.jpeg",
+    "00 assets/59f77c54e70c5642b1158a5e7f526f05_MD5.jpeg",
+    "00 assets/Pasted image 20250809183834.png",
     "03 前端/20 微前端/微前端.md",
     "03 前端/11 Uniapp/Uniapp.md",
     "99 其他/安装 mono 字体.md",
+    "03 前端/20 微前端/微前端/微前端技术优劣.md",
+    "README.md",
     "03 前端/02 CSS/SCSS.md",
     "03 前端/02 CSS/TailwindCSS.md",
     "03 前端/02 CSS/CSS.md",
@@ -229,6 +256,11 @@
     "03 前端/03 JavaScript/分支-JavaScript/DOM.md",
     "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
     "03 前端/03 JavaScript/分支-JavaScript/Set.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Symbol.md",
+    "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
+    "03 前端/03 JavaScript/分支-JavaScript/requestAnimationFrame.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Reflect.md",
+    "03 前端/03 JavaScript/分支-JavaScript/Proxy.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案",
     "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
