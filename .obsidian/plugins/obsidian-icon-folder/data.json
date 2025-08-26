@@ -1,0 +1,48 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiWorkflow",
+      "LiSmartphoneCharging",
+      "LiNotebook",
+      "LiAudioWaveform",
+      "LiAtom"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterEnabled": false,
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconsInLinksEnabled": true,
+    "iconIdentifier": ":",
+    "lucideIconPackType": "native",
+    "debugMode": false,
+    "useInternalPlugins": false
+  },
+  "03 前端": "LiAperture",
+  "01 基础": "LiAlbum",
+  "02 算法": "LiAlignCenterHorizontal",
+  "04 Java": "LiComputer",
+  "05 数据库": "LiDatabase",
+  "06 Rust": "LiBackpack",
+  "07 嵌入式": "LiAudioWaveform",
+  "08 AI": "LiAtom",
+  "99 记录": "LiNotebook",
+  "99 其他": "LiSmartphoneCharging",
+  "99 求职": "LiWorkflow"
+}

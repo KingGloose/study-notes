@@ -4,5 +4,6 @@
   "interfaceFontFamily": "HarmonyOS Sans",
   "accentColor": "",
   "monospaceFontFamily": "JetBrains Mono",
-  "textFontFamily": "HarmonyOS Sans"
+  "textFontFamily": "HarmonyOS Sans",
+  "baseFontSize": 16
 }
