@@ -1,24 +1,53 @@
+# 1 基本介绍
 
-【MCP是啥？技术原理是什么？一个视频搞懂MCP的一切。Windows系统配置MCP，Cursor Cline使用MCP】 https://www.bilibili.com/video/BV1AnQNYxEsy/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
-
-MCP 本质是通过AI来操作本地的功能
+1、简单来讲  MCP 本质是通过 AI 来操作本地的功能
 
 ![[00 assets/260c6fe68baa57f4d38592844150299e_MD5.jpeg]]
 
-【一口气介绍15种MCP工具，CherryStudio配置MCP】 https://www.bilibili.com/video/BV1MjZ5YrESn/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
+
+# 2 基本使用
+
+1、目前 MCP 本身是基于 JSON-RPC 协议来做参数规范的，具体的 JSON-RPC 的本质可以查看：[JSON-RPC规范详解](https://zhuanlan.zhihu.com/p/708628144)，类似 JSON-RPC 本质其实就是使用类似 JSON 的格式去调用服务器中的函数，并传递参数
+![[00 assets/db570664166c9cee326acf298ce09955_MD5.jpeg]]
+
+``` JSON
+// 请求
+{
+  "jsonrpc": "2.0", // 用来声明协议版本，通常是 `"2.0"`
+  "method": "getUserInfo", // 希望远程调用的方法名
+  "params": {"userId": 123}, // 传递给方法的参数
+  "id": 1 // 
+}
+
+// 响应
+{
+  "jsonrpc": "2.0",
+  "result": {"name": "Alice", "email": "alice@example.com"}, // 方法执行后的返回结果
+  "id": 1 // 与请求中的 id 完全一致
+}
+```
+
+2、针对 MCP 的通信又可以使用 stdio、http。stdio 本身是输入输出流
+
+![[00 assets/321de6c8281840d296374257d15848c6_MD5.jpeg]]
+
+可以使用 process 来使用 stdin、stdout 来使用可读可写流，console.log 底层也是上层封装，在 nodejs 层面使用的 process.stdout.write
+
+![[00 assets/1227bf9ad2f3a2fed56a8f23f121e345_MD5.jpeg]]
+
+3、在 MCP 的定义中存在生命周期的概念，大体可以分为：**Initialization**、**Operation**、**Shutdown** 简单理解就是：初始化、使用、结束
+
+![[00 assets/0a0b46eb0b2617e76c95515aaf5592c5_MD5.jpeg]]
+
+4、在前面说了整体传输遵循 JSON-RPC，在初始化的时候有请求（Request）和响应（Response）
 
 
 
-![[00 assets/9f9bbcc3971318c5d3f12223bc4475f4_MD5.jpeg]]
 
-初始化
 
-请求
-![[00 assets/060c387d86fb5f282d0be352a547fbec_MD5.jpeg]]
 
-响应
 
-![[00 assets/59e0b301b6c035ab54dad24b5e2a7b03_MD5.jpeg]]
+
 
 
 ![[00 assets/3f4fea73788810843336b07bd74e08c7_MD5.jpeg]]
