@@ -1,38 +1,24 @@
 {
   "main": {
-    "id": "7a6050f7300a99db",
+    "id": "9ab796ff7e2bc598",
     "type": "split",
     "children": [
       {
-        "id": "ec432df596ceccb1",
+        "id": "3e09f94739740b77",
         "type": "tabs",
         "children": [
           {
-            "id": "3e9f72fbb9909514",
+            "id": "16c38919dfb23352",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99 其他/Mac 如何安装 Node 低版本.md",
+                "file": "08 AI/01 MCP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mac 如何安装 Node 低版本"
-            }
-          },
-          {
-            "id": "5f48ee47eff6c79c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "99 其他/Mac 如何安装 Node 低版本.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Mac 如何安装 Node 低版本"
+              "title": "01 MCP"
             }
           }
         ]
@@ -41,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d1d47c720141458b",
+    "id": "149ece696a9acd04",
     "type": "split",
     "children": [
       {
-        "id": "3fc9288c7834a151",
+        "id": "2e80fe93e4d3482d",
         "type": "tabs",
         "children": [
           {
-            "id": "4be5f39306c3c567",
+            "id": "fba7af64869f62ac",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -62,7 +48,7 @@
             }
           },
           {
-            "id": "8000354fce86ae5c",
+            "id": "087c30edbfe708b3",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -72,12 +58,12 @@
             }
           },
           {
-            "id": "fe2fe99800450408",
+            "id": "d771ec019f1075b0",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "file:git",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +75,7 @@
             }
           },
           {
-            "id": "8d4918eae0345285",
+            "id": "66fb31dd4d76980e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -97,9 +83,72 @@
               "icon": "lucide-bookmark",
               "title": "书签"
             }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 293.5
+  },
+  "right": {
+    "id": "7826993d977962b7",
+    "type": "split",
+    "children": [
+      {
+        "id": "05853468db2909d6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02262a405f8af3e9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "08 AI/01 MCP.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "01 MCP 的大纲"
+            }
           },
           {
-            "id": "6964adc766c504d2",
+            "id": "a8b7410caece10ac",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "08 AI/01 MCP.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "01 MCP 的反向链接列表"
+            }
+          },
+          {
+            "id": "4b26ea2c35e871bb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "08 AI/01 MCP.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "01 MCP 的出链列表"
+            }
+          },
+          {
+            "id": "e30042ed735a9d14",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -113,88 +162,15 @@
               "title": "标签"
             }
           }
-        ]
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 301.5
-  },
-  "right": {
-    "id": "833a170ccf889101",
-    "type": "split",
-    "children": [
-      {
-        "id": "9e1f668b9ecf0747",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "548b3a1c41b386ee",
-            "type": "leaf",
-            "state": {
-              "type": "quiet-outline",
-              "state": {},
-              "icon": "lines-of-text",
-              "title": "Quiet Outline"
-            }
-          },
-          {
-            "id": "ad764a1a68add54d",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "README.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "README 的大纲"
-            }
-          },
-          {
-            "id": "afde894467b5d28a",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "README.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "README 的反向链接列表"
-            }
-          },
-          {
-            "id": "da5482ca2b06b132",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "README.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "README 的出链列表"
-            }
-          }
-        ]
-      }
-    ],
-    "direction": "horizontal",
-    "width": 331.5
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -206,70 +182,16 @@
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
     }
   },
-  "active": "5f48ee47eff6c79c",
+  "active": "087c30edbfe708b3",
   "lastOpenFiles": [
-    "00 assets/a708a63cbb42dc7a9eca4e44fc419edb_MD5.jpeg",
-    "00 assets/Pasted image 20250826011545.png",
-    "00 assets/ff2a64460719ffadb9d39cada7e1fb86_MD5.jpeg",
-    "00 assets/Pasted image 20250826011328.png",
-    "00 assets/9f1a376b2b51361d8f73a501d3885ba7_MD5.jpeg",
-    "00 assets/Pasted image 20250826011147.png",
-    "00 assets/1f2e3aa984c330b4eaed5510061898e0_MD5.jpeg",
-    "00 assets/Pasted image 20250826011134.png",
-    "00 assets/8ee476b7a650fc9b5c025c1f9aa89ed9_MD5.jpeg",
-    "00 assets/Pasted image 20250826010447.png",
-    "00 assets/e4ab85f4102840894d46d219cb78c5ec_MD5.jpeg",
-    "README.md",
-    "conflict-files-obsidian-git.md",
-    "99 求职/八股记录.md",
-    "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
-    "03 前端/06 React/分支-React/React 源码.md",
-    "99 求职/求职指导.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Atomics.md",
-    "03 前端/06 React/React.md",
-    "03 前端/20 微前端/微前端/MicroApp.md",
-    "conflict-files-obsidian-git.md",
-    "99 其他/Mac 如何安装 Node 低版本.md",
-    "00 assets/a7b7dca157beed865c80e0f8cfe85834_MD5.jpeg",
-    "00 assets/676039b31c7c22ec132d89fd579f6fc1_MD5.jpeg",
-    "00 assets/c97bde960869c3710f63235b695ae9ef_MD5.jpeg",
-    "00 assets/c6f34de9c4925d6a6f55ec29eaa555a9_MD5.jpeg",
-    "00 assets/e01d0eef107ddc2ceab95d210c2b4fa2_MD5.jpeg",
-    "00 assets/9f1102175392e0f0cbeb3ae9d5e46ee6_MD5.jpeg",
-    "00 assets/b73c612373c3b9991c128bf33ab11a1a_MD5.jpg",
-    "00 assets/35f2a99e1d4ccadf42577eff96c0a8a5_MD5.jpeg",
-    "00 assets/59f77c54e70c5642b1158a5e7f526f05_MD5.jpeg",
-    "00 assets/Pasted image 20250809183834.png",
-    "03 前端/20 微前端/微前端.md",
-    "03 前端/11 Uniapp/Uniapp.md",
-    "99 其他/安装 mono 字体.md",
-    "03 前端/20 微前端/微前端/微前端技术优劣.md",
-    "README.md",
-    "03 前端/02 CSS/SCSS.md",
-    "03 前端/02 CSS/TailwindCSS.md",
-    "03 前端/02 CSS/CSS.md",
-    "03 前端/03 JavaScript/分支-JavaScript/函数.md",
-    "03 前端/03 JavaScript/分支-JavaScript/模板字符串.md",
-    "03 前端/10 工程化/工程化.md",
-    "03 前端/10 工程化/脚手架.md",
-    "03 前端/19 Vite/EsBuild.md",
-    "03 前端/03 JavaScript/分支-JavaScript/DOM.md",
-    "03 前端/03 JavaScript/分支-ECMAScript/ES6.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Set.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Symbol.md",
-    "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
-    "03 前端/03 JavaScript/分支-JavaScript/requestAnimationFrame.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Reflect.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Proxy.md",
-    "03 前端/05 Vue/分支-VueRouter",
-    "03 前端/99 解决方案",
-    "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
-    "03 前端/20 微前端/微前端",
-    "03 前端/20 微前端",
-    "03 前端/06 React/分支-React",
-    "03 前端/20 构建工具",
-    "03 前端/19 Vite",
-    "03 前端/18 Webpack",
-    "03 前端/99 公共"
+    "08 AI/01 MCP.md",
+    "00 assets/0a0b46eb0b2617e76c95515aaf5592c5_MD5.jpeg",
+    "00 assets/Clipboard_Screenshot_1756180056.png",
+    "00 assets/1227bf9ad2f3a2fed56a8f23f121e345_MD5.jpeg",
+    "00 assets/Pasted image 20250826114138.png",
+    "00 assets/321de6c8281840d296374257d15848c6_MD5.jpeg",
+    "00 assets/Pasted image 20250826114056.png",
+    "00 assets/db570664166c9cee326acf298ce09955_MD5.jpeg",
+    "00 assets/Pasted image 20250826113106.png"
   ]
 }
