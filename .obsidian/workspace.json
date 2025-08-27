@@ -89,7 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 294.5
+    "width": 255.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -166,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 277.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,28 +177,29 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "workspaces:管理工作区布局": false,
-      "obsidian-git:Open Git source control": false,
+      "bases:创建新数据库": false,
       "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false,
-      "bases:创建新数据库": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "087c30edbfe708b3",
   "lastOpenFiles": [
+    "00 assets/a892701ce0bee9d7ad53a85da257132b_MD5.jpeg",
+    "00 assets/Clipboard_Screenshot_1756275105.png",
+    "00 assets/f91fd9de1f69e5d729b0b5e28cfb4d18_MD5.jpeg",
+    "00 assets/Pasted image 20250827141059.png",
+    "00 assets/8e3b30875df54b12754f7a1f53625678_MD5.jpeg",
+    "00 assets/Pasted image 20250827105117.png",
+    "00 assets/15b08c23c10168b016948d5f28dad6d9_MD5.jpeg",
+    "00 assets/Pasted image 20250827104754.png",
+    "00 assets/19985aeb4dc4eef42bf03d447c84a2b7_MD5.jpeg",
+    "00 assets/Pasted image 20250827104308.png",
     "08 AI/01 MCP.md",
     "00 assets/b45ee14b49e7992f8da80a67581dab18_MD5.jpeg",
-    "00 assets/Pasted image 20250826230742.png",
-    "00 assets/59f0397b0f09e9b7883da2c936a95994_MD5.jpeg",
-    "00 assets/Pasted image 20250826230548.png",
     "Untitled.md",
     "未命名 1.base",
     "未命名.base",
     "README.md",
-    "00 assets/a708a63cbb42dc7a9eca4e44fc419edb_MD5.jpeg",
-    "00 assets/Pasted image 20250826011545.png",
-    "00 assets/ff2a64460719ffadb9d39cada7e1fb86_MD5.jpeg",
-    "00 assets/Pasted image 20250826011328.png",
-    "00 assets/9f1a376b2b51361d8f73a501d3885ba7_MD5.jpeg",
-    "00 assets/Pasted image 20250826011147.png",
     "conflict-files-obsidian-git.md",
     "99 求职/八股记录.md",
     "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
