@@ -16,6 +16,8 @@
       "README.md"
     ],
     "00 assets": [
+      "00 assets/a892701ce0bee9d7ad53a85da257132b_MD5.jpeg",
+      "00 assets/f91fd9de1f69e5d729b0b5e28cfb4d18_MD5.jpeg",
       "00 assets/8e3b30875df54b12754f7a1f53625678_MD5.jpeg",
       "00 assets/15b08c23c10168b016948d5f28dad6d9_MD5.jpeg",
       "00 assets/19985aeb4dc4eef42bf03d447c84a2b7_MD5.jpeg",
@@ -7113,6 +7115,7 @@
       "99 记录/02 技术扩展.md"
     ],
     "99 其他": [
+      "99 其他/安装低版本Google浏览器.md",
       "99 其他/Mac 如何安装 Node 低版本.md",
       "99 其他/安装 mono 字体.md",
       "99 其他/Windows 开启 Hyperv.md"
