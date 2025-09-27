@@ -2,7 +2,7 @@
 
 https://refly.ai/share/pages/pag-mgi439nspxd6m0rt4cjkr4ae
 
-1、简单来讲  MCP 本质是通过 AI 来操作本地的功能
+简单来讲  MCP 本质是通过 AI 来操作本地的功能
 
 
 # 2 基本概念
