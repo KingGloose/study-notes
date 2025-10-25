@@ -212,24 +212,24 @@ https://refly.ai/share/pages/pag-mgi439nspxd6m0rt4cjkr4ae
 ## 3.1 MCP 配置
 
 1、网上很多教程都是按照下面的方式来配置的，其实都是错误的，这个组成最后的结果其实是 `npx -C /Users/zhangjiahui04/测试代码/MCP/03 run src/index.js`，我看网上很多的教材都抄成这样
-![[00 assets/19985aeb4dc4eef42bf03d447c84a2b7_MD5.jpeg]]
+![[00 assets/f8bcd88c0e01fba8aab9cee862445faf_MD5.jpeg]]
 
 2、如果是针对 NodeJS 执行的话，其实是如下图展示的代码
-![[00 assets/15b08c23c10168b016948d5f28dad6d9_MD5.jpeg]]
+![[00 assets/9c5dfc336050db07801b176de44993f4_MD5.jpeg]]
 
 3、这就是最终的结果，可以看到已经完成了 `初始化` 和 `工具发现`，在 Cursor 中是可以看到的
-![[00 assets/8e3b30875df54b12754f7a1f53625678_MD5.jpeg]]
+![[00 assets/5b9fc619f92d867981318562eafbbfde_MD5.jpeg]]
 
 ## 3.2 MCP 调试
 
 调试文档：[https://modelcontextprotocol.io/legacy/tools/inspector](https://modelcontextprotocol.io/legacy/tools/inspector)
 
 1、我们下载 `npm i @modelcontextprotocol/inspector`，再去输入 `npx @modelcontextprotocol/inspector` 就可以看到这个 MCP 的内容
-![[00 assets/a892701ce0bee9d7ad53a85da257132b_MD5.jpeg]]
+![[00 assets/69e848cb91462afb430ab0defcc718f4_MD5.jpeg]]
 
 ## 3.3 代码编写
 
-![[00 assets/f91fd9de1f69e5d729b0b5e28cfb4d18_MD5.jpeg]]
+![[00 assets/477f04d8b57b2a2bc9abcbb7a4ea9c5a_MD5.jpeg]]
 
 
 
