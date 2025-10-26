@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1f1c4878cfe6d90e",
+        "id": "116b764442e7ee14",
         "type": "tabs",
         "children": [
           {
-            "id": "abb8f4f0f974038a",
+            "id": "0fb4870a6f8060fb",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -85,7 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 285.5
+    "width": 293.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -177,8 +177,11 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "abb8f4f0f974038a",
+  "active": "087c30edbfe708b3",
   "lastOpenFiles": [
+    "08 AI/01 机器学习.md",
+    "08 AI/02 MCP.md",
+    "README.md",
     "conflict-files-obsidian-git.md",
     "99 其他/安装低版本Google浏览器.md",
     "00 assets/477f04d8b57b2a2bc9abcbb7a4ea9c5a_MD5.jpeg",
@@ -186,10 +189,7 @@
     "00 assets/5b9fc619f92d867981318562eafbbfde_MD5.jpeg",
     "00 assets/f8bcd88c0e01fba8aab9cee862445faf_MD5.jpeg",
     "00 assets/9c5dfc336050db07801b176de44993f4_MD5.jpeg",
-    "README.md",
     "03 前端/06 React/React.md",
-    "08 AI/01 机器学习.md",
-    "08 AI/02 MCP.md",
     "00 assets/b45ee14b49e7992f8da80a67581dab18_MD5.jpeg",
     "00 assets/Pasted image 20250826230742.png",
     "00 assets/59f0397b0f09e9b7883da2c936a95994_MD5.jpeg",
