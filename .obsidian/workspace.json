@@ -11,10 +11,14 @@
             "id": "0fb4870a6f8060fb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "08 AI/02 RAG.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "02 RAG"
             }
           }
         ]
@@ -85,7 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 271.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -101,12 +105,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "08 AI/02 RAG.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "02 RAG 的大纲"
             }
           },
           {
@@ -161,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 339.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,25 +184,34 @@
   },
   "active": "087c30edbfe708b3",
   "lastOpenFiles": [
-    "08 AI/01 机器学习.md",
-    "08 AI/02 MCP.md",
+    "08 AI/10 MCP.md",
+    "08 AI/02 RAG.md",
+    "00 assets/69b13762abb79652522c30243546e7df_MD5.jpeg",
+    "00 assets/Pasted image 20251103002226.png",
+    "00 assets/c01ff178a530924ffb18058ba4f26fca_MD5.jpeg",
+    "00 assets/Pasted image 20251103002126.png",
+    "09 Python/01 Python.md",
+    "08 AI/01 理论知识.md",
+    "09 Python",
+    "00 assets/9d3673b5660cc641866b6d74c5a0d6b8_MD5.jpeg",
+    "00 assets/Pasted image 20251102233315.png",
+    "00 assets/2824a674f2c8974188770e7d265bde85_MD5.jpeg",
+    "00 assets/Pasted image 20251102230123.png",
+    "00 assets/987daab0575ba1dfdf6624634ab4fd95_MD5.jpeg",
+    "00 assets/Pasted image 20251102224146.png",
+    "08 AI/02 Prompt.md",
+    "99 其他/Python 切换版本.md",
+    "09 Python/99 杂记/pyenv.md",
+    "09 Python/99 杂记",
+    "09 Python/99 公共.md",
+    "09 Python",
     "README.md",
     "conflict-files-obsidian-git.md",
     "99 其他/安装低版本Google浏览器.md",
-    "00 assets/477f04d8b57b2a2bc9abcbb7a4ea9c5a_MD5.jpeg",
-    "00 assets/69e848cb91462afb430ab0defcc718f4_MD5.jpeg",
-    "00 assets/5b9fc619f92d867981318562eafbbfde_MD5.jpeg",
-    "00 assets/f8bcd88c0e01fba8aab9cee862445faf_MD5.jpeg",
-    "00 assets/9c5dfc336050db07801b176de44993f4_MD5.jpeg",
     "03 前端/06 React/React.md",
-    "00 assets/b45ee14b49e7992f8da80a67581dab18_MD5.jpeg",
-    "00 assets/Pasted image 20250826230742.png",
-    "00 assets/59f0397b0f09e9b7883da2c936a95994_MD5.jpeg",
-    "00 assets/Pasted image 20250826230548.png",
     "Untitled.md",
     "未命名 1.base",
     "未命名.base",
-    "00 assets/a708a63cbb42dc7a9eca4e44fc419edb_MD5.jpeg",
     "99 求职/八股记录.md",
     "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
     "03 前端/06 React/分支-React/React 源码.md",
@@ -210,20 +224,10 @@
     "03 前端/11 Uniapp/Uniapp.md",
     "99 其他/安装 mono 字体.md",
     "03 前端/02 CSS/SCSS.md",
-    "03 前端/02 CSS/TailwindCSS.md",
-    "03 前端/02 CSS/CSS.md",
-    "03 前端/03 JavaScript/分支-JavaScript/函数.md",
-    "03 前端/03 JavaScript/分支-JavaScript/模板字符串.md",
-    "03 前端/10 工程化/工程化.md",
-    "03 前端/10 工程化/脚手架.md",
-    "03 前端/19 Vite/EsBuild.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案",
     "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf",
     "03 前端/20 微前端/微前端",
-    "03 前端/20 微前端",
-    "03 前端/06 React/分支-React",
-    "03 前端/20 构建工具",
-    "03 前端/19 Vite"
+    "03 前端/20 微前端"
   ]
 }

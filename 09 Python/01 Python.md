@@ -1,0 +1,24 @@
+# 01 Canda
+
+1、安装 conda 环境 [Download Success | Anaconda](https://www.anaconda.com/download/success)，左边是包含完整的包，这样就不需要每次都下载了，后边是精简的包
+![[00 assets/7d1c9109807f73111e2b5d6f7409c353_MD5.jpeg]]
+
+2、`conda create -n chapter-2 python=3 ipykernel` 来创建一个项目，用 conda 创建一个名为 **chapter-2** 的独立环境，并在其中安装 **Python 3** 和 **ipykernel** 两个包。
+
+安装之后会有一份独立的 **Python 解释器（3.x 版本）、ipykernel 包（用于 Jupyter 运行）**，不会影响系统或其他 conda 环境的 Python
+
+![[00 assets/d1a1bea0b67b9ef6a95d192a79c8b9ac_MD5.jpeg]]
+
+在初始化的选项中，如果你同意的话，也会下载下面的3个包
+
+![[00 assets/b1d90b64d6fecbae0af84929f95556ae_MD5.jpeg]]
+
+3、可以理解这里的 `conda` 创建的本质就是一个独立的环境，这个环境里面有独立的库、以及 Python 解释器的环境，不会受外界的影响
+
+如果你一开始使用，记得输入 `conda init` 来做初始化，自动修改你的 shell 配置文件（如 `profile.ps1` 或 `.bashrc`），让每次打开终端时，Conda 自动加载必要的环境变量
+
+![[00 assets/ce7702a2fc73e7400054a26a2669e1a2_MD5.jpeg]]
+
+4、使用 `conda activate <env>` 来激活环境
+
+![[00 assets/2824a674f2c8974188770e7d265bde85_MD5.jpeg]]
