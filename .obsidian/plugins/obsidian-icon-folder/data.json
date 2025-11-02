@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiAlarmSmoke",
+      "LiPi",
       "LiWorkflow",
       "LiSmartphoneCharging",
-      "LiNotebook",
-      "LiAudioWaveform",
-      "LiAtom"
+      "LiNotebook"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -44,5 +44,6 @@
   "08 AI": "LiAtom",
   "99 记录": "LiNotebook",
   "99 其他": "LiSmartphoneCharging",
-  "99 求职": "LiWorkflow"
+  "99 求职": "LiWorkflow",
+  "09 Python": "LiAlarmSmoke"
 }
