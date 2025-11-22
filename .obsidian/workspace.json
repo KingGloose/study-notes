@@ -84,8 +84,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -181,14 +180,17 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "087c30edbfe708b3",
+  "active": "0fb4870a6f8060fb",
   "lastOpenFiles": [
+    "99 求职/八股记录/当用户不断点击的时候如何防止他多次点击.md",
+    "99 求职/实习学习.md",
+    "99 求职/assets/实习学习/file-20251123003319772.jpg",
+    "99 求职/assets/实习学习",
+    "99 求职/求职指导.md",
+    "99 求职/八股记录.md",
     "99 求职/assets/求职指导/file-20251123002907786.jpg",
     "99 求职/assets/求职指导",
     "99 求职/assets",
-    "99 求职/实习学习.md",
-    "99 求职/求职指导.md",
-    "99 求职/八股记录.md",
     "00 assets/b8959d288306dea3c4553cd64e299bda_MD5.jpeg",
     "00 assets/Pasted image 20251123000436.png",
     "00 assets/817bb00f1a7d1d61fed9ca747ab0b7a0_MD5.jpeg",
@@ -197,8 +199,6 @@
     "00 assets/656ff7d646f8be58401d438e4d884c87_MD5.jpeg",
     "00 assets/Pasted image 20251115171748.png",
     "00 assets/dc023be93b74183e9869ee00f8c44c93_MD5.jpeg",
-    "00 assets/Pasted image 20251115171727.png",
-    "00 assets/3fa29949f0d7f45159ec0c51b113449f_MD5.jpeg",
     "README.md",
     "08 AI/10 MCP.md",
     "08 AI/02 RAG.md",
@@ -227,7 +227,6 @@
     "03 前端/11 Uniapp/Uniapp.md",
     "99 其他/安装 mono 字体.md",
     "03 前端/05 Vue/分支-VueRouter",
-    "03 前端/99 解决方案",
-    "03 前端/21 微前端/微前端/门店中后台系统之微前端实践.pdf"
+    "03 前端/99 解决方案"
   ]
 }
