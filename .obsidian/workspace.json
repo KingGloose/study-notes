@@ -84,7 +84,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -180,7 +181,7 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "0fb4870a6f8060fb",
+  "active": "087c30edbfe708b3",
   "lastOpenFiles": [
     "99 求职/assets/求职指导/file-20251123002907786.jpg",
     "99 求职/assets/求职指导",
