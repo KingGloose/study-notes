@@ -4,7 +4,7 @@
   "alwaysUpdateLinks": true,
   "newFileLocation": "root",
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "00 assets",
+  "attachmentFolderPath": "/",
   "readableLineLength": true,
   "showLineNumber": false,
   "pdfExportSettings": {
@@ -12,5 +12,7 @@
     "landscape": false,
     "margin": "0",
     "downscalePercent": 100
-  }
+  },
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative"
 }

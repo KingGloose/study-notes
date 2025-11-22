@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08 AI/02 RAG.md",
+                "file": "99 求职/求职指导.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02 RAG"
+              "title": "求职指导"
             }
           }
         ]
@@ -84,12 +84,11 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 289.5
+    "width": 293.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -105,13 +104,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "08 AI/02 RAG.md",
+                "file": "99 求职/求职指导.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02 RAG 的大纲"
+              "title": "求职指导 的大纲"
             }
           },
           {
@@ -166,7 +165,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 339.5
+    "width": 329.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,44 +177,44 @@
       "command-palette:打开命令面板": false,
       "workspaces:管理工作区布局": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false,
       "bases:创建新数据库": false
     }
   },
-  "active": "087c30edbfe708b3",
+  "active": "0fb4870a6f8060fb",
   "lastOpenFiles": [
+    "99 求职/实习学习.md",
+    "99 求职/求职指导.md",
+    "99 求职/八股记录.md",
+    "00 assets/b8959d288306dea3c4553cd64e299bda_MD5.jpeg",
+    "00 assets/Pasted image 20251123000436.png",
+    "00 assets/817bb00f1a7d1d61fed9ca747ab0b7a0_MD5.jpeg",
+    "00 assets/Pasted image 20251115172122.png",
+    "00 assets/Pasted image 20251115172052.png",
+    "00 assets/656ff7d646f8be58401d438e4d884c87_MD5.jpeg",
+    "00 assets/Pasted image 20251115171748.png",
+    "00 assets/dc023be93b74183e9869ee00f8c44c93_MD5.jpeg",
+    "00 assets/Pasted image 20251115171727.png",
+    "00 assets/3fa29949f0d7f45159ec0c51b113449f_MD5.jpeg",
+    "README.md",
     "08 AI/10 MCP.md",
     "08 AI/02 RAG.md",
-    "00 assets/69b13762abb79652522c30243546e7df_MD5.jpeg",
-    "00 assets/Pasted image 20251103002226.png",
-    "00 assets/c01ff178a530924ffb18058ba4f26fca_MD5.jpeg",
-    "00 assets/Pasted image 20251103002126.png",
     "09 Python/01 Python.md",
     "08 AI/01 理论知识.md",
     "09 Python",
-    "00 assets/9d3673b5660cc641866b6d74c5a0d6b8_MD5.jpeg",
-    "00 assets/Pasted image 20251102233315.png",
-    "00 assets/2824a674f2c8974188770e7d265bde85_MD5.jpeg",
-    "00 assets/Pasted image 20251102230123.png",
-    "00 assets/987daab0575ba1dfdf6624634ab4fd95_MD5.jpeg",
-    "00 assets/Pasted image 20251102224146.png",
     "08 AI/02 Prompt.md",
     "99 其他/Python 切换版本.md",
     "09 Python/99 杂记/pyenv.md",
     "09 Python/99 杂记",
     "09 Python/99 公共.md",
     "09 Python",
-    "README.md",
     "conflict-files-obsidian-git.md",
     "99 其他/安装低版本Google浏览器.md",
     "03 前端/06 React/React.md",
     "Untitled.md",
     "未命名 1.base",
     "未命名.base",
-    "99 求职/八股记录.md",
     "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
     "03 前端/06 React/分支-React/React 源码.md",
-    "99 求职/求职指导.md",
     "03 前端/03 JavaScript/分支-JavaScript/Atomics.md",
     "03 前端/20 微前端/微前端/MicroApp.md",
     "03 前端/20 微前端/微前端/微前端技术优劣.md",
