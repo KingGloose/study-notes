@@ -1,6 +1,5 @@
 [
   "obsidian-git",
-  "obsidian-local-images-plus",
   "obsidian-image-toolkit",
   "obsidian-quiet-outline",
   "editing-toolbar",
@@ -8,5 +7,6 @@
   "manual-sorting",
   "editor-width-slider",
   "file-explorer-note-count",
-  "obsidian-icon-folder"
+  "obsidian-icon-folder",
+  "obsidian-custom-attachment-location"
 ]

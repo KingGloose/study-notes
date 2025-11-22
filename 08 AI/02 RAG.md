@@ -154,7 +154,7 @@ NativeRAG的步骤：
 
 ## 4.3 LangChain
 
-### 4.3.1 基本介绍
+ ### 4.3.1 基本介绍
 
 ![[00 assets/c01ff178a530924ffb18058ba4f26fca_MD5.jpeg]]
 ![[00 assets/69b13762abb79652522c30243546e7df_MD5.jpeg]]
@@ -355,5 +355,178 @@ NativeRAG的步骤：
 **答案生成环节**，中国移动为了解决事实性不足或逻辑缺失，采用FoRAG两阶段生成策略，首先生成大纲，然后基于大纲扩展生成最终答案。
 
 
+# 5 RAG 高级
 
+## 5.1 RAG 树
+
+![[00 assets/ae8d214be214455dd16e88487c902f9a_MD5.jpeg]]
+
+- RAG研究的技术树主要涉及预训练（Pre-training）、微调（Fine-tuning）和推理（Inference）等阶段。
+- 随着LLM的出现，RAG的研究最初侧重于利用LLMs强大的上下文学习能力，主要集中在推理阶段。
+- 随后的研究进一步深入，逐渐与LLMs的微调阶段更加融合。研究人员也在探索通过检索增强技术来提升预训练阶段的语言模型性能。
+
+**参考文章**：https://www.promptingguide.ai/research/rag
+
+
+## 5.2 RAFT 方法
+
+RAFT方法（Retrieval Augmented Fine Tuning）
+
+RAFT: Adapting Language Model to Domain Specific RAG, 2024 https://arxiv.org/pdf/2403.10131
+
+如何最好地准备考试？
+- 基于微调的方法通过“学习”来实现“记忆”输入文档或回答练习题而不参考文档。
+- 或者，基于上下文检索的方法未能利用固定领域所提供的学习机会，相当于参加开卷考试但没有事先复习。
+- 相比之下，我们的方法RAFT利用了微调与问答对，并在一个模拟的不完美检索环境中参考文档——从而有效地为开卷考试环境做准备。
+![[00 assets/e17043367143596221b67c604553206a_MD5.jpeg]]
+  
+  让LLMs从一组正面和干扰文档中读取解决方案，这与标准的RAG设置形成对比，因为在标准的RAG设置中，模型是基于检索器输出进行训练的，这包含了记忆和阅读的混合体。在测试时，所有方法都遵循标准的RAG设置，即提供上下文中排名前k的检索文档。
+
+![[00 assets/1dbbe7ef6f18abe1697d2bfb086d1a32_MD5.jpeg]]
+
+微调数据集准备样例：
+
+![[00 assets/2b9a74278cd5a6969464b999e09a1a10_MD5.jpeg]]
+
+RAFT在所有专业领域的RAG性能上有所提升（在PubMed、HotPot、HuggingFace、Torch Hub和TensorflowHub等多个领域），领域特定的微调提高了基础模型的性能，RAFT无论是在有RAG的情况下还是没有RAG的情况下，都持续优于现有的领域特定微调方法。这表明了需要在上下文中训练模型。
+
+![[00 assets/d49098c9db6e161b63ed56b3aefa7028_MD5.jpeg]]
+
+**总结：**
+
+RAFT方法（Retrieval Augmented Fine Tuning）：
+- 适应特定领域的LLMs对于许多新兴应用至关重要，但如何有效融入信息仍是一个开放问题。
+- RAFT结合了检索增强生成（RAG）和监督微调（SFT），从而提高模型在特定领域内回答问题的能力。
+- 训练模型识别并忽略那些不能帮助回答问题的干扰文档，只关注和引用相关的文档。
+- 通过在训练中引入干扰文档，提高模型对干扰信息的鲁棒性，使其在测试时能更好地处理检索到的文档。
+
+训练示例：https://github.com/lumpenspace/raft
+
+
+## 5.3 RAG高效召回方法
+
+### 5.3.1 合理设置TOP_K
+
+```python
+docs = knowledgeBase.similarity_search(query, k=10)
+```
+
+
+### 5.3.2 改进索引算法
+
+**知识图谱：** 利用知识图谱中的语义信息和实体关系，增强对查询和文档的理解，提升召回的相关性
+
+
+### 5.3.3 引入重排序
+
+**重排序模型：** 对召回结果进行重排，提升问题和文档的相关性。常见的重排序模型有 `BGE-Rerank` 和 `Cohere Rerank`。
+- 场景：用户查询“如何提高深度学习模型的训练效率？”
+- 召回结果：初步召回10篇文档，其中包含与“深度学习”、“训练效率”相关的文章。
+- 重排序：BGE-Rerank对召回的10篇文档进行重新排序，将与“训练效率”最相关的文档（如“优化深度学习训练的技巧”）排在最前面，而将相关性较低的文档（如“深度学习基础理论”）排在后面。
+
+**混合检索：** 结合向量检索和关键词检索的优势，通过重排序模型对结果进行归一化处理，提升召回质量。
+
+
+### 5.3.4 优化查询扩展
+
+**相似语义改写：** 使用大模型将用户查询改写成多个语义相近的查询，提升召回多样性。
+- 例如，LangChain的 `MultiQueryRetriever` 支持多查询召回，再进行回答问题。
+
+```python
+import os
+from langchain.retrievers import MultiQueryRetriever
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import DashScopeEmbeddings
+from langchain_community.llms import Tongyi
+
+# 初始化大语言模型
+DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY")
+llm = Tongyi(
+    model_name="qwen-max", 
+    dashscope_api_key=DASHSCOPE_API_KEY
+)
+
+# 创建嵌入模型
+embeddings = DashScopeEmbeddings(
+    model="text-embedding-v3",
+    dashscope_api_key=DASHSCOPE_API_KEY
+)
+
+# 加载向量数据库，添加allow_dangerous_deserialization=True参数以允许反序列化
+vectorstore = FAISS.load_local("./vector_db", embeddings, allow_dangerous_deserialization=True)
+
+# 创建MultiQueryRetriever
+retriever = MultiQueryRetriever.from_llm(
+    retriever=vectorstore.as_retriever(),
+    llm=llm
+)
+
+# 示例查询
+query = "客户经理的考核标准是什么？"
+# 执行查询
+results = retriever.get_relevant_documents(query)
+
+# 打印结果
+print(f"查询: {query}")
+print(f"找到 {len(results)} 个相关文档:")
+for i, doc in enumerate(results):
+    print(f"\n文档 {i+1}:")
+    print(doc.page_content[:200] + "..." if len(doc.page_content) > 200 else doc.page_content)
+```
+
+### 5.3.5 双向改写
+
+将查询改写成文档（Query2Doc）或为文档生成查询（Doc2Query），缓解短文本向量化效果差的问题
+
+**1. Query2Doc：将查询改写成文档**
+- 用户查询：“如何提高深度学习模型的训练效率？”
+- Query2Doc 改写：
+    - 原始查询较短，可能无法充分表达用户意图。
+    - 通过 Query2Doc 生成一段扩展文档：
+        提高深度学习模型的训练效率可以从以下几个方面入手：
+        1. 使用更高效的优化算法，如AdamW或LAMB。
+        2. 采用混合精度训练（Mixed Precision Training），减少显存占用并加速计算。
+        3. 使用分布式训练技术，如数据并行或模型并行。
+        4. 对数据进行预处理和增强，减少训练时的冗余计算。
+        5. 调整学习率调度策略，避免训练过程中的震荡。
+
+**2. Doc2Query：为文档生成关联查询**
+- 文档内容：
+    本文介绍了深度学习模型训练中的优化技巧，包括：
+    1. 使用AdamW优化器替代传统的SGD。
+    2. 采用混合精度训练，减少显存占用。
+    3. 使用分布式训练技术加速大规模模型的训练……
+- 通过 Doc2Query 生成一组可能的查询：
+    1. 如何选择深度学习模型的优化器？
+    2. 混合精度训练有哪些优势？
+    3. 分布式训练技术如何加速深度学习？
+    4. 如何减少深度学习训练中的显存占用？
+    5. 深度学习模型训练的最佳实践是什么？
+
+
+### 5.3.6 索引扩展
+
+- **离散索引扩展：** 使用关键词抽取、实体识别等技术生成离散索引，与向量检索互补，提升召回准确性。
+- **连续索引扩展：** 结合多种向量模型（如OpenAI的Ada、智源的BGE）进行多路召回，取长补短。
+- **混合索引召回：** 将BM25等离散索引与向量索引结合，通过Ensemble Retriever实现混合召回，提升召回多样性
+
+#### 5.3.6.1 离散索引
+
+![[00 assets/e3f41b67fadc7e466535fc58c2c5b821_MD5.jpeg]]
+
+
+#### 5.3.6.2 混合索引召回
+
+![[00 assets/e17b1fdb9a0922c7e51cc44e3938d307_MD5.jpeg]]
+
+
+#### 5.3.6.3 Small-to-Big
+
+![[00 assets/77c18916051d5bc2cf46d138e7851570_MD5.jpeg]]
+
+![[00 assets/8cf6503d0fb0688fca65ed1eec54cf6c_MD5.jpeg]]
+
+
+
+## 5.4 基本使用
 

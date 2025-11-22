@@ -1,2 +1,4 @@
 node_modules
 .trash
+.obsidian/workspace.json
+.obsidian/workspaces.json

@@ -17,6 +17,36 @@
       "README.md"
     ],
     "00 assets": [
+      "00 assets/b8959d288306dea3c4553cd64e299bda_MD5.jpeg",
+      "00 assets/1b11d480eaf744f3a231a396e0001700_MD5.jpeg",
+      "00 assets/3fa29949f0d7f45159ec0c51b113449f_MD5.jpeg",
+      "00 assets/6ade2b28aa1423e3b344c8a60b45dce2_MD5.jpeg",
+      "00 assets/6f6f10dfcc7a0be8372cf6eb31a0ffde_MD5.jpeg",
+      "00 assets/24dad5997123a70a1021dc1f74b92e7b_MD5.jpeg",
+      "00 assets/79dcc920127d48271bb6d177e0324764_MD5.jpeg",
+      "00 assets/203c92a94892287ed41c84cd63aee349_MD5.jpeg",
+      "00 assets/656ff7d646f8be58401d438e4d884c87_MD5.jpeg",
+      "00 assets/817bb00f1a7d1d61fed9ca747ab0b7a0_MD5.jpeg",
+      "00 assets/a5d084a05ee52125fd717466a48aad50_MD5.jpeg",
+      "00 assets/a669fbb41f1745a3f80d6fd27c5b4a89_MD5.jpeg",
+      "00 assets/ae22376fab1e4628f30b62ea39e3973c_MD5.jpeg",
+      "00 assets/be8542c170fc48faed487340fdb8a091_MD5.jpeg",
+      "00 assets/bf909d70934c489cc79ee05894f04d6c_MD5.jpeg",
+      "00 assets/cf7fa74cb4b0145a1fe36975b4088dbf_MD5.jpeg",
+      "00 assets/d424d77dddbcf46b8c42c2c7f6278703_MD5.jpeg",
+      "00 assets/dc023be93b74183e9869ee00f8c44c93_MD5.jpeg",
+      "00 assets/Pasted image 20251115172052.png",
+      "00 assets/8cf6503d0fb0688fca65ed1eec54cf6c_MD5.jpeg",
+      "00 assets/77c18916051d5bc2cf46d138e7851570_MD5.jpeg",
+      "00 assets/e3f41b67fadc7e466535fc58c2c5b821_MD5.jpeg",
+      "00 assets/e17b1fdb9a0922c7e51cc44e3938d307_MD5.jpeg",
+      "00 assets/1dbbe7ef6f18abe1697d2bfb086d1a32_MD5.jpeg",
+      "00 assets/2b9a74278cd5a6969464b999e09a1a10_MD5.jpeg",
+      "00 assets/ae8d214be214455dd16e88487c902f9a_MD5.jpeg",
+      "00 assets/d49098c9db6e161b63ed56b3aefa7028_MD5.jpeg",
+      "00 assets/e17043367143596221b67c604553206a_MD5.jpeg",
+      "00 assets/69b13762abb79652522c30243546e7df_MD5.jpeg",
+      "00 assets/c01ff178a530924ffb18058ba4f26fca_MD5.jpeg",
       "00 assets/3f3c6087f9c729d597d1110306896b1b_MD5.jpeg",
       "00 assets/4c0a6d006e6a3db41c7989b82ad66e93_MD5.jpeg",
       "00 assets/7d1c9109807f73111e2b5d6f7409c353_MD5.jpeg",
@@ -7242,6 +7272,7 @@
       "99 其他/Windows 开启 Hyperv.md"
     ],
     "99 求职": [
+      "99 求职/assets",
       "99 求职/八股记录",
       "99 求职/八股记录.md",
       "99 求职/求职指导.md",
@@ -7286,6 +7317,12 @@
       "99 求职/八股记录/webpack 动态加载的原理、热更新.md",
       "99 求职/八股记录/webpack loader输入什么产出什么.md",
       "99 求职/八股记录/webpack打包处理common.js与ES6 Module的区别.md"
+    ],
+    "99 求职/assets": [
+      "99 求职/assets/求职指导"
+    ],
+    "99 求职/assets/求职指导": [
+      "99 求职/assets/求职指导/file-20251123002907786.jpg"
     ]
   },
   "draggingEnabled": true,
