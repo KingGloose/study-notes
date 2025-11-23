@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08 AI/未命名.md",
+                "file": "03 前端/07 NodeJS/分支-NodeJS/npm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "npm"
             }
           }
         ]
@@ -104,13 +104,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "08 AI/未命名.md",
+                "file": "03 前端/07 NodeJS/分支-NodeJS/npm.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "npm 的大纲"
             }
           },
           {
@@ -182,8 +182,10 @@
   },
   "active": "0fb4870a6f8060fb",
   "lastOpenFiles": [
+    "03 前端/07 NodeJS/分支-NodeJS/模块化.md",
+    "03 前端/07 NodeJS/分支-NodeJS/npm.md",
+    "08 AI/03 LangChain.md",
     "99 求职/求职指导.md",
-    "08 AI/未命名.md",
     "99 其他/HomeBrew 详细解析.md",
     "01 基础/04 计算机网络.md",
     "01 基础/03 Docker.md",
@@ -224,8 +226,6 @@
     "未命名 1.base",
     "未命名.base",
     "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
-    "03 前端/06 React/分支-React/React 源码.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Atomics.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案"
   ]
