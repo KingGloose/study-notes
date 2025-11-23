@@ -1,297 +1,300 @@
-# 1、基本介绍
+# 1. 概览 — 关键结论
 
-- 当你执行 `npm i` 时，npm 会先从 registry 拉取包的 _元数据_（metadata），里面包含两类与完整性相关的信息：
-    - `dist.shasum` —— 这是 **SHA-1 的 hex 摘要**（历史兼容字段）。
-    - `dist.integrity` —— 这是 **SRI 格式**（subresource integrity，通常包含 `sha512-<base64>`，也可能包含其它算法）；新版本 npm/registry 优先使用此字段。
-- npm 在下载 tarball（.tgz）时会对流/文件实时计算摘要（通常是 sha512，同时历史上也会计算 sha1），下载完后把计算出的摘要与 registry 给出的期望值做比较。若不匹配就抛出 `EINTEGRITY` 并停止安装/索引缓存。
-- 实际实现里 npm 使用的关键库是 `ssri`（处理 SRI 格式）和 `cacache`（本地缓存），下载时以流方式用 `ssri` 或 `crypto` 计算摘要并验证。
-下面把各部分拆开详细讲：流程 → 摘要如何产生 → 如何校验 → 如何手动验证 / 排查。
+- 当执行 `npm i` 时，npm 会对下载到的 tarball 计算哈希并与“期望哈希”比较。若不一致则报错 `EINTEGRITY` 并停止安装。
+- **期望哈希从哪里来**：取决于是否存在 `package-lock.json`（或 `npm-shrinkwrap.json`）：
+    - 有 lock 文件：优先使用 lock 中的 `integrity` 字段（SRI，通常 `sha512-...`）。
+    - 无 lock 文件：使用 registry metadata（`dist.integrity` 或 `dist.shasum`）。
+- registry metadata 中常见两个字段：
+    - `dist.shasum` —— hex 表示的 SHA-1（历史遗留）
+    - `dist.integrity` —— SRI 格式（如 `sha512-<base64>` 或同一字符串里含多个算法）
+- `package-lock.json` 中的 `integrity` 通常是 `sha512-<base64>`（Base64 编码的原始 digest bytes）。
 
-# 一、npm 下载与完整性校验的完整流程（逐步）
+## 2. 详细流程（逐步）
 
-1. **获取 package metadata**  
-    客户端向 registry 请求 package 的 metadata（例如 `GET /package-name` 或 `GET /package-name/-/package-name-1.2.3.tgz` 之前会拿到 metadata）。metadata 中常见字段：
+1. **读取锁与/或 metadata**
     
-    - `dist.shasum`（hex sha1）
+    - 如果存在 `package-lock.json`：读取 `resolved` 和 `integrity`（SRI）。
         
-    - `dist.tarball`（tarball 的 URL）
+    - 否则查询 registry metadata（`npm view pkg@ver --json` 或 `https://registry.npmjs.org/pkg`），取 `dist.integrity` 或 `dist.shasum`。
         
-    - `dist.integrity`（SRI 字符串，常见为 `sha512-<base64>`）
-        
-2. **决定期望值**
+2. **下载 tarball（stream）**
     
-    - 如果 metadata 含有 `dist.integrity`（SRI），npm 优先使用 SRI（通常含 sha512）。
+    - npm 发起 HTTP GET 去 `dist.tarball`（通常根据 lock 的 `resolved` 字段或 registry 返回的 tarball URL）。
         
-    - 否则回退使用 `dist.shasum`（hex sha1）。一些客户端会同时保留两个做兼容检查（先比 sha512，再对照 shasum）。
-        
-3. **请求 tarball（实际下载）**  
-    npm 发起 HTTP GET 去拿 tarball。下载过程通常是流（stream）式的，数据一边写入 cacache（磁盘缓存）一边被传给 `ssri`/`crypto` 来计算摘要。
+3. **流式计算/校验摘要**
     
-4. **流式计算摘要**
+    - 在下载流上，npm 使用 `ssri`（SRI 处理）和/或 Node `crypto` 来计算摘要：
+        
+        - `ssri.checkStream(stream, expectedIntegrity)` 可同时支持多算法并在流中校验。
+            
+        - 同时历史或兼容逻辑可能用 `crypto.createHash('sha1')` 计算 hex shasum 与 `dist.shasum` 对比。
+            
+4. **比对**
     
-    - 当使用 `ssri` 时，可用 `ssri.integrityStream()` 或 `ssri.checkStream()` 对 incoming stream 进行计算/校验。`ssri` 会为支持的算法（如 sha512）计算 base64 摘要并格式化成 SRI（`sha512-...`）。
+    - 若 `expected` 是 SRI（例如 `sha512-...`），用相同算法生成并将 base64 表示与 expected 比较（或直接用 `ssri` 做 check）。
         
-    - 同时历史代码/兼容逻辑会用 `crypto.createHash('sha1')` 计算 hex shasum（并与 `dist.shasum` 对比）。
+    - 若 `expected` 是 hex shasum（sha1），把下载流计算出的 sha1 hex 与 expected 比较。
         
-5. **比对**
+5. **结果**
     
-    - 若期望为 `dist.integrity`（SRI），用 `ssri.checkStream()` 或 `ssri.checkData()` 把下载得到的 digest 与 `dist.integrity` 做对比（SRI 支持多算法/多值）。
+    - 校验通过：写入本地 cache（`cacache`），解压至 `node_modules`，继续安装。
         
-    - 若期望为 `dist.shasum`，把实际计算出来的 sha1 hex 与 `dist.shasum` 字符串做简单等号比较。
-        
-    - 若任一比较失败，npm 抛出 `EINTEGRITY`（并常会删除该缓存条目），并停止安装这个包。
-        
-6. **成功后写入 cache / 继续安装**
-    
-    - 校验通过后，写入 `cacache`，然后解压并把 package 放到 `node_modules`（或后续安装步骤）。
+    - 校验失败：抛出 `EINTEGRITY`，删除缓存中对应条目（或跳过），安装失败。
         
 
 ---
 
-# 二、`sha1` 与 `sha512` 是如何“得来”的（发布端 & 客户端）
+## 3. 摘要数据如何得来（发布端 & 客户端）
 
-## 发布端（`npm publish` 时）
-
-- 当包被发布到 npm registry 时，发布流程会：
+- **发布端（npm publish）**：打包 tarball → 计算哈希：
     
-    1. 把 package 打成 tarball（例如 `package-name-1.2.3.tgz`）。
+    - `shasum` = `sha1(tarball)` → hex 字符串 → 写入 `dist.shasum`。
         
-    2. 对这个 tarball 计算摘要：`sha1`（hex）会写入 `dist.shasum`，并生成 SRI 字段（通常是 `sha512-<base64>`）写入 `dist.integrity`。这些字段被写入 registry 的 metadata（`/package` 的 JSON）。
+    - `integrity` = `sha512-<base64(sha512_bytes)>`（由 `ssri` 格式化）→ 写入 `dist.integrity`。
         
-    3. registry 保存 tarball并把 metadata 对外提供。
+    - registry 保存 tarball 与 metadata（versions 字段等）。
         
-
-生成计算方式（伪步骤）：
-
-- `shasum = sha1(tarball) --> hex string` → 存 `dist.shasum`
+- **客户端（安装时）**：下载 tarball → 重新对 tarball 计算 sha512/sha1 并与 lock/metadata 对比（**从不信任远端的哈希，始终重新计算**）。
     
-- `sri = "sha512-" + base64(sha512_binary(tarball))` → 存 `dist.integrity`
-    
-
-> 注意：`dist.shasum` 保留为 hex（人们习惯的 hex 表示），而 SRI（ssri）用 base64 表示 digest bytes 并带上算法前缀。
-
-## 客户端（你的 npm）
-
-- npm 在下载 tarball 时 **重新计算**这些摘要（而不是直接信任 registry 的文件）。计算方式与发布端相同的算法：
-    
-    - 使用 SHA-512 得出原始二进制摘要，再用 Base64 编码得到 `sha512-<base64>`。
-        
-    - 使用 SHA-1 得到 hex 字符串用于与 `dist.shasum` 比较（如果需要）。
-        
 
 ---
 
-# 三、如何用命令 / 代码手动验证（实操）
+## 4. 数据格式与转换（hex ↔ base64）
 
-下面给出几种实际方法 —— 用 `openssl`、Node、以及 `ssri`。
-
-## 1) 用 `openssl`（shell）
-
-假设你已经下载了 `package-name-1.2.3.tgz` 到当前目录：
-
-- 计算 sha1 hex（与 `dist.shasum` 比较）：
+- `dist.shasum`：**40 个 hex 字符**，表示 20 字节的 SHA-1（如 `5dc0753acbf8521ca2e0f137b4578b917b10cf24`）。
+    
+- `package-lock.json` 中的 `sha1-...`：SRI 格式，后接 **Base64** 编码的原始 20 字节哈希（如 `sha1-iHs7qdhDk+h6CgufTLdWGYtTVIo=`）。
     
 
-```bash
-# 输出示例： SHA1(filename)= <hex>
-openssl dgst -sha1 package-name-1.2.3.tgz
-# 或只要 hex：
-openssl dgst -sha1 -hex package-name-1.2.3.tgz
-```
+**转换方法**：
 
-- 计算 sha512 并输出 base64（用于构造 SRI `sha512-<base64>`）：
+- hex → raw bytes → base64：
     
+    - Node.js：`Buffer.from(hex, 'hex').toString('base64')` → 加前缀 `sha1-`。
+        
+    - openssl：`xxd -r -p <hexfile> | openssl base64`（或用脚本）。
+        
 
-```bash
-openssl dgst -sha512 -binary package-name-1.2.3.tgz | openssl base64 -A
-# 然后把结果前面加上 "sha512-"
-# e.g. sha512-<the-base64-string>
-```
-
-`-binary` 把 digest 以二进制形式输出，这样 `base64` 才是对 digest bytes 编码（SRI 的要求）。
-
-## 2) 用 Node.js 原生 `crypto`
+示例（Node）：
 
 ```js
-const fs = require('fs');
-const crypto = require('crypto');
-
-const file = fs.readFileSync('package-name-1.2.3.tgz');
-
-// sha1 hex
-const shasum = crypto.createHash('sha1').update(file).digest('hex');
-console.log('sha1 hex:', shasum);
-
-// sha512 base64 (SRI)
-const sha512base64 = crypto.createHash('sha512').update(file).digest('base64');
-console.log('sha512 sri:', 'sha512-' + sha512base64);
+const hex = '5dc0753acbf8521ca2e0f137b4578b917b10cf24';
+console.log('sha1-' + Buffer.from(hex,'hex').toString('base64'));
+// => sha1-iHs7qdhDk+h6CgufTLdWGYtTVIo=
 ```
-
-## 3) 用 `ssri`（node 包，用来解析/生成 SRI 字符串）
-
-你可以 `npm i -g ssri` 或用 `npx ssri`。示例（Node）：
-
-```js
-const fs = require('fs');
-const ssri = require('ssri');
-
-const data = fs.readFileSync('package-name-1.2.3.tgz');
-
-// 生成 SRI（默认会优先用 sha512）
-const integrity = ssri.fromData(data, { algorithms: ['sha512', 'sha1'] });
-console.log('integrity:', integrity.toString()); // e.g. "sha512-... sha1-..."
-
-// 检查（预期值 exampleIntegrity 来自 registry.dist.integrity）
-const ok = ssri.checkData(data, 'sha512-<base64-from-registry>');
-console.log('checkData OK?', !!ok);
-```
-
-`ssri.fromData` 会返回一个 `Integrity` 对象，可以输出多算法的 SRI 表示（例如同时包含 sha512 和 sha1 的表示）。
 
 ---
 
-# 四、SRI 格式与 `dist.shasum` 的差异（关键易混点）
+## 5. 常见导致 `EINTEGRITY` 的原因与排查步骤
 
-- `dist.shasum`（registry metadata）：**hex 表示的 SHA-1**（例如 `a94a8fe5ccb19ba61c4c0873d391e987982fbbd3`）。这是历史遗留的字段，很多工具仍用它兼容性检查。
-    
-- `dist.integrity`（registry metadata）：**SRI 字符串**，例如 `sha512-<base64>`（也可以同时包含多个算法，用空格分隔）。SRI 使用 base64 来表示 digest bytes，并带算法前缀（`sha512-...`、`sha1-...` 等）。
-    
-- 当客户端使用 SRI (`sha512-...`) 时不要用 hex 去对比 —— 必须用二进制 digest -> base64 的流程或用 `ssri` 库做转换/比较。换句话说：hex(sha1) ≠ base64(sha1_bytes)；如果需要把 hex 转成 base64，需要把 hex 解析成 bytes 再 base64 编码。
-    
+**常见原因**：
 
----
-
-# 五、`EINTEGRITY` 常见原因与排查步骤
-
-## 常见原因
-
-1. **网络中间件/代理篡改**：公司代理、缓存服务器或 CDN 在传输过程中出了问题（或错误的缓存）。
+- 本地 `cacache` 损坏或不一致
     
-2. **registry metadata 与 tarball 不一致**：包被重发布但 metadata 没更新（罕见，但可能）。
+- registry / 镜像的 tarball 与 lock 中记录的 hash 不一致（版本被覆盖、镜像同步问题）
     
-3. **缓存损坏**：本地 `cacache` 内容损坏或磁盘错误。
+- 下载被中间代理或 CDN 篡改（返回 HTML 错误页面等）
     
-4. **镜像源不同步**（例如使用了私有镜像或第三方镜像与 npm 官方 registry 不一致）。
+- 下载不完整或网络错误（截断）
     
-5. **下载被截断或传输错误**（不完整文件会导致摘要不同）。
+- package-lock.json 被篡改或合并错误
     
-6. **npm 版本 bug**（极少见，但存在历史案例）。
+- npm 客户端版本 bug（极少）
     
 
-## 排查步骤（从快到慢）
+**快速排查清单**：
 
-1. **查看完整的错误日志**：`npm i --verbose`，查看是哪个包、期望值是什么、实际计算值是什么（npm 的 verbose 会打印比对信息）。
+1. `npm i --verbose` 看具体的 expected/actual 哈希与报错堆栈。
     
-2. **清理本地缓存重试**：
+2. `npm cache clean --force` 再重试。
+    
+3. `npm view <pkg>@<ver> dist` 或 `curl -L https://registry.npmjs.org/<pkg>/<ver>` 查看官方 metadata。
+    
+4. 直接下载 tarball：
     
     ```bash
-    npm cache clean --force
-    npm i
+    curl -L <tarball-url> -o pkg.tgz
+    openssl dgst -sha512 -binary pkg.tgz | openssl base64 -A
+    openssl dgst -sha1 pkg.tgz
     ```
     
-3. **直接用 curl / wget 下载 tarball 再手动比对**：
+    将结果与 lock / registry 对比。
     
-    - 先从 metadata 拿 `dist.tarball`、`dist.integrity`、`dist.shasum`（用 `npm view <pkg>@<ver> dist` 或 `npm pack <pkg>@<ver>` 获取）。
-        
-    - `curl -L <tarball-url> -o pkg.tgz`，然后用上面的 `openssl` 或 Node 方式计算，和 metadata 的值比较。
-        
-4. **切换 registry（检查镜像同步问题）**：暂时切回官方 `https://registry.npmjs.org/` 或换用其他源试试（可通过 `npm set registry`）。
+5. 切换 registry（例如 `npm config set registry https://registry.npmjs.org/`）并重试。
     
-5. **检查代理/公司网络**：绕过公司代理/代理服务器测试，或在不同网络（如手机热点）重试。
-    
-6. **确认 npm 版本**：`npm -v`，如果版本较旧或已知 bug，尝试升级 npm（`npm i -g npm` 或使用 node 的包管理器）。
-    
-7. **查看是否是某个具体包有问题**：尝试安装这个包单独 `npm i <pkg>@<ver>`，或用 `npm pack` 下载并验证。
-    
-8. **如果怀疑 registry 问题**：在 npm registry 的网页或包管理页面查看发布时间及元数据，或联系包维护者 / registry。
+6. 检查是否存在公司代理或 CDN 在流量中替换内容（用 `curl -v` / `wget` 检查 response headers）。
     
 
 ---
 
-# 六、实战示例：完整一步步排查（命令合集）
+## 6. 镜像源（例如 npmmirror / 淘宝）为何会产生 metadata/tarball 错位（metadata drift）
 
-1. 打印 metadata：
+> 关键概念：**官方 registry（registry.npmjs.org）遵守“版本不可变（immutable）”规则** —— 已发布版本的 tarball 与 metadata 不会被覆盖。**第三方镜像不一定遵守或在同步策略上做了补偿/重写**，从而导致“版本键（versions['1.8.0']）指向了不同版本的 tarball（1.9.0.tgz）”。
+
+**镜像出现错误的典型原因**：
+
+1. **增量同步策略 & 同步冲突**
+    
+    - 镜像通常使用 polling / incremental sync 拉取上游变更；在网络波动或并发写入时，metadata 的部分字段（例如 dist）可能被错误写入到错误的版本 key 中。
+        
+2. **安全 / deprecated 自动重定向策略**
+    
+    - 为减少用户下载已知不安全版本，某些镜像会对 deprecated 或有安全 advisory 的版本做“重定向”或“指向推荐版本”。这会把旧版本的 `dist.tarball` 指向一个推荐的修复版本。
+        
+3. **覆盖式修复（replace-on-sync）**
+    
+    - 镜像为节省空间或简化管理，可能采用“将若干历史版本折叠/映射到同一 tarball”的策略（例如把历史低频版本映射到某个稳定 tarball）。这破坏了官方的 immutable 假设。
+        
+4. **镜像实现 bug / 数据库写入冲突**
+    
+    - 实现或脚本错误会把 1.9.0 的 dist 写入 1.8.0 的记录位置，造成“metadata 漂移”。
+        
+5. **同步延迟导致的数据不一致（eventual consistency）**
+    
+    - 在“最终一致性”的系统里，query 某一时间点可能得到处于过渡状态的记录。
+        
+
+**你遇到的症状（示例）**：
+
+- `versions['1.8.0']._id` 或 `dist.tarball` 指向 `1.9.0.tgz`。
+    
+- `dist.integrity` / `dist.shasum` 与官方 registry 的值不一致。
+    
+- `package-lock.json` 里记录的 `integrity`（sha512）与镜像返回的 tarball hash 不匹配 → `EINTEGRITY`。
+    
+
+---
+
+## 7. 如何验证镜像是否污染及自动检测思路
+
+**手动验证流程**：
+
+1. 对于某个包版本 `pkg@ver`：
+    
+    - 官方：`curl -sL https://registry.npmjs.org/pkg/ver | jq .dist`（或 `npm view pkg@ver dist --json`）
+        
+    - 镜像：`curl -sL https://registry.npmmirror.com/pkg/ver | jq .dist`
+        
+2. 比较两个 `tarball` URL、`integrity`、`shasum`。
+    
+3. 直接下载镜像的 `tarball`，计算 `sha512` base64（SRI）与 `shasum`，比对。若不一致说明镜像污染或写错。
+    
+
+**脚本化检测（思路）**：
+
+- 读取 `package-lock.json` 或 `package.json` 的依赖列表 → 对每个依赖：
+    
+    1. 从官方 registry 拿 metadata，记下 `dist.integrity` 和 `dist.tarball`。
+        
+    2. 从当前 registry（镜像）拿 metadata，比较两个 metadata 是否一致。
+        
+    3. 若发现差异，下载镜像 tarball 并直接计算哈希以确认问题。
+        
+- 输出报告：不一致列表 + 建议（切 registry / 手动修复 lock / 提交镜像 issue）。
+    
+
+---
+
+## 8. 防护与最佳实践（工程建议）
+
+1. **在 CI 中使用官方 registry 或可信任的内部私服**（尽量避免直接用第三方公共镜像作为生产依赖源）。
+    
+2. **对关键 pipeline 做二次校验**：CI 在 `npm ci` 之后执行对 `node_modules` 中某些关键包的 SRI / sha1 校验（或对已知高风险包做二次下载校验）。
+    
+3. **锁定 registry 并记录来源**：项目中记录 `npm config get registry`，并在 README / CONTRIBUTING 中明确要求使用哪个 registry。
+    
+4. **定期运行镜像一致性检查脚本**（对关键依赖）。
+    
+5. **若用镜像做镜像加速（cache），配置 fallback 到官方 registry**，并在校验失败时自动 fallback。示例策略：若 `EINTEGRITY` 且 registry 是镜像，自动尝试官方 registry。
+    
+6. **CI/CD 使用 `npm ci`（严格使用 lock），并在失败时直接切换到官方 registry 重新尝试**。
+    
+
+---
+
+## 9. 常用命令与示例（便于复制到终端）
+
+- 查看某版本 metadata（官方）：
     
 
 ```bash
-npm view left-pad@1.3.0 dist
-# 输出示例：
-# { tarball: 'https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz',
-#   shasum: 'b5a0b...hex...',
-#   integrity: 'sha512-Base64...' }
+curl -sL https://registry.npmjs.org/path-to-regexp/1.8.0 | jq .dist
+# 或
+npm view path-to-regexp@1.8.0 dist --json
 ```
 
-2. 下载 tarball：
+- 查看镜像 metadata：
     
 
 ```bash
-curl -L 'https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz' -o left-pad-1.3.0.tgz
+curl -sL https://registry.npmmirror.com/path-to-regexp/1.8.0 | jq .dist
 ```
 
-3. 本地验证：
+- 下载 tarball 并计算 sha512（构造 SRI）：
     
 
 ```bash
-# sha1 hex
-openssl dgst -sha1 left-pad-1.3.0.tgz
-
-# sha512 base64 -> 构成 SRI
-openssl dgst -sha512 -binary left-pad-1.3.0.tgz | openssl base64 -A
-# 得到 base64 后在前面加 "sha512-"
+curl -L 'https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-1.8.0.tgz' -o pkg.tgz
+openssl dgst -sha512 -binary pkg.tgz | openssl base64 -A
+# 然后拼接： sha512-<base64>
 ```
 
-4. 或用 Node + ssri：
+- 下载 tarball 并计算 sha1 hex：
+    
+
+```bash
+openssl dgst -sha1 pkg.tgz
+```
+
+- Node 脚本快速生成 SRI：
     
 
 ```js
-// verify.js
 const fs = require('fs');
 const ssri = require('ssri');
-const data = fs.readFileSync('left-pad-1.3.0.tgz');
-
-const generated = ssri.fromData(data, { algorithms: ['sha512', 'sha1'] });
-console.log('generated SRI:', generated.toString());
-
-const expected = 'sha512-...'; // 从 npm view 拿到
-console.log('checkData:', !!ssri.checkData(data, expected));
-
-// 也打印 sha1 hex
-const crypto = require('crypto');
-console.log('sha1 hex:', crypto.createHash('sha1').update(data).digest('hex'));
+const data = fs.readFileSync('pkg.tgz');
+console.log(ssri.fromData(data).toString());
 ```
 
-运行 `node verify.js` 对比输出结果。
-
 ---
 
-# 七、关于为什么同时存在 sha1 和 sha512（以及优先级）
+## 10. 总结要点（便捷回顾）
 
-- **历史原因**：早期 npm 只用 `shasum`（sha1 hex），随时间进化引入 SRI（sha512）来增强安全性（sha1 已不被认为足够强）。但为了兼容性仍保留 `shasum` 字段。
+- `package-lock.json` 是安装时的单一信任来源（有 lock 时优先使用 lock 的 `integrity`）。
     
-- **客户端行为**：现代 npm 优先使用 `dist.integrity`（sha512 SRI）。`shasum` 仍然用于兼容或作为额外的检查。某些老工具或镜像只提供 `shasum`。
+- `dist.shasum`（hex sha1）与 `sha1-...`（SRI）是相同哈希，只是编码不同：hex → bytes → base64。
     
-
----
-
-# 八、小结（你需要知道的关键命令 / API）
-
-- registry metadata：`npm view <pkg>@<ver> dist`
+- `EINTEGRITY` 多数源于 tarball 与期望哈希不一致：可能是本地缓存、网络、或镜像污染。\
     
-- 清缓存：`npm cache clean --force`
+- 官方 registry 保证版本不可变；第三方镜像（如 npmmirror）可能因为同步策略、重定向、或实现 bug 导致 metadata/tarball 指向错位。
     
-- 下载 tarball：`curl -L <tarball-url> -o pkg.tgz`
-    
-- 快速验证：`openssl dgst -sha1 pkg.tgz`（hex）与 `openssl dgst -sha512 -binary pkg.tgz | openssl base64 -A`（得到 SRI 的 base64）
-    
-- Node 验证（示例）用 `crypto` 或 `ssri`（推荐 `ssri` 去处理 SRI 的解析/比对）
-    
-- 常见修复：清 cache / 切 registry / 检查代理 / 直接手动比对 tarball 与 metadata
+- 最安全的做法是在 CI 使用官方 registry 或受控私服，并在遇到 integrity 异常时回退到官方源做二次验证。
     
 
 ---
 
-如果你愿意，我可以：
+### 附录：快速 checklist（出现 EINTEGRITY 时）
 
-- 根据你当前出现 `EINTEGRITY` 的日志（把报错片段贴过来），我可以直接帮你解析“期望值/实际值/在哪一步失败”的具体原因；或者
+1. `npm i --verbose` 查看具体报错。\
     
-- 把上面的 Node `verify.js` 做成一个更完整的脚本，自动从 `npm view` 取 `dist` 字段、下载 tarball、并输出比对结果 —— 你想要哪一种？（如果要脚本，把包名和版本直接给我，我就直接写好脚本）
+2. `npm cache clean --force`。\
+    
+3. 验证 registry：`npm config get registry`。\
+    
+4. 对比官方 metadata：`npm view <pkg>@<ver> dist --json`。\
+    
+5. 手动下载 tarball 并 `openssl` / `ssri` 验证。\
+    
+6. 若镜像有问题：切官方 registry 并重试安装。
+    
+
+---
+
+如果你希望，我可以：
+
+- 把“检测脚本”直接写成 Node.js 工具（自动检测 package-lock.json 中的每个依赖与官方 registry 的一致性），并输出修复建议；
+    
+- 或把这份笔记导出成 PDF / 侧边展示样式。
+    
+
+你想要哪个？
