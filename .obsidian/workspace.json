@@ -88,7 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 286.5
+    "width": 290.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -180,10 +180,11 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "0fb4870a6f8060fb",
+  "active": "fba7af64869f62ac",
   "lastOpenFiles": [
-    "01 基础/04 计算机网络.md",
+    "99 其他/Python 切换版本.md",
     "99 其他/HomeBrew 详细解析.md",
+    "01 基础/04 计算机网络.md",
     "01 基础/03 Docker.md",
     "01 基础/02 Linux.md",
     "01 基础/01 Git.md",
@@ -211,7 +212,6 @@
     "08 AI/01 理论知识.md",
     "09 Python",
     "08 AI/02 Prompt.md",
-    "99 其他/Python 切换版本.md",
     "09 Python/99 杂记/pyenv.md",
     "09 Python/99 杂记",
     "09 Python/99 公共.md",
