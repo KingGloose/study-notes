@@ -88,7 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 293.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -180,7 +180,7 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "fba7af64869f62ac",
+  "active": "0fb4870a6f8060fb",
   "lastOpenFiles": [
     "99 其他/HomeBrew 详细解析.md",
     "conflict-files-obsidian-git.md",
