@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "99 其他/HomeBrew 详细解析.md",
+                "file": "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HomeBrew 详细解析"
+              "title": "npm 完整性校验"
             }
           }
         ]
@@ -89,6 +89,7 @@
     ],
     "direction": "horizontal",
     "width": 290.5
+    "width": 258.5
   },
   "right": {
     "id": "7826993d977962b7",
@@ -104,13 +105,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "99 其他/HomeBrew 详细解析.md",
+                "file": "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "HomeBrew 详细解析 的大纲"
+              "title": "npm 完整性校验 的大纲"
             }
           },
           {
@@ -182,14 +183,19 @@
   },
   "active": "fba7af64869f62ac",
   "lastOpenFiles": [
-    "99 其他/Python 切换版本.md",
+    "03 前端/07 NodeJS/分支-NodeJS/模块依赖.md",
+    "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
+    "03 前端/07 NodeJS/分支-NodeJS/npm.md",
+    "03 前端/07 NodeJS/分支-NodeJS/pnpm.md",
+    "03 前端/07 NodeJS/分支-NodeJS/模块化.md",
+    "08 AI/03 LangChain.md",
+    "99 求职/求职指导.md",
     "99 其他/HomeBrew 详细解析.md",
     "01 基础/04 计算机网络.md",
     "01 基础/03 Docker.md",
     "01 基础/02 Linux.md",
     "01 基础/01 Git.md",
     "99 求职/八股记录.md",
-    "99 求职/求职指导.md",
     "99 求职/八股记录/当用户不断点击的时候如何防止他多次点击.md",
     "99 求职/实习学习.md",
     "99 求职/assets/实习学习/file-20251123003319772.jpg",
@@ -216,16 +222,9 @@
     "09 Python/99 杂记",
     "09 Python/99 公共.md",
     "09 Python",
-    "conflict-files-obsidian-git.md",
     "99 其他/安装低版本Google浏览器.md",
-    "03 前端/06 React/React.md",
-    "Untitled.md",
     "未命名 1.base",
     "未命名.base",
-    "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
-    "03 前端/06 React/分支-React/React 源码.md",
-    "03 前端/03 JavaScript/分支-JavaScript/Atomics.md",
-    "03 前端/20 微前端/微前端/MicroApp.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案"
   ]
