@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 前端/07 NodeJS/分支-NodeJS/npm.md",
+                "file": "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "npm"
+              "title": "npm 完整性校验"
             }
           }
         ]
@@ -104,13 +104,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "03 前端/07 NodeJS/分支-NodeJS/npm.md",
+                "file": "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "npm 的大纲"
+              "title": "npm 完整性校验 的大纲"
             }
           },
           {
@@ -180,10 +180,13 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "0fb4870a6f8060fb",
+  "active": "fba7af64869f62ac",
   "lastOpenFiles": [
-    "03 前端/07 NodeJS/分支-NodeJS/模块化.md",
+    "03 前端/07 NodeJS/分支-NodeJS/模块依赖.md",
+    "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
     "03 前端/07 NodeJS/分支-NodeJS/npm.md",
+    "03 前端/07 NodeJS/分支-NodeJS/pnpm.md",
+    "03 前端/07 NodeJS/分支-NodeJS/模块化.md",
     "08 AI/03 LangChain.md",
     "99 求职/求职指导.md",
     "99 其他/HomeBrew 详细解析.md",
@@ -221,11 +224,8 @@
     "09 Python",
     "conflict-files-obsidian-git.md",
     "99 其他/安装低版本Google浏览器.md",
-    "03 前端/06 React/React.md",
-    "Untitled.md",
     "未命名 1.base",
     "未命名.base",
-    "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
     "03 前端/05 Vue/分支-VueRouter",
     "03 前端/99 解决方案"
   ]

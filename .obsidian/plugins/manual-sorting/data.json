@@ -7144,6 +7144,9 @@
       "03 前端/07 NodeJS/NodeJS.md"
     ],
     "03 前端/07 NodeJS/分支-NodeJS": [
+      "03 前端/07 NodeJS/分支-NodeJS/模块依赖.md",
+      "03 前端/07 NodeJS/分支-NodeJS/pnpm.md",
+      "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
       "03 前端/07 NodeJS/分支-NodeJS/npm.md",
       "03 前端/07 NodeJS/分支-NodeJS/模块化.md"
     ],
