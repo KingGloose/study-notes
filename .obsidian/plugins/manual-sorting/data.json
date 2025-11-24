@@ -6817,6 +6817,7 @@
       "01 基础/06 网络安全.md"
     ],
     "02 算法": [
+      "02 算法/node_modules",
       "02 算法/00.力扣",
       "02 算法/01.队列",
       "02 算法/02.栈",
@@ -7009,6 +7010,36 @@
     "02 算法/12.字符串查找": [
       "02 算法/12.字符串查找/01.暴力解法.ts"
     ],
+    "02 算法/node_modules": [
+      "02 算法/node_modules/@cspotcode",
+      "02 算法/node_modules/@jridgewell",
+      "02 算法/node_modules/@tsconfig",
+      "02 算法/node_modules/@types",
+      "02 算法/node_modules/hy-algokit"
+    ],
+    "02 算法/node_modules/@cspotcode": [],
+    "02 算法/node_modules/@jridgewell": [],
+    "02 算法/node_modules/@tsconfig": [],
+    "02 算法/node_modules/@types": [],
+    "02 算法/node_modules/hy-algokit": [
+      "02 算法/node_modules/hy-algokit/dist",
+      "02 算法/node_modules/hy-algokit/lib",
+      "02 算法/node_modules/hy-algokit/babel.config.js",
+      "02 算法/node_modules/hy-algokit/package.json",
+      "02 算法/node_modules/hy-algokit/tsconfig.json",
+      "02 算法/node_modules/hy-algokit/webpack.config.js"
+    ],
+    "02 算法/node_modules/hy-algokit/dist": [
+      "02 算法/node_modules/hy-algokit/dist/index.js",
+      "02 算法/node_modules/hy-algokit/dist/index.d.ts"
+    ],
+    "02 算法/node_modules/hy-algokit/lib": [
+      "02 算法/node_modules/hy-algokit/lib/index.ts",
+      "02 算法/node_modules/hy-algokit/lib/isPrime.ts",
+      "02 算法/node_modules/hy-algokit/lib/measureSort.ts",
+      "02 算法/node_modules/hy-algokit/lib/print.ts",
+      "02 算法/node_modules/hy-algokit/lib/testSearch.ts"
+    ],
     "03 前端": [
       "03 前端/01 HTML",
       "03 前端/02 CSS",
@@ -7145,9 +7176,9 @@
     ],
     "03 前端/07 NodeJS/分支-NodeJS": [
       "03 前端/07 NodeJS/分支-NodeJS/模块依赖.md",
-      "03 前端/07 NodeJS/分支-NodeJS/pnpm.md",
-      "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
       "03 前端/07 NodeJS/分支-NodeJS/npm.md",
+      "03 前端/07 NodeJS/分支-NodeJS/npm 完整性校验.md",
+      "03 前端/07 NodeJS/分支-NodeJS/pnpm.md",
       "03 前端/07 NodeJS/分支-NodeJS/模块化.md"
     ],
     "03 前端/08 Typescript": [
@@ -7225,9 +7256,9 @@
       "07 嵌入式/01 ESP8266.md"
     ],
     "08 AI": [
+      "08 AI/03 LangChain.md",
       "08 AI/01 理论知识.md",
       "08 AI/02 RAG.md",
-      "08 AI/03 LangChain.md",
       "08 AI/10 MCP.md"
     ],
     "09 Python": [
