@@ -7114,6 +7114,7 @@
       "03 前端/03 JavaScript/分支-ECMAScript/ES12.md"
     ],
     "03 前端/03 JavaScript/分支-JavaScript": [
+      "03 前端/03 JavaScript/分支-JavaScript/未命名.md",
       "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
       "03 前端/03 JavaScript/分支-JavaScript/迭代器.md",
       "03 前端/03 JavaScript/分支-JavaScript/对象.md",
@@ -7324,8 +7325,13 @@
       "99 求职/八股记录/webpack打包处理common.js与ES6 Module的区别.md"
     ],
     "99 求职/assets": [
+      "99 求职/assets/八股记录",
       "99 求职/assets/实习学习",
       "99 求职/assets/求职指导"
+    ],
+    "99 求职/assets/八股记录": [
+      "99 求职/assets/八股记录/file-20251123155817612.jpg",
+      "99 求职/assets/八股记录/file-20251123162440839.jpg"
     ],
     "99 求职/assets/求职指导": [
       "99 求职/assets/求职指导/file-20251123002907786.jpg"
