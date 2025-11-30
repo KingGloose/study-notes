@@ -6809,12 +6809,19 @@
       "00 assets/Pasted image 20250803010946.png"
     ],
     "01 基础": [
+      "01 基础/assets",
       "01 基础/01 Git.md",
       "01 基础/02 Linux.md",
       "01 基础/03 Docker.md",
       "01 基础/04 计算机网络.md",
       "01 基础/05 设计模式.md",
       "01 基础/06 网络安全.md"
+    ],
+    "01 基础/assets": [
+      "01 基础/assets/03 Docker"
+    ],
+    "01 基础/assets/03 Docker": [
+      "01 基础/assets/03 Docker/file-20251130234203347.jpg"
     ],
     "02 算法": [
       "02 算法/node_modules",
