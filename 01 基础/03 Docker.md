@@ -199,8 +199,9 @@ docker run --name nginx-test2 -p 80:80 -v /tmp/aaa:/usr/share/nginx/html -e KEY1
 
 ### 2.2.3 docker-cli 登录
 
-因为 docker 的版本更新，你不仅仅要在 docker desktop 中登录，还需要在 docker cli 中去执行登录的流程
+因为 docker 的版本更新，你不仅仅要在 docker desktop 中登录，还需要在 docker cli 中去执行登录的流程，执行 `docker login` 实现 cli 登录
 
+![](assets/03%20Docker/file-20251130234203347.jpg)
 
 
 
