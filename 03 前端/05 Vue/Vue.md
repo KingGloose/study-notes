@@ -3561,6 +3561,10 @@ const shuffleNum = () => (nums.value = shuffle(nums.value));
 
 在`ES6-ES12`的笔记里面记录了手写响应式原理，可以参考
 
+## 10.9 effectScope
+
+[effectScope](分支-Vue/effectScope.md)
+
 
 # 10. 前台项目 - 弘源旅途
 

@@ -7131,6 +7131,7 @@
       "03 前端/05 Vue/Vuex.md"
     ],
     "03 前端/05 Vue/分支-Vue": [
+      "03 前端/05 Vue/分支-Vue/effectScope.md",
       "03 前端/05 Vue/分支-Vue/assets",
       "03 前端/05 Vue/分支-Vue/toRef toRefs.md",
       "03 前端/05 Vue/分支-Vue/Vue 原理.md",
