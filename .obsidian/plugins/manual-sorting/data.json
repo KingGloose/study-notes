@@ -7252,7 +7252,14 @@
       "08 AI/10 MCP.md"
     ],
     "09 Python": [
+      "09 Python/assets",
       "09 Python/01 Python.md"
+    ],
+    "09 Python/assets": [
+      "09 Python/assets/01 Python"
+    ],
+    "09 Python/assets/01 Python": [
+      "09 Python/assets/01 Python/file-20251227194200058.jpg"
     ],
     "99 记录": [
       "99 记录/01 技术记录.md",
