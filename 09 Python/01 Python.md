@@ -22,3 +22,10 @@
 4、使用 `conda activate <env>` 来激活环境
 
 ![[00 assets/2824a674f2c8974188770e7d265bde85_MD5.jpeg]]
+
+
+# 02 pyenv 
+
+![](assets/01%20Python/file-20251227194200058.jpg)
+
+
