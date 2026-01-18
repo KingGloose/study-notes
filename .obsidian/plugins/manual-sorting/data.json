@@ -1,7 +1,6 @@
 {
   "customFileOrder": {
     "/": [
-      "conflict-files-obsidian-git.md",
       "00 assets",
       "01 基础",
       "02 算法",
@@ -7291,10 +7290,18 @@
       "07 嵌入式/01 ESP8266.md"
     ],
     "08 AI": [
-      "08 AI/03 LangChain.md",
+      "08 AI/assets",
+      "08 AI/04 Skills.md",
       "08 AI/01 理论知识.md",
       "08 AI/02 RAG.md",
+      "08 AI/03 LangChain.md",
       "08 AI/10 MCP.md"
+    ],
+    "08 AI/assets": [
+      "08 AI/assets/04 Skills"
+    ],
+    "08 AI/assets/04 Skills": [
+      "08 AI/assets/04 Skills/file-20260118224749335.jpg"
     ],
     "09 Python": [
       "09 Python/assets",
