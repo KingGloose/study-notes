@@ -3566,6 +3566,15 @@ const shuffleNum = () => (nums.value = shuffle(nums.value));
 [effectScope](分支-Vue/effectScope.md)
 
 
+# 6. Vue3.6 
+
+
+
+
+
+
+
+
 # 10. 前台项目 - 弘源旅途
 
 ## 9.1 前期准备
@@ -5714,4 +5723,5 @@ npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 ![[00 assets/a579ed5664732fe6498f793cd4649a11_MD5.jpeg]]
 
 7、按照这样的方式我们就搭建了一个很严密的`git`提交验证流程
+
 
