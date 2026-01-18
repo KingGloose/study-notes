@@ -4,25 +4,25 @@
 
 在人工智能领域，向量表征（Vector Representation）是核心概念之一。通过将文本、图像、声音、行为甚至复杂关系转化为高维向量（Embedding），AI系统能够以数学方式理解和处理现实世界中的复杂信息。这种表征方式为机器学习模型提供了统一的“语言”。
 
-![[00 assets/c0a25dcfc7f3209afcd11fb821a0c9bc_MD5.jpeg]]
+![[../00 assets/c0a25dcfc7f3209afcd11fb821a0c9bc_MD5.jpeg]]
 
-![[00 assets/b36bf1020d68a238095d66960481ff2c_MD5.jpeg]]
+![[../00 assets/b36bf1020d68a238095d66960481ff2c_MD5.jpeg]]
 
-![[00 assets/986e40411e086651a311c0af13a68c8e_MD5.jpeg]]
+![[../00 assets/986e40411e086651a311c0af13a68c8e_MD5.jpeg]]
 
 ## 1.2 向量概念
 
 向量是一种有大小和方向的数学对象。它可以表示为从一个点到另一个点的有向线段。例如，二维空间中的向量可以表示为 $(x,y)$，表示从原点 $(0,0)$ 到点 $(x,y)$ 的有向线段。
 
-![[00 assets/c83d0e6cd822de1db98093e92a54d10d_MD5.jpeg]]
+![[../00 assets/c83d0e6cd822de1db98093e92a54d10d_MD5.jpeg]]
 
 以此类推，我可以用一组坐标 $(x_0, x_1, \ldots, x_{N-1})$ 表示一个 $N$ 维空间中的向量，$N$ 叫向量的维度。
 
 ## 1.3 文本向量
 
-![[00 assets/db9b3346625a00602217fb3533b316cb_MD5.jpeg]]
+![[../00 assets/db9b3346625a00602217fb3533b316cb_MD5.jpeg]]
 
-![[00 assets/65cfbc8b2d08376e83ee510ca7851950_MD5.jpeg]]
+![[../00 assets/65cfbc8b2d08376e83ee510ca7851950_MD5.jpeg]]
 
 **余弦相似度 (a · b) / (||a|| × ||b||**)
 1、点积 (dot product)： a · b = Σ(ai × bi)
@@ -52,62 +52,62 @@
 ## 2.1 基本使用
 
 目前演示使用的 `硅基流动` 的 `model api` 来实现的针对数据向量化的计算，如果值越小就越接近
-![[00 assets/13030570bec5d64c2068b35aca32ce37_MD5.jpeg]]
+![[../00 assets/13030570bec5d64c2068b35aca32ce37_MD5.jpeg]]
 
 ## 2.2 基本介绍
 
-![[00 assets/df712733707a85fd4cd799d1e31c6c31_MD5.jpeg]]
+![[../00 assets/df712733707a85fd4cd799d1e31c6c31_MD5.jpeg]]
 
-![[00 assets/df3a1e958130f17dd515f927f6f5f6e1_MD5.jpeg]]
+![[../00 assets/df3a1e958130f17dd515f927f6f5f6e1_MD5.jpeg]]
 
 下面就是针对不同的需求，选择不同的 Embedding 模型来使用，目前可以进这个网站来看排名：[Hugging Face – The AI community building the future.](https://huggingface.co/)
 
-![[00 assets/073a516fd97841ad97e94dc1bdcd6d8d_MD5.jpeg]]
+![[../00 assets/073a516fd97841ad97e94dc1bdcd6d8d_MD5.jpeg]]
 
-![[00 assets/ba81cf28d5fdf2b63ff8cab206bef3cd_MD5.jpeg]]
+![[../00 assets/ba81cf28d5fdf2b63ff8cab206bef3cd_MD5.jpeg]]
 
 # 3 向量数据库
 
 ## 3.1 基本介绍
 
-![[00 assets/5b076931866d2646552bd4b09159fa24_MD5.jpeg]]
+![[../00 assets/5b076931866d2646552bd4b09159fa24_MD5.jpeg]]
 
-![[00 assets/9c26328ea731d983f74389410301ea85_MD5.jpeg]]
+![[../00 assets/9c26328ea731d983f74389410301ea85_MD5.jpeg]]
 
-![[00 assets/6670007312dd68325d25fb175277c513_MD5.jpeg]]
+![[../00 assets/6670007312dd68325d25fb175277c513_MD5.jpeg]]
 
 简单来说 milvus 可以支持一些重量级别的商业开发使用，如果是轻量级的话，使用 Chroma 向量数据库就行
-![[00 assets/0cd3918a605517b54e81e4010d5bdf36_MD5.jpeg]]
+![[../00 assets/0cd3918a605517b54e81e4010d5bdf36_MD5.jpeg]]
 
 ## 3.2 Chroma
 
 ### 3.2.1 基本介绍
 
-![[00 assets/bf990f603f4f9683775c430d4bf26ba8_MD5.jpeg]]
+![[../00 assets/bf990f603f4f9683775c430d4bf26ba8_MD5.jpeg]]
 
 ### 3.2.2 基本使用
 
 1、首先是安装，针对 nodejs 版本，windows 暂时不支持 x64 的版本，只能 arm64，这个时候安装 python 就行
-2、安装 python 可以参考 [[Python 切换版本]] 
-![[00 assets/f9f24e8c4a2dca0aa8e75299b1479122_MD5.jpeg]]
+2、安装 python 可以参考 [[../99 其他/Python 切换版本]] 
+![[../00 assets/f9f24e8c4a2dca0aa8e75299b1479122_MD5.jpeg]]
 
 3、我们安装完 python 之后，正常启动即可
-![[00 assets/7f8f21940862a9ac48c5d91b91083947_MD5.jpeg]]
+![[../00 assets/7f8f21940862a9ac48c5d91b91083947_MD5.jpeg]]
 
 如果你使用的 path 的话，可以看到，本质其实就是 `sqlite3` 来做的数据存储
-![[00 assets/fb93c2f748e6638fd2951bd84066aad6_MD5.jpeg]]
+![[../00 assets/fb93c2f748e6638fd2951bd84066aad6_MD5.jpeg]]
 
 4、因为 Chroma 内置了默认的 embedding 嵌入模型，但是我们这里使用自定义的模型，按照如下的方式编写即可，具体可以参考如下的内容：[Embedding Functions - Chroma Docs](https://docs.trychroma.com/docs/embeddings/embedding-functions?lang=typescript)
-![[00 assets/5f47dac5a1f97c3a7603b8be70af9959_MD5.jpeg]]
+![[../00 assets/5f47dac5a1f97c3a7603b8be70af9959_MD5.jpeg]]
 
 5、编写的代码基本和数据库基本一致，具体使用查看文档即可
-![[00 assets/ba689e2ad1215eda5c70854ed2718489_MD5.jpeg]]
+![[../00 assets/ba689e2ad1215eda5c70854ed2718489_MD5.jpeg]]
 
 其实在初始化的时候，也可以使用不同的算法，以及文本相似度如何计算，比如这里的 “余弦相似度”
-![[00 assets/c6461a2995100c819ddd100883b9048d_MD5.jpeg]]
+![[../00 assets/c6461a2995100c819ddd100883b9048d_MD5.jpeg]]
 
 最终执行的效果如下
-![[00 assets/c050cb67bce6a1d9694b034180d07a5e_MD5.jpeg]]
+![[../00 assets/c050cb67bce6a1d9694b034180d07a5e_MD5.jpeg]]
 
 ## 3.3 Milvus
 
@@ -117,7 +117,7 @@
 
 ## 4.1 基本介绍
 
-![[00 assets/698057c09a47de79ecba9e3d17fdbb65_MD5.jpeg]]
+![[../00 assets/698057c09a47de79ecba9e3d17fdbb65_MD5.jpeg]]
 
 > RAG 的优势是什么？
 
@@ -141,7 +141,7 @@
 - 上下文组装：将检索到的文本片段与用户问题结合，形成增强的上下文输入
 - 生成回答：大语言模型基于增强的上下文生成最终回答
 
-![[00 assets/4c0a6d006e6a3db41c7989b82ad66e93_MD5.jpeg]]
+![[../00 assets/4c0a6d006e6a3db41c7989b82ad66e93_MD5.jpeg]]
 
 ## 4.2 NativeRAG
 
@@ -150,14 +150,14 @@ NativeRAG的步骤：
 - Retrieval => 如何在大量的知识中，找到一小部分有用的，给到模型参考。
 - Generation => 如何结合用户的提问和检索到的知识，让模型生成有用的答案。
 
-![[00 assets/3f3c6087f9c729d597d1110306896b1b_MD5.jpeg]]
+![[../00 assets/3f3c6087f9c729d597d1110306896b1b_MD5.jpeg]]
 
 ## 4.3 LangChain
 
  ### 4.3.1 基本介绍
 
-![[00 assets/c01ff178a530924ffb18058ba4f26fca_MD5.jpeg]]
-![[00 assets/69b13762abb79652522c30243546e7df_MD5.jpeg]]
+![[../00 assets/c01ff178a530924ffb18058ba4f26fca_MD5.jpeg]]
+![[../00 assets/69b13762abb79652522c30243546e7df_MD5.jpeg]]
 
 ### 4.3.2 基本使用
 
@@ -215,7 +215,7 @@ NativeRAG的步骤：
 2、也可以使用商业的方案来实现
 阿里文档智能：https://www.aliyun.com/product/ai/docmind?spm=a2c4g.11174283.0.0.bfe667a8tIVMdG
 微软 LayoutLMv3：https://www.microsoft.com/en-us/research/articles/layoutlmv3/
-![[00 assets/9d3673b5660cc641866b6d74c5a0d6b8_MD5.jpeg]]
+![[../00 assets/9d3673b5660cc641866b6d74c5a0d6b8_MD5.jpeg]]
 
 
 ### 4.4.2 知识检索阶段
@@ -359,7 +359,7 @@ NativeRAG的步骤：
 
 ## 5.1 RAG 树
 
-![[00 assets/ae8d214be214455dd16e88487c902f9a_MD5.jpeg]]
+![[../00 assets/ae8d214be214455dd16e88487c902f9a_MD5.jpeg]]
 
 - RAG研究的技术树主要涉及预训练（Pre-training）、微调（Fine-tuning）和推理（Inference）等阶段。
 - 随着LLM的出现，RAG的研究最初侧重于利用LLMs强大的上下文学习能力，主要集中在推理阶段。
@@ -378,19 +378,19 @@ RAFT: Adapting Language Model to Domain Specific RAG, 2024 https://arxiv.org/pdf
 - 基于微调的方法通过“学习”来实现“记忆”输入文档或回答练习题而不参考文档。
 - 或者，基于上下文检索的方法未能利用固定领域所提供的学习机会，相当于参加开卷考试但没有事先复习。
 - 相比之下，我们的方法RAFT利用了微调与问答对，并在一个模拟的不完美检索环境中参考文档——从而有效地为开卷考试环境做准备。
-![[00 assets/e17043367143596221b67c604553206a_MD5.jpeg]]
+![[../00 assets/e17043367143596221b67c604553206a_MD5.jpeg]]
   
   让LLMs从一组正面和干扰文档中读取解决方案，这与标准的RAG设置形成对比，因为在标准的RAG设置中，模型是基于检索器输出进行训练的，这包含了记忆和阅读的混合体。在测试时，所有方法都遵循标准的RAG设置，即提供上下文中排名前k的检索文档。
 
-![[00 assets/1dbbe7ef6f18abe1697d2bfb086d1a32_MD5.jpeg]]
+![[../00 assets/1dbbe7ef6f18abe1697d2bfb086d1a32_MD5.jpeg]]
 
 微调数据集准备样例：
 
-![[00 assets/2b9a74278cd5a6969464b999e09a1a10_MD5.jpeg]]
+![[../00 assets/2b9a74278cd5a6969464b999e09a1a10_MD5.jpeg]]
 
 RAFT在所有专业领域的RAG性能上有所提升（在PubMed、HotPot、HuggingFace、Torch Hub和TensorflowHub等多个领域），领域特定的微调提高了基础模型的性能，RAFT无论是在有RAG的情况下还是没有RAG的情况下，都持续优于现有的领域特定微调方法。这表明了需要在上下文中训练模型。
 
-![[00 assets/d49098c9db6e161b63ed56b3aefa7028_MD5.jpeg]]
+![[../00 assets/d49098c9db6e161b63ed56b3aefa7028_MD5.jpeg]]
 
 **总结：**
 
@@ -512,19 +512,19 @@ for i, doc in enumerate(results):
 
 #### 5.3.6.1 离散索引
 
-![[00 assets/e3f41b67fadc7e466535fc58c2c5b821_MD5.jpeg]]
+![[../00 assets/e3f41b67fadc7e466535fc58c2c5b821_MD5.jpeg]]
 
 
 #### 5.3.6.2 混合索引召回
 
-![[00 assets/e17b1fdb9a0922c7e51cc44e3938d307_MD5.jpeg]]
+![[../00 assets/e17b1fdb9a0922c7e51cc44e3938d307_MD5.jpeg]]
 
 
 #### 5.3.6.3 Small-to-Big
 
-![[00 assets/77c18916051d5bc2cf46d138e7851570_MD5.jpeg]]
+![[../00 assets/77c18916051d5bc2cf46d138e7851570_MD5.jpeg]]
 
-![[00 assets/8cf6503d0fb0688fca65ed1eec54cf6c_MD5.jpeg]]
+![[../00 assets/8cf6503d0fb0688fca65ed1eec54cf6c_MD5.jpeg]]
 
 
 

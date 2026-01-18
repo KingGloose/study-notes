@@ -7291,17 +7291,17 @@
     ],
     "08 AI": [
       "08 AI/assets",
-      "08 AI/04 Skills.md",
-      "08 AI/01 理论知识.md",
-      "08 AI/02 RAG.md",
-      "08 AI/03 LangChain.md",
-      "08 AI/10 MCP.md"
+      "08 AI/理论知识.md",
+      "08 AI/Rag.md",
+      "08 AI/LangChain.md",
+      "08 AI/Skills.md",
+      "08 AI/MCP.md"
     ],
     "08 AI/assets": [
       "08 AI/assets/04 Skills"
     ],
     "08 AI/assets/04 Skills": [
-      "08 AI/assets/04 Skills/file-20260118224749335.jpg"
+      "08 AI/assets/Agent Skills/file-20260118225053049.jpg"
     ],
     "09 Python": [
       "09 Python/assets",
