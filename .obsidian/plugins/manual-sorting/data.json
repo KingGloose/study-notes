@@ -1,8 +1,8 @@
 {
   "customFileOrder": {
     "/": [
-      "项目",
       "00 assets",
+      "00 存稿",
       "01 基础",
       "02 算法",
       "03 前端",
@@ -7357,33 +7357,7 @@
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
     ],
-    "项目": [
-      "项目/Claude和GPT的区别"
-    ],
-    "项目/Claude和GPT的区别": [
-      "项目/Claude和GPT的区别/输出卡片",
-      "项目/Claude和GPT的区别/知识卡片",
-      "项目/Claude和GPT的区别/初始文档.md",
-      "项目/Claude和GPT的区别/内容白板.canvas",
-      "项目/Claude和GPT的区别/项目信息.md",
-      "项目/Claude和GPT的区别/最终成稿-Claude和GPT的区别.md"
-    ],
-    "项目/Claude和GPT的区别/输出卡片": [
-      "项目/Claude和GPT的区别/输出卡片/01-编程能力差异的技术根源",
-      "项目/Claude和GPT的区别/输出卡片/02-实际使用中的反转"
-    ],
-    "项目/Claude和GPT的区别/输出卡片/01-编程能力差异的技术根源": [
-      "项目/Claude和GPT的区别/输出卡片/01-编程能力差异的技术根源/01-架构相同，差异在哪？训练的五个关键环节.md",
-      "项目/Claude和GPT的区别/输出卡片/01-编程能力差异的技术根源/02-不是代码越多越好，数据质量的秘密.md"
-    ],
-    "项目/Claude和GPT的区别/输出卡片/02-实际使用中的反转": [
-      "项目/Claude和GPT的区别/输出卡片/02-实际使用中的反转/01-理论强但实际弱？Claude的_想太多_问题.md",
-      "项目/Claude和GPT的区别/输出卡片/02-实际使用中的反转/02-三个技术维度看_优势反转_.md"
-    ],
-    "项目/Claude和GPT的区别/知识卡片": [
-      "项目/Claude和GPT的区别/知识卡片/01. 同样是Transformer架构，为什么Claude编程能力更强？.md",
-      "项目/Claude和GPT的区别/知识卡片/02. Claude建构强但debug弱？理论优势在实际场景的反转.md"
-    ]
+    "00 存稿": []
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
