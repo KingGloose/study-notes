@@ -45,5 +45,6 @@
   "99 记录": "LiNotebook",
   "99 其他": "LiSmartphoneCharging",
   "99 求职": "LiWorkflow",
-  "09 Python": "LiAlarmSmoke"
+  "09 Python": "LiAlarmSmoke",
+  "00 存稿": "LiSmartphoneCharging"
 }
