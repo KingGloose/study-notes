@@ -99,8 +99,122 @@ class Product(BaseModel):
 - **更快写出可靠的后端接口**
 - **减少手动判断和转换**
 
+## pydantic_settings 有什么用
+
+`pydantic_settings` 是 Pydantic v2 推荐的“配置管理”方式。它专门用来读取环境变量、`.env` 文件、系统参数等，并把它们转换成强类型配置对象。你可以把它理解成“后端的环境变量表单 + 类型转换器”。
+
+常见用途：
+- 读取 `DATABASE_URL`、`REDIS_URL`、`SECRET_KEY` 等配置
+- 区分 dev / prod 配置
+- 统一管理配置，不再到处 `os.getenv`
+
+一个最小示例：
+
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    app_name: str = "my-app"
+    debug: bool = False
+    database_url: str
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+print(settings.database_url)
+```
+
+要点：
+- 如果环境变量中有 `DATABASE_URL`，会自动填充
+- 可以自动转换类型，比如 `"true"` -> `True`
+- `.env` 可以写开发环境的本地配置
+
+## ConfigDict 有什么用
+
+`ConfigDict` 是 Pydantic v2 中替代旧版 `class Config` 的新写法，用来控制“模型行为”。
+
+常见用途：
+- 是否允许多余字段
+- 是否开启严格类型校验
+- 是否允许从 ORM 对象读取
+
+示例：
+
+```python
+from pydantic import BaseModel, ConfigDict
+
+class User(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    id: int
+    name: str
+```
+
+解释：
+- `extra="forbid"`：不允许传入多余字段
+- `strict=True`：类型必须严格匹配，不做自动转换
+
+## 和 FastAPI 配合怎么用
+
+FastAPI 底层使用 Pydantic 来做请求/响应的数据校验，所以你只要写 Pydantic 模型，FastAPI 会自动帮你校验。
+
+### 1. 请求体校验
+
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class CreateUser(BaseModel):
+    username: str
+    age: int
+
+@app.post("/users")
+def create_user(payload: CreateUser):
+    return {"ok": True, "data": payload}
+```
+
+请求 `POST /users` 时：
+- 如果 `age` 传 `"18"`，会自动转成 int
+- 如果缺字段或类型错误，FastAPI 会返回 422
+
+### 2. 响应结构统一
+
+```python
+class UserOut(BaseModel):
+    id: int
+    username: str
+
+@app.get("/users/{user_id}", response_model=UserOut)
+def get_user(user_id: int):
+    return {"id": user_id, "username": "tom"}
+```
+
+返回数据会被 Pydantic 再校验一遍，保证输出结构稳定。
+
+### 3. 配置管理配合 FastAPI
+
+```python
+from fastapi import FastAPI
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    debug: bool = False
+    database_url: str
+
+settings = Settings()
+app = FastAPI()
+
+@app.get("/health")
+def health():
+    return {"debug": settings.debug}
+```
+
+FastAPI 里常见做法是把 `Settings` 做成单例或依赖注入，然后全局复用。
+
 如果你想继续学，我可以按你的学习路径讲：
-- 与 FastAPI 的配合使用
-- 自定义校验函数
 - 复杂嵌套数据结构
+- 自定义校验函数
 - 常见报错和调试思路
+- 配置管理的最佳实践（多环境、多文件）
