@@ -203,7 +203,7 @@ count.set(2);
 
 ([GitHub](https://github.com/johnsoncodehk/alien-signals-starter "GitHub - johnsoncodehk/alien-signals-starter"))
 
----
 
-如果你愿意，我可以用一张“依赖图 + dirty 标记传播”的小图（配合伪代码）把 **push 阶段 propagate** 和 **pull 阶段 checkDirty** 的执行顺序讲到你能“脑内单步调试”的程度；这玩意儿一旦懂了，你看 Vue 3.6 的响应式优化会非常有“啊哈”感。
+[Signals](../../03%20JavaScript/分支-JavaScript/Signals.md)
+
 
