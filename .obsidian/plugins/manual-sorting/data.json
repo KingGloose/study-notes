@@ -7277,8 +7277,13 @@
       "08 AI/assets/Skills/file-20260118225102062.jpg"
     ],
     "09 Python": [
+      "09 Python/服务开发",
       "09 Python/assets",
-      "09 Python/01 Python.md"
+      "09 Python/01 Python.md",
+      "09 Python/02 服务开发.md"
+    ],
+    "09 Python/服务开发": [
+      "09 Python/服务开发/pydantic.md"
     ],
     "09 Python/assets": [
       "09 Python/assets/01 Python"
