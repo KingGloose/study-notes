@@ -7283,6 +7283,7 @@
       "09 Python/02 框架开发.md"
     ],
     "09 Python/服务开发": [
+      "09 Python/服务开发/uvicorn.md",
       "09 Python/服务开发/pydantic.md"
     ],
     "09 Python/assets": [
