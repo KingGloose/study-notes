@@ -17,10 +17,7 @@
       "99 求职",
       "README.md"
     ],
-    "00 学习": [
-      "00 学习/依赖追踪更精准.md",
-      "00 学习/Vue3.6 响应式重构.md"
-    ],
+    "00 学习": [],
     "00 assets": [
       "00 assets/b8959d288306dea3c4553cd64e299bda_MD5.jpeg",
       "00 assets/1b11d480eaf744f3a231a396e0001700_MD5.jpeg",
@@ -7112,6 +7109,7 @@
       "03 前端/03 JavaScript/分支-ECMAScript/ES12.md"
     ],
     "03 前端/03 JavaScript/分支-JavaScript": [
+      "03 前端/03 JavaScript/分支-JavaScript/Signals.md",
       "03 前端/03 JavaScript/分支-JavaScript/事件绑定.md",
       "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
       "03 前端/03 JavaScript/分支-JavaScript/迭代器.md",
@@ -7150,6 +7148,7 @@
     ],
     "03 前端/05 Vue/分支-Vue": [
       "03 前端/05 Vue/分支-Vue/assets",
+      "03 前端/05 Vue/分支-Vue/Signals 响应式.md",
       "03 前端/05 Vue/分支-Vue/effectScope.md",
       "03 前端/05 Vue/分支-Vue/toRef toRefs.md",
       "03 前端/05 Vue/分支-Vue/Vue 原理.md",
