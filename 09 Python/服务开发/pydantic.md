@@ -1,19 +1,6 @@
 # Pydantic 学习笔记
 
-## 目录
-
-1. 什么是 Pydantic
-2. 适合前端转后端的新手理解方式
-3. 最小示例：定义模型与自动转换
-4. 常见场景：请求体校验
-5. 常见场景：响应结构统一
-6. 常用校验规则
-7. pydantic_settings：配置管理
-8. ConfigDict：模型行为配置
-9. 与 FastAPI 配合使用
-10. 小结
-
-## 1. 什么是 Pydantic
+## 1、介绍
 
 Pydantic 是一个用来做“数据校验 + 类型转换”的 Python 库。它会根据你写的类型标注（type hints）检查输入数据是否符合要求，不符合就报错；如果可以自动转换（比如 "123" -> int），它会帮你转换。
 
@@ -23,14 +10,9 @@ Pydantic 是一个用来做“数据校验 + 类型转换”的 Python 库。它
 - **自动转换**：减少手动处理字符串、数字、日期的麻烦
 - **提升可读性**：类型标注 + 校验规则，一眼能看懂
 
-## 2. 适合前端转后端的新手理解方式
+## 2、使用
 
-你可以把 Pydantic 想成：
-- 前端的 `PropTypes`/`TypeScript` + 表单校验规则
-- 后端每次收到请求数据，都需要“确认结构正确 + 类型正确”
-- Pydantic 让这件事变成“声明式”
-
-## 3. 最小示例：定义模型与自动转换
+最小示例：定义模型与自动转换
 
 ```python
 from pydantic import BaseModel
@@ -53,58 +35,9 @@ id=1 name='Alice' age=20
 - 输入是字符串，Pydantic 自动转成 `int`
 - 如果传入不能转换的值，会直接报错
 
-## 4. 常见场景：请求体校验
+## 3、配置管理
 
-```python
-from pydantic import BaseModel, EmailStr
-
-class RegisterForm(BaseModel):
-    username: str
-    email: EmailStr
-    password: str
-
-payload = {
-    "username": "tom",
-    "email": "not-an-email",
-    "password": "123456"
-}
-
-RegisterForm(**payload)  # 会抛出校验错误
-```
-
-## 5. 常见场景：响应结构统一
-
-```python
-class UserResponse(BaseModel):
-    id: int
-    name: str
-
-user = UserResponse(id=1, name="Bob")
-print(user.model_dump())
-```
-
-## 6. 常用校验规则
-
-```python
-from pydantic import BaseModel, Field
-
-class Product(BaseModel):
-    name: str
-    price: float = Field(gt=0)
-    stock: int = Field(ge=0)
-```
-
-常用校验参数：
-- `gt`: 大于
-- `ge`: 大于等于
-- `lt`: 小于
-- `le`: 小于等于
-- `min_length`: 字符串最小长度
-- `max_length`: 字符串最大长度
-
-## 7. pydantic_settings：配置管理
-
-`pydantic_settings` 是 Pydantic v2 推荐的“配置管理”方式。它用来读取环境变量、`.env` 文件、系统参数，并把它们转换成强类型配置对象。
+`pydantic_settings` 是 Pydantic v2 推荐的“配置管理”方式，用来读取环境变量、`.env` 文件、系统参数，并把它们转换成强类型配置对象。
 
 ```python
 from pydantic_settings import BaseSettings
@@ -126,9 +59,7 @@ print(settings.database_url)
 - 类型会自动转换，比如 `"true"` -> `True`
 - `.env` 适合本地开发
 
-## 8. ConfigDict：模型行为配置
-
-`ConfigDict` 是 Pydantic v2 中替代旧版 `class Config` 的写法，用来控制模型行为。
+`ConfigDict` 用来控制模型行为（Pydantic v2 新写法）：
 
 ```python
 from pydantic import BaseModel, ConfigDict
@@ -143,11 +74,11 @@ class User(BaseModel):
 - `extra="forbid"`：不允许传入多余字段
 - `strict=True`：类型必须严格匹配，不做自动转换
 
-## 9. 与 FastAPI 配合使用
+## 4、FastAPI 配置
 
-FastAPI 底层使用 Pydantic 来做请求/响应的数据校验，你只要写模型即可。
+FastAPI 底层使用 Pydantic 来做请求/响应数据校验，你只要写模型即可。
 
-### 9.1 请求体校验
+请求体校验：
 
 ```python
 from fastapi import FastAPI
@@ -164,11 +95,7 @@ def create_user(payload: CreateUser):
     return {"ok": True, "data": payload}
 ```
 
-请求 `POST /users` 时：
-- 如果 `age` 传 `"18"`，会自动转成 int
-- 如果缺字段或类型错误，FastAPI 会返回 422
-
-### 9.2 响应结构统一
+响应结构统一：
 
 ```python
 class UserOut(BaseModel):
@@ -180,7 +107,7 @@ def get_user(user_id: int):
     return {"id": user_id, "username": "tom"}
 ```
 
-### 9.3 配置管理配合 FastAPI
+配置管理配合 FastAPI：
 
 ```python
 from fastapi import FastAPI
@@ -198,11 +125,7 @@ def health():
     return {"debug": settings.debug}
 ```
 
-常见做法：
-- 把 `Settings` 做成单例
-- 或作为依赖注入到路由
-
-## 10. 小结
+## 5、总结
 
 - Pydantic 负责“数据校验 + 类型转换”
 - `pydantic_settings` 负责“配置管理 + 环境变量读取”
