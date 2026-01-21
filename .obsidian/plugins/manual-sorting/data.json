@@ -7277,20 +7277,21 @@
       "08 AI/assets/Skills/file-20260118225102062.jpg"
     ],
     "09 Python": [
-      "09 Python/服务开发",
+      "09 Python/基础语法",
+      "09 Python/框架开发",
       "09 Python/assets",
-      "09 Python/01 Python.md",
+      "09 Python/01 基础语法.md",
       "09 Python/02 框架开发.md"
     ],
-    "09 Python/服务开发": [
-      "09 Python/服务开发/uvicorn.md",
-      "09 Python/服务开发/pydantic.md"
+    "09 Python/框架开发": [
+      "09 Python/框架开发/uvicorn.md",
+      "09 Python/框架开发/pydantic.md"
     ],
     "09 Python/assets": [
       "09 Python/assets/01 Python"
     ],
     "09 Python/assets/01 Python": [
-      "09 Python/assets/01 Python/file-20251227194200058.jpg"
+      "09 Python/assets/01 基础语法/file-20260121144128382.jpg"
     ],
     "99 记录": [
       "99 记录/01 技术记录.md",
@@ -7365,7 +7366,8 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ]
+    ],
+    "09 Python/基础语法": []
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
