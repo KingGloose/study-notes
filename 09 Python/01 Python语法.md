@@ -1,6 +1,2 @@
 # 1 基础语法
 
-
-
-
-www.baidu.com
