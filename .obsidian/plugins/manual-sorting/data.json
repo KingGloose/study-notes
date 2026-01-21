@@ -7281,6 +7281,7 @@
       "09 Python/框架开发",
       "09 Python/assets",
       "09 Python/01 Python语法.md",
+      "09 Python/02 环境配置.md",
       "09 Python/02 框架开发.md"
     ],
     "09 Python/框架开发": [
@@ -7288,11 +7289,12 @@
       "09 Python/框架开发/pydantic.md"
     ],
     "09 Python/assets": [
-      "09 Python/assets/01 Python"
+      "09 Python/assets/01 Python语法"
     ],
-    "09 Python/assets/01 Python": [
-      "09 Python/assets/01 基础语法/file-20260121144128382.jpg"
+    "09 Python/assets/01 Python语法": [
+      "09 Python/assets/01 Python语法/file-20260121144908907.jpg"
     ],
+    "09 Python/Python语法": [],
     "99 记录": [
       "99 记录/01 技术记录.md",
       "99 记录/02 技术扩展.md"
@@ -7366,8 +7368,7 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ],
-    "09 Python/Python语法": []
+    ]
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
