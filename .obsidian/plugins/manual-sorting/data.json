@@ -7294,7 +7294,27 @@
     "09 Python/assets/01 Python语法": [
       "09 Python/assets/01 Python语法/file-20260121144908907.jpg"
     ],
-    "09 Python/Python语法": [],
+    "09 Python/Python语法": [
+      "09 Python/Python语法/常用内置函数与惯用法.md",
+      "09 Python/Python语法/类型标注（typing）.md",
+      "09 Python/Python语法/类与对象（class）.md",
+      "09 Python/Python语法/文件与路径（open、pathlib）.md",
+      "09 Python/Python语法/上下文管理器（with）.md",
+      "09 Python/Python语法/函数定义与参数.md",
+      "09 Python/Python语法/模块与包（import）.md",
+      "09 Python/Python语法/异常处理（try、except、finally、raise）.md",
+      "09 Python/Python语法/作用域（LEGB）与可变、不可变.md",
+      "09 Python/Python语法/推导式（comprehensions）.md",
+      "09 Python/Python语法/切片（slice）.md",
+      "09 Python/Python语法/条件语句（if、elif、else）.md",
+      "09 Python/Python语法/循环（for、while）与 range、enumerate.md",
+      "09 Python/Python语法/字符串基础与格式化（f-string）.md",
+      "09 Python/Python语法/变量与赋值.md",
+      "09 Python/Python语法/常用容器类型（list、tuple、dict、set）.md",
+      "09 Python/Python语法/基本数据类型.md",
+      "09 Python/Python语法/运算符.md",
+      "09 Python/Python语法/注释与文档字符串（docstring）.md"
+    ],
     "99 记录": [
       "99 记录/01 技术记录.md",
       "99 记录/02 技术扩展.md"

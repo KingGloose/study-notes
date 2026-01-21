@@ -2,6 +2,8 @@
 
 ## 变量与赋值
 
+详见：[[Python语法/变量与赋值]]
+
 ```py
 x = 1
 name = "Alice"
@@ -11,6 +13,8 @@ x, y = y, x          # 交换
 
 ## 基本数据类型
 
+详见：[[Python语法/基本数据类型]]
+
 ```py
 num = 1          # int
 pi = 3.14        # float
@@ -19,7 +23,9 @@ empty = None     # NoneType
 text = "hi"      # str
 ```
 
-## 常用容器类型（list/tuple/dict/set）
+## 常用容器类型（list、tuple、dict、set）
+
+详见：[[Python语法/常用容器类型（list、tuple、dict、set）]]
 
 ```py
 nums = [1, 2, 3]                 # list: 可变
@@ -30,6 +36,8 @@ tags = {"py", "web"}            # set: 去重、集合运算
 
 ## 运算符
 
+详见：[[Python语法/运算符]]
+
 ```py
 1 + 2, 3 - 1, 2 * 3, 5 / 2, 5 // 2, 5 % 2, 2 ** 3
 a and b, a or b, not a
@@ -38,6 +46,8 @@ a is None
 ```
 
 ## 注释与文档字符串（docstring）
+
+详见：[[Python语法/注释与文档字符串（docstring）]]
 
 ```py
 # 单行注释
@@ -49,13 +59,17 @@ def add(a: int, b: int) -> int:
 
 ## 字符串基础与格式化（f-string）
 
+详见：[[Python语法/字符串基础与格式化（f-string）]]
+
 ```py
 s = "Hello"
 name = "Bob"
 msg = f"{s}, {name}!"
 ```
 
-## 条件语句（if/elif/else）
+## 条件语句（if、elif、else）
+
+详见：[[Python语法/条件语句（if、elif、else）]]
 
 ```py
 score = 85
@@ -67,7 +81,9 @@ else:
     level = "C"
 ```
 
-## 循环（for/while）与 range/enumerate
+## 循环（for、while）与 range、enumerate
+
+详见：[[Python语法/循环（for、while）与 range、enumerate]]
 
 ```py
 for i in range(3):
@@ -84,6 +100,8 @@ while n > 0:
 
 ## 切片（slice）
 
+详见：[[Python语法/切片（slice）]]
+
 ```py
 arr = [0, 1, 2, 3, 4]
 arr[1:4]     # [1, 2, 3]
@@ -94,6 +112,8 @@ arr[::-1]    # 反转
 
 ## 推导式（comprehensions）
 
+详见：[[Python语法/推导式（comprehensions）]]
+
 ```py
 squares = [x * x for x in range(5) if x % 2 == 0]
 mapping = {x: x * x for x in range(3)}
@@ -101,6 +121,8 @@ unique = {c for c in "abca"}
 ```
 
 ## 函数定义与参数
+
+详见：[[Python语法/函数定义与参数]]
 
 ```py
 def greet(name, prefix="Hi"):
@@ -113,7 +135,9 @@ greet("Alice")
 greet(name="Bob", prefix="Hello")
 ```
 
-## 作用域（LEGB）与可变/不可变
+## 作用域（LEGB）与可变、不可变
+
+详见：[[Python语法/作用域（LEGB）与可变、不可变]]
 
 ```py
 x = 10
@@ -129,6 +153,8 @@ def outer():
 
 ## 模块与包（import）
 
+详见：[[Python语法/模块与包（import）]]
+
 ```py
 import math
 from datetime import datetime
@@ -137,7 +163,9 @@ from pathlib import Path
 print(math.sqrt(9))
 ```
 
-## 异常处理（try/except/finally/raise）
+## 异常处理（try、except、finally、raise）
+
+详见：[[Python语法/异常处理（try、except、finally、raise）]]
 
 ```py
 try:
@@ -150,12 +178,16 @@ finally:
 
 ## 上下文管理器（with）
 
+详见：[[Python语法/上下文管理器（with）]]
+
 ```py
 with open("demo.txt", "w", encoding="utf-8") as f:
     f.write("hello")
 ```
 
-## 文件与路径（open/pathlib）
+## 文件与路径（open、pathlib）
+
+详见：[[Python语法/文件与路径（open、pathlib）]]
 
 ```py
 from pathlib import Path
@@ -165,6 +197,8 @@ print(p.exists())
 ```
 
 ## 类与对象（class）
+
+详见：[[Python语法/类与对象（class）]]
 
 ```py
 class User:
@@ -180,6 +214,8 @@ u.hello()
 
 ## 类型标注（typing）
 
+详见：[[Python语法/类型标注（typing）]]
+
 ```py
 from typing import Optional
 
@@ -188,6 +224,8 @@ def find_user(user_id: int) -> Optional[str]:
 ```
 
 ## 常用内置函数与惯用法
+
+详见：[[Python语法/常用内置函数与惯用法]]
 
 ```py
 len([1, 2, 3])
