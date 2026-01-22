@@ -38,6 +38,64 @@ print(p.exists())
 p.parent.mkdir(parents=True, exist_ok=True)
 ```
 
+## 逐行读取：把文件对象当 iterable
+
+很多前端同学会习惯 `read()` 一次性读完；Python 更常逐行：
+
+```py
+with open("a.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        line = line.rstrip("\n")
+        print(line)
+```
+
+## newline / encoding：跨平台最常见问题
+
+- 文本模式下建议显式 `encoding="utf-8"`
+- Windows/Unix 换行差异可以用 `newline` 控制；多数场景不用管，但遇到 CSV/协议文本时要记得它存在
+
+## Path 的常用能力（比字符串拼接安全）
+
+```py
+from pathlib import Path
+
+p = Path("data")
+
+# 遍历目录
+for child in p.iterdir():
+    print(child)
+
+# 递归 glob
+for md in p.rglob("*.md"):
+    print(md)
+
+# 读写快捷方法（适合小文件）
+text = (p / "a.txt").read_text(encoding="utf-8")
+(p / "b.txt").write_text(text, encoding="utf-8")
+```
+
+> [!warning] read_text/write_text 适合小文件
+> 大文件仍建议用 `open()` 流式处理，避免内存暴涨。
+
+## 常见数据格式：JSON（前端很熟悉）
+
+```py
+import json
+from pathlib import Path
+
+data = {"a": 1}
+Path("data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+obj = json.loads(Path("data.json").read_text(encoding="utf-8"))
+print(obj["a"])
+```
+
+## 小练习
+
+1. 写一个脚本：遍历某目录下所有 `.md` 文件，统计总行数（提示：`Path.rglob` + 逐行读取）。
+2. 写一个函数 `read_json(path: Path) -> dict` 和 `write_json(path: Path, obj: dict) -> None`。
+3. 写一个“安全写文件”：写到临时文件后再 rename（了解原子替换概念）。
+
 ## 对应到 Node
 
 ```ts
