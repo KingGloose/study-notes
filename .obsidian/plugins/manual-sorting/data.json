@@ -7277,6 +7277,7 @@
       "08 AI/assets/Skills/file-20260118225102062.jpg"
     ],
     "09 Python": [
+      "09 Python/环境配置",
       "09 Python/Python语法",
       "09 Python/框架开发",
       "09 Python/assets",
@@ -7289,6 +7290,7 @@
       "09 Python/框架开发/pydantic.md"
     ],
     "09 Python/assets": [
+      "09 Python/assets/未命名.md",
       "09 Python/assets/01 Python语法"
     ],
     "09 Python/assets/01 Python语法": [
@@ -7388,7 +7390,8 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ]
+    ],
+    "09 Python/环境配置": []
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
