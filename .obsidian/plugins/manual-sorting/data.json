@@ -7109,6 +7109,7 @@
       "03 前端/03 JavaScript/分支-ECMAScript/ES12.md"
     ],
     "03 前端/03 JavaScript/分支-JavaScript": [
+      "03 前端/03 JavaScript/分支-JavaScript/defer async 深度理解.md",
       "03 前端/03 JavaScript/分支-JavaScript/Signals.md",
       "03 前端/03 JavaScript/分支-JavaScript/事件绑定.md",
       "03 前端/03 JavaScript/分支-JavaScript/MessageChannel.md",
@@ -7285,6 +7286,12 @@
       "09 Python/02 环境配置.md",
       "09 Python/03 框架开发.md"
     ],
+    "09 Python/环境配置": [
+      "09 Python/环境配置/环境方案对比与选择.md",
+      "09 Python/环境配置/pyenv.md",
+      "09 Python/环境配置/uv.md",
+      "09 Python/环境配置/venv 与 pip.md"
+    ],
     "09 Python/框架开发": [
       "09 Python/框架开发/uvicorn.md",
       "09 Python/框架开发/pydantic.md"
@@ -7390,8 +7397,7 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ],
-    "09 Python/环境配置": []
+    ]
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
