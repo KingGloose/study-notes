@@ -76,6 +76,27 @@ API 文档里明确提到：**全局 pause 是通过原子 RENAME 把 wait 队�
 如果你想在“某个独立服务/进程”里监听所有 worker 的完成/失败事件，BullMQ 提供 `QueueEvents`，并且官方写明它是 **用 Redis Streams 实现**，相对标准 pub/sub 在断线场景下有“事件不易丢”的性质（并且会自动 trim）。([docs.bullmq.io](https://docs.bullmq.io/guide/events "Events | BullMQ"))
 
 
+## 3.3 Redis 原子操作
+
+就是 Redis 自带的那些基础指令集（不用额外模块）——每条命令本身都是原子执行的，但**多条命令的组合**就不天然原子了。
+
+BullMQ 里你会反复遇到这些典型命令（举例）
+- **LIST（列表）**：`LPUSH/RPUSH/LPOP/RPOP/BRPOPLPUSH` —— 用来当“等待队列 wait、执行队列 active”等
+- **ZSET（有序集合）**：`ZADD/ZRANGEBYSCORE/ZREM` —— 用来做“延迟队列 delayed（按时间排序）/优先级”等
+- **HASH/STRING**：`HSET/HGET/SET` —— 存 job 元数据、锁 token、计数器等
+- **RENAME**：把一个 key 原子改名（暂停队列就靠它）BullMQ 文档明确说全局 pause 用的是对 wait key 的 **原子 RENAME**，并且 worker 取任务用 **BRPOPLPUSH** 阻塞等任务，所以一旦 wait 被 rename 成 paused，worker 就“等不到新任务了”。
+
+
+## 3.4 Lua 扮演的角色
+
+**一句话**：把“需要多条 Redis 命令才能完成的一次状态迁移”，塞进 Redis 服务器端用 Lua 一口气做完，达到：
+1. **原子性**：脚本执行期间不会被别的客户端命令插队（等价于“这坨操作要么全发生，要么全不发生”）
+2. **一致性**：不会出现“我已经 LPOP 了，但还没来得及 HSET / 加锁 / 发事件就宕机”的半状态
+3. **少 RTT**：不需要 Node ↔ Redis 往返 N 次
+
+BullMQ 自己在 API 文档里就直接点名：**加 job 需要 Lua 脚本**，因为要先检查 paused 列表是否存在、再决定是进 wait 还是进 paused。同样地，像 `moveToActive`（把任务从 wait 搬到 active 并加锁）这一类核心迁移，在 `Scripts` API 里也能看到：它调用脚本时必须带 **token**。你可以把 Lua 脚本理解成：**BullMQ 的“状态机事务”**。
+
+
 
 # 4 实际落地
 
