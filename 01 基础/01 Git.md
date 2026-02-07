@@ -688,3 +688,15 @@ exit				// exit 退出
 **解决**：进入到`github`中，`fork`一个新的仓库，然后`clone`你`fork`的仓库，编写之后进行提交，最后在主仓库中的`pr`进行合并对比提交即可
 
 **资料**：pr 操作：[向 GitHub 等远程仓库提交 PR 具体操作 - 掘金 (juejin.cn)](https://juejin.cn/post/7196868559125200952)
+
+
+## 2.  unable to access
+
+![](assets/01%20Git/file-20260207215122539.jpg)
+
+这个是 git 拉取 github 中的代码，你可以发现没办法拉取，这个是因为网络环境的问题；打开 Clash / V2Ray 等，确认系统代理或本地监听端口是 7890（或你在用的端口）
+
+```bash
+git config --global http.proxy http://127.0.0.1:7891
+git config --global https.proxy http://127.0.0.1:7891
+```
