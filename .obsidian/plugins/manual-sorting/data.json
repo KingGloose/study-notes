@@ -7056,7 +7056,6 @@
       "02 算法/node_modules/hy-algokit/lib/testSearch.ts"
     ],
     "03 前端": [
-      "03 前端/99 业务",
       "03 前端/01 HTML",
       "03 前端/02 CSS",
       "03 前端/03 JavaScript",
@@ -7077,7 +7076,8 @@
       "03 前端/18 Webpack",
       "03 前端/19 Vite",
       "03 前端/20 微前端",
-      "03 前端/99 公共"
+      "03 前端/99 公共",
+      "03 前端/99 业务"
     ],
     "03 前端/01 HTML": [
       "03 前端/01 HTML/分支-HTML",
@@ -7213,7 +7213,8 @@
       "03 前端/07 NodeJS/Express.md",
       "03 前端/07 NodeJS/Koa.md",
       "03 前端/07 NodeJS/NestJS.md",
-      "03 前端/07 NodeJS/NodeJS.md"
+      "03 前端/07 NodeJS/NodeJS.md",
+      "03 前端/07 NodeJS/BullMQ.md"
     ],
     "03 前端/07 NodeJS/分支-NodeJS": [
       "03 前端/07 NodeJS/分支-NodeJS/模块依赖.md",
