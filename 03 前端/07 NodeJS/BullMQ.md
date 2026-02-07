@@ -96,6 +96,32 @@ BullMQ 里你会反复遇到这些典型命令（举例）
 
 BullMQ 自己在 API 文档里就直接点名：**加 job 需要 Lua 脚本**，因为要先检查 paused 列表是否存在、再决定是进 wait 还是进 paused。同样地，像 `moveToActive`（把任务从 wait 搬到 active 并加锁）这一类核心迁移，在 `Scripts` API 里也能看到：它调用脚本时必须带 **token**。你可以把 Lua 脚本理解成：**BullMQ 的“状态机事务”**。
 
+## 3.5 事件总线用 Redis Streams
+
+> Redis Streams 是什么？
+
+Redis Streams 是 Redis 的一种数据结构：你可以把它当成一个**可持久化的追加日志（append-only log）**。常见用法是：
+- `XADD`：往流里追加一条事件（自动生成递增的 event id）
+- `XREAD BLOCK ... STREAMS key lastId`：从某个 id 之后开始读（可阻塞等待新事件）
+
+它和 Redis Pub/Sub 最大的区别：**断线后不容易丢消息**（因为流里还留着历史事件，你可以从 lastId 续读）。
+
+> BullMQ 的 QueueEvents 为什么是 Streams？
+
+BullMQ 官方文档直接说：`QueueEvents` 是用 **Redis Streams** 实现的，这样能提供“事件不会像标准 pub-sub 那样在断线时丢失”的保证。
+
+并且：
+- `QueueEventsOptions` 里明确提到：它内部有一个对 events stream 的 **blocking XREAD**，还可以通过 `lastEventId` 从指定位置续消费。
+- 因为要用阻塞读取（XREAD BLOCK），所以 `QueueEvents` 需要**专用的 blocking Redis 连接**，官方 connections 文档也强调 QueueEvents/QueueScheduler 不能复用普通连接。
+
+另外文档还提醒：事件流会被自动裁剪（默认约 10,000 条），可用 `streams.events.maxLen` 配置；如果你消费得太慢，可能会出现“等不到 finished 事件”之类的现象。
+
+> BullMQ 怎么“实现事件总线”的（高层视角）
+
+- 当 job 状态发生变化（added/active/progress/completed/failed…），BullMQ 在 Redis 侧把一条事件写进某个 `events` stream（你可以理解为 `XADD queue:events ...`）
+- `QueueEvents` 在另一条专用连接上用 `XREAD BLOCK` 不断拉取新事件，然后在 Node 进程内把它们转成 EventEmitter 事件触发
+
+这就是“事件总线”的形态：**一个持久化的事件日志 + 一个持续消费的监听器**。
 
 
 # 4 实际落地
