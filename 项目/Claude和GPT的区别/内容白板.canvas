@@ -1,9 +1,0 @@
-{
-	"nodes":[
-		{"id":"node1","type":"file","file":"vibe-writing-Tasihi/项目/Claude和GPT的区别/输出卡片/01-编程能力差异的技术根源/02-不是代码越多越好，数据质量的秘密.md","x":100,"y":100,"width":620,"height":620,"color":"2"},
-		{"id":"node2","type":"file","file":"vibe-writing-Tasihi/项目/Claude和GPT的区别/输出卡片/02-实际使用中的反转/02-三个技术维度看\"优势反转\".md","x":100,"y":960,"width":620,"height":600,"color":"2"}
-	],
-	"edges":[
-		{"id":"edge1","fromNode":"node1","fromSide":"bottom","toNode":"node2","toSide":"top","label":"「理论优势在实际场景中会反转吗？」"}
-	]
-}
