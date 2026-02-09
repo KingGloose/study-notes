@@ -7182,6 +7182,7 @@
       "03 前端/05 Vue/Vuex.md"
     ],
     "03 前端/05 Vue/分支-Vue": [
+      "03 前端/05 Vue/分支-Vue/Signals 响应式.md",
       "03 前端/05 Vue/分支-Vue/effectScope.md",
       "03 前端/05 Vue/分支-Vue/assets",
       "03 前端/05 Vue/分支-Vue/toRef toRefs.md",
@@ -7316,6 +7317,9 @@
       "08 AI/assets/Skills/file-20260118225102062.jpg"
     ],
     "09 Python": [
+      "09 Python/01 Python语法.md",
+      "09 Python/02 环境配置.md",
+      "09 Python/03 框架开发.md",
       "09 Python/环境配置",
       "09 Python/框架开发",
       "09 Python/Python语法",
