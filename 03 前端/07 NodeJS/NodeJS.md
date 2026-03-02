@@ -4462,6 +4462,22 @@ rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 
 参考网上的文章，这里就不去赘述了
 
+
+## 17.6 Redis
+
+和安装 “mysql” 基本一致 
+
+```bash
+dnf info redis
+
+dnf install redis
+
+systemctl start redis
+
+redis-cli ping
+```
+
+
 # 其他
 
 ## 1. pm2
