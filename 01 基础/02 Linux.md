@@ -163,3 +163,10 @@
 4、而且`#`表示是超级用户，而普通用户为`$`
 
 # 3. 常见命令
+
+
+# 4. Docker Compose
+
+docker compose up -d
+
+docker compose ps
