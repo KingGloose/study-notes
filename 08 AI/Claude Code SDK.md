@@ -1,4 +1,46 @@
+# 1 基本使用
 
+下面就是实现的一个最基础的 Claude Code SDK 内容，主要是询问文件夹有哪些文件：
+
+```javascript
+import { query } from "@anthropic-ai/claude-agent-sdk";
+
+const toolAgent = query({
+  prompt: "What files are in this directory?",
+  options: {
+    cwd: process.cwd(),
+    allowedTools: ["Bash", "Glob"],
+    env: {
+      // 如果不传入 process.env 会导致找不到 node_modules 的 .node 文件，报错 Is options.pathToClaudeCodeExecutable set
+      ...process.env,
+      ANTHROPIC_API_KEY: "sk-47a377628eef44b6814811f166237ed1",
+      ANTHROPIC_BASE_URL: "https://dashscope.aliyuncs.com/apps/anthropic",
+      API_TIMEOUT_MS: "600000",
+      CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1",
+    },
+    model: 'glm-5'
+  },
+});
+
+for await (const message of toolAgent) {
+  console.log(message);
+  if ("result" in message) console.log(message.result);
+}
+
+```
+
+那么针对这里的 message 有哪些内容呢？
+![](assets/Claude%20Code%20SDK/file-20260320175856218.jpg)
+
+
+
+
+
+
+
+# 99 其他
+
+## 99.1 Anthropic / OpenAI 协议区别
 
 基础 Anthropic 风格接口在 SiliconFlow 上是可用的，但 **SiliconFlow 的“Claude Code / Claude Agent SDK 兼容层”没有把真实 Claude Code 请求形态完整跑通**；本地 SDK/CLI 确实会发送比最小 /v1/messages 更复杂的请求，但当前报错文本本身是上游返回的，不是我们本地代码凭空生成的。[Anthropic Messages API](https://docs.anthropic.com/en/api/messages-examples) [SiliconFlow Messages](https://docs.siliconflow.cn/cn/api-reference/chat-completions/messages) [SiliconFlow Claude Code](https://docs.siliconflow.cn/cn/usercases/use-siliconcloud-in-ClaudeCode)
 
