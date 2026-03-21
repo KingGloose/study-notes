@@ -29,8 +29,259 @@ for await (const message of toolAgent) {
 
 ```
 
-那么针对这里的 message 有哪些内容呢？
-![](assets/Claude%20Code%20SDK/file-20260320175856218.jpg)
+下面就是针对这里的 message 中的内容
+
+```bash
+{
+  "type": "system",
+  "subtype": "init",
+  "cwd": "/Users/zhangjiahui04/测试代码/claude-code-sdk",
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "tools": [
+    "Task",
+    "TaskOutput",
+    "Bash",
+    "Glob",
+    "Grep",
+    "ExitPlanMode",
+    "Read",
+    "Edit",
+    "Write",
+    "NotebookEdit",
+    "WebFetch",
+    "TodoWrite",
+    "WebSearch",
+    "TaskStop",
+    "AskUserQuestion",
+    "Skill",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitWorktree",
+    "CronCreate",
+    "CronDelete",
+    "CronList"
+  ],
+  "mcp_servers": [],
+  "model": "glm-5",
+  "permissionMode": "default",
+  "slash_commands": [
+    "update-config",
+    "debug",
+    "simplify",
+    "batch",
+    "loop",
+    "claude-api",
+    "compact",
+    "context",
+    "cost",
+    "heapdump",
+    "init",
+    "pr-comments",
+    "release-notes",
+    "review",
+    "security-review",
+    "insights"
+  ],
+  "apiKeySource": "ANTHROPIC_API_KEY",
+  "claude_code_version": "2.1.80",
+  "output_style": "default",
+  "agents": [
+    "general-purpose",
+    "statusline-setup",
+    "Explore",
+    "Plan"
+  ],
+  "skills": [
+    "update-config",
+    "debug",
+    "simplify",
+    "batch",
+    "loop",
+    "claude-api"
+  ],
+  "plugins": [],
+  "uuid": "f0f6b35b-c668-42f7-8cf7-bd9d362ea109",
+  "fast_mode_state": "off"
+}
+-------
+{
+  "type": "assistant",
+  "message": {
+    "model": "glm-5",
+    "id": "msg_57c9da7e-ae8e-4bd9-b850-4b5f63692c46",
+    "role": "assistant",
+    "type": "message",
+    "content": [
+      {
+        "type": "thinking",
+        "signature": "",
+        "thinking": "The user is asking what files are in the current directory. I should use the Bash tool with `ls` to list the files in the current working directory."
+      }
+    ],
+    "usage": {
+      "input_tokens": 16884,
+      "output_tokens": 0
+    },
+    "context_management": null
+  },
+  "parent_tool_use_id": null,
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "uuid": "c7cc4dae-c789-4c39-8d43-8ee7edc745e0"
+}
+-------
+{
+  "type": "assistant",
+  "message": {
+    "model": "glm-5",
+    "id": "msg_57c9da7e-ae8e-4bd9-b850-4b5f63692c46",
+    "role": "assistant",
+    "type": "message",
+    "content": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la",
+          "description": "List files in current directory"
+        },
+        "id": "toolu_tool-fa7b16dc28944fdf81c7d0194c007d64",
+        "type": "tool_use"
+      }
+    ],
+    "usage": {
+      "input_tokens": 16884,
+      "output_tokens": 0
+    },
+    "context_management": null
+  },
+  "parent_tool_use_id": null,
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "uuid": "2f8f7d31-8e9e-4308-885b-c2aaad08abb5"
+}
+-------
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "toolu_tool-fa7b16dc28944fdf81c7d0194c007d64",
+        "type": "tool_result",
+        "content": "total 80\ndrwxr-xr-x   8 zzzz  admin    256  3月 21 23:49 .\ndrwxr-xr-x  16 zzzz  admin    512  3月 20 16:14 ..\n-rw-r--r--@  1 zzzz  admin   1052  3月 21 23:49 index.ts\n-rw-r--r--@  1 zzzz  admin   2679  3月 21 23:49 messages.log\ndrwxr-xr-x@ 26 zzzz  admin    832  3月 20 17:42 node_modules\n-rw-r--r--@  1 zzzz  admin    525  3月 20 17:24 package.json\n-rw-r--r--@  1 zzzz  admin  21144  3月 20 17:24 pnpm-lock.yaml\n-rw-r--r--@  1 zzzz  admin    715  3月 20 17:22 README.md",
+        "is_error": false
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "uuid": "7576d2c3-7c75-4e8f-a00e-b16d3eef2c32",
+  "timestamp": "2026-03-21T15:49:47.782Z",
+  "tool_use_result": {
+    "stdout": "total 80\ndrwxr-xr-x   8 zzzz  admin    256  3月 21 23:49 .\ndrwxr-xr-x  16 zzzz  admin    512  3月 20 16:14 ..\n-rw-r--r--@  1 zzzz  admin   1052  3月 21 23:49 index.ts\n-rw-r--r--@  1 zzzz  admin   2679  3月 21 23:49 messages.log\ndrwxr-xr-x@ 26 zzzz  admin    832  3月 20 17:42 node_modules\n-rw-r--r--@  1 zzzz  admin    525  3月 20 17:24 package.json\n-rw-r--r--@  1 zzzz  admin  21144  3月 20 17:24 pnpm-lock.yaml\n-rw-r--r--@  1 zzzz  admin    715  3月 20 17:22 README.md",
+    "stderr": "",
+    "interrupted": false,
+    "isImage": false,
+    "noOutputExpected": false
+  }
+}
+-------
+{
+  "type": "assistant",
+  "message": {
+    "model": "glm-5",
+    "id": "msg_911bcc57-dc92-43da-80f3-02195d509d85",
+    "role": "assistant",
+    "type": "message",
+    "content": [
+      {
+        "type": "thinking",
+        "signature": "",
+        "thinking": "The user wants to know what files are in the current directory. The ls output shows the contents. Let me summarize this for the user."
+      }
+    ],
+    "usage": {
+      "input_tokens": 16884,
+      "output_tokens": 0
+    },
+    "context_management": null
+  },
+  "parent_tool_use_id": null,
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "uuid": "b276cd4d-0d66-4b8d-a961-5691414d7d76"
+}
+-------
+{
+  "type": "assistant",
+  "message": {
+    "model": "glm-5",
+    "id": "msg_911bcc57-dc92-43da-80f3-02195d509d85",
+    "role": "assistant",
+    "type": "message",
+    "content": [
+      {
+        "type": "text",
+        "text": "The current directory contains:\n\n| Name | Type | Description |\n|------|------|-------------|\n| `index.ts` | File | TypeScript source file (1KB) |\n| `messages.log` | File | Log file (2.6KB) |\n| `node_modules/` | Directory | npm dependencies |\n| `package.json` | File | npm package config |\n| `pnpm-lock.yaml` | File | pnpm lock file |\n| `README.md` | File | Documentation file |"
+      }
+    ],
+    "usage": {
+      "input_tokens": 16884,
+      "output_tokens": 0
+    },
+    "context_management": null
+  },
+  "parent_tool_use_id": null,
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "uuid": "4a858f5f-d373-47fb-8584-2930ae1afd38"
+}
+-------
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "duration_ms": 8515,
+  "duration_api_ms": 8071,
+  "num_turns": 2,
+  "result": "The current directory contains:\n\n| Name | Type | Description |\n|------|------|-------------|\n| `index.ts` | File | TypeScript source file (1KB) |\n| `messages.log` | File | Log file (2.6KB) |\n| `node_modules/` | Directory | npm dependencies |\n| `package.json` | File | npm package config |\n| `pnpm-lock.yaml` | File | pnpm lock file |\n| `README.md` | File | Documentation file |",
+  "stop_reason": "end_turn",
+  "session_id": "656e6cf4-55d0-4c13-8227-37a5bf17ed57",
+  "total_cost_usd": 0.0198234,
+  "usage": {
+    "input_tokens": 2593,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 30748,
+    "output_tokens": 188,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "glm-5": {
+      "inputTokens": 2593,
+      "outputTokens": 188,
+      "cacheReadInputTokens": 30748,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0198234,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    }
+  },
+  "permission_denials": [],
+  "fast_mode_state": "off",
+  "uuid": "a7fcbf83-c4da-47ca-8a36-fb75423997fb"
+}
+"The current directory contains:\n\n| Name | Type | Description |\n|------|------|-------------|\n| `index.ts` | File | TypeScript source file (1KB) |\n| `messages.log` | File | Log file (2.6KB) |\n| `node_modules/` | Directory | npm dependencies |\n| `package.json` | File | npm package config |\n| `pnpm-lock.yaml` | File | pnpm lock file |\n| `README.md` | File | Documentation file |"
+-------
+
+```
 
 
 
