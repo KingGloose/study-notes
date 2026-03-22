@@ -497,6 +497,93 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 本质其实就是就是针对 session_id 的处理：https://platform.claude.com/docs/zh-CN/agent-sdk/sessions
 
 
+# 6 文件检查点
+
+文件的修改设置一个检查点：https://platform.claude.com/docs/zh-CN/agent-sdk/file-checkpointing
+
+
+# 7 结构化输出
+
+https://platform.claude.com/docs/zh-CN/agent-sdk/structured-outputs
+
+```javascript
+import { query } from '@anthropic-ai/claude-agent-sdk'
+
+// 定义您想要返回的数据形状
+const schema = {
+  type: 'object',
+  properties: {
+    company_name: { type: 'string' },
+    founded_year: { type: 'number' },
+    headquarters: { type: 'string' }
+  },
+  required: ['company_name']
+}
+
+for await (const message of query({
+  prompt: 'Research Anthropic and provide key company information',
+  options: {
+    outputFormat: {
+      type: 'json_schema',
+      schema: schema
+    }
+  }
+})) {
+  // 结果消息包含带有经过验证数据的 structured_output
+  if (message.type === 'result' && message.structured_output) {
+    console.log(message.structured_output)
+    // { company_name: "Anthropic", founded_year: 2021, headquarters: "San Francisco, CA" }
+  }
+}
+
+======== 使用 zod 来约束 =========
+
+import { z } from 'zod'
+import { query } from '@anthropic-ai/claude-agent-sdk'
+
+// 使用 Zod 定义 schema
+const FeaturePlan = z.object({
+  feature_name: z.string(),
+  summary: z.string(),
+  steps: z.array(z.object({
+    step_number: z.number(),
+    description: z.string(),
+    estimated_complexity: z.enum(['low', 'medium', 'high'])
+  })),
+  risks: z.array(z.string())
+})
+
+type FeaturePlan = z.infer<typeof FeaturePlan>
+
+// 转换为 JSON Schema
+const schema = z.toJSONSchema(FeaturePlan)
+
+// 在查询中使用
+for await (const message of query({
+  prompt: 'Plan how to add dark mode support to a React app. Break it into implementation steps.',
+  options: {
+    outputFormat: {
+      type: 'json_schema',
+      schema: schema
+    }
+  }
+})) {
+  if (message.type === 'result' && message.structured_output) {
+    // 验证并获取完全类型化的结果
+    const parsed = FeaturePlan.safeParse(message.structured_output)
+    if (parsed.success) {
+      const plan: FeaturePlan = parsed.data
+      console.log(`Feature: ${plan.feature_name}`)
+      console.log(`Summary: ${plan.summary}`)
+      plan.steps.forEach(step => {
+        console.log(`${step.step_number}. [${step.estimated_complexity}] ${step.description}`)
+      })
+    }
+  }
+}
+```
+
+
 
 
 
