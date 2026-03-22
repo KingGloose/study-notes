@@ -572,3 +572,8 @@ git commit -m "Add: new-skill for log analysis"
 ![](assets/06%20Skills/file-20260322213528172.png)
 ![](assets/06%20Skills/file-20260322213546581.png)
 
+2、那么具体的执行路径是什么样的呢？这里的 messages 是通信的消息，tools 是对应可以去调用的工具，之前 Claude Code 发送的 tools 里面就包含了 Skills，现在是放到了 messages 中了
+![](assets/06%20Skills/file-20260322214803690.png)
+
+在第一轮还没对话的时候，就发送了一个请求 skills 被包含在了 messages 中
+![](assets/06%20Skills/file-20260322214951540.png)
