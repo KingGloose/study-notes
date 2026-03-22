@@ -1,3 +1,8 @@
+【Agent Skills蓝皮书：从概念、局限到使用、制作，一次讲清】 https://www.bilibili.com/video/BV1t467BFEPb/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
+
+https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/overview
+
+
 # 1 介绍 
 
 **prompt**：大家应该都比较熟悉了，就是提示词。不论系统提示词还是用户提示词，它们通常都是静态的文本，会一次性加载到上下文。
