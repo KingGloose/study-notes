@@ -66,3 +66,11 @@ Agent在启动时就会加载Skills的元数据层。比如你安装了10个Skil
 
 ![](assets/06%20Skills/file-20260322165739213.png)
 
+比如ui-ux-pro-max-skill，这个在定位、能力都和frontend-design非常相似的Skill，在SKILL.md文件外，还包括CSV设计数据库和Python搜索脚本，Agent在生成 UI 时会自动查询数据库，提供匹配的推荐。
+
+当Agent读取到SKILL.md的指令层引用了这两个文件时，就会通过 bash 读取ui-resoning.csv（references文件）和运行search.py（script文件）。但不同的是，bash读取ui-resoning.csv时，csv的完整内容会加载到上下文窗口；而运行search.py时，bash只是运行脚本呢并仅接收输出（脚本代码本身不会进入上下文，这也是Skills省token的另一个重要原因）。
+
+![](assets/06%20Skills/file-20260322170013919.png)
+
+![](assets/06%20Skills/file-20260322170025154.png)
+
