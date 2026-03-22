@@ -566,14 +566,50 @@ git commit -m "Add: new-skill for log analysis"
 【抓包ClaudeCode窥探Skill的渐进式加载的过程】 https://www.bilibili.com/video/BV1cywWztEur/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
 
 1、其本质就还是提示词工程，因为大模型本质就是 llm，所以工具都是以提示词的形式来披露执行的。这个就是 Skill Tools
+
 ![](assets/06%20Skills/file-20260322213428258.png)
 
 这个 Skills 里面对应执行的具体内容
+
 ![](assets/06%20Skills/file-20260322213528172.png)
 ![](assets/06%20Skills/file-20260322213546581.png)
 
+
+
 2、那么具体的执行路径是什么样的呢？这里的 messages 是通信的消息，tools 是对应可以去调用的工具，之前 Claude Code 发送的 tools 里面就包含了 Skills，现在是放到了 messages 中了
+
 ![](assets/06%20Skills/file-20260322214803690.png)
 
 在第一轮还没对话的时候，就发送了一个请求 skills 被包含在了 messages 中
+
 ![](assets/06%20Skills/file-20260322214951540.png)
+
+如果你发送了 “你好～”，其中回复的内容中 content 就是最终的内容，thinking 就是思考的内容，tool_calls 就是对应的工具调用，他想去调用 Agent 下面的 subagent 中的 greeting-responder agent
+
+![](assets/06%20Skills/file-20260322215136791.png)
+
+此时本机的 agent 执行，发现没有这个 greeting-responder agent，就会返回一个结果
+
+![](assets/06%20Skills/file-20260322215338148.png)
+
+这个就是 AI 对应 的思考和回复了
+
+![](assets/06%20Skills/file-20260322215429445.png)
+
+
+3、对话结束之后又发送了一次请求，用于预测用户下次可能会询问什么
+
+![](assets/06%20Skills/file-20260322215526569.png)
+
+AI 给出了预测的结果，用户可能只是打个招呼，没有最终的结果
+
+![](assets/06%20Skills/file-20260322215618852.png)
+
+这是 claude code 的一个预测的功能
+
+![](assets/06%20Skills/file-20260322215704483.png)
+
+
+4、如果你输入 “创建一个空的 word 文档”，下吗就是 AI 的回复，tool_calls 里面就包含了 Bash、Skill 的 tool_calls 的调用，并且针对 Skill 里面的 input.skill 有对应的 docx Skill 的调用
+
+![](assets/06%20Skills/file-20260322215917662.png)
