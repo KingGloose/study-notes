@@ -7285,27 +7285,28 @@
     ],
     "08 AI": [
       "08 AI/assets",
-      "08 AI/八股文.md",
-      "08 AI/理论知识.md",
-      "08 AI/LangChain.md",
-      "08 AI/MCP.md",
-      "08 AI/Rag.md",
-      "08 AI/Skills.md",
+      "08 AI/01 理论知识.md",
+      "08 AI/02 LangChain.md",
+      "08 AI/03 LangGraph.md",
+      "08 AI/04 Rag.md",
+      "08 AI/05 MCP.md",
+      "08 AI/06 Skills.md",
+      "08 AI/99 八股文.md",
       "08 AI/Claude Code SDK.md"
     ],
     "08 AI/assets": [
-      "08 AI/assets/Claude Code SDK",
-      "08 AI/assets/八股文",
-      "08 AI/assets/Skills"
+      "08 AI/assets/05 Skills",
+      "08 AI/assets/99 八股文",
+      "08 AI/assets/Claude Code SDK"
     ],
-    "08 AI/assets/八股文": [
-      "08 AI/assets/八股文/file-20260315141637840.jpg"
+    "08 AI/assets/05 Skills": [
+      "08 AI/assets/06 Skills/file-20260322143345026.jpg"
+    ],
+    "08 AI/assets/99 八股文": [
+      "08 AI/assets/99 八股文/file-20260322143238202.jpg"
     ],
     "08 AI/assets/Claude Code SDK": [
       "08 AI/assets/Claude Code SDK/file-20260320175856218.jpg"
-    ],
-    "08 AI/assets/Skills": [
-      "08 AI/assets/Skills/file-20260118225102062.jpg"
     ],
     "09 Python": [
       "09 Python/环境配置",
