@@ -315,7 +315,40 @@ for await (const message of toolAgent) {
 
 ## 2.3 Agent 执行完，继续上次的会话
 
+Claude Agent SDK 会在**新查询启动时自动创建会话**，并在第一条 `system init` 消息里返回 `session_id`。所以最标准的做法是：第一次运行时拿到 `session_id` 并存起来；下次要接着聊时，把这个 ID 通过 `options.resume` 传回去。SDK 会自动加载之前的对话历史和上下文，让 Claude 从上次中断的位置继续。
 
+一个最小的 TypeScript 写法可以这样记：
+
+import { query } from "@anthropic-ai/claude-agent-sdk";  
+  
+let sessionId: string | undefined;  
+  
+// 第一次运行：拿到 session_id  
+for await (const message of query({  
+  prompt: "先帮我分析这个项目的登录流程",  
+})) {  
+  if (message.type === "system" && message.subtype === "init") {  
+    sessionId = message.session_id;  
+  }  
+}  
+  
+// 之后继续上次会话  
+if (sessionId) {  
+  for await (const message of query({  
+    prompt: "继续刚才的分析，并补充风险点",  
+    options: {  
+      resume: sessionId,  
+    },  
+  })) {  
+    console.log(message);  
+  }  
+}
+
+上面这套思路和官方“获取会话 ID”与“恢复会话”的示例是一致的。
+
+如果你想的是“从同一个历史起点，试两个不同方案”，那就不是单纯继续，而是**分叉会话**：在 `resume` 的同时加上 `forkSession: true`。官方说明里说得很清楚：默认恢复会继续原始会话；开启 `forkSession` 后，会从恢复点创建一个新的会话 ID，适合探索不同方法、做实验而不污染原始会话历史。
+
+另外，TypeScript `Options` 里还有一个 `continue: boolean`，官方描述是“继续最近的对话”。但如果你是在真实工程里做持久化恢复，我更建议优先用 **`session_id + resume`**，因为它更显式，也更适合你把会话 ID 存到数据库、Redis 或任务记录里。`continue` 适合更轻量的“接着最近一次聊”。
 
 
 
