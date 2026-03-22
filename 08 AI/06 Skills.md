@@ -66,11 +66,22 @@ Agent在启动时就会加载Skills的元数据层。比如你安装了10个Skil
 
 ![](assets/06%20Skills/file-20260322165739213.png)
 
-比如ui-ux-pro-max-skill，这个在定位、能力都和frontend-design非常相似的Skill，在SKILL.md文件外，还包括CSV设计数据库和Python搜索脚本，Agent在生成 UI 时会自动查询数据库，提供匹配的推荐。
+比如：ui-ux-pro-max-skill，这个在定位、能力都和frontend-design非常相似的Skill，在SKILL.md文件外，还包括CSV设计数据库和Python搜索脚本，Agent在生成 UI 时会自动查询数据库，提供匹配的推荐。
 
-当Agent读取到SKILL.md的指令层引用了这两个文件时，就会通过 bash 读取ui-resoning.csv（references文件）和运行search.py（script文件）。但不同的是，bash读取ui-resoning.csv时，csv的完整内容会加载到上下文窗口；而运行search.py时，bash只是运行脚本呢并仅接收输出（脚本代码本身不会进入上下文，这也是Skills省token的另一个重要原因）。
+当 Agent 读取到 SKILL.md 的指令层引用了这两个文件时，就会通过 bash 读取 ui-resoning.csv（references文件）和运行 search.py（script文件）。但不同的是，bash 读取 ui-resoning.csv时，csv 的完整内容会加载到上下文窗口；而运行search.py时，bash 只是运行脚本呢并仅接收输出（脚本代码本身不会进入上下文，这也是 Skills 省 token 的另一个重要原因）。
 
 ![](assets/06%20Skills/file-20260322170013919.png)
 
 ![](assets/06%20Skills/file-20260322170025154.png)
+
+这里补充一个小的知识点：Bash 就是一个**命令行的“翻译官”+“脚本小助手”**：你在终端里敲的命令，它负责告诉电脑去执行，还能把一堆命令写进文件里，让电脑自动帮你干活。
+
+![](assets/06%20Skills/file-20260322204528416.png)
+
+Skills 这种分层加载的设计架构，在 Agent 应用领域中，被称为“渐进式披露”。
+
+Agent 启动时仅加载所有 Skills 的**名称与描述（元数据层）**，当识别到相关任务时，再按需动态加载相应 Skill 的**详细指令（指令层）、参考资料和脚本（资源层）**，从而以最小的上下文消耗扩展Agent能力。
+
+它特别像我们平时看一本书，会先看目录（对应元数据层），然后根据目录翻到对应的章节（指令层），如果这个章节有引用，我们就可以根据引用跳转其它书籍或资源（对应资源层）。
+
 
