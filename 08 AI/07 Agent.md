@@ -1,4 +1,12 @@
-# 1 基本使用
+# 1 基本介绍
+
+
+# 2 基本使用
+
+
+
+# 4 Claude Agent
+## 4.1 基本使用
 
 下面就是实现的一个最基础的 Claude Code SDK 内容，主要是询问文件夹有哪些文件：
 
@@ -284,18 +292,18 @@ for await (const message of toolAgent) {
 ```
 
 
-# 2 流式输出
+## 4.2 流式输出
 
 在 Claude Agent SDK 里，**流式输入**指的是：你的程序不是一次性把一个字符串 prompt 扔给 Agent 就结束，而是把“后续用户消息”作为一个异步可迭代流，持续喂给同一个正在运行的 Agent 会话。官方把它定义为默认且推荐的模式，适合“持久的、交互式的会话”；它允许 Agent 作为长期运行进程接收用户输入、处理中断、显示权限请求并处理会话管理。
 
 官方文档里的 `generateMessages()` 只是一个**示例函数名**；更准确地说，它是你自己写的 `async function*`，用于不断 `yield` 出 `SDKUserMessage`。它不是 SDK 里一个必须叫这个名字的内置 API。这个判断来自两点：一是 `query()` 的 `prompt` 类型是 `string | AsyncIterable<SDKUserMessage>`，二是文档示例自己写了一个 `async function* generateMessages()` 再把它传给 `query()`。
 
-## 2.1 这种模式能带来什么
+### 4.2.1 这种模式能带来什么
 
 官方列出的核心能力包括：直接在消息里附加图片、顺序发送多条消息并支持中断、在会话期间完整访问工具和自定义 MCP、支持 hooks、实时看到响应流，以及自然地跨多轮保持上下文。换句话说，它更像一个“活着的 Agent 会话”，而不只是一次普通的 LLM 请求。
 
 
-## 2.2 真实使用场景
+### 4.2.2 真实使用场景
 
 **场景 1：聊天式 Agent / REPL / Copilot 工作台**  
 最典型的用法，就是前端聊天面板、开发者工作台、Slack/IM 机器人这类持续交互产品。Agent 先收到一条任务，开始分析；几秒后用户又补一句限制条件，或者继续追问。官方把这种模式归类为“长时间运行会话”，并给了高频聊天机器人这类例子；而流式输入模式本身也支持队列消息和上下文持久性。
@@ -313,7 +321,7 @@ for await (const message of toolAgent) {
 如果你的产品不是一直在线聊天，而是“用户偶尔回来补一句”，那流式输入和会话恢复可以组合使用。官方在托管文档里把这类形态称为“混合会话”：用户启动工作，容器关闭后还能继续，适合个人项目经理、深度研究、客户支持代理这类跨多次交互的系统。
 
 
-## 2.3 Agent 执行完，继续上次的会话
+### 4.2.3 Agent 执行完，继续上次的会话
 
 Claude Agent SDK 会在新查询启动时自动创建会话，并在第一条 system init 消息里返回 session_id。所以最标准的做法是：第一次运行时拿到 session_id 并存起来；下次要接着聊时，把这个 ID 通过 options.resume 传回去。SDK 会自动加载之前的对话历史和上下文，让 Claude 从上次中断的位置继续。
 
@@ -355,22 +363,22 @@ if (sessionId) {
 
 
 
-# 3 权限处理
+## 4.3 权限处理
 
-## 3.1 基本介绍
+### 4.3.1 基本介绍
 
 https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
-![](assets/Claude%20Code%20SDK/file-20260322154601154.png)
+![](assets/07%20Agent/file-20260322161539768.png)
 
-## 3.2 用户审批操作
+### 4.3.2 用户审批操作
 
 其本质就是询问用户是否允许去调用某一类工具，这个有对应的方法来控制，如果用户输入 “y” 这类的就可以去让 AI 执行：https://platform.claude.com/docs/zh-CN/agent-sdk/user-input
 
 
-# 4 执行钩子
+## 4.4 执行钩子
 
-## 4.1 基本介绍
+### 4.4.1 基本介绍
 
 本质就是对应 AI 执行生命周期中的钩子函数：https://platform.claude.com/docs/zh-CN/agent-sdk/hooks
 
@@ -389,11 +397,11 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 **4. 生命周期管理**：比如会话开始时初始化 tracing，结束时清理临时文件，停止前保存状态，或者把状态通知发到 Slack / PagerDuty。官方把 `SessionStart`、`SessionEnd`、`Stop`、`Notification` 都列成了可用钩子。
 
-## 4.2 生命周期介绍
+### 4.4.2 生命周期介绍
 
-![](assets/Claude%20Code%20SDK/file-20260322155835411.png)
+![](assets/07%20Agent/file-20260322161539770.png)
 
-### 4.2.1 PreToolUse
+#### 4.4.2.1 PreToolUse
 
 这是最核心的一个。 它在**工具真正执行之前**触发，可以决定 allow / deny / ask，还能改写工具输入，典型场景是：
 - 拦截危险命令
@@ -403,7 +411,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 文档里还提到它可以通过 `updatedInput` 修改工具输入，但要配合 `permissionDecision: 'allow'` 才会生效。
 
-### 4.2.2 PostToolUse
+#### 4.4.2.2 PostToolUse
 
 它在**工具执行成功之后**触发，最适合做：
 - 审计日志
@@ -413,7 +421,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 因为这个事件能拿到 `tool_name`、`tool_input` 和 `tool_response`。
 
-### 4.2.3 PostToolUseFailure（TypeScript）
+#### 4.4.2.3 PostToolUseFailure（TypeScript）
 
 它在**工具执行失败后**触发，而且是 **TypeScript SDK 专有**。  适合用来：
 - 统一记录错误
@@ -423,7 +431,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 文档里说明它可以拿到 `error` 和 `is_interrupt`。
 
-### 4.2.4 UserPromptSubmit`
+#### 4.4.2.4 UserPromptSubmit
 
 它在**用户提示词提交时**触发。  典型用途是：
 - 给 prompt 自动注入额外上下文
@@ -433,7 +441,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 官方可用钩子表里就举了“向提示中注入额外上下文”这个例子。
 
-### 4.2.5 PermissionRequest（TypeScript）
+#### 4.4.2.5 PermissionRequest（TypeScript）
 
 它在**即将显示权限对话框时**触发，也是 **TypeScript SDK 专有**。 ，适合：
 - 自定义权限处理
@@ -443,7 +451,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 文档里还提到它能拿到 `permission_suggestions`。
 
-### 4.2.6 Stop
+#### 4.4.2.6 Stop
 
 它在**Agent 执行停止时**触发。  适合：
 - 退出前保存会话状态
@@ -453,7 +461,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 官方表格里给的示例就是“退出前保存会话状态”。
 
-### 4.2.7 SessionStart / SessionEnd（TypeScript）
+#### 4.4.2.7 SessionStart / SessionEnd（TypeScript）
 
 这两个是**会话级生命周期钩子**，并且 **只在 TypeScript SDK 可用**。  最常见的用途是：
 - 会话开始时初始化日志、追踪、指标
@@ -463,7 +471,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 文档里说明 `SessionStart` 可拿到 `source`，比如 `startup`、`resume`、`clear`、`compact`。同时官方也明确说 `SessionStart`、`SessionEnd`、`Notification` 仅 TypeScript 可用。
 
-### 4.2.8 Notification（TypeScript）
+#### 4.4.2.8 Notification（TypeScript）
 
 它处理的是**Agent 的状态消息**。  适合：
 - 把状态更新同步到 Slack / PagerDuty
@@ -472,7 +480,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 文档里给了 `message`、`notification_type`、`title` 这些字段，`notification_type` 例子包括 `permission_prompt`、`idle_prompt`、`auth_success`、`elicitation_dialog`。
 
-### 4.2.9 SubagentStart / SubagentStop
+#### 4.4.2.9 SubagentStart / SubagentStop
 
 这是子代理相关的钩子，其中 `SubagentStart` 是 **TypeScript 专有**，`SubagentStop` 两边可用。  适合：
 - 跟踪并行子任务
@@ -482,7 +490,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 文档里提到可以拿到 `agent_id`、`agent_type`、`agent_transcript_path`。
 
-### 4.2.10 PreCompact
+#### 4.4.2.10 PreCompact
 
 它在**对话压缩前**触发，适合：
 - 在压缩前归档完整上下文
@@ -492,17 +500,17 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 文档表格给的例子就是“摘要前归档完整记录”，并且这个事件有 `trigger` 和 `custom_instructions`。
 
 
-# 5 会话管理
+## 4.5 会话管理
 
 本质其实就是就是针对 session_id 的处理：https://platform.claude.com/docs/zh-CN/agent-sdk/sessions
 
 
-# 6 文件检查点
+## 4.6 文件检查点
 
 文件的修改设置一个检查点：https://platform.claude.com/docs/zh-CN/agent-sdk/file-checkpointing
 
 
-# 7 结构化输出
+## 4.7 结构化输出
 
 https://platform.claude.com/docs/zh-CN/agent-sdk/structured-outputs
 
@@ -582,6 +590,20 @@ for await (const message of query({
   }
 }
 ```
+
+
+## 4.8 部署指南
+
+部署沙箱：https://platform.claude.com/docs/zh-CN/agent-sdk/hosting
+
+部署AI：https://platform.claude.com/docs/zh-CN/agent-sdk/secure-deployment
+
+
+
+
+
+
+
 
 
 
