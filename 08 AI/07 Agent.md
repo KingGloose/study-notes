@@ -657,7 +657,43 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/hosting ｜ https://platform.cl
 
 ### 4.8.3 系统原语
 
+#### 4.8.3.1 基本介绍
 
+操作系统原语就是**内核直接提供的底层能力**，比如进程、文件权限、网络、挂载、系统调用、资源限制。沙箱不是魔法，本质上就是用这些原语把程序的能力**圈起来**。
+
+你可以把它想成前端里的浏览器原生能力：DOM API、Event Loop、`postMessage`、`fetch`、`localStorage`
+
+这些都是“浏览器原语”。  你写 React、Vue、状态管理库，其实也是在这些原语上搭更高一层的抽象。
+
+操作系统也一样：Docker 不是凭空发明隔离、sandbox-runtime 也不是凭空发明限制、它们是在 **OS 原语** 之上做封装
+
+#### 4.8.3.2 沙盒化
+
+因为操作系统本来就控制着程序，所以只要把这些权限收紧，就能形成沙箱。
+- 能看到哪些文件
+- 能访问哪些网络
+- 能调用哪些系统能力
+- 能占用多少 CPU / 内存
+
+那么为什么能隔离呢？
+
+**1. namespace：隔离视角**  
+让进程看到的是一套“自己的世界”。  
+比如只能看到自己的进程、自己的网络、自己的挂载点。
+
+**2. cgroups：限制资源**  
+控制一个进程最多能用多少 CPU、内存、磁盘、进程数。  
+作用是防止程序失控，把机器拖死。
+
+**3. seccomp：过滤系统调用**  
+限制程序能调用哪些内核接口。  
+本质上是给程序的“底层 API”加白名单，防止高危操作。
+
+**4. capabilities：拆分 root 权限**  
+把 root 的大权限拆成很多小权限。  
+这样程序就算权限较高，也只拿到必须那一小部分，而不是全能。
+
+一句话总结：**namespace 负责隔离，cgroups 负责限流，seccomp 负责拦底层能力，capabilities 负责收权限。**  它们组合起来，就能把程序放进一个受限的小环境里，这就是沙箱。
 
 
 
@@ -666,6 +702,14 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/hosting ｜ https://platform.cl
 用户修改、添加 Claude 默认提示词：https://platform.claude.com/docs/zh-CN/agent-sdk/modifying-system-prompts
 
 
+
+## 4.10 工具
+
+https://platform.claude.com/docs/zh-CN/agent-sdk/mcp ｜ https://platform.claude.com/docs/zh-CN/agent-sdk/custom-tools
+
+
+
+## 4.11 SubAgent
 
 
 
