@@ -354,6 +354,13 @@ if (sessionId) {
 
 
 
+# 3 权限处理
+
+https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
+
+
+
+
 
 
 
