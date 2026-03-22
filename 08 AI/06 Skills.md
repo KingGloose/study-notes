@@ -561,3 +561,14 @@ git commit -m "Add: new-skill for log analysis"
 
 # 7 Claude Code Skills 原理
 
+【抓包ClaudeCode窥探Skill的实现原理】 https://www.bilibili.com/video/BV1yRPWzqEhL/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
+
+【抓包ClaudeCode窥探Skill的渐进式加载的过程】 https://www.bilibili.com/video/BV1cywWztEur/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
+
+1、其本质就还是提示词工程，因为大模型本质就是 llm，所以工具都是以提示词的形式来披露执行的。这个就是 Skill Tools
+![](assets/06%20Skills/file-20260322213428258.png)
+
+这个 Skills 里面对应执行的具体内容
+![](assets/06%20Skills/file-20260322213528172.png)
+![](assets/06%20Skills/file-20260322213546581.png)
+
