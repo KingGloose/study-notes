@@ -354,12 +354,17 @@ if (sessionId) {
 
 
 
+
 # 3 权限处理
 
 https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 ![](assets/Claude%20Code%20SDK/file-20260322154601154.png)
 
+
+# 4 用户审批操作
+
+https://platform.claude.com/docs/zh-CN/agent-sdk/user-input
 
 
 
@@ -400,3 +405,5 @@ SiliconFlow 官方文档确实给出了 Anthropic 风格的 POST /v1/messages 
 如果问题表述成“SiliconFlow 能不能无缝替代 Anthropic 后端来跑真实 Claude Code / Claude Agent SDK”，答案是 **当前不能视为可用**。原因不是本地 SDK 伪造错误，而是 **SiliconFlow 的 Claude Code 兼容层没有完整兼容 Claude Code/SDK 发出的 richer request shape**；真实 claude CLI 和 SDK 路径都失败，而最小 /v1/messages 成功，这个证据链已经足够把根因指向 **SiliconFlow 兼容层**，不是你本地 agent-code 包装逻辑。 [SiliconFlow Claude Code](https://docs.siliconflow.cn/cn/usercases/use-siliconcloud-in-ClaudeCode) run-agent.mjs (line 93) cli.js (line 314)
 
 补一条边界信息：Anthropic 的 Agent SDK 官方文档明确写的是用 Anthropic API key，或者第三方云上的 Bedrock / Vertex AI / Azure OpenAI 这几类正式接入；文档并没有把“任意第三方自定义 Anthropic 兼容 base URL”列为官方支持面，所以把 SiliconFlow 直接塞到 Claude Agent SDK 后面，本身就不在 Anthropic 明确承诺的兼容范围内。[Anthropic Agent SDK Overview](https://platform.claude.com/docs/en/agent-sdk/overview)
+
+
