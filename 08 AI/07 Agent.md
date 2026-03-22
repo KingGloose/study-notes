@@ -594,9 +594,21 @@ for await (const message of query({
 
 ## 4.8 部署指南
 
-部署沙箱：https://platform.claude.com/docs/zh-CN/agent-sdk/hosting
+https://platform.claude.com/docs/zh-CN/agent-sdk/hosting ｜ https://platform.claude.com/docs/zh-CN/agent-sdk/secure-deployment
 
-部署AI：https://platform.claude.com/docs/zh-CN/agent-sdk/secure-deployment
+
+
+
+
+
+
+
+## 4.9 系统提示词
+
+https://platform.claude.com/docs/zh-CN/agent-sdk/modifying-system-prompts
+
+
+
 
 
 
