@@ -703,9 +703,11 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/hosting ｜ https://platform.cl
 
 
 
-## 4.10 工具
+## 4.10 MCP / Skills
 
-https://platform.claude.com/docs/zh-CN/agent-sdk/mcp ｜ https://platform.claude.com/docs/zh-CN/agent-sdk/custom-tools
+Tools：https://platform.claude.com/docs/zh-CN/agent-sdk/mcp ｜ https://platform.claude.com/docs/zh-CN/agent-sdk/custom-tools
+
+Skills：https://platform.claude.com/docs/zh-CN/agent-sdk/skills
 
 
 
