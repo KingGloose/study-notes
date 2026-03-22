@@ -160,10 +160,6 @@ CRITICAL: The evaluation is WORTHLESS unless you ACTIVATE the skills.
 
 ![](assets/06%20Skills/file-20260322205939817.jpg)
 
-
-
-
-
 # 3 各平台支持
 
 | 工具                   | Skills文档🔗                                                                                 | 全局（用户级）路径                                     | 项目级路径                              |
@@ -173,5 +169,12 @@ CRITICAL: The evaluation is WORTHLESS unless you ACTIVATE the skills.
 | Gemini CLI           | [https://geminicli.com/docs/cli/skills/](https://geminicli.com/docs/cli/skills/)           | ~/.gemini/skills/                             | .gemini/skills/                    |
 | Opencode             | [https://opencode.ai/docs/skills/](https://opencode.ai/docs/skills/)                       | ~/.config/opencode/skill/ 或 ~/.claude/skills/ | .opencode/skill/ 或 .claude/skills/ |
 | Cursor               | [https://cursor.com/cn/docs/context/skills](https://cursor.com/cn/docs/context/skills)     | ~/.cursor/skills/ 或 ~/.claude/skills/         | .cursor/skills/ 或 .claude/skills/  |
+
+# 4 Skills 推荐
+
+https://my.feishu.cn/wiki/KCEfwUxHFihEXIk76k0cFimNnng
+
+
+
 
 
