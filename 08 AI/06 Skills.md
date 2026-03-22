@@ -11,7 +11,8 @@
 
 【Agent Skills到底是什么，一个动画彻底搞懂！】 https://www.bilibili.com/video/BV1EXksBGEa8/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
 
-![](assets/Skills/file-20260118225102062.jpg)
+![](assets/06%20Skills/file-20260322143345026.jpg)
+
 
 
 

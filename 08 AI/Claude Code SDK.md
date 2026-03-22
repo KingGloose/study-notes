@@ -284,6 +284,15 @@ for await (const message of toolAgent) {
 ```
 
 
+# 2 流式输出
+
+
+
+
+
+
+
+
 
 
 
