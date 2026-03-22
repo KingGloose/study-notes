@@ -358,7 +358,7 @@ if (sessionId) {
 
 https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
-
+![](assets/Claude%20Code%20SDK/file-20260322154601154.png)
 
 
 
