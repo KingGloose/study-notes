@@ -709,11 +709,13 @@ Tools：https://platform.claude.com/docs/zh-CN/agent-sdk/mcp ｜ https://platfor
 
 Skills：https://platform.claude.com/docs/zh-CN/agent-sdk/skills
 
-
-
 ## 4.11 SubAgent
 
+https://platform.claude.com/docs/zh-CN/agent-sdk/subagents
 
+## 4.12 Plan 模式
+
+https://platform.claude.com/docs/zh-CN/agent-sdk/todo-tracking
 
 
 
