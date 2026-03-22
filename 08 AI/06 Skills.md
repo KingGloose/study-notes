@@ -14,6 +14,9 @@
 ![](assets/06%20Skills/file-20260322143345026.jpg)
 
 
+# 2 基本使用
+
+https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/overview
 
 
 
