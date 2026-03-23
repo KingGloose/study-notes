@@ -978,6 +978,8 @@ Tools：https://platform.claude.com/docs/zh-CN/agent-sdk/mcp ｜ https://platfor
 
 Skills：https://platform.claude.com/docs/zh-CN/agent-sdk/skills
 
+[06 Skills](06%20Skills.md)
+
 
 ## 4.10.1 工具设计思路
 
