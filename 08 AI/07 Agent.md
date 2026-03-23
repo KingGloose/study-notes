@@ -81,6 +81,77 @@ Claude Code 的 200K 上下文并非全部可用：
 - 任务切换优先 /clear，同一任务进入新阶段用 /compact
 - 把 Compact Instructions 写进 CLAUDE.md，压缩后必须保留什么由你控制，不由算法猜
 
+那么如何写比较合适呢？
+
+**应该放什么**
+- 怎么 build、怎么 test、怎么跑（最核心）
+- 关键目录结构与模块边界
+- 代码风格和命名约束
+- 那些不明显的环境坑
+- 绝对不能干的事（NEVER 列表）
+- 压缩时必须保留的信息（Compact Instructions）
+
+**不该放什么**
+- 大段背景介绍
+- 完整 API 文档
+- 空泛原则，如"写高质量代码"
+- Claude 通过读仓库即可推断的显然信息
+- 大量背景资料和低频任务知识（这些放到 Skills）
+
+
+```markdown
+# Project Contract
+
+## Build And Test
+
+- Install: `pnpm install`
+- Dev: `pnpm dev`
+- Test: `pnpm test`
+- Typecheck: `pnpm typecheck`
+- Lint: `pnpm lint`
+
+## Architecture Boundaries
+
+- HTTP handlers live in `src/http/handlers/`
+- Domain logic lives in `src/domain/`
+- Do not put persistence logic in handlers
+- Shared types live in `src/contracts/`
+
+## Coding Conventions
+
+- Prefer pure functions in domain layer
+- Do not introduce new global state without explicit justification
+- Reuse existing error types from `src/errors/`
+
+## Safety Rails
+
+## NEVER
+
+- Modify `.env`, lockfiles, or CI secrets without explicit approval
+- Remove feature flags without searching all call sites
+- Commit without running tests
+
+## ALWAYS
+
+- Show diff before committing
+- Update CHANGELOG for user-facing changes
+
+## Verification
+
+- Backend changes: `make test` + `make lint`
+- API changes: update contract tests under `tests/contracts/`
+- UI changes: capture before/after screenshots
+
+## Compact Instructions
+
+Preserve:
+
+1. Architecture decisions (NEVER summarize)
+2. Modified files and key changes
+3. Current verification status (pass/fail commands)
+4. Open risks, TODOs, rollback notes
+```
+
 
 #### 4.1.2.3 Tool Output
 
@@ -871,10 +942,6 @@ Skills：https://platform.claude.com/docs/zh-CN/agent-sdk/skills
 - 对大响应支持 response_format: concise / detailed
 - 错误响应要教模型如何修正，不要只抛 opaque error code
 - 能合并成高层任务工具时，不要暴露过多底层碎片工具，避免 list_all_* 让模型自行筛选
-
-
-
-
 
 
 ## 4.11 SubAgent
