@@ -532,6 +532,17 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 
 **4. 生命周期管理**：比如会话开始时初始化 tracing，结束时清理临时文件，停止前保存状态，或者把状态通知发到 Slack / PagerDuty。官方把 `SessionStart`、`SessionEnd`、`Stop`、`Notification` 都列成了可用钩子。
 
+在 100 次编辑的会话中，每次节省 30-60 秒，累积节省 1-2 小时，还挺可观的。注意限制输出长度（| head -30），避免 Hook 输出反而污染上下文。如果不想在每条命令后面手动加截断，可以看看第 3 节提到的 RTK，它把这件事系统化了。
+
+Hooks + Skills + CLAUDE.md 三层叠加
+- CLAUDE.md：声明"提交前必须通过测试和 lint"
+- Skill：告诉 Claude 在什么顺序下运行测试、如何看失败、如何修复
+- Hook：对关键路径执行硬性校验，必要时阻断
+
+用下来感觉，三样少任何一层都会有漏洞。只写 CLAUDE.md 规则，Claude 经常当没看见；只靠 Hooks，细节判断又做不了，放在一起才比较稳。
+
+![](assets/07%20Agent/file-20260323234705501.jpg)
+
 ### 4.4.2 生命周期介绍
 
 ![](assets/07%20Agent/file-20260322161539770.png)
@@ -633,6 +644,7 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/permissions
 - 给 compact 增加额外指令
 
 文档表格给的例子就是“摘要前归档完整记录”，并且这个事件有 `trigger` 和 `custom_instructions`。
+
 
 
 ## 4.5 会话管理
@@ -839,11 +851,31 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/modifying-system-prompts
 
 
 
+
+
 ## 4.10 MCP / Skills
 
 Tools：https://platform.claude.com/docs/zh-CN/agent-sdk/mcp ｜ https://platform.claude.com/docs/zh-CN/agent-sdk/custom-tools
 
 Skills：https://platform.claude.com/docs/zh-CN/agent-sdk/skills
+
+
+## 4.10.1 工具设计思路
+
+我后面越用越觉得，给 Claude 的工具和给人写的 API 不是一回事。给人用的 API 往往会追求功能齐全，但给 agent 用，重点不是功能堆得多完整，而是让它更容易用对。
+
+![](assets/07%20Agent/file-20260323234414306.jpg)
+
+几个实用设计原则
+- 名称前缀按系统或资源分层：github_pr_* 、jira_issue_*
+- 对大响应支持 response_format: concise / detailed
+- 错误响应要教模型如何修正，不要只抛 opaque error code
+- 能合并成高层任务工具时，不要暴露过多底层碎片工具，避免 list_all_* 让模型自行筛选
+
+
+
+
+
 
 ## 4.11 SubAgent
 
@@ -854,10 +886,40 @@ https://platform.claude.com/docs/zh-CN/agent-sdk/subagents
 https://platform.claude.com/docs/zh-CN/agent-sdk/todo-tracking
 
 
+## 4.13 提示词缓存
 
+这块我之前在很多教程里都没怎么看到有人展开讲，但它其实很影响 Claude Code 的成本结构和很多设计取舍。
 
+工程界有句话 "Cache Rules Everything Around Me"，对 agent 同样如此，Claude Code 的整个架构都是围绕 Prompt 缓存构建的，高命中率不光省钱，速率限制也会松很多，Anthropic 甚至会对命中率跑告警，太低直接宣布 SEV。
 
+![](assets/07%20Agent/file-20260323234844632.jpg)
 
+Prompt 缓存是按前缀匹配工作的，从请求开头到每个 cache_control 断点之前的内容都会被缓存。所以这里的顺序很重要：
+
+```markdown
+Claude Code 的 Prompt 顺序：
+1. System Prompt → 静态，锁定
+2. Tool Definitions → 静态，锁定
+3. Chat History → 动态，在后面
+4. 当前用户输入 → 最后
+```
+
+破坏缓存的常见陷阱
+- 在静态系统 Prompt 中放入带时间戳的内容（让它每次都变）
+- 非确定性地打乱工具定义顺序
+- 会话中途增删工具
+
+那像当前时间这种动态信息怎么办？别去动系统 Prompt，放到下一条消息里传进去就行。Claude Code 自己也是这么做的，用户消息里加 < system-reminder > 标签，系统 Prompt 不动，缓存也就不会被打坏。
+
+Prompt 缓存是模型唯一的。假如你已经和 Opus 对话了 100K tokens，想问个简单问题，切换到 Haiku 实际上比继续用 Opus 更贵，因为要为 Haiku 重建整个缓存。确实需要切换的话，用 Subagent 交接：Opus 准备一条"交接消息"给另一个模型，说明需要完成的任务就行。
+
+![](assets/07%20Agent/file-20260323235023689.jpg)
+
+上图是 Compaction（上下文压缩）的执行流程：左边是上下文快满时的状态，中间是 Claude Code 开一个 fork 调用，把完整对话历史喂给模型，加一句"Summarize this conversation"，这一步命中缓存所以只需 1/10 的价格，右边是压缩完之后，原来几十轮对话被替换成一段 ~20k tokens 的摘要，System + Tools 还在，再挂上之前用到的文件引用，腾出空间继续新的轮次。
+
+直觉上 Plan Mode 应该切换成只读工具集，但这会破坏缓存。实际实现是：EnterPlanMode 是模型可以自己调用的工具，检测到复杂问题时自主进入 plan mode，工具集不变，缓存不受影响。
+
+defer_loading：工具的延迟加载：Claude Code 有数十个 MCP 工具，每次请求全量包含会很贵，但中途移除会破坏缓存。解决方案是发送轻量级 stub，只有工具名，标记 defer_loading: true。模型通过 ToolSearch 工具"发现"它们，完整的工具 schema 只在模型选择后才加载，这样缓存前缀保持稳定。
 
 
 
