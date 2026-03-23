@@ -102,8 +102,41 @@ test auth::test_login ... ok
 
 Claude 真正需要知道的就是「过了还是挂了，挂在哪里」，其他都是噪声。它通过 Hook 透明重写命令，对 Claude Code 来说完全无感。
 
+#### 4.1.2.4 压缩机制的陷阱
 
-#### 4.1.2.4 压缩
+默认压缩算法按"可重新读取"判断，早期的 Tool Output 和文件内容会被优先删掉，顺带把架构决策和约束理由也一起扔了。两小时后再改，可能根本不记得两小时前定了什么，莫名其妙的 Bug 就是这么来的。
+
+![](assets/07%20Agent/file-20260323233501993.jpg)
+
+解决方案就是在 CLAUDE.md 里写明：
+
+```markdown
+## Compact Instructions
+
+When compressing, preserve in priority order:
+
+1. Architecture decisions (NEVER summarize)
+2. Modified files and their key changes
+3. Current verification status (pass/fail)
+4. Open TODOs and rollback notes
+5. Tool outputs (can delete, keep pass/fail only)
+```
+
+除了写 Compact Instructions，还有一种更主动的方案：在开新会话前，先让 Claude 写一份 HANDOFF.md，把当前进度、尝试过什么、哪些走通了、哪些是死路、下一步该做什么写清楚。下一个 Claude 实例只读这个文件就能接着做，不依赖压缩算法的摘要质量：
+
+在 HANDOFF.md 里写清楚现在的进展。解释你试了什么、什么有效、什么没用，让下一个拿到新鲜上下文的 agent 只看这个文件就能继续完成任务。
+
+写完后快速扫一眼，有缺漏直接让它补，然后开新会话，把 HANDOFF.md 的路径发过去就行。
+
+
+
+
+
+
+
+
+
+
 
 
 ## 4.1 基本使用
