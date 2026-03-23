@@ -81,6 +81,8 @@ Claude Code 的 200K 上下文并非全部可用：
 - 任务切换优先 /clear，同一任务进入新阶段用 /compact
 - 把 Compact Instructions 写进 CLAUDE.md，压缩后必须保留什么由你控制，不由算法猜
 
+
+
 那么如何写比较合适呢？
 
 **应该放什么**
@@ -151,6 +153,13 @@ Preserve:
 3. Current verification status (pass/fail commands)
 4. Open risks, TODOs, rollback notes
 ```
+
+我最喜欢的一个技巧：每次纠正 Claude 的错误后，让它自己更新 CLAUDE.md：
+
+> "Update your CLAUDE.md so you don't make that mistake again."
+
+Claude 在给自己补这类规则时其实还挺好用，用久了确实越来越少犯同样的错。不过也要定期 review，时间一长总会有些条目慢慢过时，当初有用的限制现在未必还适合
+
 
 
 #### 4.1.2.3 Tool Output
