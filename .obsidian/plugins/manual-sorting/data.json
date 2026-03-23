@@ -7149,6 +7149,8 @@
       "03 前端/03 JavaScript/分支-ECMAScript/ES12.md"
     ],
     "03 前端/03 JavaScript/分支-JavaScript": [
+      "03 前端/03 JavaScript/分支-JavaScript/assets",
+      "03 前端/03 JavaScript/分支-JavaScript/模拟虚拟线程.md",
       "03 前端/03 JavaScript/分支-JavaScript/字符串排序.md",
       "03 前端/03 JavaScript/分支-JavaScript/defer async 深度理解.md",
       "03 前端/03 JavaScript/分支-JavaScript/Signals.md",
@@ -7176,6 +7178,12 @@
       "03 前端/03 JavaScript/分支-JavaScript/requestIdleCallback.md",
       "03 前端/03 JavaScript/分支-JavaScript/Set.md",
       "03 前端/03 JavaScript/分支-JavaScript/Symbol.md"
+    ],
+    "03 前端/03 JavaScript/分支-JavaScript/assets": [
+      "03 前端/03 JavaScript/分支-JavaScript/assets/模拟虚拟线程"
+    ],
+    "03 前端/03 JavaScript/分支-JavaScript/assets/模拟虚拟线程": [
+      "03 前端/03 JavaScript/分支-JavaScript/assets/模拟虚拟线程/file-20260323231421644.jpg"
     ],
     "03 前端/04 Jquery": [
       "03 前端/04 Jquery/Jquery.md"
