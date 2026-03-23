@@ -33,6 +33,8 @@ Claude Code 的核心不是"回答"，而是一个反复循环的代理过程：
 
 ### 4.1.2 上下文工程
 
+#### 4.1.2.1 基本介绍
+
 ![](assets/07%20Agent/file-20260323232419749.jpg)
 
 Claude Code 的 200K 上下文并非全部可用：
@@ -62,12 +64,44 @@ Claude Code 的 200K 上下文并非全部可用：
 推荐的上下文分层，说白了，偶尔用的东西就不要每次都加载进来
 
 ```*
-始终常驻    → CLAUDE.md：项目契约 / 构建命令 / 禁止事项，保持 CLAUDE.md 短、硬、可执行，优先写命令、约束、架构边界
+始终常驻    → CLAUDE.md：项目契约 / 构建命令 / 禁止事项
 按路径加载  → rules：语言 / 目录 / 文件类型特定规则
 按需加载    → Skills：工作流 / 领域知识
 隔离加载    → Subagents：大量探索 / 并行研究
 不进上下文  → Hooks：确定性脚本 / 审计 / 阻断
 ```
+
+
+#### 4.1.2.2 CLAUDE.md
+
+- 保持 CLAUDE.md 短、硬、可执行，优先写命令、约束、架构边界。Anthropic 官方自己的 CLAUDE.md 大约只有 2.5K tokens，可以参考
+- 把大型参考文档拆到 Skills 的 supporting files，不要塞进 SKILL.md 正文
+- 使用 .claude/rules/ 做路径/语言规则，不让根 CLAUDE.md 承担所有差异
+- 长会话主动用 /context 观察消耗，不要等系统自动压缩后再补救
+- 任务切换优先 /clear，同一任务进入新阶段用 /compact
+- 把 Compact Instructions 写进 CLAUDE.md，压缩后必须保留什么由你控制，不由算法猜
+
+
+#### 4.1.2.3 Tool Output
+
+
+前面算的是 MCP 工具定义的固定开销，但动态部分同样有个坑容易被忽视：Tool Output。cargo test 一次完整输出动辄几千行，git log、find、grep 在稍大的仓库里也能轻松塞满屏幕。这些输出 Claude 并不需要全看，但只要它出现在上下文里，就是实实在在的 token 消耗，同样会挤掉对话历史和文件内容的空间。
+
+后来看到 [RTK（Rust Token Killer）](https://www.rtk-ai.app/)
+
+这个思路觉得挺对的，它做的事很简单：在命令输出到 Claude 之前自动过滤，只留决策需要的核心信息。比如 cargo test：
+
+```text
+# Claude 看到的原始输出
+running 262 tests
+test auth::test_login ... ok
+...（几千行）
+
+# 走 RTK 之后
+✓ cargo test: 262 passed (1 suite, 0.08s)
+```
+
+Claude 真正需要知道的就是「过了还是挂了，挂在哪里」，其他都是噪声。它通过 Hook 透明重写命令，对 Claude Code 来说完全无感。
 
 
 
