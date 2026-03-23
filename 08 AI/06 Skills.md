@@ -301,7 +301,6 @@ CRITICAL: The evaluation is WORTHLESS unless you ACTIVATE the skills.
 - 使用真实使用场景进行了测试
 - 团队反馈意见已纳入考虑（如适用）
 
-
 ## 4.2 什么任务值得做成Skills？
 
 Anthropic在官方博客中有回答过这个问题。
@@ -343,6 +342,106 @@ Anthropic在官方博客中有回答过这个问题。
 3. **循环使用，持续迭代：** 后续直接调用 Skill 执行任务。每次完成后校验输出，针对不满意之处指令 Agent 调整并更新 Skill。
 
 **简单来说，Skill 的本质是“可复用的最佳实践”。先跑通流程，再固化为Skill，最后在实战中不断打磨。
+
+## 4.3 Skill 三种典型类型
+
+### 类型一：检查清单型（质量门禁）
+
+发布前跑一遍，确保不漏项：
+
+```yaml
+---
+name: release-check
+description: Use before cutting a release to verify build, version, and smoke test.
+---
+
+## Pre-flight (All must pass)
+- [ ] `cargo build --release` passes
+- [ ] `cargo clippy -- -D warnings` clean
+- [ ] Version bumped in Cargo.toml
+- [ ] CHANGELOG updated
+- [ ] `kaku doctor` passes on clean env
+
+## Output
+Pass / Fail per item. Any Fail must be fixed before release.
+```
+
+
+### 类型二：工作流型（标准化操作）
+
+配置迁移高风险，显式调用 + 内置回滚步骤：
+
+```yaml
+---
+name: config-migration
+description: Migrate config schema. Run only when explicitly requested.
+disable-model-invocation: true
+---
+
+## Steps
+1. Backup: `cp ~/.config/kaku/config.toml ~/.config/kaku/config.toml.bak`
+2. Dry run: `kaku config migrate --dry-run`
+3. Apply: remove `--dry-run` after confirming output
+4. Verify: `kaku doctor` all pass
+
+## Rollback
+`cp ~/.config/kaku/config.toml.bak ~/.config/kaku/config.toml`
+```
+
+
+### 类型三：领域专家型（封装决策框架）
+
+运行时出问题时让 Claude 按固定路径收集证据，不要瞎猜：
+
+```yaml
+---
+name: runtime-diagnosis
+description: Use when kaku crashes, hangs, or behaves unexpectedly at runtime.
+---
+
+## Evidence Collection
+1. Run `kaku doctor` and capture full output
+2. Last 50 lines of `~/.local/share/kaku/logs/`
+3. Plugin state: `kaku --list-plugins`
+
+## Decision Matrix
+| Symptom | First Check |
+|---|---|
+| Crash on startup | doctor output → Lua syntax error |
+| Rendering glitch | GPU backend / terminal capability |
+| Config not applied | Config path + schema version |
+
+## Output Format
+Root cause / Blast radius / Fix steps / Verification command
+```
+
+描述符写短点，每个 Skill 都在偷你的上下文空间，每个启用的 Skill，描述符常驻上下文，优化前后差距很大：
+
+```yaml
+# 低效（~45 tokens）
+description: |
+  This skill helps you review code changes in Rust projects.
+  It checks for common issues like unsafe code, error handling...
+  Use this when you want to ensure code quality before merging.
+
+# 高效（~9 tokens）
+description: Use for PR reviews with focus on correctness.
+```
+
+还有一个很重要的 disable-auto-invoke 使用策略：
+- 高频（>1 次/会话）→ 保持 auto-invoke，优化描述符
+- 低频（<1 次/会话）→ disable-auto-invoke，手动触发，描述符完全脱离上下文
+- 极低频（<1 次/月）→ 移除 Skill，改为 AGENTS.md 中的文档
+
+### Skills 反模式
+
+- 描述过短：description: help with backend（任何后端工作都能触发，哈哈）
+- 正文过长：几百行工作手册全塞进 SKILL.md 正文
+- 一个 Skill 覆盖 review、deploy、debug、docs、incident 五件事
+- 有副作用的 Skill 允许模型自动调用
+
+
+
 
 
 # 5 技术对比
