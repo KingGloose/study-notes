@@ -84,7 +84,6 @@ Claude Code 的 200K 上下文并非全部可用：
 
 #### 4.1.2.3 Tool Output
 
-
 前面算的是 MCP 工具定义的固定开销，但动态部分同样有个坑容易被忽视：Tool Output。cargo test 一次完整输出动辄几千行，git log、find、grep 在稍大的仓库里也能轻松塞满屏幕。这些输出 Claude 并不需要全看，但只要它出现在上下文里，就是实实在在的 token 消耗，同样会挤掉对话历史和文件内容的空间。
 
 后来看到 [RTK（Rust Token Killer）](https://www.rtk-ai.app/)
@@ -104,7 +103,7 @@ test auth::test_login ... ok
 Claude 真正需要知道的就是「过了还是挂了，挂在哪里」，其他都是噪声。它通过 Hook 透明重写命令，对 Claude Code 来说完全无感。
 
 
-
+#### 4.1.2.4 压缩
 
 
 ## 4.1 基本使用
