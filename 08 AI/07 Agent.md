@@ -212,6 +212,8 @@ When compressing, preserve in priority order:
 
 ### 4.1.3 完整工程布局
 
+#### 4.1.3.1 最佳实践
+
 全局约束（CLAUDE.md）、路径约束（rules）、工作流（skills）和架构细节各归各位，Claude Code 跑起来会稳很多。假如你同时维护多个项目，可以把稳定的个人基线放在 ~/.claude/，各项目的差异放在项目级 .claude/，通过同步脚本分发，不同项目之间就不会互相污染了。
 
 ```plaintext
@@ -242,8 +244,19 @@ Project/
 ![](assets/07%20Agent/file-20260323235433672.jpg)
 
 
+#### 4.1.3.2 健康检查
 
+基于文章里的六层框架，我把这套检查整理成了一个开源 Skill 项目
 
+[tw93/claude-health](https://github.com/tw93/claude-health)
+
+可以一键检查你的 Claude Code 配置现在处于什么状态。
+
+> npx skills add tw93/claude-health -a claude-code -s health -g -y
+
+装好之后在任意会话里跑 /health，它会自动识别项目复杂度，对 CLAUDE.md、rules、skills、hooks、allowedTools 和实际行为模式各跑一遍检查，输出一份优先级报告：需要立刻修 / 结构性问题 / 可以慢慢做。
+
+如果你读完这篇文章想知道自己的配置离这些原则差多远，跑一次 /health 是最快的方式。
 
 
 
