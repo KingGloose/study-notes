@@ -2,6 +2,8 @@
 
 https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/overview
 
+[(2) X 上的 阿西_出海（2.0版）：“Claude Skills 喂饭级教程，99%的人不会用Skill” / X](https://x.com/imaxichuhai/status/2032397341701906735)
+
 
 # 1 介绍 
 
