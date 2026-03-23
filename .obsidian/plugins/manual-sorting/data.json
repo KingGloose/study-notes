@@ -7324,11 +7324,39 @@
       "08 AI/assets"
     ],
     "08 AI/assets": [
+      "08 AI/assets/07 Agent",
       "08 AI/assets/06 Skills",
-      "08 AI/assets/99 八股文",
-      "08 AI/assets/Claude Code SDK"
+      "08 AI/assets/99 八股文"
     ],
     "08 AI/assets/06 Skills": [
+      "08 AI/assets/06 Skills/file-20260322170025154.png",
+      "08 AI/assets/06 Skills/file-20260322204528416.png",
+      "08 AI/assets/06 Skills/file-20260322205350280.png",
+      "08 AI/assets/06 Skills/file-20260322205458501.png",
+      "08 AI/assets/06 Skills/file-20260322205709135.png",
+      "08 AI/assets/06 Skills/file-20260322205725310.png",
+      "08 AI/assets/06 Skills/file-20260322205908693.png",
+      "08 AI/assets/06 Skills/file-20260322205923004.png",
+      "08 AI/assets/06 Skills/file-20260322205939817.jpg",
+      "08 AI/assets/06 Skills/file-20260322210719292.jpg",
+      "08 AI/assets/06 Skills/file-20260322210926842.jpg",
+      "08 AI/assets/06 Skills/file-20260322211102640.jpg",
+      "08 AI/assets/06 Skills/file-20260322211127586.jpg",
+      "08 AI/assets/06 Skills/file-20260322213428258.png",
+      "08 AI/assets/06 Skills/file-20260322213528172.png",
+      "08 AI/assets/06 Skills/file-20260322213546581.png",
+      "08 AI/assets/06 Skills/file-20260322214803690.png",
+      "08 AI/assets/06 Skills/file-20260322214951540.png",
+      "08 AI/assets/06 Skills/file-20260322215136791.png",
+      "08 AI/assets/06 Skills/file-20260322215338148.png",
+      "08 AI/assets/06 Skills/file-20260322215429445.png",
+      "08 AI/assets/06 Skills/file-20260322215526569.png",
+      "08 AI/assets/06 Skills/file-20260322215618852.png",
+      "08 AI/assets/06 Skills/file-20260322215704483.png",
+      "08 AI/assets/06 Skills/file-20260322215916402.png",
+      "08 AI/assets/06 Skills/file-20260322215917662.png",
+      "08 AI/assets/06 Skills/file-20260322220133696.png",
+      "08 AI/assets/06 Skills/file-20260322220411301.png",
       "08 AI/assets/06 Skills/file-20260322165304529.png",
       "08 AI/assets/06 Skills/file-20260322165412342.png",
       "08 AI/assets/06 Skills/file-20260322165648466.png",
@@ -7336,10 +7364,16 @@
       "08 AI/assets/06 Skills/file-20260322170013919.png",
       "08 AI/assets/06 Skills/file-20260322143345026.jpg"
     ],
+    "08 AI/assets/07 Agent": [
+      "08 AI/assets/07 Agent/file-20260322161539754.jpg",
+      "08 AI/assets/07 Agent/file-20260322161539768.png",
+      "08 AI/assets/07 Agent/file-20260322161539770.png"
+    ],
     "08 AI/assets/99 八股文": [
+      "08 AI/assets/99 八股文/file-20260322221509877.jpg",
+      "08 AI/assets/99 八股文/file-20260322221523303.jpg",
       "08 AI/assets/99 八股文/file-20260322143238202.jpg"
     ],
-    "08 AI/assets/Claude Code SDK": [],
     "09 Python": [
       "09 Python/01 Python语法.md",
       "09 Python/02 环境配置.md",
