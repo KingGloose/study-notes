@@ -210,10 +210,36 @@ When compressing, preserve in priority order:
 
 
 
+### 4.1.3 完整工程布局
 
+全局约束（CLAUDE.md）、路径约束（rules）、工作流（skills）和架构细节各归各位，Claude Code 跑起来会稳很多。假如你同时维护多个项目，可以把稳定的个人基线放在 ~/.claude/，各项目的差异放在项目级 .claude/，通过同步脚本分发，不同项目之间就不会互相污染了。
 
+```plaintext
+Project/
+├── CLAUDE.md
+├── .claude/
+│   ├── rules/
+│   │   ├── core.md
+│   │   ├── config.md
+│   │   └── release.md
+│   ├── skills/
+│   │   ├── runtime-diagnosis/     # 统一收集日志、状态和依赖
+│   │   ├── config-migration/      # 配置迁移回滚防污
+│   │   ├── release-check/         # 发布前校验、smoke test
+│   │   └── incident-triage/       # 线上故障分诊
+│   ├── agents/
+│   │   ├── reviewer.md
+│   │   └── explorer.md
+│   └── settings.json
+└── docs/
+    └── ai/
+        ├── architecture.md
+        └── release-runbook.md
+```
 
+最好不要做如下的事情
 
+![](assets/07%20Agent/file-20260323235433672.jpg)
 
 
 
