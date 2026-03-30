@@ -41,9 +41,15 @@ https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/overview
 
 ## 2.1 YAML Frontmatter
 
+https://code.claude.com/docs/zh-CN/skills#frontmatter-%E5%8F%82%E8%80%83
+
 元数据层，这是 Skill 能被Agent“发现”的关键。通常包含name和description两个字段：
 - **name**：就是Skills的名称。只能使用小写字母、数字和连字符。和文件夹名称匹配。
 - **description**：描述这个Skill的功能以及触发时机（比如，“在处理PDF文件或用户提及PDF时使用”）。这样Agent就知道该在什么时候激活这个 Skill。具体怎么写好description，有一定的原则和技巧，我们会在第二节详细介绍。
+
+![](assets/06%20Skills/file-20260330151520142.png)
+
+
 
 
 它们就像是Skill的“名片”，让Agent一眼就能知道什么时候该用哪个Skill。
