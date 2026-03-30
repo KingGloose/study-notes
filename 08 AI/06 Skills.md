@@ -45,6 +45,7 @@ https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/overview
 - **name**：就是Skills的名称。只能使用小写字母、数字和连字符。和文件夹名称匹配。
 - **description**：描述这个Skill的功能以及触发时机（比如，“在处理PDF文件或用户提及PDF时使用”）。这样Agent就知道该在什么时候激活这个 Skill。具体怎么写好description，有一定的原则和技巧，我们会在第二节详细介绍。
 
+
 它们就像是Skill的“名片”，让Agent一眼就能知道什么时候该用哪个Skill。
 
 Agent在启动时就会加载Skills的元数据层。比如你安装了10个Skills，Agent在启动时就会加载这10个Skills对应的元数据层。由于每个Skills的元数据层很简短（50-100 tokens），所以占用的上下文空间很小，这也是Skills对比MCP更省token的重要原因之一。
