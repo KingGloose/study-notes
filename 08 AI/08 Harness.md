@@ -7,3 +7,9 @@
 
 ![](assets/08%20Harness/file-20260407235957322.jpg)
 
+
+![](assets/08%20Harness/file-20260408000508244.jpg)
+
+
+
+
