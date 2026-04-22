@@ -7306,6 +7306,10 @@
       "08 AI/99 其他知识",
       "08 AI/assets"
     ],
+    "08 AI/99 其他知识": [
+      "08 AI/99 其他知识/ai-browser-automation-research.md",
+      "08 AI/99 其他知识/chrome-devtools-mcp-deep-dive.md"
+    ],
     "08 AI/assets": [
       "08 AI/assets/08 Harness",
       "08 AI/assets/07 Agent",
@@ -7506,8 +7510,7 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ],
-    "08 AI/99 其他知识": []
+    ]
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
