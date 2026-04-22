@@ -83,7 +83,7 @@ chrome-devtools take_screenshot --filePath /tmp/screenshot.png
 
 #### 疑问 4：代理配置在哪里生效？
 
-最初以为每次 CLI 命令都需要传 `--proxy-server` 参数，但实际上：
+最初以为每次 CLI 命令都需要传 `--proxyServer` 参数，但实际上：
 
 ```bash
 # 启动时配置代理（只需一次）
@@ -107,39 +107,102 @@ chrome-devtools status
 
 #### 疑问 5：如何自动处理未登录状态？
 
-访问内网 OA 系统时，经常遇到未登录的情况。我们设计了一套自动检测流程：
+访问内网 OA 系统时，经常遇到未登录的情况。我们设计了一套分层处理策略：
+
+**第一层：持久化 profile 自动保持登录态**
+
+始终使用 `--userDataDir` 启动 daemon，Cookie 保存到磁盘，daemon 重启后登录态自动恢复：
+
+```bash
+chrome-devtools start \
+  --proxyServer http://127.0.0.1:8899 \
+  --userDataDir "$HOME/.chrome-devtools-profile"
+```
+
+**第二层：检测未登录时自动注入 Cookie**
+
+只有当持久化 profile 中的 Cookie 过期时，才需要重新注入。流程：
 
 1. **检测未登录**：
 ```bash
-chrome-devtools take_snapshot | grep -E "(未登录|403|登录)"
+chrome-devtools take_snapshot | grep -E "(未登录|403)"
 ```
 
-2. **查找 302 重定向**：
+2. **从用户日常 Chrome 提取 Cookie**：
+```bash
+zzcli cookie .zhuanspirit.com --format json
+# 输出：[{"name":"sso_uid","value":"629423872","domain":".zhuanspirit.com"}, ...]
+```
+
+3. **注入 Cookie 到 chrome-devtools 浏览器**：
+```bash
+chrome-devtools evaluate_script "() => {
+  document.cookie = 'sso_uid=629423872; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  document.cookie = 't_sso_code=xxx; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  document.cookie = 'sso_company_code=0; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  document.cookie = 'kid=xxx; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  return document.cookie;
+}"
+```
+
+4. **刷新页面使 Cookie 生效**：
+```bash
+chrome-devtools navigate_page --type reload
+```
+
+注入成功后，Cookie 会保存到持久化 profile 中，后续操作无需再次注入。
+
+**第三层：302 重定向引导登录（备选）**
+
+如果 `zzcli cookie` 提取失败（用户日常 Chrome 也未登录），检查网络请求中的 302 重定向，引导用户到 SSO 登录页：
+
 ```bash
 chrome-devtools list_network_requests --output-format json | grep '"302"'
+chrome-devtools get_network_request --reqid <reqid>
+# 从 Location header 获取 SSO 登录页 URL
 ```
 
-3. **提取 SSO 登录页 URL**：
-```bash
-chrome-devtools get_network_request --reqid <302请求的reqid>
-# 从 Response Headers 的 Location 字段获取
+**第四层：提醒用户手动登录**
+
+以上方式都失败时，提醒用户手动登录。
+
+#### 疑问 6：Cookie 注入是否有限制？
+
+通过 `document.cookie` 注入 Cookie 有一个限制：**无法设置 HttpOnly 的 Cookie**。
+
+但经过验证，转转 OA 系统的 SSO Cookie（`sso_uid`、`t_sso_code`、`sso_company_code`、`kid`）全部 `is_httponly=0`，可以通过 `document.cookie` 正常读写。
+
+```sql
+-- 从 Chrome Cookie 数据库验证
+SELECT name, is_httponly FROM cookies WHERE host_key='.zhuanspirit.com';
+-- kid|0, sso_uid|0, t_sso_code|0, sso_company_code|0
 ```
 
-4. **自动导航到 SSO 页面**：
-```bash
-chrome-devtools navigate_page --url "<SSO登录页URL>"
-```
+#### 疑问 7：是否每次调用都需要走 Cookie 注入流程？
 
-5. **检测并点击 SSO 按钮**：
-```bash
-chrome-devtools take_snapshot | grep "继续.*登录"
-# 假设输出：uid=1_5 button "继续在浏览器中登录访问"
-chrome-devtools click "1_5"
-```
+**不需要。**
 
-**实际案例**：在测试中发现，有些系统没有 302 重定向，而是直接返回 200 但页面显示未登录。这种情况下，需要直接提醒用户手动登录。
+使用 `--userDataDir` 持久化 profile 后，Cookie 保存在磁盘上。正常流程是：
+
+1. 启动 daemon（持久化 profile）
+2. 导航到页面
+3. 检查登录态
+4. **已登录** → 直接操作
+5. **未登录** → 走 Cookie 注入流程 → 注入后 Cookie 保存到 profile → 后续自动保持
+
+只有 Cookie 过期时才需要重新注入。
 
 ## 技术细节
+
+### Node.js 版本要求
+
+chrome-devtools-mcp 的 `engines` 字段：
+
+```json
+{ "node": "^20.19.0 || ^22.12.0 || >=23" }
+```
+
+最低支持 Node 20.19.0。
 
 ### CLI 命令格式
 
@@ -180,34 +243,19 @@ chrome-devtools list_network_requests --output-format json
 chrome-devtools get_network_request --reqid 193
 ```
 
-输出示例：
-```json
-{
-  "requestId": 193,
-  "method": "GET",
-  "url": "https://funiqueauth.zhuanspirit.com/common/login?appCode=asset_manage",
-  "status": "200",
-  "responseHeaders": {
-    "set-cookie": "sso_company_code=0; Max-Age=259200; ..."
-  }
-}
-```
-
 ### Profile 管理
 
-登录态保存在 profile 中：
+始终使用持久化 profile：
 
 ```bash
-# 默认 profile（isolated 模式，临时）
-~/.cache/chrome-devtools-mcp/chrome-profile-*
-
-# 持久化 profile（推荐）
-chrome-devtools start --userDataDir "$HOME/.chrome-debug-profile"
+chrome-devtools start \
+  --proxyServer http://127.0.0.1:8899 \
+  --userDataDir "$HOME/.chrome-devtools-profile"
 ```
 
-**注意**：
-- `--isolated` 模式会在浏览器关闭后自动清理 profile
-- 不带 `--isolated` 或指定 `--userDataDir` 可以保持登录态
+- Cookie、LocalStorage、Session 自动保存到磁盘
+- daemon 重启后自动恢复
+- 清除登录态：`rm -rf ~/.chrome-devtools-profile`
 
 ## 实践案例：OA 系统表单验证
 
@@ -218,52 +266,61 @@ chrome-devtools start --userDataDir "$HOME/.chrome-debug-profile"
 ### 完整流程
 
 ```bash
-# 1. 启动 daemon（带代理和持久化 profile）
+# 1. 启动 daemon（持久化 profile + 代理）
 chrome-devtools start \
   --proxyServer http://127.0.0.1:8899 \
-  --userDataDir "$HOME/.cache/chrome-devtools-mcp/chrome-profile" \
-  --headless false
+  --userDataDir "$HOME/.chrome-devtools-profile"
 
 # 2. 导航到目标页面
 chrome-devtools navigate_page --url "https://oa.zhuanspirit.com/asset_manage/?#/asset/use/inbound/create"
 
-# 3. 等待页面加载
+# 3. 等待页面加载，检查登录态
 sleep 3
-
-# 4. 检查登录状态
 chrome-devtools take_snapshot | grep -E "(未登录|403)"
 
-# 如果未登录，引导用户登录（有界面模式下可以手动登录）
+# 4. 如果未登录，从用户 Chrome 提取 Cookie 并注入
+zzcli cookie .zhuanspirit.com --format json
+# 提取到 sso_uid、t_sso_code、sso_company_code、kid
 
-# 5. 获取快照，找到"业务方"下拉框
+chrome-devtools navigate_page --url "https://oa.zhuanspirit.com"
+chrome-devtools evaluate_script "() => {
+  document.cookie = 'sso_uid=629423872; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  document.cookie = 't_sso_code=xxx; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  document.cookie = 'sso_company_code=0; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  document.cookie = 'kid=xxx; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+  return document.cookie;
+}"
+chrome-devtools navigate_page --type reload
+
+# 5. 重新导航到目标页面
+chrome-devtools navigate_page --url "https://oa.zhuanspirit.com/asset_manage/?#/asset/use/inbound/create"
+sleep 3
+
+# 6. 获取快照，找到"业务方"下拉框
 chrome-devtools take_snapshot | grep "combobox.*业务方"
-# 输出：uid=3_32 combobox "* 业务方 :" ...
+# 输出：uid=3_49 combobox "* 业务方 :" ...
 
-# 6. 点击下拉框
-chrome-devtools click "3_32"
+# 7. 点击下拉框
+chrome-devtools click "3_49"
 
-# 7. 等待下拉选项出现
+# 8. 等待下拉选项出现，找到"行政"
 sleep 1
-
-# 8. 找到"行政"选项
 chrome-devtools take_snapshot | grep "行政"
-# 输出：uid=6_5 StaticText "行政"
+# 输出：uid=4_5 StaticText "行政"
 
 # 9. 点击"行政"
-chrome-devtools click "6_5"
+chrome-devtools click "4_5"
 
-# 10. 等待页面更新
+# 10. 等待页面更新，验证是否出现"行政性质"
 sleep 2
-
-# 11. 验证是否出现"行政性质"
 chrome-devtools take_snapshot | grep "行政性质"
-# 输出：uid=7_7 StaticText "行政性质"
-#       uid=7_8 combobox "* 行政性质 :" ...
+# 输出：uid=5_7 StaticText "行政性质"
+#       uid=5_8 combobox "* 行政性质 :" ...
 
-# 12. 截图保存结果
+# 11. 截图保存结果
 chrome-devtools take_screenshot --filePath /tmp/result.png
 
-# 13. 停止 daemon
+# 12. 停止 daemon（可选）
 chrome-devtools stop
 ```
 
@@ -298,7 +355,7 @@ chrome-devtools stop
 - ✅ 结构化数据返回
 - ❌ 占用初始上下文（~15KB）
 
-### CLI 模式
+### CLI 模式（最终方案）
 
 ```
 ┌─────────────┐
@@ -329,15 +386,15 @@ chrome-devtools stop
 - ✅ 不占用 Claude Code 上下文
 - ✅ daemon 保持浏览器状态
 - ✅ 代理只需配置一次
+- ✅ 持久化 profile 保持登录态
 - ❌ 输出是文本，需要解析
-- ❌ 架构相对复杂
 
 ## 最佳实践
 
 ### 1. 环境准备
 
 ```bash
-# 全局安装
+# 全局安装（需要 Node.js ^20.19.0 || ^22.12.0 || >=23）
 npm i -g chrome-devtools-mcp@latest
 
 # 验证安装
@@ -345,35 +402,45 @@ chrome-devtools --version
 chrome-devtools status
 ```
 
-### 2. 启动配置
+### 2. 标准启动（始终使用持久化 profile）
 
 ```bash
 # 开发调试（有界面，便于观察）
 chrome-devtools start \
   --proxyServer http://127.0.0.1:8899 \
-  --headless false \
-  --userDataDir "$HOME/.chrome-debug-profile"
+  --userDataDir "$HOME/.chrome-devtools-profile" \
+  --headless false
 
-# 生产环境（无界面，性能更好）
+# 无界面模式（性能更好）
 chrome-devtools start \
   --proxyServer http://127.0.0.1:8899 \
-  --headless true \
-  --userDataDir "$HOME/.chrome-debug-profile"
+  --userDataDir "$HOME/.chrome-devtools-profile"
 ```
 
-### 3. 错误处理
+### 3. 登录态检查与注入
 
 ```bash
 # 检查 daemon 状态
-if ! chrome-devtools status | grep -q "running"; then
-  echo "daemon 未运行，正在启动..."
-  chrome-devtools start --proxyServer http://127.0.0.1:8899
-fi
+chrome-devtools status || chrome-devtools start \
+  --proxyServer http://127.0.0.1:8899 \
+  --userDataDir "$HOME/.chrome-devtools-profile"
+
+# 导航到目标页面
+chrome-devtools navigate_page --url "https://oa.zhuanspirit.com/..."
 
 # 检查登录状态
 if chrome-devtools take_snapshot | grep -q "未登录"; then
-  echo "需要登录，请在浏览器中完成登录"
-  exit 1
+  # 从用户 Chrome 提取 Cookie
+  COOKIES=$(zzcli cookie .zhuanspirit.com --format json)
+  
+  # 注入 Cookie（根据提取结果构造）
+  chrome-devtools navigate_page --url "https://oa.zhuanspirit.com"
+  chrome-devtools evaluate_script "() => {
+    document.cookie = 'sso_uid=<value>; path=/; domain=.zhuanspirit.com; Secure; SameSite=None';
+    // ... 其他 Cookie
+    return document.cookie;
+  }"
+  chrome-devtools navigate_page --type reload
 fi
 ```
 
@@ -402,21 +469,46 @@ trap "chrome-devtools stop" EXIT
 
 # 或者手动停止
 chrome-devtools stop
+
+# 清除登录态
+rm -rf ~/.chrome-devtools-profile
 ```
+
+## Skill 落地方案
+
+最终采用 **CLI 按需加载 + Skill 封装** 的组合方案：
+
+```
+skills/chrome-devtools/
+├── SKILL.md                      # 核心使用指南
+└── references/
+    ├── installation.md           # 安装和环境准备
+    ├── examples.md               # 典型工作流程
+    └── troubleshooting.md        # 问题排查
+```
+
+**设计原则**：
+- 不在全局 settings.json 中配置 MCP（零上下文开销）
+- 所有命令内联在 SKILL.md 中，无需额外脚本
+- 始终使用 `--userDataDir` 持久化 profile
+- 只有检测到未登录时才走 Cookie 注入流程
+- 完整命令列表通过 `chrome-devtools --help` 查看
 
 ## 常见问题
 
 ### Q1: daemon 无法启动
 
 ```bash
-# 检查 Node 版本
-node -v  # 需要 >= 20
+# 检查 Node 版本（需要 ^20.19.0 || ^22.12.0 || >=23）
+node -v
 
 # 清理残留 socket 文件
 rm -f /tmp/chrome-devtools-mcp-*.sock
 
 # 重新启动
-chrome-devtools start
+chrome-devtools start \
+  --proxyServer http://127.0.0.1:8899 \
+  --userDataDir "$HOME/.chrome-devtools-profile"
 ```
 
 ### Q2: 命令超时
@@ -427,17 +519,17 @@ chrome-devtools status
 
 # 重启 daemon
 chrome-devtools stop
-chrome-devtools start --proxyServer http://127.0.0.1:8899
-```
-
-### Q3: 登录态丢失
-
-```bash
-# 使用持久化 profile（不要用 --isolated）
 chrome-devtools start \
-  --userDataDir "$HOME/.chrome-debug-profile" \
-  --proxyServer http://127.0.0.1:8899
+  --proxyServer http://127.0.0.1:8899 \
+  --userDataDir "$HOME/.chrome-devtools-profile"
 ```
+
+### Q3: Cookie 注入后仍然未登录
+
+可能原因：
+- Cookie 已过期：用户需要先在日常 Chrome 中重新登录
+- Cookie 域名不匹配：确认注入时使用了正确的 domain
+- Cookie 是 HttpOnly：无法通过 `document.cookie` 设置（转转 SSO Cookie 不是 HttpOnly，不会遇到此问题）
 
 ### Q4: 代理不生效
 
@@ -450,7 +542,9 @@ chrome-devtools status | grep proxy-server
 
 # 重启 daemon 并带上代理参数
 chrome-devtools stop
-chrome-devtools start --proxyServer http://127.0.0.1:8899
+chrome-devtools start \
+  --proxyServer http://127.0.0.1:8899 \
+  --userDataDir "$HOME/.chrome-devtools-profile"
 ```
 
 ## 性能对比
@@ -461,22 +555,17 @@ chrome-devtools start --proxyServer http://127.0.0.1:8899
 | 命令响应速度 | 快（直接调用） | 中（需要 socket 通信） |
 | 数据格式 | 结构化 JSON | 文本（需解析） |
 | 浏览器启动 | 每次调用时启动 | daemon 启动时启动一次 |
-| 状态保持 | 需要手动管理 | daemon 自动管理 |
+| 状态保持 | 需要手动管理 | daemon + 持久化 profile 自动管理 |
+| 登录态 | 需要手动处理 | 持久化 profile + 自动注入 |
 | 适用场景 | 频繁调用、需要结构化数据 | 按需使用、节省上下文 |
 
 ## 总结
 
-Chrome DevTools MCP 的 CLI 模式通过巧妙的架构设计（Unix socket + daemon），实现了"按需加载、不占上下文"的目标。虽然架构相对复杂，但在实际使用中表现良好，特别适合以下场景：
+Chrome DevTools MCP 的 CLI 模式通过巧妙的架构设计（Unix socket + daemon），实现了"按需加载、不占上下文"的目标。结合持久化 profile 和 `zzcli cookie` 自动注入，解决了登录态保持的问题。
 
-1. **按需浏览器自动化**：不希望在 Claude Code 启动时就加载所有工具
-2. **需要代理支持**：内网环境或需要抓包调试
-3. **需要保持状态**：登录态、Cookie、页面状态需要在多个命令间保持
-4. **脚本化操作**：可以将 CLI 命令组合成 shell 脚本
-
-关键要点：
-- CLI 通过 Unix socket 连接 daemon，不会被 Claude Code 识别为 MCP
-- daemon 保持浏览器运行，实现状态保持
-- 代理在 daemon 启动时配置，后续命令无需重复
-- 登录态保存在 profile 中，使用 `--userDataDir` 可以持久化
-
-通过这次深度实践，我们不仅解决了技术问题，更重要的是理解了工具的设计思想和架构权衡，为后续的浏览器自动化工作奠定了坚实基础。
+最终落地方案的核心要点：
+- **CLI 模式**：通过 Unix socket 连接 daemon，不会被 Claude Code 识别为 MCP，零上下文开销
+- **持久化 profile**：始终使用 `--userDataDir`，Cookie 保存到磁盘，daemon 重启后自动恢复
+- **按需注入**：只有检测到未登录时，才通过 `zzcli cookie` 提取 + `evaluate_script` 注入
+- **代理配置**：在 daemon 启动时配置一次，后续命令无需重复
+- **Skill 封装**：所有命令内联在 SKILL.md 中，无需额外脚本，参考 sentry-cli skill 的模式
