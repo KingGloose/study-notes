@@ -7293,7 +7293,6 @@
       "07 嵌入式/01 ESP8266.md"
     ],
     "08 AI": [
-      "08 AI/99 其他.md",
       "08 AI/01 理论知识.md",
       "08 AI/02 LangChain.md",
       "08 AI/03 LangGraph.md",
@@ -7303,6 +7302,8 @@
       "08 AI/07 Agent.md",
       "08 AI/08 Harness.md",
       "08 AI/99 八股文.md",
+      "08 AI/99 其他.md",
+      "08 AI/99 其他知识",
       "08 AI/assets"
     ],
     "08 AI/assets": [
@@ -7505,7 +7506,8 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ]
+    ],
+    "08 AI/99 其他知识": []
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
