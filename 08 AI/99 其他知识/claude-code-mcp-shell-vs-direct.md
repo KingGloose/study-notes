@@ -267,4 +267,183 @@ chrome-devtools-mcp <-> Chrome         协议：CDP over WebSocket
 
 Claude Code **不直接连 Chrome**。它只管通过 stdin/stdout 给 MCP server 发请求；真正跟 Chrome 浏览器走 WebSocket/CDP 的，是 MCP server。
 
-<!-- PLACEHOLDER_C -->
+## 七、Shell 脚本启动 MCP：exec 的关键作用
+
+### 7.1 你的配置
+
+```json
+{
+  "command": "bash",
+  "args": ["/Users/zzzz/.claude/scripts/chrome-mcp-launcher.sh"]
+}
+```
+
+Claude Code 做的事情等价于 `bash /Users/zzzz/.claude/scripts/chrome-mcp-launcher.sh`。此时系统会创建一组管道，Claude Code 持有子进程的 stdin 和 stdout，而这个子进程确实是 `bash`。
+
+### 7.2 exec 做了什么
+
+脚本核心：
+
+```bash
+exec npx -y chrome-devtools-mcp@latest --wsEndpoint "$WS_ENDPOINT"
+```
+
+`exec` 是 shell 内置命令，语义是：**用后面的程序替换当前 shell 进程本身。** 不是"启动一个子进程"，而是"把自己变成那个程序"。
+
+替换后：PID 不变、stdin/stdout/stderr 管道不变、但进程内容完全换成了新程序、原来的 bash 代码不再存在。
+
+### 7.3 进程生命周期
+
+```
+阶段 1：Claude Code spawn bash
+  Claude Code ====stdin管道====> bash (PID 2001)
+  Claude Code <===stdout管道==== bash (PID 2001)
+
+阶段 2：bash 执行脚本（读端口、拼地址）
+  bash 内部执行准备逻辑，Claude Code 还没发任何 MCP 消息
+
+阶段 3：exec 替换进程
+  exec 前：Claude Code ===stdio=== bash (PID 2001)
+  exec 后：Claude Code ===stdio=== chrome-devtools-mcp (PID 2001)
+
+  关键点：
+  ✓ PID 没变，还是 2001
+  ✓ stdin/stdout 管道没变
+  ✓ 但进程内容完全换成了 chrome-devtools-mcp
+  ✗ bash 已经不存在了
+
+阶段 4：MCP 协议通信开始
+  Claude Code 往 stdin 写 {"method":"tools/list"}
+  chrome-devtools-mcp 从 stdout 回 {"result":{"tools":[...]}}
+
+阶段 5：实际工具调用（两层通信）
+  Claude Code --stdin--> chrome-devtools-mcp --WebSocket--> Chrome
+  Claude Code <-stdout-- chrome-devtools-mcp <-WebSocket--- Chrome
+```
+
+### 7.4 完整进程生命周期时间线
+
+```
+时间 ──────────────────────────────────────────────────────────>
+
+Claude Code  ████████████████████████████████████████████████████
+                │
+                │ spawn
+                ▼
+bash         ███████░░░
+             │读端口│
+             │拼地址│
+             │ exec │
+                    │
+                    ▼ exec 替换（同一个 PID）
+MCP server          ░████████████████████████████████████████████
+                     │                    │
+                     │ connect ws         │ 持续通信
+                     ▼                    ▼
+Chrome               ████████████████████████████████████████████
+
+图例：
+  ███ = 进程存活
+  ░░░ = 进程即将被替换
+  │   = 事件触发
+```
+
+## 八、为什么必须用 exec
+
+### 8.1 如果不用 exec，进程结构变成什么
+
+```bash
+#!/bin/bash
+PORT=$(head -1 "$DEVTOOLS_FILE")
+# 注意：没有 exec
+npx -y chrome-devtools-mcp@latest --wsEndpoint "ws://127.0.0.1:${PORT}"
+```
+
+进程结构变成：
+
+```
+Claude Code (PID 1000)
+    └── bash launcher.sh (PID 2001)        ← bash 还活着
+            └── npx chrome-devtools-mcp (PID 3002)   ← 新的子进程
+```
+
+Claude Code 持有的 stdio 管道，连的还是 bash (PID 2001)，不是真正的 MCP server。
+
+### 8.2 问题 1：stdout 污染（最致命）
+
+Claude Code 和 MCP server 之间的 stdout 是 JSON-RPC 协议通道，每一行都应该是合法的 JSON 消息。
+
+但如果 bash 还活着，以下情况都可能往 stdout 写入非 JSON 内容：
+
+- `npx` 启动时打印 `npm warn deprecated ...`
+- bash 本身的错误提示
+- shell 的 trap handler 输出
+
+一旦 Claude Code 从 stdout 读到一行不是 JSON 的文本（如 `npm warn deprecated inflight@1.0.6`），JSON-RPC 解析器直接报错，MCP 通信就断了。
+
+用了 `exec` 就没有这个问题，因为 bash 已经不存在了，stdout 完全由 `chrome-devtools-mcp` 控制。
+
+### 8.3 问题 2：退出码被掩盖
+
+假设 `chrome-devtools-mcp` 启动失败，退出码是 1。
+
+- **有 exec**：Claude Code 直接拿到退出码 1，知道 MCP server 启动失败。
+- **没有 exec**：bash 等 npx 退出后自己再退出。bash 的退出码默认是最后一条命令的退出码，通常能传递。但如果脚本后面还有别的逻辑或 trap，退出码就可能被覆盖。Claude Code 看到的是 bash 的退出行为，不是 MCP server 的，错误诊断变得模糊。
+
+### 8.4 问题 3：信号传递不直接
+
+当 Claude Code 要关闭 MCP server 时，它会给子进程发 `SIGTERM`。
+
+- **有 exec**：`SIGTERM` 直接发到 `chrome-devtools-mcp`，MCP server 收到后清理资源、断开 Chrome 连接、退出。
+- **没有 exec**：`SIGTERM` 发到 bash (PID 2001)。bash 默认行为是收到 SIGTERM 后退出，但不一定会转发 SIGTERM 给它的子进程 npx。npx 可能变成孤儿进程，继续在后台运行，占着 Chrome 的调试端口不放。
+
+### 8.5 问题 4：僵尸进程风险
+
+- **有 exec**：只有一个进程，不存在父子关系，不会有僵尸进程。
+- **没有 exec**：如果 bash 因为某种原因先退出了（比如收到信号），而 npx 还在运行，npx 变成孤儿进程。或者反过来，npx 退出了但 bash 没有 wait，npx 变成僵尸进程。
+
+### 8.6 对比总结
+
+| 维度 | 有 exec | 没有 exec |
+|------|---------|-----------|
+| 进程数 | 1 个（MCP server） | 2 个（bash + MCP server） |
+| Claude Code 连接对象 | 直接是 MCP server | 是 bash，间接到 MCP server |
+| stdout 干净度 | 完全由 MCP server 控制 | bash/npx 都可能写入杂音 |
+| 退出码 | MCP server 的真实退出码 | 可能被 bash 掩盖 |
+| SIGTERM 传递 | 直达 MCP server | 先到 bash，不一定转发 |
+| 孤儿/僵尸风险 | 无 | 有 |
+| 资源占用 | 少一个 bash 进程 | 多一个 bash 进程常驻 |
+
+### 8.7 结论
+
+`exec` 的作用是让 launcher 脚本在完成准备工作后彻底消失，把 stdio 管道干净地交给真正的 MCP server。
+
+不用 `exec` 不是"绝对不能跑"，而是多了一层 bash 壳，会在 stdout 污染、信号传递、退出码、进程生命周期上引入不确定性。对于 MCP 这种依赖"干净 stdio 通道"的协议来说，这些不确定性随时可能变成 bug。
+
+所以在 MCP launcher 脚本里，`exec` 不是可选的优化，而是**工程上的必要写法**。
+
+## 九、最本质的理解
+
+### 9.1 MCP 和 shell 的本质区别
+
+- **MCP = Claude Code 直接把外部能力纳入自己的工具系统**
+- **shell = Claude Code 借助命令行间接使用外部能力**
+
+区别不是"能不能控制浏览器"，而是：这个能力是以"Claude 原生工具"的身份存在，还是以"外部命令"的身份存在。
+
+### 9.2 stdio 通信的本质
+
+stdio 通信的意思不是"在终端里手工输入输出"，而是：Claude Code 启动一个 MCP 子进程后，通过操作系统提供的标准输入/标准输出管道，持续交换 JSON-RPC 消息。
+
+### 9.3 chrome-devtools 场景的两层通信
+
+```
+Claude Code <-> MCP server    用 stdio（本地进程管道）
+MCP server <-> Chrome          用 WebSocket（CDP 协议）
+```
+
+Claude Code 不直接连 Chrome。MCP server 是中间的"翻译桥"。
+
+### 9.4 shell launcher 的定位
+
+shell 脚本在这里不是协议服务本身，只是一个 bootstrap / launcher。它做的事只是：读端口文件、拼 wsEndpoint、然后把自己 `exec` 替换成真正的 MCP server。stdio 这一层是 Claude Code 和子进程天然就有的，shell 脚本只是帮你完成了"动态参数准备"。
