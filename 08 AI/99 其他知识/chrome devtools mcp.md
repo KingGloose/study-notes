@@ -3,3 +3,7 @@
 ![](assets/chrome%20devtools%20mcp/file-20260427151144582.jpg)
 
 ![](assets/chrome%20devtools%20mcp/file-20260427151157190.png)
+
+![](assets/chrome%20devtools%20mcp/file-20260427153235688.jpg)
+
+![](assets/chrome%20devtools%20mcp/file-20260427153247928.jpg)
