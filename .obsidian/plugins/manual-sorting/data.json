@@ -7307,6 +7307,7 @@
       "08 AI/assets"
     ],
     "08 AI/99 其他知识": [
+      "08 AI/99 其他知识/chrome-devtools-mcp-architecture-analysis.md",
       "08 AI/99 其他知识/assets",
       "08 AI/99 其他知识/chrome devtools mcp.md",
       "08 AI/99 其他知识/claude-code-mcp-shell-vs-direct.md",
@@ -7318,6 +7319,9 @@
       "08 AI/99 其他知识/assets/chrome devtools mcp"
     ],
     "08 AI/99 其他知识/assets/chrome devtools mcp": [
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427151157190.png",
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427153235688.jpg",
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427153247928.jpg",
       "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427151144582.jpg"
     ],
     "08 AI/assets": [
