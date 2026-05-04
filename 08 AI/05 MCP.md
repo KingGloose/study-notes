@@ -240,5 +240,5 @@ https://refly.ai/share/pages/pag-mgi439nspxd6m0rt4cjkr4ae
 2、cli 则不需要将所有的工具都发送过去，只需要 cli + skills 就行，消耗的 token 就很少了
 3、那么 cli 是否有什么劣势呢？比如：下方的 watermark.png 这里有一个 "."，理论讲他会破坏 bash 的执行，AI 可能会出现错误，而且 cli 命令更不易读
 ![](assets/05%20MCP/file-20260504100404144.png)
-
+同理，针对很多服务器的场景
 
