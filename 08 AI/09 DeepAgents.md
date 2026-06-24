@@ -18,6 +18,7 @@
 
 ![](assets/09%20DeepAgents/file-20260624225222585.jpg)
 
+![](assets/09%20DeepAgents/file-20260624225338274.jpg)
 
 
 # 3 虚拟文件系统
@@ -28,4 +29,10 @@
 
 ![](assets/09%20DeepAgents/file-20260624224907496.jpg)
 
+
+# 4 可插拔存储后端
+
+![](assets/09%20DeepAgents/file-20260624225424316.jpg)
+
+![](assets/09%20DeepAgents/file-20260624225509214.jpg)
 
