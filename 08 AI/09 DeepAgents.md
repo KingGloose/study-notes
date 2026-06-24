@@ -89,3 +89,10 @@
 ![](assets/09%20DeepAgents/file-20260624231952399.jpg)
 
 ![](assets/09%20DeepAgents/file-20260624232549997.jpg)
+
+# 7 异步子智能体
+
+![](assets/09%20DeepAgents/file-20260624232716113.jpg)
+
+![](assets/09%20DeepAgents/file-20260624232729075.jpg)
+
