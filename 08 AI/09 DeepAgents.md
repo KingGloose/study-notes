@@ -12,3 +12,10 @@
 
 ![](assets/09%20DeepAgents/file-20260624224109351.jpg)
 
+
+
+# 3 虚拟文件系统
+![](assets/09%20DeepAgents/file-20260624224631432.jpg)
+
+![](assets/09%20DeepAgents/file-20260624224640977.jpg)
+
