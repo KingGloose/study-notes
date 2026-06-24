@@ -7323,7 +7323,6 @@
     ],
     "08 AI": [
       "08 AI/99 其他知识",
-      "08 AI/09 DeepAgents.md",
       "08 AI/99 其他.md",
       "08 AI/01 理论知识.md",
       "08 AI/02 LangChain.md",
@@ -7333,6 +7332,7 @@
       "08 AI/06 Skills.md",
       "08 AI/07 Agent.md",
       "08 AI/08 Harness.md",
+      "08 AI/09 DeepAgents.md",
       "08 AI/99 八股文.md",
       "08 AI/assets"
     ],
