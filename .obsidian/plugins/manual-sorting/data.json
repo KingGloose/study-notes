@@ -1,6 +1,7 @@
 {
   "customFileOrder": {
     "/": [
+      "conflict-files-obsidian-git.md",
       "00 assets",
       "01 基础",
       "02 算法",
@@ -7322,6 +7323,7 @@
       "07 嵌入式/01 ESP8266.md"
     ],
     "08 AI": [
+      "08 AI/99 其他知识",
       "08 AI/09 DeepAgents.md",
       "08 AI/99 其他.md",
       "08 AI/01 理论知识.md",
@@ -7335,11 +7337,35 @@
       "08 AI/99 八股文.md",
       "08 AI/assets"
     ],
+    "08 AI/99 其他知识": [
+      "08 AI/99 其他知识/assets",
+      "08 AI/99 其他知识/ai-browser-automation-complete.md",
+      "08 AI/99 其他知识/ai-browser-automation-research.md",
+      "08 AI/99 其他知识/chrome devtools mcp.md",
+      "08 AI/99 其他知识/chrome-devtools-mcp-architecture-analysis.md",
+      "08 AI/99 其他知识/chrome-devtools-mcp-deep-dive.md",
+      "08 AI/99 其他知识/claude-code-mcp-shell-vs-direct.md"
+    ],
+    "08 AI/99 其他知识/assets": [
+      "08 AI/99 其他知识/assets/chrome devtools mcp"
+    ],
+    "08 AI/99 其他知识/assets/chrome devtools mcp": [
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427151144582.jpg",
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427151157190.png",
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427153235688.jpg",
+      "08 AI/99 其他知识/assets/chrome devtools mcp/file-20260427153247928.jpg"
+    ],
     "08 AI/assets": [
+      "08 AI/assets/05 MCP",
+      "08 AI/assets/09 DeepAgents",
       "08 AI/assets/08 Harness",
       "08 AI/assets/07 Agent",
       "08 AI/assets/06 Skills",
       "08 AI/assets/99 八股文"
+    ],
+    "08 AI/assets/05 MCP": [
+      "08 AI/assets/05 MCP/file-20260504100015426.png",
+      "08 AI/assets/05 MCP/file-20260504100404144.png"
     ],
     "08 AI/assets/06 Skills": [
       "08 AI/assets/06 Skills/file-20260330151520142.png",
@@ -7407,6 +7433,9 @@
       "08 AI/assets/08 Harness/file-20260408001042418.jpg",
       "08 AI/assets/08 Harness/file-20260408001152845.jpg",
       "08 AI/assets/08 Harness/file-20260408001257894.jpg"
+    ],
+    "08 AI/assets/09 DeepAgents": [
+      "08 AI/assets/09 DeepAgents/file-20260624222726304.jpg"
     ],
     "08 AI/assets/99 八股文": [
       "08 AI/assets/99 八股文/file-20260322221509877.jpg",
