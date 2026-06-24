@@ -7335,6 +7335,7 @@
       "08 AI/assets"
     ],
     "08 AI/assets": [
+      "08 AI/assets/08 Harness",
       "08 AI/assets/07 Agent",
       "08 AI/assets/06 Skills",
       "08 AI/assets/99 八股文"
@@ -7394,6 +7395,17 @@
       "08 AI/assets/07 Agent/file-20260322161539754.jpg",
       "08 AI/assets/07 Agent/file-20260322161539768.png",
       "08 AI/assets/07 Agent/file-20260322161539770.png"
+    ],
+    "08 AI/assets/08 Harness": [
+      "08 AI/assets/08 Harness/file-20260407235408445.jpg",
+      "08 AI/assets/08 Harness/file-20260407235502696.jpg",
+      "08 AI/assets/08 Harness/file-20260407235531458.jpg",
+      "08 AI/assets/08 Harness/file-20260407235957322.jpg",
+      "08 AI/assets/08 Harness/file-20260408000508244.jpg",
+      "08 AI/assets/08 Harness/file-20260408000637293.jpg",
+      "08 AI/assets/08 Harness/file-20260408001042418.jpg",
+      "08 AI/assets/08 Harness/file-20260408001152845.jpg",
+      "08 AI/assets/08 Harness/file-20260408001257894.jpg"
     ],
     "08 AI/assets/99 八股文": [
       "08 AI/assets/99 八股文/file-20260322221509877.jpg",
