@@ -82,3 +82,8 @@
 
 ![](assets/09%20DeepAgents/file-20260624231650205.jpg)
 
+默认自带一个 subagent
+
+![](assets/09%20DeepAgents/file-20260624231841389.jpg)
+
+![](assets/09%20DeepAgents/file-20260624231952399.jpg)
