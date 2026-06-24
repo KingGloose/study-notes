@@ -106,3 +106,23 @@
 
 ![](assets/09%20DeepAgents/file-20260624233309418.jpg)
 
+![](assets/09%20DeepAgents/file-20260624233526521.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233617596.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233646163.jpg)
+
+
+# 8 Skills
+
+![](assets/09%20DeepAgents/file-20260624233718711.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233739474.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233805166.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233828399.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233853387.jpg)
+
+![](assets/09%20DeepAgents/file-20260624233916267.jpg)
