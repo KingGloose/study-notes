@@ -96,5 +96,10 @@
 
 ![](assets/09%20DeepAgents/file-20260624232729075.jpg)
 
+同步子智能体本质是一个程序，在 graph 中执行；但是异步子智能体本质是一个服务，也就是一个服务器和你的 agent 来做通信
+
 ![](assets/09%20DeepAgents/file-20260624232828378.jpg)
 
+异步子智能体本身就是一个独立的 agent，需要做对应的标准化
+
+![](assets/09%20DeepAgents/file-20260624233055381.jpg)
