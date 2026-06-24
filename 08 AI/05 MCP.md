@@ -232,8 +232,13 @@ https://refly.ai/share/pages/pag-mgi439nspxd6m0rt4cjkr4ae
 ![[../00 assets/477f04d8b57b2a2bc9abcbb7a4ea9c5a_MD5.jpeg]]
 
 
+# 4 Mcp 和 Cli 比较
 
+【为什么越来越多的人抛弃 MCP，转向 CLI？】 https://www.bilibili.com/video/BV16zDfBtECQ/?share_source=copy_web&vd_source=8992a13080c32977bce93a5140823f3b
 
-
-
+1、mcp 针对 token 消耗比较多，一个 mcp 包含名称、描述、schema 等内容，一次性占用的上下文比较多
+2、cli 则不需要将所有的工具都发送过去，只需要 cli + skills 就行，消耗的 token 就很少了
+3、cli 是否有什么劣势呢？比如：下方的 watermark.png 这里有一个 "."，理论讲他会破坏 bash 的执行，AI 可能会出现错误，而且 cli 命令更不易读，人类很难去审查
+![](assets/05%20MCP/file-20260504100404144.png)
+同理，针对很多服务器的场景，他们肯定不会直接开放 cli 的权限，避免一条 cli 命名去误操作了，相对来说 mcp 就更加可控一点
 
