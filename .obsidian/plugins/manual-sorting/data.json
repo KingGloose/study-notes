@@ -1,6 +1,9 @@
 {
   "customFileOrder": {
     "/": [
+      "assets",
+      "raw",
+      "wiki",
       "archive",
       "README.md"
     ],
@@ -7588,7 +7591,10 @@
     ],
     "archive/99 求职/assets/实习学习": [
       "archive/99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ]
+    ],
+    "assets": [],
+    "raw": [],
+    "wiki": []
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
