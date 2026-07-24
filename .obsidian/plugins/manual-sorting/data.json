@@ -17,7 +17,6 @@
       "README.md"
     ],
     "00 assets": [
-      "00 assets/00 学习",
       "00 assets/b8959d288306dea3c4553cd64e299bda_MD5.jpeg",
       "00 assets/1b11d480eaf744f3a231a396e0001700_MD5.jpeg",
       "00 assets/3fa29949f0d7f45159ec0c51b113449f_MD5.jpeg",
@@ -7585,8 +7584,7 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ],
-    "00 assets/00 学习": []
+    ]
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
