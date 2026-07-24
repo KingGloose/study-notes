@@ -30,6 +30,7 @@
 ├── raw/           # 原始资料(只读):B站转写、博客/公众号原文、重要 AI 对话存档
 ├── assets/        # 新库图片池(从零累积,与旧 assets 隔离)
 ├── wiki/          # AI 沉淀的知识,内部按领域分子目录(前端/ai/python/...)
+├── skills/        # 库自带维护 skill(含 knowledge-backfill),随库迁移
 │
 └── archive/       # 旧世界整体封存:旧笔记 + 旧 00 assets + 旧领域目录
                    # 图谱默认过滤 -path:archive 隐藏

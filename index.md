@@ -42,7 +42,7 @@
 - **函数**:箭头函数、默认参数、剩余参数、扩展运算符、IIFE
 - **对象**:Object.is/entries/freeze、Proxy、Reflect(Receiver/construct)
 - **数据结构**:Set/WeakSet、迭代器(可迭代对象/自定义迭代类)、Map
-- **异步**:⭐Promise(工作流程/API/手写)、requestAnimationFrame、requestIdleCallback、MessageChannel、⭐模拟虚拟线程、Atomics
+- **异步**:⭐Promise(工作流程/API/手写)、requestAnimationFrame、requestIdleCallback、MessageChannel、⭐模拟虚拟线程、Atomics、⭐watch/watchEffect 里跑异步(竞态、onCleanup、依赖收集断裂 → wiki/前端)
 - **DOM/事件**:解析 DOM 树、addEventListener、handleEvent
 - **进阶**:⭐defer/async 深度理解(脚本加载时机、与 Vue 首屏的坑)、⭐Signals(alien-signals、Vue 3.5/3.6 响应式重构)、PerformanceEntry、位运算权限、模板字符串(标签模板)
 - **ECMAScript**:ES6(let/const/Symbol/迭代器/生成器)、ES7(includes/指数)、ES8(entries/padding)、ES9(rest/扩展)、ES10(flat/flatmap)、ES11(可选链/??/BigInt/globalThis/私有属性)、ES12(逻辑赋值/WeakRef/FinalizationRegistry)
@@ -53,6 +53,9 @@
 - **Jquery**、**NodeJS**、**TypeScript**、**微信小程序**
 - **Uniapp**:⭐跨平台原理、环境配置(网页/小程序/Android/mumu模拟器)、pages.json/manifest.json、uni-ui/uni-forms、页面通讯(setup传参/事件总线)、⭐网络请求封装(RequestService)、pinia、⭐蘑菇街项目(多端适配/条件编译/图片懒加载/三端发布)、easycom、#ifndef 条件编译
 - **NuxtJS**、**NextJS**、**Electron**、**Uniapp**
+
+### 富文本 / 编辑器
+- ⭐**QuillJs**:换行 bug、`<br>` 被忽略、单独视频/图片后光标无法定位(文档必须以 `\n` 结尾)、BrBlot workaround vs 数据层归一化、clipboard matcher(→ wiki/前端,学堂系统实践)
 
 ### 工程化 / 其他
 - 工程化、Webpack、Vite、微前端、单元测试、Bun、前端可视化

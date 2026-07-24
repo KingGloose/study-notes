@@ -11,6 +11,11 @@
 - **`assets/`** — 新库图片池。
 - **`wiki/`** — AI 沉淀的知识,按领域分子目录。
 - **`archive/`** — 旧笔记整体归档,原样封存,按需唤起。
+- **`skills/`** — 库自带的维护 skill(随库迁移)。含 `knowledge-backfill`:在任意项目里把有价值的知识回填到本库。
+
+## 迁移到新电脑
+
+本库自包含,skill 跟着库走。迁移后让 AI 索引 `skills/` 即可(skill 以"自身上两级目录"为库根,不依赖绝对路径)。如需全局调用,把 `skills/knowledge-backfill` 软链或复制到该机的 skill 仓库(如 `~/.agents/skills/`),并把里面的库根路径改成新位置。
 
 ## 理念
 
