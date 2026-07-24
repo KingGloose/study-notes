@@ -1,8 +1,8 @@
 {
   "customFileOrder": {
     "/": [
-      "未命名.md",
-      "archive"
+      "archive",
+      "README.md"
     ],
     "archive": [
       "archive/00 assets",
