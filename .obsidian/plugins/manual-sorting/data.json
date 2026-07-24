@@ -1,11 +1,14 @@
 {
   "customFileOrder": {
     "/": [
+      "log.md",
+      "AGENTS.md",
       "assets",
       "raw",
       "wiki",
       "archive",
-      "README.md"
+      "README.md",
+      "index.md"
     ],
     "archive": [
       "archive/00 assets",
