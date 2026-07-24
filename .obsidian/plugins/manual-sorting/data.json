@@ -1,6 +1,7 @@
 {
   "customFileOrder": {
     "/": [
+      "archive",
       "00 assets",
       "01 基础",
       "02 算法",
@@ -7584,7 +7585,8 @@
     ],
     "99 求职/assets/实习学习": [
       "99 求职/assets/实习学习/file-20251123003319772.jpg"
-    ]
+    ],
+    "archive": []
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
