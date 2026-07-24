@@ -1,14 +1,15 @@
 {
   "customFileOrder": {
     "/": [
-      "log.md",
-      "AGENTS.md",
+      "skills",
       "assets",
       "raw",
       "wiki",
       "archive",
-      "README.md",
-      "index.md"
+      "log.md",
+      "AGENTS.md",
+      "index.md",
+      "README.md"
     ],
     "archive": [
       "archive/00 assets",
@@ -7596,8 +7597,22 @@
       "archive/99 求职/assets/实习学习/file-20251123003319772.jpg"
     ],
     "assets": [],
-    "raw": [],
-    "wiki": []
+    "raw": [
+      "raw/QuillJs换行bug解决方案-原文.md"
+    ],
+    "skills": [
+      "skills/knowledge-backfill"
+    ],
+    "skills/knowledge-backfill": [
+      "skills/knowledge-backfill/SKILL.md"
+    ],
+    "wiki": [
+      "wiki/前端"
+    ],
+    "wiki/前端": [
+      "wiki/前端/QuillJs 换行与 embed 光标问题.md",
+      "wiki/前端/Vue watch 与 Promise 异步.md"
+    ]
   },
   "draggingEnabled": true,
   "selectedSortOrder": "manual-sorting"
