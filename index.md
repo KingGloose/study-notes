@@ -57,8 +57,12 @@
 ### 富文本 / 编辑器
 - ⭐**QuillJs**:换行 bug、`<br>` 被忽略、单独视频/图片后光标无法定位(文档必须以 `\n` 结尾)、BrBlot workaround vs 数据层归一化、clipboard matcher(→ wiki/前端,学堂系统实践)
 
+### 模块化
+- ⭐**JS 模块系统**:模块化历史(NoModule/AMD/CMD)、CommonJS(exports vs module.exports 内存引用、寻址规则、Module 对象本质/compiledWrapper)、ESM(静态分析、live binding、import()、顶层 await、Node .mjs/type:module)、CJS↔ESM 互操作、⭐**模块缓存=单例**(缓存按文件路径 key,React/antd 隐式单例的地基 → wiki/前端)
+
 ### 工程化 / 其他
 - 工程化、Webpack、Vite、微前端、单元测试、Bun、前端可视化
+- ⭐**依赖冲突**:peerDependencies(对等依赖)、依赖单例(ConfigProvider context/hooks dispatcher)、npm/pnpm/yarn 冲突行为差异、overrides vs resolutions(npm 不认 resolutions)、NormalModuleReplacementPlugin 按来源分流 antd v4/v5(→ wiki/前端,学堂 zant-ui 实践)
 
 ## 04 Java
 

@@ -7598,6 +7598,8 @@
     ],
     "assets": [],
     "raw": [
+      "raw/npm依赖冲突问题-原文.md",
+      "raw/模块化-旧笔记升级说明.md",
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
@@ -7610,6 +7612,8 @@
       "wiki/前端"
     ],
     "wiki/前端": [
+      "wiki/前端/npm 与 pnpm 依赖冲突.md",
+      "wiki/前端/JS 模块系统与模块缓存单例.md",
       "wiki/前端/QuillJs 换行与 embed 光标问题.md",
       "wiki/前端/Vue watch 与 Promise 异步.md"
     ]
