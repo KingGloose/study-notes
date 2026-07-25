@@ -52,7 +52,17 @@ pip install -r requirements.txt
 
 ### 配置 cookie（跨平台通用，一次性）
 
-个人数据(稍后再看/收藏)和字幕都需要 B 站登录态。**方案跨平台统一**：手动填 `.env`。
+个人数据(稍后再看/收藏)和字幕都需要 B 站登录态。有两种方式，任选其一：
+
+**方式 A：扫码登录（推荐，最省事）**
+
+```bash
+python scripts/login.py
+```
+
+运行后会在 skill 目录生成 `qrcode.png`（同时终端也打印 ANSI 二维码）。用手机 B 站 APP 扫码确认，脚本自动把 cookie 写进 `.env`，成功后删掉二维码图片。终端 ANSI 二维码在部分环境无法扫描时，直接打开 `qrcode.png` 扫即可。
+
+**方式 B：手动填 `.env`**
 
 1. 浏览器登录 B 站 → F12 → Application → Cookies → `https://www.bilibili.com`
 2. 复制 `SESSDATA`(必填)、`bili_jct`、`buvid3` 的值
@@ -64,14 +74,17 @@ cp .env.example .env    # Windows: copy .env.example .env
 
 4. 编辑 `.env` 填三个值。
 
-> `SESSDATA` 有效期约一个月，报鉴权错误时重新复制一次即可。
-> 迁移新机器：`.env` 不进 git，需在新机器重新填一次（或手动拷过去）。
+> `SESSDATA` 有效期约一个月，报鉴权错误时重新扫码（方式 A）或重填一次即可。
+> 迁移新机器：`.env` 不进 git，需在新机器重新扫码/填一次（或手动拷过去）。
 
 ## 脚本用法
 
 所有命令先 `source .venv/bin/activate`（Windows 用对应激活方式）。脚本 stdout 是纯 JSON/文本，进度打在 stderr。
 
 ```bash
+# 扫码登录（首次/换机器/cookie 过期时）
+python scripts/login.py
+
 # 稍后再看列表
 python scripts/list_videos.py toview
 
