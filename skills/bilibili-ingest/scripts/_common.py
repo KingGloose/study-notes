@@ -7,6 +7,17 @@ SKILL_DIR = Path(__file__).resolve().parent.parent
 ENV_PATH = SKILL_DIR / ".env"
 
 
+def select_http_client():
+    """注册并选中 curl_cffi 作为 HTTP client。
+
+    bilibili-api-python 的 HTTP client 是可插拔的，裸装不带任何 client，
+    必须显式选一个才能发请求。curl_cffi 是官方推荐（可模拟浏览器指纹绕风控）。
+    每个用到网络的脚本在 load_credential 前调用一次即可。
+    """
+    from bilibili_api import select_client
+    select_client("curl_cffi")
+
+
 def load_credential():
     """从 skill 目录下的 .env 读取 cookie，返回 bilibili_api.Credential。
 

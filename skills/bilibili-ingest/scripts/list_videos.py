@@ -14,7 +14,7 @@ import json
 import sys
 
 from bilibili_api import user, favorite_list, sync
-from _common import load_credential, eprint
+from _common import load_credential, select_http_client, eprint
 
 
 def _fmt_duration(sec):
@@ -80,6 +80,7 @@ def main():
         eprint(__doc__)
         sys.exit(1)
 
+    select_http_client()
     cred = load_credential()
     mode = sys.argv[1]
 

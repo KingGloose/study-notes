@@ -16,9 +16,9 @@ import json
 import re
 import sys
 
-import httpx
+from curl_cffi import requests as cffi_requests
 from bilibili_api import video, sync
-from _common import load_credential, eprint
+from _common import load_credential, select_http_client, eprint
 
 
 def extract_bvid(s: str) -> str:
@@ -31,13 +31,22 @@ def extract_bvid(s: str) -> str:
 async def fetch_subtitle_json(url: str) -> dict:
     if url.startswith("//"):
         url = "https:" + url
-    async with httpx.AsyncClient(timeout=30) as client:
-        r = await client.get(url, headers={"Referer": "https://www.bilibili.com"})
+    # 字幕 JSON 是普通静态资源，用 curl_cffi 同步取即可（放线程池避免阻塞事件循环）
+    def _get():
+        r = cffi_requests.get(
+            url,
+            headers={"Referer": "https://www.bilibili.com"},
+            impersonate="chrome",
+            timeout=30,
+        )
         r.raise_for_status()
         return r.json()
 
+    return await asyncio.to_thread(_get)
+
 
 async def get_transcript(bvid: str):
+    select_http_client()
     cred = load_credential()
     v = video.Video(bvid=bvid, credential=cred)
 
