@@ -15,6 +15,7 @@
 - **Linux**:CentOS 安装、网络连接三种方式、虚拟机(克隆/快照/迁移)、vmtools、目录结构、常见命令
 - **Docker**:镜像原理、安装部署、制作镜像、volume 挂载、arg/env、cmd/entrypoint、copy/add
 - **计算机网络**:子网划分、⭐Clash TUN 模式(与系统代理的区别、使用场景)
+- **网络 / 泛域名**(⭐系列,`wiki/网络/`):⭐泛域名/通配符域名/子域名/泛解析/通配符证书概念辨析、⭐DNS 泛解析与查询链路(递归vs迭代、`*` 只匹配一层、精确优先通配兜底、TTL/dig)、⭐通配符 HTTPS 证书(SAN 不认 CN、只覆盖一级、多级需多条 SAN、DNS-01 签发)、⭐nginx 泛域名转发(server_name 匹配优先级、正则捕获子域信息、反代透传 Host/X-Real-IP/X-Forwarded-Proto)、⭐同源策略与 CORS(同源三要素、限读放行用、预检、带凭证不能用`*`、Vary:Origin)、⭐Cookie 跨子域(Domain=父域共享登录态、SameSite 同站≠同源、postMessage 双向 origin 校验)
 - **设计模式**:单例模式、工厂模式
 - **网络安全**:SRI 子资源完整性、浏览器指纹
 - **云服务器**:域名、主机记录
@@ -62,6 +63,7 @@
 
 ### 工程化 / 其他
 - 工程化、Webpack、Vite、微前端、单元测试、Bun、前端可视化
+- ⭐**运行时动态 base / publicPath**(`wiki/前端/`,泛域名系列重头):编译期 base vs 运行时 base、webpack `__webpack_public_path__`→`__webpack_require__.p`、`__webpack_require__.e` 动态建 script 加载 chunk、Vite 三方案(重写 import()/改造构建平台/插件)、vite-plugin-dynamic-base 原理(`/__dynamic_base__/` 靶子 + `window.__dynamic_base__` 运行时拼接 + preloads 数组 + enforce:post + 插件执行顺序)、容易漏的资源(CSS url/legacy/PWA)、一次构建多处部署
 - ⭐**依赖冲突**:peerDependencies(对等依赖)、依赖单例(ConfigProvider context/hooks dispatcher)、npm/pnpm/yarn 冲突行为差异、overrides vs resolutions(npm 不认 resolutions)、NormalModuleReplacementPlugin 按来源分流 antd v4/v5(→ wiki/前端,学堂 zant-ui 实践)
 
 ## 04 Java
