@@ -7596,8 +7596,14 @@
     "archive/99 求职/assets/实习学习": [
       "archive/99 求职/assets/实习学习/file-20251123003319772.jpg"
     ],
-    "assets": [],
+    "assets": [
+      "assets/wx-9f23657150.png",
+      "assets/wx-63bb0ad496.png",
+      "assets/wx-05067aa85b.gif",
+      "assets/wx-62999b0af5.gif"
+    ],
     "raw": [
+      "raw/wx-2026-05-08-AI-Native时代研发组织.md",
       "raw/泛域名-新OA接入处理-原文.md",
       "raw/泛域名-前端代理思考和分析-原文.md",
       "raw/npm依赖冲突问题-原文.md",
@@ -7605,6 +7611,7 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/wechat-ingest",
       "skills/bilibili-ingest",
       "skills/knowledge-backfill"
     ],
@@ -7622,7 +7629,16 @@
     "skills/knowledge-backfill": [
       "skills/knowledge-backfill/SKILL.md"
     ],
+    "skills/wechat-ingest": [
+      "skills/wechat-ingest/scripts",
+      "skills/wechat-ingest/requirements.txt",
+      "skills/wechat-ingest/SKILL.md"
+    ],
+    "skills/wechat-ingest/scripts": [
+      "skills/wechat-ingest/scripts/wechat_to_md.py"
+    ],
     "wiki": [
+      "wiki/AI",
       "wiki/网络",
       "wiki/前端"
     ],
@@ -7640,6 +7656,9 @@
       "wiki/网络/Cookie 跨子域与跨窗口通信.md",
       "wiki/网络/DNS 泛解析与查询链路.md",
       "wiki/网络/nginx 泛域名转发.md"
+    ],
+    "wiki/AI": [
+      "wiki/AI/AI Native 时代的研发组织.md"
     ]
   },
   "draggingEnabled": true,
