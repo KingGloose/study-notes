@@ -55,10 +55,15 @@ def extract_meta(soup: BeautifulSoup, html: str) -> dict:
     date = ""
     if ct.isdigit():
         date = datetime.fromtimestamp(int(ct)).strftime("%Y-%m-%d")
+
+    # 真实公众号名在 nickname = htmlDecode("...") 里（og:site_name 是通用值）
+    m_nick = re.search(r'nickname\s*=\s*htmlDecode\("([^"]*)"', html)
+    account = m_nick.group(1).strip() if m_nick else (og("og:site_name") or "")
+
     return {
         "title": og("og:title") or (soup.title.string.strip() if soup.title else ""),
         "author": jsvar("author"),
-        "account": og("og:site_name") or "",
+        "account": account,
         "date": date,
     }
 
@@ -137,6 +142,9 @@ def main():
 
     body_md = md(str(content), heading_style="ATX", strip=["script", "style"]).strip()
     body_md = re.sub(r"\n{3,}", "\n\n", body_md)
+    # 清掉空标题（原文分隔符/装饰元素渲染成的 "# " 空行）
+    body_md = re.sub(r"^#+\s*$", "", body_md, flags=re.MULTILINE)
+    body_md = re.sub(r"\n{3,}", "\n\n", body_md).strip()
 
     front = [
         f"# {meta['title']}",
