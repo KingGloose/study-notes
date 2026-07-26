@@ -42,3 +42,17 @@
 - 七篇按系列首尾互建双链(概念→DNS→证书→nginx→前端动态base→CORS→Cookie),动态base 页与 [[JS 模块系统与模块缓存单例]] 建双链。
 - index.md:01 基础新增「网络/泛域名系列」条目,03 前端工程化新增「运行时动态 base」条目。
 - 定位说明:这些内容多为通用知识,按 AGENTS.md 本该只进 index 唤醒;但主人明确表示想把这些当学习材料细化成页,故成文并注明来源上下文。
+
+## [2026-07-26] setup+ingest | 新建 bilibili-ingest / wechat-ingest skill + 首篇公众号沉淀
+
+- **背景**:主人空余时间少,想借助 AI 消化平时收藏的视频和公众号文章,沉淀进知识库。
+- **调研**:B 站生态成熟(bilibili-api-python + yt-dlp + Whisper);公众号单篇公开文章无需登录,难点只在图片防盗链(Referer)。
+- **新建 `skills/bilibili-ingest/`**:扫码登录(login.py 生成二维码图片扫)、拉稍后再看/收藏(list_videos.py)、抓 CC/AI 字幕(get_transcript.py,Whisper 兜底暂不做)。跨平台(Mac/WSL/Windows),cookie 走 .env。踩坑:裸装 bilibili-api-python 不带 HTTP client,须装 curl_cffi 并注册。已验证读到稍后再看 604 条、抓到 27060 字 AI 字幕。
+- **新建 `skills/wechat-ingest/`**:wechat_to_md.py 抓公众号单篇文章,curl_cffi 抓 HTML + bs4 提正文 + markdownify 转 md + 图片带 Referer 下载本地。踩坑:pi 内置 fetch_content 对公众号提取失败(Readability 没吃下、Gemini 兜底无 key),故需专门脚本;公众号真实名在 nickname=htmlDecode() 而非 og:site_name;原文分隔符渲染出空标题需过滤。
+- **首篇沉淀(详细蒸馏)**:《AI Native 时代——研发组织何去何从》(许晓斌,阿里技术,2026-05-08)。
+  - 原文抓取存 `raw/wx-2026-05-08-AI-Native时代研发组织.md`(正文 11146 字),4 张图存 `assets/`(架构图 A 档保留,2 张 gif C 档忽略)。
+  - 判断:特定作者综合多信源的独特框架+内部案例数据,AI 给不出 → 写 wiki。
+  - 新建 `wiki/AI/` 领域目录,产出 `AI Native 时代的研发组织.md`(详细蒸馏:论证脉络 1.2、管理塌缩与三柱 1.3、Death of ego 边界 1.4、三案例、转型代价、开放问题、十条判断、概念速查)。全文标注 [文章观点]/[信源]/[AI 补充] 区分来源,顶部注明"这是别人观点的蒸馏,非主人原创判断"。
+  - 架构图转成文字 ASCII 图避免知识困在图里,同时保留 Obsidian `![[assets/...]]` 引用。
+  - 双链:AI 领域尚无兄弟页,Harness/DeepAgents 只在 index 有关键词、无独立页,故不建假双链,改文字呼应,留待后续补。
+  - index.md 08 AI 新增条目。

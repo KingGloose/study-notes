@@ -97,6 +97,7 @@
 - ⭐**浏览器自动化调研**:CDP 核心、Puppeteer、Chrome DevTools MCP 深度实践、Playwright/Lightpanda
 - ⭐**Chrome DevTools MCP**:架构解析、通信协议选型、连接排查、复用浏览器实例、带登录态启动
 - ⭐**Claude Code MCP 调用机制**:Shell 调用 vs 直接 MCP、stdin/stdout 通信、exec 作用
+- ⭐**AI Native 时代的研发组织**(`wiki/AI/`,详细蒸馏阿里技术许晓斌文章):AI=新协作主体(非工具)、组织双层结构(Harness 层结构化 AI 主导 / Hive Mind 层松散人主导、叠加非替代)、Org Chart→Execution Graph(节点=任务+上下文+权限+工具、reorg 季度→week)、人既是瓶颈也是兑底、新瓶颈=信息形态的人形偏置(人肉中间件/Harness Engineering/AI 友好 5 维度)、管理塔缩非消失、Architect 最高杠杆点、Agent=新员工阶层、Platform 三柱(Agent Platform Group/Domain Teams/Risk & Oversight)、Death of ego 有边界(杀防御性护生产性、AI stateless 做不到创新)、蒸馏焦虑/培养断裂、Harness 与 Execution Graph 双复利
 
 ## 09 Python
 
