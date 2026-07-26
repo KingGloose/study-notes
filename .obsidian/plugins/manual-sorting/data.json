@@ -7605,19 +7605,41 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/bilibili-ingest",
       "skills/knowledge-backfill"
+    ],
+    "skills/bilibili-ingest": [
+      "skills/bilibili-ingest/scripts",
+      "skills/bilibili-ingest/requirements.txt",
+      "skills/bilibili-ingest/SKILL.md"
+    ],
+    "skills/bilibili-ingest/scripts": [
+      "skills/bilibili-ingest/scripts/_common.py",
+      "skills/bilibili-ingest/scripts/get_transcript.py",
+      "skills/bilibili-ingest/scripts/list_videos.py",
+      "skills/bilibili-ingest/scripts/login.py"
     ],
     "skills/knowledge-backfill": [
       "skills/knowledge-backfill/SKILL.md"
     ],
     "wiki": [
+      "wiki/网络",
       "wiki/前端"
     ],
     "wiki/前端": [
+      "wiki/前端/前端运行时动态 base 完全指南.md",
       "wiki/前端/npm 与 pnpm 依赖冲突.md",
       "wiki/前端/JS 模块系统与模块缓存单例.md",
       "wiki/前端/QuillJs 换行与 embed 光标问题.md",
       "wiki/前端/Vue watch 与 Promise 异步.md"
+    ],
+    "wiki/网络": [
+      "wiki/网络/泛域名与相关概念辨析.md",
+      "wiki/网络/通配符 HTTPS 证书.md",
+      "wiki/网络/同源策略与 CORS.md",
+      "wiki/网络/Cookie 跨子域与跨窗口通信.md",
+      "wiki/网络/DNS 泛解析与查询链路.md",
+      "wiki/网络/nginx 泛域名转发.md"
     ]
   },
   "draggingEnabled": true,
