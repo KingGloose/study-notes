@@ -2,7 +2,7 @@
 
 > **来源**:这是对一篇观点文章的详细蒸馏,非我个人原创判断。
 > 原文《AI Native 时代 —— 研发组织何去何从》,作者许晓斌,阿里技术公众号,2026-05-08。
-> 全文见 [[../../raw/wx-2026-05-08-AI-Native时代研发组织|raw 原文]]。文中综合了 Block、Ken Huang、Steve Yegge、OpenAI、Conway、Brooks 等多个信源(见文末 References)。
+> 全文见 `raw/wx-2026-05-08-AI-Native时代研发组织.md`。文中综合了 Block、Ken Huang、Steve Yegge、OpenAI、Conway、Brooks 等多个信源(见文末 References)。
 > **阅读方式**:这页是概念地图 + 论证脉络,用于快速回查"有哪些概念、怎么串起来的";细节和原话回 raw 全文。文中标注 [文章观点] / [信源] / [AI 补充] 区分来源。
 
 ---
@@ -132,7 +132,7 @@ Ken Huang 给的最具体回答: [信源]
 - **柱 2 · Domain Teams**——业务团队。"Own outcomes rather than models."(对结果负责,不对模型负责)。3-5 人垂直功能小组是其实现。
 - **柱 3 · Risk and Oversight**——治理层。"An immune system rather than a bureaucratic brake."(免疫系统,不是官僚刹车)。"When governance is done well, it does not slow the Hive Mind down; it keeps it alive." 这一柱最被低估——别的讨论都在讲创造性/效率/文化,没人正面答"出事了怎么办"。"Assuming nothing will go wrong is not optimism; it's negligence."
 
-**双层 × 三柱叠加**(见原文架构图 `![[../../assets/wx-9f23657150.png]]`):
+**双层 × 三柱叠加**(见原文架构图 ![[assets/wx-9f23657150.png]]):
 
 ```
         Harness 层 · 结构化 · AI 友好
@@ -253,8 +253,10 @@ Hive Mind 层 ·松散  ▼                  │
 
 ## 1.10 关联
 
-- [[Harness]] 概念在库里 08 AI 的 Agent 相关条目(本文的 Harness 层 = 让 AI 能干活的结构化基础设施)
-- 与 [[DeepAgents]](上下文管理/虚拟文件系统/任务规划/子智能体)呼应:三柱里的柱 1 就是把这些能力平台化
+> 本页是 AI 领域第一页，暂无可互链的兄弟页。以下是与 index.md 已有知识点的呼应，待后续 AI 领域成页后补双链。
+
+- **Harness**(index 08 AI 已有关键词):本文的 Harness 层 = 让 AI 能干活的结构化基础设施(代码/测试/流水线/文档/世界模型)。
+- **DeepAgents**(index 08 AI 已有:上下文管理/虚拟文件系统/任务规划/子智能体):三柱里的柱 1(Agent Platform Group)就是把这些能力平台化。
 - **信源原文**(值得深挖时读):
   - Block《From Hierarchy to Intelligence》(2026-03)
   - Ken Huang《What is an Agentic AI Native Organization?》(2026-02)
