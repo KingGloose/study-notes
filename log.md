@@ -136,3 +136,14 @@
 - 同步清理文档引用:库根 `README.md` skills 说明段、`skills/README.md` 架构块。
 - 影响说明:以后在其他项目里想回填知识,没有专门 skill 指导跨目录写入,但 `AGENTS.md` 的 Ingest 流程和判断标准仍在,AI 读契约即可完成。
 - 验证:pi 现发现 4 个 kg-* skill(kg-bilibili/kg-doc/kg-wechat/kg-xiaoyuzhou);install.sh 自检全通过。
+
+## [2026-07-28] ingest | B站视频 → wiki/AI/AI Agent 的可验证开发体系
+
+- 走 `kg-bilibili` 形态 1+2:拉稍后再看(474 条),按 AI/技术关键词筛出约 90 条候选,选《我做 AI Agent 一年,90% 在做表面功夫——直到我换了思路》(数字黑魔法,BV1o87764Ebs,14:27,计算机技术)。
+- **L0 白拿成功**:B站 AI 字幕直接抓到(13KB),未动本地 ASR。原始逐字稿存 `raw/bili-BV1o87764Ebs-AI-Agent开发的可验证体系.md`,头部标注来源与已知识别误差(AIA证/A卷=AI agent、VLOG=Verilog、school board=scoreboard、虎威测试=回归测试)。
+- **沉淀判断**:不是通用教程,而是"从瓶颈出发的工程决策链"+ 芯片验证行业类比,AI 直接问答给不出 → 写成 `wiki/AI/AI Agent 的可验证开发体系.md`。
+- 联网核对两个信源:
+  - Verifier's Law 提出者 Jason Wei 确认(OpenAI o1/Deep Research 共同作者),但**其博客原题用的是 verifier's *rule***,社区普遍传成 law → 已在页内标注,查原文两个词都要试。
+  - ACI 出自普林斯顿 SWE-agent(arXiv:2405.15793, NeurIPS 2024)确认;视频"接口设计影响大过换更强模型"这一强弱比较标为转述措辞,引用需回原文核对。
+- 双链:新页 ↔ `AI Native 时代的研发组织`(组织层 ↔ 工程层同一命题的两个尺度),并把后者「本页是 AI 领域第一页,暂无兄弟页」的说明改掉。另关联 MCP(本页给出一个**不选** MCP 的场景)、Skills 渐进式披露、本库摄入体系。
+- `index.md` 08 AI 补该页唤醒条目。

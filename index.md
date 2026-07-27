@@ -102,6 +102,7 @@
 - ⭐**浏览器自动化调研**:CDP 核心、Puppeteer、Chrome DevTools MCP 深度实践、Playwright/Lightpanda
 - ⭐**Chrome DevTools MCP**:架构解析、通信协议选型、连接排查、复用浏览器实例、带登录态启动
 - ⭐**Claude Code MCP 调用机制**:Shell 调用 vs 直接 MCP、stdin/stdout 通信、exec 作用
+- ⭐**AI Agent 的可验证开发体系**(`wiki/AI/`,蒸馏B站「数字黑魔法」视频):90% 时间耗在手动验证的真痛点(慢/脆/盲三层)、验证的不对称性与 Verifier's Law(Jason Wei;原文用 verifier's *rule*)、生成便宜验证贵才是根因、**把难验证亲手改造成易验证**、芯片验证行业类比(验证人力是设计 2~3 倍、EDA 让写码变便宜后价值转移到验证体系)、面向 AI Agent 开发的三个判据(离开 UI 还跑不跑/中间状态可读/有无给 AI 的接口)、MCP 模拟 UI vs 前后端分离取舍、ACI(Agent-Computer Interface,SWE-agent 论文:Agent 是全新一类用户)、**两层裁判**(确定性 assertion + 干净上下文的 LLM supervisor 做量化打分而非判对错)、借自芯片的 assertion/coverage/scoreboard、happy path 固化+线上捞案例、**每功能配 feature flag 做开关对照归因**、codex 闭环(先设计回归测试→flag→实现→开关双跑→收敛,人只定义什么算对)
 - ⭐**AI Native 时代的研发组织**(`wiki/AI/`,详细蒸馏阿里技术许晓斌文章):AI=新协作主体(非工具)、组织双层结构(Harness 层结构化 AI 主导 / Hive Mind 层松散人主导、叠加非替代)、Org Chart→Execution Graph(节点=任务+上下文+权限+工具、reorg 季度→week)、人既是瓶颈也是兑底、新瓶颈=信息形态的人形偏置(人肉中间件/Harness Engineering/AI 友好 5 维度)、管理塔缩非消失、Architect 最高杠杆点、Agent=新员工阶层、Platform 三柱(Agent Platform Group/Domain Teams/Risk & Oversight)、Death of ego 有边界(杀防御性护生产性、AI stateless 做不到创新)、蒸馏焦虑/培养断裂、Harness 与 Execution Graph 双复利
 
 ## 09 Python
