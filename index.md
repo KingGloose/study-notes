@@ -91,7 +91,12 @@
 - **RAG**:⭐向量表征、向量概念、文本向量、Embedding、余弦相似度/欧氏距离、向量数据库
 - **LangChain**、**LangGraph**
 - **MCP**:⭐JSON-RPC、通信方式、生命周期、工具发现/调用
-- **Skills**:YAML Frontmatter、Markdown instructions、Bundled Resources、各平台支持
+- **Skills**:YAML Frontmatter、Markdown instructions、Bundled Resources、各平台支持、渐进式披露(只有 description 常驻上下文)、pi 的 skill 发现规则(递归扫含 SKILL.md 的目录、`disable-model-invocation`)
+- ⭐**本库自建摄入体系**(`skills/`,均 `kg-` 前缀,详见 `skills/README.md`):
+  - **分层摄入原则**(写进 AGENTS.md):L0 白拿平台现成文字(B站CC/AI字幕、公众号正文、播客shownotes、PDF文字层)→ L1 本地转换(ASR/OCR,一次投入永久复利)→ L2 多模态精准补充(暂不做);为何不用原生多模态当主线(每次付费无复利)
+  - **架构**:底层库 `kg-media-to-text`(素材→文字,按类型分流,平台无关) + 上层 `kg-bilibili`/`kg-wechat`/`kg-xiaoyuzhou`/`kg-doc`(各平台适配+沉淀);转换沉底层复用、沉淀归上层
+  - **工具选型**:PDF→Docling(版面感知/含RapidOCR) vs MarkItDown(Office);ASR→**Mac 用 mlx-whisper(Metal) / Linux 用 faster-whisper(CUDA)**,因 faster-whisper 不支持 Apple MPS;yt-dlp 是下载层(搬运平台现成字幕≠ASR)
+  - **踩坑**:bilibili-api-python 裸装不带 HTTP client(须装 curl_cffi 并 select_client);curl_cffi 的 stream Response 不支持 with;小宇宙官方逐字稿需鉴权且 token 抓取有封号风险;gitignore 对已追踪文件无效(须 git rm --cached)
 - **Agent**:Claude Agent、Project Contract、Build/Test、Architecture Boundaries、Coding Conventions
 - **Harness**、**DeepAgents**(上下文管理/虚拟文件系统/任务规划/子智能体/异步子智能体)
 - ⭐**浏览器自动化调研**:CDP 核心、Puppeteer、Chrome DevTools MCP 深度实践、Playwright/Lightpanda

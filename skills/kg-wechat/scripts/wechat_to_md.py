@@ -34,8 +34,12 @@ def eprint(*a, **k):
 
 
 def fetch_html(url: str) -> str:
-    r = cffi.get(url, headers={"User-Agent": UA}, impersonate="safari_ios", timeout=30)
-    r.raise_for_status()
+    try:
+        r = cffi.get(url, headers={"User-Agent": UA}, impersonate="safari_ios", timeout=30)
+        r.raise_for_status()
+    except Exception as e:
+        sys.exit(f"[错误] 请求文章失败（{type(e).__name__}）: {e}\n"
+                 f"       检查网络与链接有效性；文章可能已删除或需要登录。")
     html = r.text
     if any(x in html for x in ("环境异常", "访问过于频繁", "去验证")):
         sys.exit("[错误] 触发微信风控（环境异常/频繁）。稍后再试或换网络。")
@@ -60,8 +64,13 @@ def extract_meta(soup: BeautifulSoup, html: str) -> dict:
     m_nick = re.search(r'nickname\s*=\s*htmlDecode\("([^"]*)"', html)
     account = m_nick.group(1).strip() if m_nick else (og("og:site_name") or "")
 
+    # soup.title 存在但 .string 可能为 None（错误页/嵌套标签），故用 get_text 兜底
+    fallback_title = ""
+    if soup.title is not None:
+        fallback_title = (soup.title.get_text() or "").strip()
+
     return {
-        "title": og("og:title") or (soup.title.string.strip() if soup.title else ""),
+        "title": og("og:title") or fallback_title,
         "author": jsvar("author"),
         "account": account,
         "date": date,

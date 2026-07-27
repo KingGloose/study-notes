@@ -2,19 +2,23 @@
 """抓取指定视频的字幕并输出为纯文本。
 
 用法:
-  python get_transcript.py <bvid或视频URL> [--json]
+  python get_transcript.py <bvid或视频URL> [--json] [--asr] [--model <名>]
 
-策略:
+策略（降级）:
   1. 拿视频基本信息（标题/UP主/分区/简介/分P）
-  2. 逐个分P取 CC/AI 字幕（B 站字幕是一个 JSON URL，内含带时间戳的文本）
-  3. 有字幕 → 输出纯文本；无字幕 → 明确标注 no_subtitle（Whisper 兜底后续再加）
+  2. 逐个分P取 CC/AI 字幕（L0 白拿：平台已生成好的文字，无需 ASR）
+  3. 有字幕 → 输出纯文本；无字幕 → 默认仅标注，加 --asr 则下音频调底层库本地转写（L1）
 
 默认输出人类可读文本到 stdout；加 --json 输出结构化 JSON。
 """
 import asyncio
 import json
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
+from pathlib import Path
 
 from curl_cffi import requests as cffi_requests
 from bilibili_api import video, sync
@@ -33,14 +37,18 @@ async def fetch_subtitle_json(url: str) -> dict:
         url = "https:" + url
     # 字幕 JSON 是普通静态资源，用 curl_cffi 同步取即可（放线程池避免阻塞事件循环）
     def _get():
-        r = cffi_requests.get(
-            url,
-            headers={"Referer": "https://www.bilibili.com"},
-            impersonate="chrome",
-            timeout=30,
-        )
-        r.raise_for_status()
-        return r.json()
+        try:
+            r = cffi_requests.get(
+                url,
+                headers={"Referer": "https://www.bilibili.com"},
+                impersonate="chrome",
+                timeout=30,
+            )
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            eprint(f"[warn] 字幕下载失败({type(e).__name__})，该分P将无字幕: {e}")
+            return {}
 
     return await asyncio.to_thread(_get)
 
@@ -96,9 +104,15 @@ def to_text(r: dict) -> str:
         f"简介: {r['desc']}",
         "",
     ]
-    if not r["has_subtitle"]:
-        head.append("[!] 该视频没有可用字幕（CC/AI）。如需内容需后续接入 Whisper 兜底转写。")
+    if not r["has_subtitle"] and not r.get("asr_text"):
+        head.append("[!] 该视频没有可用字幕（CC/AI）。可加 --asr 下音频本地转写。")
         return "\n".join(head)
+
+    if r.get("asr_text"):
+        head.append(f"─── 本地 ASR 转写（{r.get('asr_backend', '?')}，可能有识别误差）───")
+        head.append(r["asr_text"])
+        return "\n".join(head)
+
     for pg in r["pages"]:
         if len(r["pages"]) > 1:
             head.append(f"\n===== P{pg['page']}: {pg['part']} =====")
@@ -109,15 +123,70 @@ def to_text(r: dict) -> str:
     return "\n".join(head)
 
 
+def run_asr(bvid: str, model: str | None = None) -> tuple[str, str]:
+    """无字幕兜底：yt-dlp 下音频 → 底层库 media_to_text 转写。
+
+    本函数只负责“把音频搞到本地”；转写能力（平台适配/模型选择）完全委派底层库。
+    返回 (文本, 后端名)。
+    """
+    if not shutil.which("yt-dlp"):
+        sys.exit("[错误] 需要 yt-dlp：uv pip install -r requirements/asr-mac.txt（或 asr-linux.txt）")
+
+    tmpdir = Path(tempfile.mkdtemp(prefix="bili-asr-"))
+    url = f"https://www.bilibili.com/video/{bvid}"
+    eprint(f"[..] yt-dlp 下载音频 {bvid}（-x 仅抽音轨，不下整片）")
+    proc = subprocess.run(
+        ["yt-dlp", "-x", "--audio-format", "mp3",
+         "-o", str(tmpdir / "audio.%(ext)s"), url],
+        capture_output=True, text=True,
+    )
+    if proc.returncode != 0:
+        eprint(proc.stderr[-400:])
+        sys.exit("[错误] yt-dlp 下载失败（B 站部分格式需登录或受风控影响）。")
+
+    audio = next(tmpdir.glob("audio.*"), None)
+    if not audio:
+        sys.exit("[错误] 未找到下载的音频文件。")
+    eprint(f"[ok] 音频 {audio.stat().st_size / 1048576:.1f} MB，开始本地转写")
+
+    try:
+        from media_to_text import to_text as m2t
+    except ImportError:
+        sys.exit("[错误] 未安装底层库：cd skills && uv pip install -e ./kg-media-to-text")
+
+    try:
+        res = m2t(audio, model=model, language="zh")
+    finally:
+        # 无论转写成败都清理下载的音频，避免 /tmp 堆积
+        shutil.rmtree(tmpdir, ignore_errors=True)
+    return res.text, res.backend
+
+
 def main():
     if len(sys.argv) < 2:
         eprint(__doc__)
         sys.exit(1)
-    want_json = "--json" in sys.argv[2:]
+    argv = sys.argv[2:]
+    want_json = "--json" in argv
+    want_asr = "--asr" in argv
+    model = None
+    if "--model" in argv:
+        i = argv.index("--model")
+        if i + 1 < len(argv):
+            model = argv[i + 1]
+
     bvid = extract_bvid(sys.argv[1])
     eprint(f"[..] 抓取 {bvid} 字幕中")
     r = sync(get_transcript(bvid))
     eprint(f"[ok] has_subtitle={r['has_subtitle']}  分P数={len(r['pages'])}")
+
+    # 降级：无字幕且显式要求 ASR 时，下音频本地转写
+    if not r["has_subtitle"] and want_asr:
+        text, backend = run_asr(bvid, model)
+        r["asr_text"] = text
+        r["asr_backend"] = backend
+        eprint(f"[ok] ASR 完成 {len(text)} 字 via {backend}")
+
     if want_json:
         print(json.dumps(r, ensure_ascii=False, indent=2))
     else:

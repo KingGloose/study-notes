@@ -1,0 +1,4 @@
+# 文档处理：PDF 用 Docling（版面/表格保真最好），Office 用 MarkItDown
+# 注意：docling 首次运行会下载版面分析模型（几百 MB），本地跑不联网推理
+docling>=2.0.0
+markitdown>=0.0.1a2

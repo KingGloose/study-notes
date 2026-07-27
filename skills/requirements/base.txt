@@ -1,0 +1,5 @@
+# 公共依赖：所有 skill 都可能用到（HTTP 抓取 + HTML 解析 + 配置）
+curl_cffi>=0.7.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+python-dotenv>=1.0.0

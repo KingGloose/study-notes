@@ -7603,6 +7603,7 @@
       "assets/wx-62999b0af5.gif"
     ],
     "raw": [
+      "raw/bili-BV1o87764Ebs-AI-Agent开发的可验证体系.md",
       "raw/wx-2026-05-08-AI-Native时代研发组织.md",
       "raw/泛域名-新OA接入处理-原文.md",
       "raw/泛域名-前端代理思考和分析-原文.md",
@@ -7611,31 +7612,110 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
-      "skills/wechat-ingest",
-      "skills/bilibili-ingest",
-      "skills/knowledge-backfill"
+      "skills/kg-bilibili",
+      "skills/kg-doc",
+      "skills/kg-media-to-text",
+      "skills/kg-wechat",
+      "skills/kg-xiaoyuzhou",
+      "skills/requirements",
+      "skills/install.sh",
+      "skills/README.md"
     ],
-    "skills/bilibili-ingest": [
-      "skills/bilibili-ingest/scripts",
-      "skills/bilibili-ingest/requirements.txt",
-      "skills/bilibili-ingest/SKILL.md"
+    "skills/kg-bilibili": [
+      "skills/kg-bilibili/scripts",
+      "skills/kg-bilibili/SKILL.md"
     ],
-    "skills/bilibili-ingest/scripts": [
-      "skills/bilibili-ingest/scripts/_common.py",
-      "skills/bilibili-ingest/scripts/get_transcript.py",
-      "skills/bilibili-ingest/scripts/list_videos.py",
-      "skills/bilibili-ingest/scripts/login.py"
+    "skills/kg-bilibili/scripts": [
+      "skills/kg-bilibili/scripts/__pycache__",
+      "skills/kg-bilibili/scripts/_common.py",
+      "skills/kg-bilibili/scripts/get_transcript.py",
+      "skills/kg-bilibili/scripts/list_videos.py",
+      "skills/kg-bilibili/scripts/login.py"
     ],
-    "skills/knowledge-backfill": [
-      "skills/knowledge-backfill/SKILL.md"
+    "skills/kg-bilibili/scripts/__pycache__": [
+      "skills/kg-bilibili/scripts/__pycache__/_common.cpython-312.pyc",
+      "skills/kg-bilibili/scripts/__pycache__/get_transcript.cpython-312.pyc",
+      "skills/kg-bilibili/scripts/__pycache__/list_videos.cpython-312.pyc",
+      "skills/kg-bilibili/scripts/__pycache__/login.cpython-312.pyc"
     ],
-    "skills/wechat-ingest": [
-      "skills/wechat-ingest/scripts",
-      "skills/wechat-ingest/requirements.txt",
-      "skills/wechat-ingest/SKILL.md"
+    "skills/kg-doc": [
+      "skills/kg-doc/scripts",
+      "skills/kg-doc/SKILL.md"
     ],
-    "skills/wechat-ingest/scripts": [
-      "skills/wechat-ingest/scripts/wechat_to_md.py"
+    "skills/kg-doc/scripts": [
+      "skills/kg-doc/scripts/__pycache__",
+      "skills/kg-doc/scripts/ingest_doc.py"
+    ],
+    "skills/kg-doc/scripts/__pycache__": [
+      "skills/kg-doc/scripts/__pycache__/ingest_doc.cpython-312.pyc"
+    ],
+    "skills/kg-media-to-text": [
+      "skills/kg-media-to-text/media_to_text",
+      "skills/kg-media-to-text/media_to_text.egg-info",
+      "skills/kg-media-to-text/pyproject.toml",
+      "skills/kg-media-to-text/SKILL.md"
+    ],
+    "skills/kg-media-to-text/media_to_text": [
+      "skills/kg-media-to-text/media_to_text/__pycache__",
+      "skills/kg-media-to-text/media_to_text/handlers",
+      "skills/kg-media-to-text/media_to_text/__init__.py",
+      "skills/kg-media-to-text/media_to_text/detect.py",
+      "skills/kg-media-to-text/media_to_text/router.py",
+      "skills/kg-media-to-text/media_to_text/types.py"
+    ],
+    "skills/kg-media-to-text/media_to_text/__pycache__": [
+      "skills/kg-media-to-text/media_to_text/__pycache__/__init__.cpython-312.pyc",
+      "skills/kg-media-to-text/media_to_text/__pycache__/detect.cpython-312.pyc",
+      "skills/kg-media-to-text/media_to_text/__pycache__/router.cpython-312.pyc",
+      "skills/kg-media-to-text/media_to_text/__pycache__/types.cpython-312.pyc"
+    ],
+    "skills/kg-media-to-text/media_to_text/handlers": [
+      "skills/kg-media-to-text/media_to_text/handlers/__pycache__",
+      "skills/kg-media-to-text/media_to_text/handlers/__init__.py",
+      "skills/kg-media-to-text/media_to_text/handlers/audio.py",
+      "skills/kg-media-to-text/media_to_text/handlers/document.py"
+    ],
+    "skills/kg-media-to-text/media_to_text/handlers/__pycache__": [
+      "skills/kg-media-to-text/media_to_text/handlers/__pycache__/__init__.cpython-312.pyc",
+      "skills/kg-media-to-text/media_to_text/handlers/__pycache__/audio.cpython-312.pyc",
+      "skills/kg-media-to-text/media_to_text/handlers/__pycache__/document.cpython-312.pyc"
+    ],
+    "skills/kg-media-to-text/media_to_text.egg-info": [
+      "skills/kg-media-to-text/media_to_text.egg-info/dependency_links.txt",
+      "skills/kg-media-to-text/media_to_text.egg-info/PKG-INFO",
+      "skills/kg-media-to-text/media_to_text.egg-info/requires.txt",
+      "skills/kg-media-to-text/media_to_text.egg-info/SOURCES.txt",
+      "skills/kg-media-to-text/media_to_text.egg-info/top_level.txt"
+    ],
+    "skills/kg-wechat": [
+      "skills/kg-wechat/scripts",
+      "skills/kg-wechat/SKILL.md"
+    ],
+    "skills/kg-wechat/scripts": [
+      "skills/kg-wechat/scripts/__pycache__",
+      "skills/kg-wechat/scripts/wechat_to_md.py"
+    ],
+    "skills/kg-wechat/scripts/__pycache__": [
+      "skills/kg-wechat/scripts/__pycache__/wechat_to_md.cpython-312.pyc"
+    ],
+    "skills/kg-xiaoyuzhou": [
+      "skills/kg-xiaoyuzhou/scripts",
+      "skills/kg-xiaoyuzhou/SKILL.md"
+    ],
+    "skills/kg-xiaoyuzhou/scripts": [
+      "skills/kg-xiaoyuzhou/scripts/__pycache__",
+      "skills/kg-xiaoyuzhou/scripts/ingest_episode.py"
+    ],
+    "skills/kg-xiaoyuzhou/scripts/__pycache__": [
+      "skills/kg-xiaoyuzhou/scripts/__pycache__/ingest_episode.cpython-312.pyc"
+    ],
+    "skills/requirements": [
+      "skills/requirements/asr-linux.txt",
+      "skills/requirements/asr-mac.txt",
+      "skills/requirements/base.txt",
+      "skills/requirements/bilibili.txt",
+      "skills/requirements/doc.txt",
+      "skills/requirements/wechat.txt"
     ],
     "wiki": [
       "wiki/AI",

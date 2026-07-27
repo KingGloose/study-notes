@@ -1,9 +1,9 @@
 ---
-name: bilibili-ingest
-description: 读取用户 B 站「稍后再看」/收藏夹，抓取视频字幕（CC/AI），交由 AI 解析后按 LLM Wiki 契约沉淀进学习笔记库。当主人想「让 AI 消化我稍后再看的视频」「挑几个视频做成笔记」「解析某个 B 站视频」时使用。侧重编程/技术类科普内容。不负责无字幕视频的语音转写（Whisper 兜底后续再加）。
+name: kg-bilibili
+description: 读取用户 B 站「稍后再看」/收藏夹，抓取视频字幕（CC/AI），交由 AI 解析后按 LLM Wiki 契约沉淀进学习笔记库。当主人想「让 AI 消化我稍后再看的视频」「挑几个视频做成笔记」「解析某个 B 站视频」时使用。侧重编程/技术类科普内容。无字幕视频可用 --asr 走本地转写（委派底层库 kg-media-to-text）。不负责公众号（走 kg-wechat）、播客（走 kg-xiaoyuzhou）、本地文档（走 kg-doc）。
 ---
 
-# bilibili-ingest · B 站视频消化 skill
+# kg-bilibili · B 站视频消化 skill
 
 把主人稍后再看/收藏里的视频，抓成文字，让 AI 解析，最终按 `AGENTS.md` 的 Ingest 流程沉淀进 `wiki/`。
 
@@ -13,42 +13,14 @@ description: 读取用户 B 站「稍后再看」/收藏夹，抓取视频字幕
 - 「解析这个视频 <链接>」→ 形态 2(指定视频)
 - 「我稍后再看里有啥值得看的」→ 只列表 + 筛选
 
-## 前置：环境准备（首次 / 迁移到新机器时）
+## 前置：环境准备
 
-脚本依赖一个本地 venv，**代码随库走，环境各机器本地重建**。`.venv/` 和 `.env` 都已被 git 忽略。
-
-### macOS
-
-```bash
-cd 学习笔记/skills/bilibili-ingest
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### Windows / WSL
-
-WSL(推荐，和 Mac 命令一致)：
+**环境已统一到 `skills/.venv`，安装步骤见 [`../README.md`](../README.md)。**
+本 skill 需要：`base` + `bilibili`（无字幕视频要转写则额外 `asr-mac`/`asr-linux` + 底层库 + ffmpeg）。
 
 ```bash
-cd 学习笔记/skills/bilibili-ingest
-python3 -m venv .venv          # 建议 WSL 里用 Python 3.10+
-source .venv/bin/activate
-pip install -r requirements.txt
+cd 学习笔记/skills && source .venv/bin/activate && cd kg-bilibili
 ```
-
-纯 Windows(PowerShell)：
-
-```powershell
-cd 学习笔记\skills\bilibili-ingest
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-> 版本要求：Python **3.9+**（Mac 自带 3.9.6 刚好可用；新机器建议 3.10+ 更稳）。
-> 核心依赖：`bilibili-api-python`(接口封装) + `curl_cffi`(HTTP client，绕风控) + `python-dotenv`。
-> 注意：`bilibili-api-python` 的 HTTP client 是可插拔的，裸装不带 client，脚本已在 `_common.select_http_client()` 里注册并选中 `curl_cffi`，无需手动配置。
 
 ### 配置 cookie（跨平台通用，一次性）
 
@@ -99,6 +71,10 @@ python scripts/get_transcript.py <bvid或视频URL>
 
 # 抓字幕（结构化 JSON，含分P/分区/简介）
 python scripts/get_transcript.py <bvid或视频URL> --json
+
+# 无字幕视频：下音频本地 ASR 转写（需 asr 依赖 + ffmpeg，约 12 倍实时）
+python scripts/get_transcript.py <bvid> --asr
+python scripts/get_transcript.py <bvid> --asr --model large-v3
 ```
 
 ## 工作流
@@ -108,7 +84,7 @@ python scripts/get_transcript.py <bvid或视频URL> --json
 1. 主人给链接/BV 号。
 2. `get_transcript.py <url>` 抓字幕。
    - 有字幕 → 把纯文本存进 `raw/`（文件名如 `raw/bili-<bvid>-<标题>.md`，开头记链接/UP主/抓取日期做溯源）。
-   - `has_subtitle=false` → 明确告诉主人「这个视频没字幕」，暂不硬处理（Whisper 兜底后续再加）。
+   - 无字幕 → 告知主人；征得同意后加 `--asr` 下音频本地转写（L1，委派底层库 kg-media-to-text，自动按平台选 mlx/faster）。
 3. 读 `raw/` 里的转写，向主人做 AI 解析：讲清楚讲了什么、关键结论、和主人已有知识的关联。
 4. 按 `AGENTS.md` 判断沉淀方式：
    - 纯通用知识 → 只在 `index.md` 补唤醒关键词。
@@ -128,7 +104,15 @@ python scripts/get_transcript.py <bvid或视频URL> --json
 
 ## 边界与坑
 
-- 无字幕视频：当前不处理，标记出来。Whisper 兜底是明确的后续项，不要偷偷本地转写。
+- **无字幕视频**：默认只标注，不自作主张转写；需显式 `--asr`（消耗本地算力）。转写结果标注"可能有识别误差"。
+- **ASR 不区分说话人**：多人对谈是连续文本，不知道谁在说。解析时不确定就说不确定。
+- **yt-dlp 抓 B 站高清格式不稳**（社区已知问题），但本 skill 只用它 `-x` 抽音轨，不受影响。
 - 鉴权失败/风控：多半是 `SESSDATA` 过期，让主人重填 `.env`。
 - 批量拉取别太猛，B 站有频率限制。
 - 处理图片/长文时遵守 `AGENTS.md`：优先文字和代码，少截图；通用知识只进 index 不写详细页。
+
+## 已验证
+
+- 稍后再看列表：604 条，字段完整。
+- 有字幕视频（L0 白拿）：抓到 27060 字 AI 字幕（`ai-zh`）。
+- 无字幕视频 + `--asr`（L1）：3 分钟视频共 25 秒完成（yt-dlp 抽音 1.9MB + mlx-whisper 转写 1350 字），技术术语（线程池/内存溢出/GC Root）识别准确。

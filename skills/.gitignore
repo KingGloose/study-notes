@@ -6,12 +6,20 @@
 .env
 **/.env
 
-# Python 缓存
+# Python 缓存与构建产物
 __pycache__/
 **/__pycache__/
 *.pyc
 *.pyo
+*.egg-info/
+**/*.egg-info/
+build/
+dist/
 
 # 运行时临时产物
 qrcode.png
 .DS_Store
+**/.DS_Store
+
+# agent 运行时目录
+.pi-subagents/

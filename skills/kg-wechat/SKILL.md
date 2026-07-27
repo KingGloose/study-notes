@@ -1,9 +1,9 @@
 ---
-name: wechat-ingest
+name: kg-wechat
 description: 抓取微信公众号单篇文章（mp.weixin.qq.com/s/...），转成干净 Markdown、图片下载到本地（解决防盗链），交由 AI 解析后按 LLM Wiki 契约沉淀进学习笔记库。当主人给出公众号文章链接、想「把这篇公众号文章存进知识库」「解析这篇文章」「转成 markdown」时使用。只处理单篇公开文章，不做批量/历史抓取（那需要登录凭证和无头浏览器，本 skill 不涉及）。
 ---
 
-# wechat-ingest · 公众号文章消化 skill
+# kg-wechat · 公众号文章消化 skill
 
 把主人读到的公众号文章，抓成带本地图片的干净 Markdown，让 AI 解析，最终按 `AGENTS.md` 的 Ingest 流程沉淀进 `wiki/`。
 
@@ -19,29 +19,14 @@ description: 抓取微信公众号单篇文章（mp.weixin.qq.com/s/...），转
 - **不做批量/历史抓取**：抓某公众号全部历史文章需要登录凭证 + 无头浏览器 + 代理池，容易触发风控，本 skill 不涉及。
 - **图片防盗链**：公众号图片由 `mmbiz.qpic.cn` 提供，检查 Referer，直接引用原链接会裂图。脚本默认带 Referer 下载到本地，从根上解决。
 
-## 前置：环境准备（首次 / 迁移到新机器时）
+## 前置：环境准备
 
-代码随库走，环境各机器本地重建。`.venv/` 已被 git 忽略。
-
-### macOS / WSL
+**环境已统一到 `skills/.venv`，安装步骤见 [`../README.md`](../README.md)。**
+本 skill 需要：`base` + `wechat`。
 
 ```bash
-cd 学习笔记/skills/wechat-ingest
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+cd 学习笔记/skills && source .venv/bin/activate && cd kg-wechat
 ```
-
-### 纯 Windows (PowerShell)
-
-```powershell
-cd 学习笔记\skills\wechat-ingest
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-> Python 3.9+。依赖：`curl_cffi`(抓取，模拟浏览器绕检测) + `beautifulsoup4` + `lxml`(解析) + `markdownify`(HTML→MD)。
 
 ## 脚本用法
 
@@ -71,8 +56,8 @@ python scripts/wechat_to_md.py "<公众号URL>" --no-images
 
    ```bash
    python scripts/wechat_to_md.py "<url>" \
-     --out /Users/zhangjiahui04/学习笔记/raw/wx-<日期>-<短标题>.md \
-     --assets /Users/zhangjiahui04/学习笔记/assets \
+     --out ../../raw/wx-<日期>-<短标题>.md \
+     --assets ../../assets \
      --asset-prefix "../assets"
    ```
 

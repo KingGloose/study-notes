@@ -11,11 +11,13 @@
 - **`assets/`** — 新库图片池。
 - **`wiki/`** — AI 沉淀的知识,按领域分子目录。
 - **`archive/`** — 旧笔记整体归档,原样封存,按需唤起。
-- **`skills/`** — 库自带的维护 skill(随库迁移)。含 `knowledge-backfill`:在任意项目里把有价值的知识回填到本库。
+- **`skills/`** — 库自带的摄入 skill(均 `kg-` 前缀,随库迁移):`kg-bilibili`/`kg-wechat`/`kg-xiaoyuzhou`/`kg-doc` 把视频/公众号/播客/文档转成文字并沉淀,底层共用 `kg-media-to-text`。
 
 ## 迁移到新电脑
 
-本库自包含,skill 跟着库走。迁移后让 AI 索引 `skills/` 即可(skill 以"自身上两级目录"为库根,不依赖绝对路径)。如需全局调用,把 `skills/knowledge-backfill` 软链或复制到该机的 skill 仓库(如 `~/.agents/skills/`),并把里面的库根路径改成新位置。
+本库自包含,skill 跟着库走(均以 `kg-` 前缀)。迁移到新机器后:
+1. 跑 `bash skills/install.sh` —— 自动建 Python 环境、按平台装依赖、软链注册到全局。
+2. skill 以"自身上两级目录"为库根,不依赖绝对路径,无需改任何路径配置。
 
 ## 理念
 

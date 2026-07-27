@@ -1,0 +1,5 @@
+# 音视频转写 · macOS (Apple Silicon)
+# mlx-whisper 走 Apple MLX 框架 + Metal GPU 加速。
+# 注意：faster-whisper 不支持 MPS，Mac 上只能跑 CPU，故 Mac 专用 mlx。
+mlx-whisper>=0.4.0
+yt-dlp>=2024.1.1

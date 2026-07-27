@@ -1,0 +1,19 @@
+[project]
+name = "media-to-text"
+version = "0.1.0"
+description = "底层核心库：任意素材(音频/视频/PDF/Office/图片) → 文字。平台无关，按素材类型分流。"
+requires-python = ">=3.10"
+dependencies = []
+
+# 可选依赖分组：按需安装，避免一次背上全部重依赖
+[project.optional-dependencies]
+doc = ["docling>=2.0.0", "markitdown>=0.0.1a2"]
+asr-mac = ["mlx-whisper>=0.4.0"]
+asr-linux = ["faster-whisper>=1.0.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["media_to_text*"]

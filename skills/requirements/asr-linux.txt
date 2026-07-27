@@ -1,0 +1,4 @@
+# 音视频转写 · Linux / WSL2 (NVIDIA GPU)
+# faster-whisper = CTranslate2 引擎，GPU 需 CUDA 12 + cuDNN 9；无 GPU 时自动降级 CPU。
+faster-whisper>=1.0.0
+yt-dlp>=2024.1.1
