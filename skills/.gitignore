@@ -1,0 +1,17 @@
+# Python 虚拟环境（统一放 skills/.venv，不进版本库）
+.venv/
+**/.venv/
+
+# 敏感凭证（各 skill 的 .env，如 B 站 SESSDATA）
+.env
+**/.env
+
+# Python 缓存
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# 运行时临时产物
+qrcode.png
+.DS_Store
