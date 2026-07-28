@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import platform
+import re
 import shutil
 import subprocess
 import tempfile
@@ -39,6 +40,22 @@ def _default_prompt(language: str | None) -> str | None:
     return None
 
 
+def _normalize_zh_punct(text: str) -> str:
+    """中文行里的半角标点转全角。
+
+    Whisper 中文输出的逗号/问号常是半角（如“可是呢,时间一长”），混在中文里难看。
+    只在标点紧邻中文字符时才转，避免误伤英文句子与小数（如 3.5、large-v3, turbo）。
+    """
+    CJK = r"\u4e00-\u9fff\u3000-\u303f"
+    for half, full in ((",", "，"), ("?", "？"), ("!", "！"), (";", "；")):
+        h = re.escape(half)
+        text = re.sub(rf"(?<=[{CJK}]){h}", full, text)      # 中文在前
+        text = re.sub(rf"{h}(?=[{CJK}])", full, text)        # 中文在后（中英混排）
+    # 句末半角句点：仅当前一字是中文且后面不是数字时
+    text = re.sub(rf"(?<=[{CJK}])\.(?!\d)", "。", text)
+    return text
+
+
 def _segments_to_text(segments, with_timestamps: bool = True) -> str:
     """把 segment 列表拼成可读文本。
 
@@ -50,6 +67,7 @@ def _segments_to_text(segments, with_timestamps: bool = True) -> str:
         txt = (seg["text"] if isinstance(seg, dict) else seg.text).strip()
         if not txt:
             continue
+        txt = _normalize_zh_punct(txt)
         if with_timestamps:
             start = seg["start"] if isinstance(seg, dict) else seg.start
             m, s = divmod(int(start), 60)
