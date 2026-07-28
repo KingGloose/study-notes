@@ -41,13 +41,17 @@ HOTWORD_TOKEN_BUDGET = 120
 
 
 def _fmt_hotwords(hotwords: list[str] | None) -> str:
-    """热词 → 自然句式的引导语。
+    """热词 → 引导语。**必须写成连贯的自然句，不能是词表也不能是列表句。**
 
-    **为什么不能直接拼词表**：initial_prompt 是“上文续写”通道，不是词表通道。
-    模型在模仿“前一段话长什么样”，所以：
-      - 写成顿号列表（“携隐Melody、纵横四海、…”）→ 实测“携隐”仍误作“显影”
-      - 写成自然句（“大家好，我是携隐Melody，欢迎来到纵横四海。”）→ **纠对**
-    同理，prompt 里绝不能写“请保留标点”这类元指令或示范句，会被当内容续写。
+    initial_prompt 是“上文续写”通道：模型在模仿“前一段话长什么样”，
+    而不是查一张词表。三种写法的实测结果（同一段音频，看“携隐”能否纠对）：
+
+        携隐Melody、纵横四海、斯坦福商学院。              → ✗ 仍作“显影”
+        本段话里提到了携隐Melody，纵横四海，斯坦福商学院。  → ✗ 仍作“显影”
+        大家好，欢迎来到纵横四海，我是携隐Melody。        → ✓ **纠对**
+
+    可见关键不是“把词放进去”，而是“把词放进一个像人说话的句子里”。
+    所以这里用句型模板把热词编成一段像开场白的话。
     """
     words = [w.strip() for w in (hotwords or []) if w and w.strip()]
     if not words:
@@ -58,17 +62,24 @@ def _fmt_hotwords(hotwords: list[str] | None) -> str:
         if w not in seen:
             seen.add(w)
             uniq.append(w)
+
     # 按 token 预算逐个加，宁可少放也不能溢出把标点引导句顶掉
     kept = []
     for w in uniq:
-        trial = "，".join(kept + [w])
-        if _rough_tokens(trial) > HOTWORD_TOKEN_BUDGET:
+        if _rough_tokens("，".join(kept + [w])) > HOTWORD_TOKEN_BUDGET:
             break
         kept.append(w)
     if not kept:
         return ""
-    # 包成一句“像人说话”的话，而不是词表
-    return "本段话里提到了" + "，".join(kept) + "。"
+
+    # 编成连贯句：前两个词进“开场白”句式（命中率最高的位置），
+    # 其余词拼成一句述译句，整体仍读起来像一段正常的话。
+    lead = kept[0]
+    rest = kept[1:]
+    parts = [f"大家好，欢迎来到{lead}。"]
+    if rest:
+        parts.append("今天我们要聊的是" + "、".join(rest) + "。")
+    return "".join(parts)
 
 
 def _rough_tokens(text: str) -> int:
