@@ -1,6 +1,6 @@
 ---
 name: kg-browser
-description: 底层能力：通过 chrome-devtools CLI 操作「用户可见的真实 Chrome」，读取需要登录态或有反爬/JS 挑战的网页内容（知乎、内网文档、语雀、Notion、掘金等），也可用于翻页滚动加载、展开折叠内容、多标签批量读取。当上层摄入 skill（如 kg-zhihu）需要浏览器，或主人说「读一下我浏览器里打开的这个页面」「这个站要登录才能看」「纯抓取被 403 了」时使用。不做前端调试（CSS/性能/内存那些去用 fe-chrome-devtools）。
+description: 底层能力：通过 chrome-devtools CLI 操作「用户可见的真实 Chrome」，读取需要登录态或有反爬/JS 挑战的网页内容（知乎、内网文档、语雀、Notion、掘金等），也可用于翻页滚动加载、展开折叠内容、多标签批量读取；另提供从本地 Chrome 历史/书签模糊查找 URL（主人记得看过某篇但找不到链接时）。当上层摄入 skill（如 kg-zhihu）需要浏览器，或主人说「读一下我浏览器里打开的这个页面」「这个站要登录才能看」「纯抓取被 403 了」「之前看过一篇讲 X 的文章帮我找出来」时使用。不做前端调试（CSS/性能/内存那些去用 fe-chrome-devtools）。
 ---
 
 # kg-browser · 真实浏览器读取能力
@@ -116,11 +116,29 @@ chrome-devtools evaluate_script "() => {const m = p => (document.querySelector('
 
 站点专属的选择器和坑记在 `references/site-selectors.md`，不要硬编码进脚本。
 
+## 找回看过的内容（历史/书签查找）
+
+主人记得"之前看过一篇讲 XX 的"但没链接时：
+
+```bash
+python3 scripts/find-history.py --keywords <多个同义词> --articles-only
+python3 scripts/find-history.py --keywords 知乎 知识库 wiki --articles-only --days 30
+```
+
+**要点**（详见 `references/history-search.md`）：
+- **AI 主动扩展关键词**——脚本不猜同义词（设计决定：硬编码同义词不可扩展），语义扩展是 AI 的活
+- **找内容默认加 `--articles-only`**——否则混进搜索页/登录页/首页（实测噪声占一半）
+- 拿到候选**让主人确认**，别自己挑
+- 隐私边界：只按关键词匹配、不输出完整历史、不读 cookie、不上传
+
+这个能力和读取能力配合很顺：找到链接 → 用上层 skill（kg-zhihu / kg-doc）读正文 → 沉淀。
+
 ## 专题
 
 | 场景 | 读取 |
 |------|------|
 | 各站点正文选择器、已知坑 | `references/site-selectors.md` |
+| 历史/书签查找用法与隐私边界 | `references/history-search.md`，执行 `python3 scripts/find-history.py --keywords ...` |
 | 连接失败、CLI 问题排查 | `references/troubleshooting.md` |
 
 ## 边界与注意
