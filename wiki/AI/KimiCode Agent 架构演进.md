@@ -1,9 +1,10 @@
 # 1. KimiCode Agent 架构演进(从 Python 到 TypeScript 的换芯)
 
-> **来源**:这是对一篇观察文章的详细蒸馏,非我个人原创判断。
+> **来源**:§1.1~1.8 是对一篇观察文章的详细蒸馏(非原创);**§1.9 是主人自己的对照判断**。
 > 原文《Kimi Code 换芯记:从 Python 到 TypeScript,一次被低估的终端 Agent 架构革命》,
 > 知乎专栏,编辑于 2026-05-25。全文见 `raw/zhihu-2026-05-25-KimiCode换芯记.md`。
-> **标注约定**:[文章观点] = 原文判断;[事实] = 可核对的技术事实;[AI 补充] = 我补的背景。
+> **标注约定**:[文章观点] = 原文判断;[事实] = 可核对的技术事实;[AI 补充] = AI 补的背景。
+> **§1.9 是主人自己的对照判断**(用本库 skills 体系检验原文的"架构收敛"论断),与转述部分严格分开。
 > 原文作者明确说"我已经切换了,还没有深度使用",所以文中的性能/体验类结论**是推测而非实测**。
 
 ---
@@ -253,7 +254,73 @@ Kimi 的看法"。
 
 ---
 
-## 1.9 与库里已有知识的关联
+## 1.9 主人的对照观察:本库 skills 体系走了同一条路
+
+> **这一节是主人自己的判断**,不是原文观点。价值在于:用一个亲手建过的系统去检验
+> 「Agent 架构正在收敛」这个论断——如果论断成立,独立设计的系统应该长出相似的形状。
+
+结论:**确实收敛了**。本库 `skills/` 体系在不知道 Kimi 实现的情况下,
+演化出了与 kosong/kaos 同构的分层。
+
+### 1.9.1 分层结构的同构
+
+| 层 | KimiCode | 本库 skills |
+|----|----------|-------------|
+| **能力抽象层** | `kosong`(LLM 多 provider 统一)<br>`kaos`(本地/远程执行统一) | `kg-media-to-text`(任意素材→文字统一)<br>`kg-browser`(真实浏览器读取统一) |
+| **业务/工具层** | `agent-core/tools/`(file/shell/web/agent...) | `kg-bilibili` / `kg-wechat` / `kg-xiaoyuzhou`<br>`kg-youtube` / `kg-zhihu` / `kg-doc` |
+| **契约/协议层** | Wire / ACP 协议、`reverse-rpc` | `AGENTS.md`(沉淀契约)、`TextResult` 统一返回结构 |
+
+两边都遵循同一条原则:**转换/执行能力沉到底层复用,业务语义留在上层**。
+
+### 1.9.2 三处判断上的巧合
+
+1. **"按类型分流到统一接口"**
+   - kaos:`exec`/`readText`/`stat`/`iterdir` 一套接口,底下映射到本地或 SSH/SFTP
+   - kg-media-to-text:`to_text()` 一个入口,底下按素材类型分流到
+     Docling / MarkItDown / mlx-whisper / faster-whisper
+
+   **同一个思路**:上层不关心底下用了什么实现。
+
+2. **平台差异内聚在底层**
+   - kaos:Agent 不需要知道代码跑在本地还是远程
+   - kg-media-to-text:上层 skill 不需要知道 ASR 用的是 mlx(Mac) 还是 faster-whisper(Linux),
+     `handlers/audio.py` 内部判断平台
+
+   这条本库当初是被逼出来的(faster-whisper 不支持 Apple MPS,必须两套后端),
+   但结果和 kaos 的设计动机一致:**把环境差异关在抽象层里**。
+
+3. **统一返回契约**
+   - kosong 用 Zod schema 统一 LLM 响应结构
+   - kg-media-to-text 用 `TextResult(text, kind, backend, metadata, warnings)`
+
+   都是为了让上层用一套代码处理所有来源。
+
+### 1.9.3 差异(以及为什么)
+
+| | KimiCode | 本库 | 原因 |
+|---|---|---|---|
+| 类型安全 | Zod 编译期强约束 | Python dataclass,运行期 | 规模不同,本库不需要那么强的约束 |
+| 通信 | reverse-rpc 消息协议解耦 | 直接函数调用 `from media_to_text import to_text` | 本库没有 TUI/多前端需求,解耦是过度设计 |
+| 分发 | SEA 单二进制 | 随 git 库走 + `install.sh` 重建环境 | 本库只服务一个人两台机器,不需要面向所有开发者分发 |
+
+**差异都能用"约束不同"解释,而不是"哪个更对"。** 这反而佐证了收敛论:
+架构骨架相同,细节按各自约束取舍。
+
+### 1.9.4 这个对照带来的实际启示
+
+- **`agent-core/loop/` 的拆分值得借鉴**:`run-turn` / `turn-step` / `tool-call` /
+  `tool-scheduler` / `retry` 分得很细。本库目前的摄入流程(抓取→转换→沉淀)是隐式的、
+  写在 SKILL.md 的自然语言里,没有显式的调度/重试层。**批量摄入时这个缺口会暴露**——
+  `kg-doc --batch` 已经手写了断点续传,如果以后 kg-bilibili/kg-youtube 也要批量,
+  会重复实现同样的东西。到那时可以考虑抽一个共用的"任务调度 + 断点续传"层。
+- **`skill/` 作为一等公民**:KimiCode 把技能发现/加载做成 `agent-core` 的独立子系统,
+  说明"skill 化"不是外挂而是架构组成部分。本库的 skills 体系走的也是这条路。
+- **不必追求 Wire 那样的协议解耦**:本库上层直接 `import` 底层库就够,
+  引入 RPC 只会增加复杂度。**知道什么不该抄,和知道什么该抄一样重要。**
+
+---
+
+## 1.10 与库里已有知识的关联
 
 - [[AI Agent 的可验证开发体系]]:那篇讲"怎么让 Agent 产出可被验证",
   本篇讲"Agent 自身该怎么架构"。两者是同一问题的内外两面——
@@ -273,7 +340,7 @@ Kimi 的看法"。
 
 ---
 
-## 1.10 信源与局限
+## 1.11 信源与局限
 
 - 原文:知乎专栏《Kimi Code 换芯记》,2026-05-25 编辑。全文存 `raw/zhihu-2026-05-25-KimiCode换芯记.md`。
 - **原文作者自述"我已经切换了,还没有深度使用"**——所以:
