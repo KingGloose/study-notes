@@ -12,16 +12,16 @@ Kimi 最近把 Agent 从 Python 转成了 Typescipt 和 [pi-tui](https://zhida.z
 
 让我们看一下 Kimi-code 的结构变化
 
-| 维度 | 旧版 kimi-cli | 新版 kimi-code |
-| --- | --- | --- |
-| 语言 | Python 3.12+ | TypeScript |
-| 运行时 | [CPython](https://zhida.zhihu.com/search?content_id=275562826&content_type=Article&match_order=1&q=CPython&zhida_source=entity) | Node.js ≥ 24.15.0 |
-| 包管理 | uv / pip | pnpm 10.33.0 |
-| CLI 框架 | Typer | Commander |
-| TUI 渲染 | Rich + prompt-toolkit | pi-tui |
-| 配置校验 | Pydantic + tomlkit | Zod + smol-toml |
-| Lint | — | oxlint |
-| 构建 | PyInstaller | Node.js [SEA](https://zhida.zhihu.com/search?content_id=275562826&content_type=Article&match_order=1&q=SEA&zhida_source=entity) + postject |
+| 维度     | 旧版 kimi-cli                                                                                                                     | 新版 kimi-code                                                                                                                               |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 语言     | Python 3.12+                                                                                                                    | TypeScript                                                                                                                                 |
+| 运行时    | [CPython](https://zhida.zhihu.com/search?content_id=275562826&content_type=Article&match_order=1&q=CPython&zhida_source=entity) | Node.js ≥ 24.15.0                                                                                                                          |
+| 包管理    | uv / pip                                                                                                                        | pnpm 10.33.0                                                                                                                               |
+| CLI 框架 | Typer                                                                                                                           | Commander                                                                                                                                  |
+| TUI 渲染 | Rich + prompt-toolkit                                                                                                           | pi-tui                                                                                                                                     |
+| 配置校验   | Pydantic + tomlkit                                                                                                              | Zod + smol-toml                                                                                                                            |
+| Lint   | —                                                                                                                               | oxlint                                                                                                                                     |
+| 构建     | PyInstaller                                                                                                                     | Node.js [SEA](https://zhida.zhihu.com/search?content_id=275562826&content_type=Article&match_order=1&q=SEA&zhida_source=entity) + postject |
 
 这种迁移不是"把 Python 文件后缀改成 .ts"那么简单。它涉及核心抽象层（LLM 交互、OS 执行环境）的跨语言重写、终端 UI 框架的完全替换、以及构建产物的形态变革（从虚拟环境到[单二进制文件](https://zhida.zhihu.com/search?content_id=275562826&content_type=Article&match_order=1&q=%E5%8D%95%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6&zhida_source=entity)）
 
