@@ -54,6 +54,7 @@
 - **Vue**:响应式原理、组件通信、Vuex/Pinia、Vue Router、虚拟DOM、生命周期(详见 archive Vue 全集)
 - **React**:hooks、redux 原理、虚拟DOM diff
 - **Jquery**、**NodeJS**、**TypeScript**、**微信小程序**
+- ⭐**Node.js 子进程管理 spawn**(`wiki/NodeJS/`,蒸馏公众号文章 + 本机实测):exec 的 **maxBuffer 默认 1MiB 上限**(超出直接杀子进程报 ERR_CHILD_PROCESS_STDIO_MAXBUFFER,这才是必须换 spawn 的硬理由)、**`d.toString()` 切坏多字节 UTF-8**(实测 9/10 块中文乱码→用 StringDecoder / setEncoding)、**exit ≠ close**(close 才代表 stdio 收完)、SIGTERM→SIGKILL 两层退出、`kill()` 返回 true 只代表信号已发出(进程可忽略 SIGTERM)、被信号杀时 code 为 null 要看 signal、**孙进程逸逸**(proc.kill() 只杀 shell→孙进程变孤儿;需 detached:true + `process.kill(-pid)` 杀进程组;Windows 无信号/进程组靠 taskkill /T;官方 killTree 提议未落地)、会话管理与并发上限(MAX_SESSIONS 要和 fd 上限一起算,每进程占 3 个 fd)、输出截断(**token×4 只对英文成立,中文低估 3~4 倍**;只留头部会丢异常栈→头尾都留)、PTY(node-pty)与 stdin ready signal
 - **Uniapp**:⭐跨平台原理、环境配置(网页/小程序/Android/mumu模拟器)、pages.json/manifest.json、uni-ui/uni-forms、页面通讯(setup传参/事件总线)、⭐网络请求封装(RequestService)、pinia、⭐蘑菇街项目(多端适配/条件编译/图片懒加载/三端发布)、easycom、#ifndef 条件编译
 - **NuxtJS**、**NextJS**、**Electron**、**Uniapp**
 
