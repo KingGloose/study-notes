@@ -7614,6 +7614,8 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/kg-lint",
+      "skills/kg-youtube",
       "skills/kg-bilibili",
       "skills/kg-doc",
       "skills/kg-media-to-text",
@@ -7652,6 +7654,17 @@
     ],
     "skills/kg-doc/scripts/__pycache__": [
       "skills/kg-doc/scripts/__pycache__/ingest_doc.cpython-312.pyc"
+    ],
+    "skills/kg-lint": [
+      "skills/kg-lint/scripts",
+      "skills/kg-lint/SKILL.md"
+    ],
+    "skills/kg-lint/scripts": [
+      "skills/kg-lint/scripts/__pycache__",
+      "skills/kg-lint/scripts/lint_vault.py"
+    ],
+    "skills/kg-lint/scripts/__pycache__": [
+      "skills/kg-lint/scripts/__pycache__/lint_vault.cpython-312.pyc"
     ],
     "skills/kg-media-to-text": [
       "skills/kg-media-to-text/media_to_text",
@@ -7712,6 +7725,16 @@
     ],
     "skills/kg-xiaoyuzhou/scripts/__pycache__": [
       "skills/kg-xiaoyuzhou/scripts/__pycache__/ingest_episode.cpython-312.pyc"
+    ],
+    "skills/kg-youtube": [
+      "skills/kg-youtube/scripts"
+    ],
+    "skills/kg-youtube/scripts": [
+      "skills/kg-youtube/scripts/__pycache__",
+      "skills/kg-youtube/scripts/ingest_video.py"
+    ],
+    "skills/kg-youtube/scripts/__pycache__": [
+      "skills/kg-youtube/scripts/__pycache__/ingest_video.cpython-312.pyc"
     ],
     "skills/requirements": [
       "skills/requirements/asr-linux.txt",

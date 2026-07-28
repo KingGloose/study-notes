@@ -16,7 +16,11 @@
   kg-bilibili/             B站：稍后再看 / 收藏 / 字幕 / 无字幕时 ASR 兜底
   kg-wechat/               微信公众号文章
   kg-xiaoyuzhou/           小宇宙播客：shownotes + 可选本地转写
-  kg-doc/                  本地文档：PDF / Word / PPT / Excel / txt / md
+  kg-doc/                  本地文档 / 文件夹批量 / 普通网页 URL
+  kg-youtube/              YouTube：字幕优先（覆盖率高）+ ASR 兜底
+
+工具（不摄入，维护库健康）
+  kg-lint/                 体检：孤儿页 / 死链 / raw未沉淀 / index未唤醒
 ```
 
 > 目录名与 skill 名一致，均为 `kg-` 前缀（kg = KingGloose，区分自有 skill）。
@@ -140,7 +144,9 @@ cd /tmp && pi --print "列出名字以 kg- 开头的 skill"
 | kg-bilibili | base + bilibili（无字幕视频要 `--asr` 还需 asr-* + ffmpeg） |
 | kg-wechat | base + wechat |
 | kg-xiaoyuzhou | base（仅 shownotes）；`--transcribe` 还需 asr-* + ffmpeg |
-| kg-doc | base + doc |
+| kg-doc | base + doc（网页抓取还需 wechat 里的 markdownify） |
+| kg-youtube | base + asr-*（为其中的 yt-dlp）；ASR 兜底还需 ffmpeg |
+| kg-lint | 无额外依赖（纯标准库） |
 
 ---
 
