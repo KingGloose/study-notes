@@ -33,6 +33,27 @@ def eprint(*a, **k):
     print(*a, file=sys.stderr, **k)
 
 
+def sniff_image_ext(data: bytes, fallback: str = "png") -> str:
+    """按文件头（magic number）判真实图片格式。
+
+    公众号部分图的 URL 带 wx_fmt=other，拿不到扩展名；若直接存成 .other，
+    Obsidian 和浏览器都识别不了（实测遇到过：实际是 WebP）。
+    """
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return "png"
+    if data[:3] == b"\xff\xd8\xff":
+        return "jpeg"
+    if data[:6] in (b"GIF87a", b"GIF89a"):
+        return "gif"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "webp"
+    if data[:2] == b"BM":
+        return "bmp"
+    if data[:5] == b"<?xml" or data[:4] == b"<svg":
+        return "svg"
+    return fallback
+
+
 def fetch_html(url: str) -> str:
     try:
         r = cffi.get(url, headers={"User-Agent": UA}, impersonate="safari_ios", timeout=30)
@@ -98,11 +119,13 @@ def download_images(content_tag, assets_dir: Path, md_asset_prefix: str) -> int:
             eprint(f"[warn] 图片下载失败 {src[:60]}...: {e}")
             continue
         fmt = "png"
-        m = re.search(r"wx_fmt=([a-z]+)", src)
+        m = re.search(r"wx_fmt=([a-z0-9]+)", src)
         if m:
             fmt = m.group(1)
-        if fmt == "webp":
-            fmt = "webp"
+        # 公众号部分图的 wx_fmt=other（或缺失），拿不到真实扩展名，
+        # 存成 .other 会让 Obsidian / 浏览器认不出图。按文件头嗅探真实格式。
+        if fmt not in ("png", "jpeg", "jpg", "gif", "webp", "bmp", "svg"):
+            fmt = sniff_image_ext(r.content, fallback="png")
         h = hashlib.md5(src.encode()).hexdigest()[:10]
         fname = f"wx-{h}.{fmt}"
         assets_dir.mkdir(parents=True, exist_ok=True)
