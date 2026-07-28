@@ -135,12 +135,36 @@ def check_rawlink() -> list[dict]:
     return out
 
 
+def _mentioned(stem: str, haystack: str, haystack_low: str) -> bool:
+    """判断页名是否在某文本里被“提到过”。
+
+    三级匹配，从严到宽：
+    1. 页名全称
+    2. 按分隔符拆词（对含空白/标点的页名有效）
+    3. 中文子串滑窗（中文页名往往无空白，如「泛域名与相关概念辨析」，
+       index 里只写「泛域名」，故取长度>=3 的连续子串去碰）
+    """
+    if stem in haystack:
+        return True
+
+    tokens = [t for t in re.split(r"[\s\u3000/\-—·:：、（）()\[\]]+", stem) if len(t) >= 2]
+    if any(t.lower() in haystack_low for t in tokens):
+        return True
+
+    # 中文子串滑窗：只对纯中文段做，避免英文短词误匹配
+    for seg in re.findall(r"[\u4e00-\u9fff]{3,}", stem):
+        for size in range(len(seg), 2, -1):
+            for i in range(len(seg) - size + 1):
+                if seg[i:i + size] in haystack:
+                    return True
+    return False
+
+
 def check_indexsync() -> list[dict]:
     """wiki 页是否在 index.md 里有唤醒条目。
 
-    注意：index 的写法是“关键词”而非页名全称（如页名「QuillJs 换行与 embed 光标问题」，
-    index 里只写「QuillJs」）。所以按页名全文字匹配会大量误报，
-    改为：把页名拆成显著词，任一显著词出现在 index 即视为已唤醒。
+    index 的写法是“关键词”而非页名全称（页名「QuillJs 换行与 embed 光标问题」，
+    index 里只写「QuillJs」），所以用宽松的 _mentioned 判定，宁可漏报不要误报。
     """
     if not INDEX.is_file():
         return [{"issue": "index.md 不存在"}]
@@ -155,17 +179,8 @@ def check_indexsync() -> list[dict]:
             out.append({"domain": d, "issue": "index.md 未提及该领域"})
 
     for p in wiki_pages():
-        stem = p.stem
-        if stem in idx:
-            continue
-        # 拆词：按空白/标点分，取长度>=2 的词作为“显著词”
-        tokens = [t for t in re.split(r"[\s\u3000/\-—·:：、（）()\[\]]+", stem) if len(t) >= 2]
-        hit = any(t.lower() in idx_low for t in tokens)
-        if not hit:
-            out.append({
-                "page": page_key(p),
-                "issue": f"index.md 未出现任何关键词（试过: {', '.join(tokens[:4])}）",
-            })
+        if not _mentioned(p.stem, idx, idx_low):
+            out.append({"page": page_key(p), "issue": "index.md 里找不到相关关键词"})
     return out
 
 
@@ -174,14 +189,8 @@ def check_logsync() -> list[dict]:
         return [{"issue": "log.md 不存在"}]
     log = LOG.read_text(encoding="utf-8", errors="ignore")
     log_low = log.lower()
-    out = []
-    for p in wiki_pages():
-        if p.stem in log:
-            continue
-        tokens = [t for t in re.split(r"[\s\u3000/\-—·:：、（）()\[\]]+", p.stem) if len(t) >= 2]
-        if not any(t.lower() in log_low for t in tokens):
-            out.append({"page": page_key(p)})
-    return out
+    return [{"page": page_key(p)} for p in wiki_pages()
+            if not _mentioned(p.stem, log, log_low)]
 
 
 def check_empty() -> list[dict]:

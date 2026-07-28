@@ -184,3 +184,24 @@
   `TypeScript 类型体操 --order click`(播放量降序正确)。边界:非法 --order 报错清晰;过滤过严时提示可放宽。
 - **主动放弃的能力**:`search.get_hot_search_keywords()` 能拿全站热搜,但实测内容是泛娱乐/时事(电影撤档、球队转会、台风),
   与主人「编程技术」定位不搭,加了只是噪音,故不集成。
+
+## [2026-07-28] ingest | 公众号 → wiki/NodeJS/子进程 spawn 管理
+
+- 文章《Node.js 子进程管理:我是如何被 spawn 逼疯的》(mCell,程序员成长指北,2026-04-21),正文 3015 字。存 `raw/wx-2026-04-21-Nodejs子进程spawn管理.md`。
+- 原文唯一一张图是加群二维码(C 档装饰型),按 AGENTS.md 图片规则**未入库**,raw 里替换为一行说明。
+- **沉淀判断**:原文分层脉络(输出→输入→超时→会话→截断)清楚,但多处只说"有坑"没给机制和解法 → 值得成页,在其骨架上补实测。
+- **本机实测四组**(Node v25.9.0,macOS),补了原文没有的东西:
+  1. **exec 的 maxBuffer 默认 1MiB**:2MB 输出直接 `ERR_CHILD_PROCESS_STDIO_MAXBUFFER` 杀子进程,spawn 完整收到 2097152 字节。这才是必须换 spawn 的硬理由,原文只说"不够灵活"。
+  2. **`d.toString()` 切坏多字节 UTF-8**:20 万个"中"实测 **9/10 的块出现 U+FFFD 乱码**,StringDecoder 后 0 坏块。原文说这层"还好,主要是耐心"——中文场景几乎必踩。
+  3. **exit ≠ close**,且 `kill()` 返回 true 只代表信号已发出(忽略 SIGTERM 的进程 killed=true 但 exitCode=null 仍在跑);被信号杀时 `code` 为 null,要看第二个参数 signal。
+  4. **孙进程逃逸**(原文最大缺口,教训第 5 条只写了一句没给解法):父node→sh→node 三层,`proc.kill()` 后残留孙进程 1 个;`detached:true` + `process.kill(-pid)` 杀进程组后为 0。补了 Windows 无信号/进程组需 taskkill /T,以及官方 killTree 提议(nodejs/node#64406)尚未落地。
+- 另加两条对原文的**保留意见**:`token×4` 估算只对英文成立,中文低估 3~4 倍;截断只留头部会丢掉异常栈(关键信息在尾部),应头尾都留。
+- 双链:`wiki/NodeJS/子进程 spawn 管理` ↔ [[AI Agent 的可验证开发体系]](后者 1.5.2「调用做成命令行」的实现底座,执行不稳则回归测试结果不可信),并在后者补了反向链接。
+- `index.md` 03 前端「框架/运行时」NodeJS 后补该页唤醒条目。
+
+## [2026-07-28] fix | kg-wechat 图片扩展名 bug(实测发现)
+
+- **现象**:抓这篇文章时图片被存成 `assets/wx-33dcba55ce.other`,Obsidian/浏览器都认不出;`file` 一看实际是 WebP。
+- **根因**:`wechat_to_md.py` 直接拿 URL 里的 `wx_fmt=` 当扩展名,公众号部分图的 `wx_fmt=other`(或缺失)就原样落成 `.other`。原代码里那句 `if fmt=="webp": fmt="webp"` 是空操作,毫无作用。
+- **修复**:新增 `sniff_image_ext()` 按文件头(magic number)嗅探真实格式,覆盖 png/jpeg/gif/webp/bmp/svg,未知回退 png;仅当 `wx_fmt` 不在白名单时才启用嗅探(正常情况不改变原行为)。
+- **验证**:单元级 5 种输入判断正确;重抓同一篇文章,同一张图现在正确落为 `wx-33dcba55ce.webp`。
