@@ -7603,6 +7603,7 @@
       "assets/wx-62999b0af5.gif"
     ],
     "raw": [
+      "raw/zhihu-2026-05-25-KimiCode换芯记.md",
       "raw/xyz-2026-05-08-EP81《深度关系》：如何“给情绪价值”？包教包会.md",
       "raw/wx-2026-04-21-Nodejs子进程spawn管理.md",
       "raw/bili-BV1KNNv6sE1h-转移回答层级的话术.md",
@@ -7653,11 +7654,17 @@
       "skills/kg-browser/scripts"
     ],
     "skills/kg-browser/references": [
+      "skills/kg-browser/references/history-search.md",
       "skills/kg-browser/references/site-selectors.md",
       "skills/kg-browser/references/troubleshooting.md"
     ],
     "skills/kg-browser/scripts": [
+      "skills/kg-browser/scripts/__pycache__",
+      "skills/kg-browser/scripts/find-history.py",
       "skills/kg-browser/scripts/connect-chrome.sh"
+    ],
+    "skills/kg-browser/scripts/__pycache__": [
+      "skills/kg-browser/scripts/__pycache__/find-history.cpython-312.pyc"
     ],
     "skills/kg-doc": [
       "skills/kg-doc/scripts",
