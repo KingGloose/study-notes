@@ -1,6 +1,7 @@
 {
   "customFileOrder": {
     "/": [
+      "Kimi Code 换芯记：从 Python 到 TypeScript，一次被低估的终端 Agent 架构革命.md",
       "skills",
       "assets",
       "raw",
@@ -7695,6 +7696,7 @@
       "skills/kg-media-to-text/SKILL.md"
     ],
     "skills/kg-media-to-text/media_to_text": [
+      "skills/kg-media-to-text/media_to_text/hotwords.py",
       "skills/kg-media-to-text/media_to_text/__pycache__",
       "skills/kg-media-to-text/media_to_text/handlers",
       "skills/kg-media-to-text/media_to_text/__init__.py",
@@ -7703,6 +7705,7 @@
       "skills/kg-media-to-text/media_to_text/types.py"
     ],
     "skills/kg-media-to-text/media_to_text/__pycache__": [
+      "skills/kg-media-to-text/media_to_text/__pycache__/hotwords.cpython-312.pyc",
       "skills/kg-media-to-text/media_to_text/__pycache__/__init__.cpython-312.pyc",
       "skills/kg-media-to-text/media_to_text/__pycache__/detect.cpython-312.pyc",
       "skills/kg-media-to-text/media_to_text/__pycache__/router.cpython-312.pyc",
