@@ -323,3 +323,29 @@ pi 正确发现 6 个可唤起 skill(kg-media-to-text 按设计隐藏)。
 - 识别准确度也顺带提升(英文书名不再碎行,"协影"→"显影",仍非"携隐"但更近)。
 - raw 文件头更新标注(已重转、仍存在的误差、时间戳与 shownotes 可能秒级偏差);wiki 页同步说明"现在可按时间戳回听原音核对存疑词"。
 - **影响范围**:kg-xiaoyuzhou 和 kg-bilibili 都已传 `language="zh"`,修复自动生效,无需改上层。
+
+## [2026-07-28] ingest | 知乎链路首次跑通 + 沉淀《KimiCode Agent 架构演进》
+
+- **kg-browser + kg-zhihu 端到端验证通过**(主人开启 remote debugging 后):
+  连接真实 Chrome → 登录态生效(页面标题带"12 封私信"可证) → **天然通过 zse-ck JS 挑战** →
+  `.Post-RichTextContainer` 命中提取 23227 字符 HTML → markdownify 转 9156 字符 Markdown,
+  **表格/代码块/加粗/链接全部正确保留**。证明"真实浏览器"路线比 Playwright 更优(零登录配置、零反爬对抗)。
+- **踩坑**:`chrome-devtools evaluate_script --filePath` 受 daemon 的 `--no-allow-unrestricted-paths`
+  限制,不能写 /tmp 或任意路径(报 "not within any of the configured workspace roots")。
+  绕法:不用 --filePath,直接解析 stdout 的 ```json 代码块取内容。已可作为 kg-browser 的已知坑。
+- 知乎特有处理(已在转换时应用):公式 LaTeX 在 `img` 的 `data-formula`/`alt`(带 eeimg)里 → 转 `$...$`;
+  图片优先 `data-original`(原图)而非 `src`(缩略图);清理 `data-rawwidth` 等噪声属性。本篇无公式无图,故未触发。
+- **沉淀**:原文存 `raw/zhihu-2026-05-25-KimiCode换芯记.md`;
+  新建 `wiki/AI/KimiCode Agent 架构演进.md`(详细蒸馏,主人指定标题)。
+  结构:技术栈全景对比 → 三个变化(分发/TUI/核心抽象)→ 三条关键判断 → 可复用组件 → 概念速查 → 关联 → 信源局限。
+  全文标注 [事实]/[文章观点]/[AI 补充] 区分来源;**特别注明原文作者自述"还没有深度使用"**,
+  故"为何弃 Bun/Ink"、"React diff 是负担"等属推测而非实测——这点比结论本身重要。
+- **双链(双向,不留单向链)**:
+  - 新页 ↔ [[AI Agent 的可验证开发体系]]:"怎么让 Agent 产出可被验证" vs "Agent 自身怎么架构",
+    同一问题的内外两面;那页依赖的测试基础设施正对应 agent-core 的 tools/ 与 loop/retry.ts。
+  - 新页 ↔ [[AI Native 时代的研发组织]]:那篇的抽象概念 **Harness 层**在本篇有了具体工程形态
+    (kaos 执行抽象 + tools 工具集 + skill 技能发现);Architect"把隐性 know-how 翻译成 AI 可消化形态"
+    的产物就长成 agent-core 那样的目录结构。**这条关联是本次沉淀最有价值的地方**——
+    把一个抽象管理概念和一个真实代码结构对上了。
+- index.md 08 AI 新增条目(含 SEA 五步链路、弃 Bun/Ink 理由、kosong/kaos/agent-core 分层等唤醒关键词)。
+- 一个巧合:文中提到 kimi-code 用的 `@earendil-works/pi-tui`,与当前 AI 助手(pi)同命名空间。

@@ -258,6 +258,9 @@ Hive Mind 层 ·松散  ▼                  │
 > 以下是与 index.md 已有知识点的呼应,尚未成页,待后续补双链。
 
 - **Harness**(index 08 AI 已有关键词):本文的 Harness 层 = 让 AI 能干活的结构化基础设施(代码/测试/流水线/文档/世界模型)。
+- [[KimiCode Agent 架构演进]]:Harness 层的**具体工程形态**。那篇拆解的 `kaos`(执行抽象)、
+  `agent-core/tools/`(工具集)、`skill/`(技能发现)就是本文所说 Harness 的代码实现;
+  Architect「把隐性 know-how 翻译成 AI 可消化形态」的产物,就长成那样的目录结构。
 - **DeepAgents**(index 08 AI 已有:上下文管理/虚拟文件系统/任务规划/子智能体):三柱里的柱 1(Agent Platform Group)就是把这些能力平台化。
 - **信源原文**(值得深挖时读):
   - Block《From Hierarchy to Intelligence》(2026-03)
