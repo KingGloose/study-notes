@@ -4,6 +4,17 @@
 > 类型:setup / ingest / query / upgrade / lint
 > 查最近几条:`grep "^## \[" log.md | tail -5`
 
+## [2026-07-28] query+ingest | Obsidian webview 登录态注入方案探索(实测+沉淀)
+
+- 讨论「能否把 Chrome 登录态注入 Obsidian 内置 webview」,确认技术上可行(macOS v10 方案)。
+- **实测拆包**:`/Applications/Obsidian.app/Contents/Resources/` 下 `app.asar`(≈12KB,更新器壳)和 `obsidian.asar`(≈3MB,主代码)。
+- `obsidian.asar/app.js` 源码确认 webview partition = `"persist:vault-" + this.appId`,持久化落盘。
+- `app.asar/main.js` 全局启用 `@electron/remote`,确认插件可用 `remote.session.fromPartition().cookies.set()`。
+- **实解 Chrome cookie**:完整链路 Keychain → PBKDF2-SHA1(saltysalt,1003) → AES-128-CBC → strip 32 bytes host hash,成功解出 .zhihu.com 明文。
+- **三个安全层级梳理**:磁盘加密(v10,可绕)、App-Bound Encryption(v20,仅 Windows,macOS 不受影响)、DBSC(设备绑定,终局约束,W3C 标准)。
+- 市场上**无现成插件**做这件事(Custom Frames/Surfing/Extended Browser 都差半步)。
+- 沉淀两页 wiki:[[浏览器 Cookie 本地存储与登录态搬运]] + [[Obsidian webview 登录态注入]],更新 index.md。
+
 ## [2026-07-25] setup | LLM Wiki 改造初始化
 
 - 将全部旧领域笔记 + `00 assets`(6790张图)整体归档至 `archive/`。
