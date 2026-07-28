@@ -7603,6 +7603,7 @@
       "assets/wx-62999b0af5.gif"
     ],
     "raw": [
+      "raw/xyz-2026-05-08-EP81《深度关系》：如何“给情绪价值”？包教包会.md",
       "raw/wx-2026-04-21-Nodejs子进程spawn管理.md",
       "raw/bili-BV1KNNv6sE1h-转移回答层级的话术.md",
       "raw/bili-BV1o87764Ebs-AI-Agent开发的可验证体系.md",
@@ -7727,6 +7728,7 @@
       "skills/kg-xiaoyuzhou/scripts/__pycache__/ingest_episode.cpython-312.pyc"
     ],
     "skills/kg-youtube": [
+      "skills/kg-youtube/SKILL.md",
       "skills/kg-youtube/scripts"
     ],
     "skills/kg-youtube/scripts": [
