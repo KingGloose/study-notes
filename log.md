@@ -349,3 +349,12 @@ pi 正确发现 6 个可唤起 skill(kg-media-to-text 按设计隐藏)。
     把一个抽象管理概念和一个真实代码结构对上了。
 - index.md 08 AI 新增条目(含 SEA 五步链路、弃 Bun/Ink 理由、kosong/kaos/agent-core 分层等唤醒关键词)。
 - 一个巧合:文中提到 kimi-code 用的 `@earendil-works/pi-tui`,与当前 AI 助手(pi)同命名空间。
+
+- **补充(同日)**:主人认可后,在该页新增 §1.9「主人的对照观察」——用本库 skills 体系检验原文的
+  「Agent 架构正在收敛」论断。**这是本页唯一原创部分,已在页首和节首双重标注与转述区分**。
+  内容:①分层同构表(kosong/kaos ↔ kg-media-to-text/kg-browser;agent-core/tools ↔ 各 ingest skill;
+  Wire协议 ↔ AGENTS.md+TextResult) ②三处判断巧合(按类型分流到统一接口、平台差异内聚底层、统一返回契约)
+  ③差异及原因(Zod强类型/reverse-rpc/SEA分发 — 都是约束不同而非对错) ④**实际启示**:agent-core/loop 的
+  run-turn/turn-step/tool-scheduler/retry 拆分值得借鉴,本库摄入流程目前是隐式的、写在 SKILL.md 自然语言里,
+  没有显式调度/重试层——`kg-doc --batch` 已手写断点续传,若 kg-bilibili/kg-youtube 也要批量会重复实现,
+  届时可抽共用调度层;同时明确**不必抄 Wire 协议解耦**(本库直接 import 就够,引 RPC 是过度设计)。
