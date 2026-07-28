@@ -125,7 +125,9 @@
       skills/kg-doc/             本地文档/文件夹批量/网页 URL
       skills/kg-youtube/         YouTube(字幕优先+ASR兜底)
       skills/kg-zhihu/           知乎(依赖 kg-browser)
-工具  skills/kg-lint/            库体检(孤儿页/死链/raw未沉淀/index未唤醒)
+使用  skills/kg-ask/             ★库内检索问答(区分"记过的"vs"AI补充的")
+      skills/kg-review/          知识回顾(先回想再看答案)
+      skills/kg-lint/            库体检(孤儿页/死链/raw未沉淀/index未唤醒)
 ```
 上层 skill 通过 `from media_to_text import to_text` 调用底层库。
 **转换能力沉在底层复用,沉淀规则永远归上层 skill。** 详见 `skills/README.md`。

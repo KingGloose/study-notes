@@ -22,9 +22,13 @@
   kg-youtube/              YouTube：字幕优先（覆盖率高）+ ASR 兜底
   kg-zhihu/                知乎：专栏/回答/问题页（依赖 kg-browser）
 
-工具（不摄入，维护库健康）
+使用与维护（不摄入）
+  kg-ask/                  ★ 库内检索问答（区分"记过的"vs"AI补充的"）
+  kg-review/               知识回顾（先回想再看答案，检验个人判断是否还认同）
   kg-lint/                 体检：孤儿页 / 死链 / raw未沉淀 / index未唤醒
 ```
+
+> **知识库的价值在被查、被唤醒,不在被写。** `kg-ask` 是查的入口,`kg-review` 是唤醒的入口。
 
 > 目录名与 skill 名一致，均为 `kg-` 前缀（kg = KingGloose，区分自有 skill）。
 > `kg-media-to-text` 标了 `disable-model-invocation`，只被代码 import，不会被模型唤起。
@@ -150,6 +154,8 @@ cd /tmp && pi --print "列出名字以 kg- 开头的 skill"
 | kg-doc | base + doc（网页抓取还需 wechat 里的 markdownify） |
 | kg-youtube | base + asr-*（为其中的 yt-dlp）；ASR 兜底还需 ffmpeg |
 | kg-lint | 无额外依赖（纯标准库） |
+| kg-ask | 无额外依赖（纯标准库） |
+| kg-review | 无额外依赖（纯标准库） |
 | kg-browser | 无 Python 依赖；需 `npm i -g chrome-devtools-mcp@latest` + Chrome 开 remote debugging |
 | kg-zhihu | base + wechat(markdownify)；浏览器能力依赖 kg-browser |
 
