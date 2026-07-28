@@ -3,6 +3,10 @@
 
 用法:
   python get_transcript.py <bvid或视频URL> [--json] [--asr] [--model <名>]
+                           [--hotword 术语]... [--hotword-speaker 人名]...
+
+  --hotword / --hotword-speaker 仅在走 --asr 时生效，用于降低专名误识。
+  人名务必用 --hotword-speaker（实测人名要进"我是…"句式才纠得对）。
 
 策略（降级）:
   1. 拿视频基本信息（标题/UP主/分区/简介/分P）
@@ -123,7 +127,11 @@ def to_text(r: dict) -> str:
     return "\n".join(head)
 
 
-def run_asr(bvid: str, model: str | None = None) -> tuple[str, str]:
+def run_asr(
+    bvid: str,
+    model: str | None = None,
+    hotwords: dict | None = None,
+) -> tuple[str, str]:
     """无字幕兜底：yt-dlp 下音频 → 底层库 media_to_text 转写。
 
     本函数只负责“把音频搞到本地”；转写能力（平台适配/模型选择）完全委派底层库。
@@ -155,7 +163,7 @@ def run_asr(bvid: str, model: str | None = None) -> tuple[str, str]:
         sys.exit("[错误] 未安装底层库：cd skills && uv pip install -e ./kg-media-to-text")
 
     try:
-        res = m2t(audio, model=model, language="zh")
+        res = m2t(audio, model=model, language="zh", hotwords=hotwords)
     finally:
         # 无论转写成败都清理下载的音频，避免 /tmp 堆积
         shutil.rmtree(tmpdir, ignore_errors=True)
@@ -175,6 +183,12 @@ def main():
         if i + 1 < len(argv):
             model = argv[i + 1]
 
+    # 人工补充热词（可重复）：--hotword 术语，--hotword-speaker 人名
+    extra_topics = [argv[i + 1] for i, a in enumerate(argv)
+                    if a == "--hotword" and i + 1 < len(argv)]
+    extra_speakers = [argv[i + 1] for i, a in enumerate(argv)
+                      if a == "--hotword-speaker" and i + 1 < len(argv)]
+
     bvid = extract_bvid(sys.argv[1])
     eprint(f"[..] 抓取 {bvid} 字幕中")
     r = sync(get_transcript(bvid))
@@ -182,7 +196,23 @@ def main():
 
     # 降级：无字幕且显式要求 ASR 时，下音频本地转写
     if not r["has_subtitle"] and want_asr:
-        text, backend = run_asr(bvid, model)
+        # 热词：UP主名当"说话人"，标题+简介抽专名当 topics。
+        # 分类很关键（实测）：人名必须进"我是…"句式才能纠对，堆成列表无效。
+        hot = None
+        try:
+            from media_to_text import extract_hotwords
+            topics = extract_hotwords(
+                text=f"{r.get('title','')}\n{r.get('desc','')}", limit=10
+            )
+            hot = {
+                "channel": [],
+                "speakers": extra_speakers + ([r["author"]] if r.get("author") else []),
+                "topics": extra_topics + topics,
+            }
+            eprint(f"[i] 热词：UP主={hot['speakers']}，专名 {len(hot['topics'])} 个")
+        except ImportError:
+            pass  # 底层库缺失的报错交给 run_asr 统一处理
+        text, backend = run_asr(bvid, model, hot)
         r["asr_text"] = text
         r["asr_backend"] = backend
         eprint(f"[ok] ASR 完成 {len(text)} 字 via {backend}")
