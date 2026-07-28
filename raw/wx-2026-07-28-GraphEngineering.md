@@ -5,6 +5,8 @@
 - 发布日期: 2026-07-28
 - 原文: https://mp.weixin.qq.com/s/LzpfUsJRMcpPHzDovo5IrA
 - 抓取日期: 2026-07-28
+- 图片处理: 保留 11 张知识型配图(五层演进/编排拓扑/验证器/Loop vs Graph 对比等,B 档);
+  已删文末公众号关注引导图与一个 6.8MB 未被正文引用的孤儿 gif(C 档装饰型,按 AGENTS.md 不入库)
 
 ---
 # 图片
@@ -350,6 +352,4 @@ Graph 的巧妙，是把"稳"和"活"拆到两层去解决，而不是二选一�
 * Google ADK 官方文档 — 图架构、顺序 / 并行 / 循环工作流、A2A 协议
 * DataScienceDojo、aibuilderclub、eefocus、tonybai、掘金、今日头条等 — 术语起源梳理与中文社区解读
 
-![图片](../assets/wx-334b426ea3.gif)
 
-![图片](../assets/wx-558312cb8a.jpeg)
