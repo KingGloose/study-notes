@@ -16,6 +16,7 @@ def to_text(
     language: str | None = None,
     initial_prompt: str | None = None,
     timestamps: bool = True,
+    hotwords: list[str] | None = None,
 ) -> TextResult:
     """把任意素材转成文字。底层库对外的唯一 API。
 
@@ -30,6 +31,11 @@ def to_text(
                   注意：prompt 不要写元指令或示范句，会被模型当内容续写。
         timestamps: 输出是否带时间戳（仅音视频，默认 True）。无论真假都按
                   segment 分行，不会输出无换行的一堵墙。
+        hotwords: 专名热词表（仅音视频），如 ["携隐Melody", "纵横四海"]。
+                  库内会把它们**包成自然句**再注入（直接拼词表无效，见 SKILL.md），
+                  并按 token 预算截断。**按重要度从前往后传**，尾部可能被舍弃。
+                  切勿直接把整段 shownotes/简介传进来：实测会超 prompt 上限 8 倍
+                  并把模型搞崩（输出退化成重复字）。
 
     Returns:
         TextResult(text, kind, backend, metadata, warnings)
@@ -60,6 +66,7 @@ def to_text(
             language=language,
             initial_prompt=initial_prompt,
             timestamps=timestamps,
+            hotwords=hotwords,
         )
     if k == SourceKind.IMAGE:
         raise UnsupportedSourceError(

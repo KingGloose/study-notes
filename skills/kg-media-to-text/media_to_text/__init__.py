@@ -10,6 +10,7 @@
 """
 from .router import to_text
 from .detect import detect_kind
+from .hotwords import extract_hotwords
 from .types import (
     SourceKind,
     TextResult,
@@ -21,6 +22,7 @@ from .types import (
 __all__ = [
     "to_text",
     "detect_kind",
+    "extract_hotwords",
     "SourceKind",
     "TextResult",
     "MediaToTextError",

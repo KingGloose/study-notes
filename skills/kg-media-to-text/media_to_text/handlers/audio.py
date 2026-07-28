@@ -32,12 +32,87 @@ ZH_PUNCT_PROMPT = (
     "这是一段普通话内容。说话人在正常讲述，句子之间有标点，语气自然。"
 )
 
+# initial_prompt 被模型截断到 n_ctx // 2 - 1 tokens（whisper n_text_ctx=448 → **223**），
+# 而且是从**尾部**保留。实测裸塞一整段 shownotes（1811 tokens，超 8 倍）会把模型
+# 搞崩：输出退化成“路路路路…”且专名命中 0/7。所以热词必须限长。
+# 留余量：标点引导句约 30 tokens，热词预算取 120，不把 223 吃满。
+PROMPT_TOKEN_LIMIT = 223
+HOTWORD_TOKEN_BUDGET = 120
+
+
+def _fmt_hotwords(hotwords: list[str] | None) -> str:
+    """热词 → 自然句式的引导语。
+
+    **为什么不能直接拼词表**：initial_prompt 是“上文续写”通道，不是词表通道。
+    模型在模仿“前一段话长什么样”，所以：
+      - 写成顿号列表（“携隐Melody、纵横四海、…”）→ 实测“携隐”仍误作“显影”
+      - 写成自然句（“大家好，我是携隐Melody，欢迎来到纵横四海。”）→ **纠对**
+    同理，prompt 里绝不能写“请保留标点”这类元指令或示范句，会被当内容续写。
+    """
+    words = [w.strip() for w in (hotwords or []) if w and w.strip()]
+    if not words:
+        return ""
+    # 去重保序（上层传进来的顺序已按重要度排好，尾部被截也丢的是次要词）
+    seen, uniq = set(), []
+    for w in words:
+        if w not in seen:
+            seen.add(w)
+            uniq.append(w)
+    # 按 token 预算逐个加，宁可少放也不能溢出把标点引导句顶掉
+    kept = []
+    for w in uniq:
+        trial = "，".join(kept + [w])
+        if _rough_tokens(trial) > HOTWORD_TOKEN_BUDGET:
+            break
+        kept.append(w)
+    if not kept:
+        return ""
+    # 包成一句“像人说话”的话，而不是词表
+    return "本段话里提到了" + "，".join(kept) + "。"
+
+
+def _rough_tokens(text: str) -> int:
+    """粗估 token 数（不依赖 tokenizer，避免为了数个数去加载模型）。
+
+    中文约 1 字 1 token，拉丁/数字约 4 字符 1 token。宁可高估。
+    """
+    cjk = len(re.findall(r"[\u4e00-\u9fff]", text))
+    other = len(text) - cjk
+    return cjk + other // 3 + 1
+
+
+def _build_prompt(
+    language: str | None,
+    initial_prompt: str | None,
+    hotwords: list[str] | None,
+) -> str | None:
+    """组装最终 prompt：热词引导句 + 标点引导句，并卡总预算。
+
+    initial_prompt 为显式传入时完全尊重调用方（传 "" 即禁用）。
+    """
+    if initial_prompt is not None:
+        return initial_prompt or None
+
+    is_zh = bool(language and language.lower().startswith("zh"))
+    parts = []
+    hot = _fmt_hotwords(hotwords)
+    if hot:
+        parts.append(hot)
+    if is_zh:
+        parts.append(ZH_PUNCT_PROMPT)
+    if not parts:
+        return None
+
+    prompt = "".join(parts)
+    # 守住硬上限：若超出则优先牺牲热词（标点引导是可读性的命根子，不能丢）
+    if _rough_tokens(prompt) > PROMPT_TOKEN_LIMIT:
+        prompt = ZH_PUNCT_PROMPT if is_zh else ""
+    return prompt or None
+
 
 def _default_prompt(language: str | None) -> str | None:
-    """中文默认注入标点引导 prompt；其他语言不干预。"""
-    if language and language.lower().startswith("zh"):
-        return ZH_PUNCT_PROMPT
-    return None
+    """向后兼容的薄封装（旧调用方可能在用）。"""
+    return _build_prompt(language, None, None)
 
 
 def _normalize_zh_punct(text: str) -> str:
@@ -120,6 +195,7 @@ def _transcribe_mlx(
     language: str | None,
     initial_prompt: str | None = None,
     timestamps: bool = True,
+    hotwords: list[str] | None = None,
 ) -> tuple[str, dict]:
     try:
         import mlx_whisper
@@ -131,7 +207,7 @@ def _transcribe_mlx(
     kwargs = {"path_or_hf_repo": model or DEFAULT_MODEL_MAC}
     if language:
         kwargs["language"] = language
-    prompt = initial_prompt if initial_prompt is not None else _default_prompt(language)
+    prompt = _build_prompt(language, initial_prompt, hotwords)
     if prompt:
         kwargs["initial_prompt"] = prompt
     res = mlx_whisper.transcribe(str(audio), **kwargs)
@@ -144,6 +220,7 @@ def _transcribe_mlx(
         "model": kwargs["path_or_hf_repo"],
         "segments": len(segments),
         "punct_prompt": bool(prompt),
+        "hotwords": len(hotwords or []),
     }
     return text, meta
 
@@ -154,6 +231,7 @@ def _transcribe_faster(
     language: str | None,
     initial_prompt: str | None = None,
     timestamps: bool = True,
+    hotwords: list[str] | None = None,
 ) -> tuple[str, dict]:
     try:
         from faster_whisper import WhisperModel
@@ -174,7 +252,7 @@ def _transcribe_faster(
         m = WhisperModel(name, device="cpu", compute_type="int8")
         device = "cpu"
 
-    prompt = initial_prompt if initial_prompt is not None else _default_prompt(language)
+    prompt = _build_prompt(language, initial_prompt, hotwords)
     segments, info = m.transcribe(
         str(audio), language=language, initial_prompt=prompt
     )
@@ -186,6 +264,7 @@ def _transcribe_faster(
         "device": device,
         "segments": len(seg_list),
         "punct_prompt": bool(prompt),
+        "hotwords": len(hotwords or []),
     }
     if gpu_error:
         meta["gpu_fallback_reason"] = gpu_error
@@ -199,10 +278,12 @@ def handle_audio_video(
     language: str | None = None,
     initial_prompt: str | None = None,
     timestamps: bool = True,
+    hotwords: list[str] | None = None,
 ) -> TextResult:
     """音频/视频 → 文字。视频先抽音轨（临时文件用完必清）。
 
     language="zh" 时默认注入标点引导 prompt（见 ZH_PUNCT_PROMPT）；
+    hotwords 会被包成自然句式一并注入（见 _fmt_hotwords）。
     输出按 segment 分行并带时间戳，timestamps=False 可只分行不带戳。
     """
     audio_path = path
@@ -217,11 +298,11 @@ def handle_audio_video(
         backend = pick_backend()
         if backend == "mlx-whisper":
             text, meta = _transcribe_mlx(
-                audio_path, model, language, initial_prompt, timestamps
+                audio_path, model, language, initial_prompt, timestamps, hotwords
             )
         else:
             text, meta = _transcribe_faster(
-                audio_path, model, language, initial_prompt, timestamps
+                audio_path, model, language, initial_prompt, timestamps, hotwords
             )
     finally:
         # 无论转写成败都清理抽出的临时音轨，避免 /tmp 堆积
