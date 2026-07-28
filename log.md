@@ -258,3 +258,36 @@ pi 正确发现 6 个可唤起 skill(kg-media-to-text 按设计隐藏)。
 - **修复**:两条沟通条目一并重建(转移回答的层级 + 深度关系与自我表露),并复原"领域不限于技术"说明。
 - **回归检查**:其余三条近期条目(NodeJS spawn / AI 可验证开发体系 / AI Native)均在,未受影响。
 - **待观察**:如果 index.md 再出现内容回退,需要检查那个自动 backup 机制的写入时序。
+
+## [2026-07-28] setup | 新增 kg-browser(底层浏览器能力) + kg-zhihu
+
+- 起因:主人问知乎/小红书能否摄入。实测知乎**纯 HTTP 完全走不通**——curl_cffi 各种指纹
+  (chrome/safari/移动端)、完整请求头、**甚至带完整登录 cookie(含 z_c0) 全部 403**。
+  根因:知乎上了 `zse-ck` JS 挑战(返回加密串+一段必须浏览器执行的 JS 才能算出 __zse_ck cookie)。
+  查开源项目(zhihu-md / Squallever / yuchenzhu)后确认:**三个方案全都绕不开浏览器**,
+  其中 yuchenzhu 同时依赖 curl_cffi + playwright,印证纯 HTTP 不够用。
+- 主人指出已有 `zz-harness/plugins/zzfe/skills/fe-chrome-devtools`(连真实 Chrome 的前端调试 skill),
+  要求借鉴改造:**浏览器是底层能力,和 kg-media-to-text 同层;kg-zhihu 是上层业务**。
+- **新建 `kg-browser`(底层)**:
+  - 从原 skill **只移植 `start-user-chrome.sh`**(连真实 Chrome 的机制,唯一有价值的部分),
+    改名 `connect-chrome.sh`,去掉 CLAUDE_PLUGIN_ROOT 依赖与前端调试专属注释。
+  - **丢掉**原 skill 8 个前端调试专题(css-debugging/performance-lcp/memory-leak/component-locator 等)——
+    定位不同:原 skill 给开发者调试,本 skill 给用户读内容。
+  - **一次返工**:我最初写了个 `extract_page.py` 把提取逻辑写死,**主人指出这违背原 skill 的设计哲学**
+    (应该给 AI 灵活的 CLI 工具+约束方法论,而不是框死操作)。已删除,改为 SKILL.md 给
+    「思路+常用 evaluate_script 片段」、references 存站点知识,核心能力靠 AI 直接调 chrome-devtools 组合。
+  - `references/site-selectors.md`:知乎/掘金/CSDN/博客园/思否/简书/语雀/Notion 的选择器与坑。
+    **约定优先记"坑"而非"选择器"**(选择器易失效,坑是结构性的:懒加载/折叠/虚拟滚动/公式在 img alt 里)。
+  - `references/troubleshooting.md`:连接失败排查(含实测踩坑:`DevToolsActivePort` 里的 WS UUID
+    Chrome 重启后失效但文件不更新,导致 `Network.enable timed out`;CDP 的 HTTP 接口不响应是正常的,
+    别拿 curl /json/version 当连通判据)、WSL 跨平台限制与降级方案。
+  - 为什么用真实 Chrome 而非 Playwright:天然带登录态、天然过 JS 挑战、零反爬对抗、省 300MB Chromium。
+    **边界原则:只读用户自己已能看到的页面,不注入 cookie 不绕权限。**
+- **新建 `kg-zhihu`(上层)**:同样不写死脚本,给工作流+判断标准。区分三类页面(专栏/单条回答/问题页)
+  的不同处理(折叠展开、无限滚动、公式与原图属性),浏览器操作委派 kg-browser。
+  额外写了「知乎内容的特殊判断」:高赞≠正确、注意时效、区分作者经验vs转述。
+- 装了 `chrome-devtools-mcp@latest` CLI(全局 npm)。**链路尚未端到端验证**——
+  主人的 Chrome 需先在 chrome://inspect 开启 remote debugging 并彻底重启(当前 DevToolsActivePort 是旧的)。
+- **小红书结论:仍不建议做**。理由升级:连知乎这种相对温和的平台都上了 JS 挑战,小红书要逆向
+  `x-s`/`x-t` 签名(与 cookie+浏览器指纹强绑定)、Web 与移动端算法还不同、社区工具频繁失效、
+  且有封号风险;加上笔记短图多文字少,对技术沉淀单位产出低。需要时主人手动复制文字更划算。

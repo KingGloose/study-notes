@@ -118,11 +118,13 @@
 
 ```
 底层  skills/kg-media-to-text/   素材→文字,按类型分流(平台无关,不懂业务)
+      skills/kg-browser/         真实 Chrome 读取(带登录态/过 JS 挑战的页面)
 上层  skills/kg-bilibili/        B站(稍后再看/收藏/字幕/ASR兜底)
       skills/kg-wechat/          微信公众号
       skills/kg-xiaoyuzhou/      小宇宙播客
       skills/kg-doc/             本地文档/文件夹批量/网页 URL
       skills/kg-youtube/         YouTube(字幕优先+ASR兜底)
+      skills/kg-zhihu/           知乎(依赖 kg-browser)
 工具  skills/kg-lint/            库体检(孤儿页/死链/raw未沉淀/index未唤醒)
 ```
 上层 skill 通过 `from media_to_text import to_text` 调用底层库。

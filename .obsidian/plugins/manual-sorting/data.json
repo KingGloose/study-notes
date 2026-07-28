@@ -7615,6 +7615,7 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/kg-zhihu",
       "skills/kg-browser",
       "skills/kg-lint",
       "skills/kg-youtube",
@@ -7647,7 +7648,13 @@
       "skills/kg-bilibili/scripts/__pycache__/login.cpython-312.pyc"
     ],
     "skills/kg-browser": [
+      "skills/kg-browser/references",
+      "skills/kg-browser/SKILL.md",
       "skills/kg-browser/scripts"
+    ],
+    "skills/kg-browser/references": [
+      "skills/kg-browser/references/site-selectors.md",
+      "skills/kg-browser/references/troubleshooting.md"
     ],
     "skills/kg-browser/scripts": [
       "skills/kg-browser/scripts/connect-chrome.sh"
@@ -7744,6 +7751,9 @@
     ],
     "skills/kg-youtube/scripts/__pycache__": [
       "skills/kg-youtube/scripts/__pycache__/ingest_video.cpython-312.pyc"
+    ],
+    "skills/kg-zhihu": [
+      "skills/kg-zhihu/SKILL.md"
     ],
     "skills/requirements": [
       "skills/requirements/asr-linux.txt",

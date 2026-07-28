@@ -8,9 +8,11 @@
 ## 1. 架构：底层库 + 上层业务 skill
 
 ```
-底层（被代码调用，不面向用户唤起）
+底层（能力层，供上层调用）
   kg-media-to-text/        任意素材 → 文字，按类型分流：
                            PDF→Docling / Office→MarkItDown / 音视频→Whisper(平台自适应)
+  kg-browser/              真实 Chrome 读取：带登录态/过 JS 挑战的页面
+                           （给 AI 灵活的 CLI 工具 + 站点知识，不写死脚本）
 
 上层（各自独立触发，按 AGENTS.md 沉淀）
   kg-bilibili/             B站：稍后再看 / 收藏 / 字幕 / 无字幕时 ASR 兜底
@@ -18,6 +20,7 @@
   kg-xiaoyuzhou/           小宇宙播客：shownotes + 可选本地转写
   kg-doc/                  本地文档 / 文件夹批量 / 普通网页 URL
   kg-youtube/              YouTube：字幕优先（覆盖率高）+ ASR 兜底
+  kg-zhihu/                知乎：专栏/回答/问题页（依赖 kg-browser）
 
 工具（不摄入，维护库健康）
   kg-lint/                 体检：孤儿页 / 死链 / raw未沉淀 / index未唤醒
@@ -147,6 +150,8 @@ cd /tmp && pi --print "列出名字以 kg- 开头的 skill"
 | kg-doc | base + doc（网页抓取还需 wechat 里的 markdownify） |
 | kg-youtube | base + asr-*（为其中的 yt-dlp）；ASR 兜底还需 ffmpeg |
 | kg-lint | 无额外依赖（纯标准库） |
+| kg-browser | 无 Python 依赖；需 `npm i -g chrome-devtools-mcp@latest` + Chrome 开 remote debugging |
+| kg-zhihu | base + wechat(markdownify)；浏览器能力依赖 kg-browser |
 
 ---
 
