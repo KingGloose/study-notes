@@ -17,7 +17,7 @@
 - **Linux**:CentOS 安装、网络连接三种方式、虚拟机(克隆/快照/迁移)、vmtools、目录结构、常见命令
 - **Docker**:镜像原理、安装部署、制作镜像、volume 挂载、arg/env、cmd/entrypoint、copy/add
 - **计算机网络**:子网划分、⭐Clash TUN 模式(与系统代理的区别、使用场景)
-- **网络 / 泛域名**(⭐系列,`wiki/网络/`):⭐泛域名/通配符域名/子域名/泛解析/通配符证书概念辨析、⭐DNS 泛解析与查询链路(递归vs迭代、`*` 只匹配一层、精确优先通配兜底、TTL/dig)、⭐通配符 HTTPS 证书(SAN 不认 CN、只覆盖一级、多级需多条 SAN、DNS-01 签发)、⭐nginx 泛域名转发(server_name 匹配优先级、正则捕获子域信息、反代透传 Host/X-Real-IP/X-Forwarded-Proto)、⭐同源策略与 CORS(同源三要素、限读放行用、预检、带凭证不能用`*`、Vary:Origin)、⭐Cookie 跨子域(Domain=父域共享登录态、SameSite 同站≠同源、postMessage 双向 origin 校验)
+- **网络 / 泛域名**(⭐系列 7 篇,`wiki/网络/`):概念辨析(泛域名/泛解析/通配符证书)、DNS 泛解析与查询链路、通配符 HTTPS 证书(SAN/只覆盖一级)、nginx 泛域名转发、同源策略与 CORS、Cookie 跨子域与 postMessage
 - **设计模式**:单例模式、工厂模式
 - **网络安全**:SRI 子资源完整性、浏览器指纹
 - **云服务器**:域名、主机记录
@@ -54,7 +54,7 @@
 - **Vue**:响应式原理、组件通信、Vuex/Pinia、Vue Router、虚拟DOM、生命周期(详见 archive Vue 全集)
 - **React**:hooks、redux 原理、虚拟DOM diff
 - **Jquery**、**NodeJS**、**TypeScript**、**微信小程序**
-- ⭐**Node.js 子进程管理 spawn**(`wiki/NodeJS/`,蒸馏公众号文章 + 本机实测):exec 的 **maxBuffer 默认 1MiB 上限**(超出直接杀子进程报 ERR_CHILD_PROCESS_STDIO_MAXBUFFER,这才是必须换 spawn 的硬理由)、**`d.toString()` 切坏多字节 UTF-8**(实测 9/10 块中文乱码→用 StringDecoder / setEncoding)、**exit ≠ close**(close 才代表 stdio 收完)、SIGTERM→SIGKILL 两层退出、`kill()` 返回 true 只代表信号已发出(进程可忽略 SIGTERM)、被信号杀时 code 为 null 要看 signal、**孙进程逸逸**(proc.kill() 只杀 shell→孙进程变孤儿;需 detached:true + `process.kill(-pid)` 杀进程组;Windows 无信号/进程组靠 taskkill /T;官方 killTree 提议未落地)、会话管理与并发上限(MAX_SESSIONS 要和 fd 上限一起算,每进程占 3 个 fd)、输出截断(**token×4 只对英文成立,中文低估 3~4 倍**;只留头部会丢异常栈→头尾都留)、PTY(node-pty)与 stdin ready signal
+- ⭐**Node.js 子进程管理 spawn**(`wiki/NodeJS/`):spawn vs exec/fork、stdio 三管道与背压、僵尸与孤儿进程、信号语义(SIGTERM/SIGKILL)、进程组与 detached、跨平台差异、CLI 调子进程的踩坑清单
 - **Uniapp**:⭐跨平台原理、环境配置(网页/小程序/Android/mumu模拟器)、pages.json/manifest.json、uni-ui/uni-forms、页面通讯(setup传参/事件总线)、⭐网络请求封装(RequestService)、pinia、⭐蘑菇街项目(多端适配/条件编译/图片懒加载/三端发布)、easycom、#ifndef 条件编译
 - **NuxtJS**、**NextJS**、**Electron**、**Uniapp**
 
@@ -66,7 +66,7 @@
 
 ### 工程化 / 其他
 - 工程化、Webpack、Vite、微前端、单元测试、Bun、前端可视化
-- ⭐**运行时动态 base / publicPath**(`wiki/前端/`,泛域名系列重头):编译期 base vs 运行时 base、webpack `__webpack_public_path__`→`__webpack_require__.p`、`__webpack_require__.e` 动态建 script 加载 chunk、Vite 三方案(重写 import()/改造构建平台/插件)、vite-plugin-dynamic-base 原理(`/__dynamic_base__/` 靶子 + `window.__dynamic_base__` 运行时拼接 + preloads 数组 + enforce:post + 插件执行顺序)、容易漏的资源(CSS url/legacy/PWA)、一次构建多处部署
+- ⭐**运行时动态 base / publicPath**(`wiki/前端/`,泛域名系列重头):编译期 vs 运行时 base、webpack `__webpack_public_path__`/`.p`/动态建 script 加载 chunk、Vite 三方案、vite-plugin-dynamic-base 源码级原理、一次构建多处部署
 - ⭐**依赖冲突**:peerDependencies(对等依赖)、依赖单例(ConfigProvider context/hooks dispatcher)、npm/pnpm/yarn 冲突行为差异、overrides vs resolutions(npm 不认 resolutions)、NormalModuleReplacementPlugin 按来源分流 antd v4/v5(→ wiki/前端,学堂 zant-ui 实践)
 
 ## 04 Java
@@ -105,9 +105,9 @@
 - ⭐**浏览器自动化调研**:CDP 核心、Puppeteer、Chrome DevTools MCP 深度实践、Playwright/Lightpanda
 - ⭐**Chrome DevTools MCP**:架构解析、通信协议选型、连接排查、复用浏览器实例、带登录态启动
 - ⭐**Claude Code MCP 调用机制**:Shell 调用 vs 直接 MCP、stdin/stdout 通信、exec 作用
-- ⭐**AI Agent 的可验证开发体系**(`wiki/AI/`,蒸馏B站「数字黑魔法」视频):90% 时间耗在手动验证的真痛点(慢/脆/盲三层)、验证的不对称性与 Verifier's Law(Jason Wei;原文用 verifier's *rule*)、生成便宜验证贵才是根因、**把难验证亲手改造成易验证**、芯片验证行业类比(验证人力是设计 2~3 倍、EDA 让写码变便宜后价值转移到验证体系)、面向 AI Agent 开发的三个判据(离开 UI 还跑不跑/中间状态可读/有无给 AI 的接口)、MCP 模拟 UI vs 前后端分离取舍、ACI(Agent-Computer Interface,SWE-agent 论文:Agent 是全新一类用户)、**两层裁判**(确定性 assertion + 干净上下文的 LLM supervisor 做量化打分而非判对错)、借自芯片的 assertion/coverage/scoreboard、happy path 固化+线上捞案例、**每功能配 feature flag 做开关对照归因**、codex 闭环(先设计回归测试→flag→实现→开关双跑→收敛,人只定义什么算对)
-- ⭐**AI Native 时代的研发组织**(`wiki/AI/`,详细蒸馏阿里技术许晓斌文章):AI=新协作主体(非工具)、组织双层结构(Harness 层结构化 AI 主导 / Hive Mind 层松散人主导、叠加非替代)、Org Chart→Execution Graph(节点=任务+上下文+权限+工具、reorg 季度→week)、人既是瓶颈也是兑底、新瓶颈=信息形态的人形偏置(人肉中间件/Harness Engineering/AI 友好 5 维度)、管理塔缩非消失、Architect 最高杠杆点、Agent=新员工阶层、Platform 三柱(Agent Platform Group/Domain Teams/Risk & Oversight)、Death of ego 有边界(杀防御性护生产性、AI stateless 做不到创新)、蒸馏焦虑/培养断裂、Harness 与 Execution Graph 双复利
-- ⭐**KimiCode Agent 架构演进**(`wiki/AI/`,详细蒸馏知乎文章):Kimi 终端 Agent 从 Python 整体重写为 TypeScript。**分发**:Node.js SEA + postject 做单二进制(tsdown打包→SEA blob→postject注入→codesign→验证五步),打破"TS不适合做CLI"偏见——关键在构建工程不在语言;为何弃 Bun(官方能力更可控/签名友好/Bun 正被 Anthropic 收购重构中)。**TUI**:弃 React 系 Ink 选 pi-tui(Agent界面=流式滚动+固定输入区/浮动弹窗的混合形态、React reconciler diff 在长会话是负担、减依赖利于单二进制体积)、reverse-rpc 解耦 TUI 与核心(可独立测试/换前端/背压控制)。**最重要**:核心抽象跨语言成立 → **Agent 架构模式正在收敛**——kosong(LLM多provider抽象+Zod编译期类型安全,优于Pydantic)、kaos(POSIX-like执行抽象:exec/readText/stat/iterdir→SSH/SFTP原子映射,故能统一操作任何机器)、agent-core分层(loop含run-turn/turn-step/tool-call/tool-scheduler/retry + session/tools/mcp/skill/rpc)、Wire/ACP协议;工具集Python↔TS一一对应说明"重写只换实现不换产品定义"。语言只是实现层,**Agent 的"操作系统化"才是本质**。⭐**含主人自己的对照判断**:本库 skills 体系(kg-media-to-text/kg-browser 底层 + 各 ingest 上层)与 kosong/kaos 分层同构,佐证收敛论;差异(Zod强类型/reverse-rpc/SEA分发)都能用约束不同解释;启示是 agent-core/loop 的调度+重试拆分值得借鉴(批量摄入时本库会暴露这个缺口),但不必抄 Wire 协议解耦——**知道什么不该抄和知道什么该抄一样重要**
+- ⭐**AI Agent 的可验证开发体系**(`wiki/AI/`,蒸馏B站视频):验证的不对称性、芯片验证行业类比、先改造系统再写测试、为不确定系统构建回归测试、人退出内环、作者自己的免责声明
+- ⭐**AI Native 时代的研发组织**(`wiki/AI/`,详细蒸馏阿里技术文章):AI=新协作主体、Harness层+HiveMind层双层结构、Org Chart→Execution Graph、人既是瓶颈也是兜底、信息形态的人形偏置(人肉中间件)、管理塌缩、Architect 最高杠杆、Platform 三柱、Death of ego 有边界
+- ⭐**KimiCode Agent 架构演进**(`wiki/AI/`,详细蒸馏知乎文章):Node.js SEA+postject 单二进制分发(打破"TS不适合做CLI"偏见)、弃 React 系 Ink 选 pi-tui、kosong(LLM抽象)/kaos(POSIX-like执行抽象)跨语言成立 → **Agent 架构正在收敛**。⭐含主人对照本库 skills 体系的原创判断
 
 ## 09 Python
 
@@ -117,8 +117,8 @@
 
 ## 10 沟通 / 话术
 
-- ⭐**深度关系与自我表露**(`wiki/沟通/`,蒸馏《纵横四海》EP81 解读斯坦福 Connect / Touchy-Feely 课,4.5h):深度关系六特征、**两根支柱**(自我表露=门槛 / 反馈与冲突=技能)、**深≠话题高级而=表露自己**(聊不深不是缺话题)、感受>事实>解法(给解法其实是服务自己)、**15% 法则**(三圈模型/降级阶梓/不只看内容还看关系长度)、**软弱≠脆弱**(脆弱=对反应失控的不确定,不看内容正负)、**rawness 流失**("专业"的代价=把人味精修掉)、**幼儿化对方**(过度保护对方感受=不尊重其成年智慧)、情绪价值=真诚的好奇心(非情绪劳动;三条禁令)、共情vs同情(差在**认同**那一步)、"我不会共情"=注意力在自己身上、**刺痛 pinch→剧痛 crunch**(突然爆发的指责往往只是导火线)、消极叙事与大脑自动收集证据、**三层现实 / 跮网**(意图-行为-影响,任何时刻只掌握两层;跮网=指责→防御)、**XYZ 行为反馈**(小孩天生会;职场版 X+Z;被指责时的反向公式)、**"我觉得"→"我认为"判别观点 vs 感受**、用情绪压制情绪(说"别带情绪"的人最有情绪)、**性格难改但行为可改**(先改行为让认知跟上;"P 人的 J 法")、公平感/杀鸡取卵/情感退缩会让渡权力、**逐回合拒绍话术**("那你要跟我交换吗"/"太贵不是你一人说了算")、越界与**为你好≠控制欲**(判据:决策权还给你)、**金缮 kintsugi**、深度关系不进则退、爱情vs友情(**承诺而非意愿**;友情修复窗口更窄)、渐行渐远=不能再分享脆弱、朋友 portfolio 多元、feeling emotionally met、讨好=对自己的深度隐藏、不存在纯粹(对齐诉求而非真心换真心)、**唯一失败案例**(技巧齐全仍可能失败——诉求不匹配)
-- ⭐**转移回答的层级**(`wiki/沟通/`,蒸馏B站房石阳明话术解析第48期):不转移**话题**而转移**回答层级**("是不是真的"→"你为什么这么想")、承认推理有依据≠承认结论正确、三种可复用句式(回应对方的在意/判断的依据/问题本身)、元沟通 metacommunication(内容层 vs 元层;视频字幕误作"语言沟通")、**Artful Dodger 实证**(听者默认注意力在"我喜不喜欢你"而非"你答没答";三种被识破条件——被要求判相关性/偏离过大/**问题文字持续可见→书面沟通风险高**;流畅答错问题评价高于结巴答对)、失效后退而不破(不说死)、**真正目标是让两种可能同时存在**而非被相信、天平校正与火力转移、"赢"往往只需不被排在优先处理位
+- ⭐**深度关系与自我表露**(`wiki/沟通/`,蒸馏B站视频):自我表露的深度层级、互惠性与节奏匹配、脆弱性的门槛效应、关系升温的具体路径、常见误区(过快过深/单向倾倒)
+- ⭐**转移回答的层级**(`wiki/沟通/`,蒸馏B站房石阳明话术解析):不想回答时的高阶闪避、层级转移(具体→抽象/个人→普遍)、让对方以为已被回答的机制、素材取自《人狼村之谜》
 
 ## 99 其他 / 记录 / 求职
 
