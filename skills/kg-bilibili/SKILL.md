@@ -1,6 +1,6 @@
 ---
 name: kg-bilibili
-description: 读取用户 B 站「稍后再看」/收藏夹，抓取视频字幕（CC/AI），交由 AI 解析后按 LLM Wiki 契约沉淀进学习笔记库。当主人想「让 AI 消化我稍后再看的视频」「挑几个视频做成笔记」「解析某个 B 站视频」时使用。**领域不限**：技术、话术沟通、心理、商业财经、人文历史、健康、生活技艺等一切知识向内容都在范围内。无字幕视频可用 --asr 走本地转写（委派底层库 kg-media-to-text）。不负责公众号（走 kg-wechat）、播客（走 kg-xiaoyuzhou）、本地文档（走 kg-doc）。
+description: 读取用户 B 站「稍后再看」/收藏夹，也可按关键词主动搜索全站视频，抓取视频字幕（CC/AI），交由 AI 解析后按 LLM Wiki 契约沉淀进学习笔记库。当主人想「让 AI 消化我稍后再看的视频」「挑几个视频做成笔记」「解析某个 B 站视频」时使用。**领域不限**：技术、话术沟通、心理、商业财经、人文历史、健康、生活技艺等一切知识向内容都在范围内。无字幕视频可用 --asr 走本地转写（委派底层库 kg-media-to-text）。不负责公众号（走 kg-wechat）、播客（走 kg-xiaoyuzhou）、本地文档（走 kg-doc）。
 ---
 
 # kg-bilibili · B 站视频消化 skill
@@ -11,6 +11,7 @@ description: 读取用户 B 站「稍后再看」/收藏夹，抓取视频字幕
 
 - 「今天帮我挑几个视频消化」→ 形态 1(每日精选)
 - 「解析这个视频 <链接>」→ 形态 2(指定视频)
+- 「帮我找找讲 X 的视频」「有没有关于 X 的好视频」→ 形态 3(主动搜索)
 - 「我稍后再看里有啥值得看的」→ 只列表 + 筛选
 
 ## 前置：环境准备
@@ -66,6 +67,18 @@ python scripts/list_videos.py favlist
 # 某个收藏夹内容（media_id 来自上一步），可带页码
 python scripts/list_videos.py fav <media_id> [页数]
 
+# 按关键词搜索全站视频（不依赖稍后再看/收藏）
+python scripts/search_videos.py "<关键词>"
+python scripts/search_videos.py "Rust 异步" --order click --limit 10
+python scripts/search_videos.py "AI Agent" --order pubdate --days 365 --min-min 8 --max-min 60
+
+#   --order  totalrank(综合,默认) / click(播放多) / pubdate(最新) / dm(弹幕多) / stow(收藏多) / scores(评论多)
+#   --days N       只要最近 N 天发布的
+#   --min-min N    最短时长(分钟)，过滤太短没肉的
+#   --max-min N    最长时长(分钟)
+#   --limit N      最多返回几条(默认 20)
+#   --page N       翻页
+
 # 抓某个视频的字幕（纯文本）
 python scripts/get_transcript.py <bvid或视频URL>
 
@@ -105,6 +118,21 @@ python scripts/get_transcript.py <bvid> --asr --model large-v3
 3. 选出候选（约 5 个）给主人过目，附标题/UP主/时长/一句话理由，让主人拍板选几个。
 4. 对选中的逐个走「形态 2」的第 2~5 步。
 
+### 形态 3：主动搜索（不限于收藏）
+
+主人说「帮我找找讲 X 的视频」时：
+
+1. `search_videos.py "<关键词>"` 搜索。**善用参数收窄**：
+   - 想看经典/高质量 → `--order click`（播放多）或 `--order stow`（收藏多）
+   - 想看最新进展 → `--order pubdate --days 90`
+   - 过滤水视频 → `--min-min 8`（太短的通常没干货）
+   - 长视频难消化 → `--max-min 60`
+2. **筛选口径同形态 1**：编程/技术优先，其次知识科普，排除娱乐向。看 `tname`(分区)、`play`(播放量)、`author` 判断质量。
+3. 挑几个候选给主人过目（标题/UP主/时长/播放量/一句话理由），主人拍板。
+4. 选中的走形态 2 的抓字幕 → 解析 → 沉淀流程。
+
+> 搜索结果的 `play`(播放量) 和 `danmaku` 可作质量参考，但别只看数字——小众技术视频播放量天然低，内容可能更硬。
+
 ## 边界与坑
 
 - **无字幕视频**：默认只标注，不自作主张转写；需显式 `--asr`（消耗本地算力）。转写结果标注"可能有识别误差"。
@@ -121,3 +149,4 @@ python scripts/get_transcript.py <bvid> --asr --model large-v3
 - 稍后再看列表：604 条，字段完整。
 - 有字幕视频（L0 白拿）：抓到 27060 字 AI 字幕（`ai-zh`）。
 - 无字幕视频 + `--asr`（L1）：3 分钟视频共 25 秒完成（yt-dlp 抽音 1.9MB + mlx-whisper 转写 1350 字），技术术语（线程池/内存溢出/GC Root）识别准确。
+- 搜索功能：`Rust 异步编程`(40条)、`AI Agent 开发 --order pubdate --days 365 --min-min 8 --max-min 60`(过滤后 6 条,均为近期长视频)、`TypeScript 类型体操 --order click`(按播放量正确排序)。标题的 `<em>` 高亮标签已清除，时长/播放量/发布日期/分区字段完整。

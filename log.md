@@ -169,3 +169,18 @@
   - 由第三条推出一个视频没有的实用结论:**书面沟通(微信/邮件/纪要)里这招危险得多**,因为原问题就在上面几行。
 - 双链:`wiki/沟通/转移回答的层级` ↔ [[AI Agent 的可验证开发体系]](攻防反向——工程上主动消除不确定性,博弈里主动维持不确定性当护身符)。
 - `index.md` 新开「10 沟通 / 话术」一节。这是 wiki 的**第一个非技术领域目录**。
+
+## [2026-07-27] setup | kg-bilibili 新增全站搜索(形态3)
+
+- 需求:此前只能从「稍后再看/收藏」里挑,主人希望能主动按关键词搜内容。
+- 新增 `kg-bilibili/scripts/search_videos.py`,基于 `bilibili_api.search.search_by_type`(SearchObjectType.VIDEO)。
+  参数:`--order`(totalrank综合/click播放多/pubdate最新/dm弹幕多/stow收藏多/scores评论多)、`--days N`(近N天)、
+  `--min-min`/`--max-min`(时长区间,过滤水视频/超长视频)、`--limit`、`--page`。
+  输出字段与 `list_videos.py` 对齐(title/bvid/author/duration/url/intro/tname),额外带 `play`/`danmaku`/`pubdate` 供质量判断。
+  细节:B 站搜索结果标题含 `<em class="keyword">` 高亮标签,已用正则清除;duration 是 "MM:SS"/"HH:MM:SS" 字符串,已解析为秒便于过滤。
+- SKILL.md 新增「形态 3:主动搜索」工作流,给出参数选择建议(要经典用 click/stow、要最新用 pubdate+days、过滤水视频用 min-min),
+  并提醒**别只看播放量**——小众技术视频播放量天然低但内容可能更硬。
+- 实测:`Rust 异步编程`(40条)、`AI Agent 开发 --order pubdate --days 365 --min-min 8 --max-min 60`(过滤后6条均为近期长视频)、
+  `TypeScript 类型体操 --order click`(播放量降序正确)。边界:非法 --order 报错清晰;过滤过严时提示可放宽。
+- **主动放弃的能力**:`search.get_hot_search_keywords()` 能拿全站热搜,但实测内容是泛娱乐/时事(电影撤档、球队转会、台风),
+  与主人「编程技术」定位不搭,加了只是噪音,故不集成。
