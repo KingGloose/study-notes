@@ -167,6 +167,12 @@ def main() -> int:
     ap.add_argument("--stdout", action="store_true", help="只打到 stdout，不落盘")
     ap.add_argument("--out", default=None, help="自定义输出路径")
     ap.add_argument("--keep-audio", action="store_true", help="转写后保留音频文件")
+    ap.add_argument("--hotword", action="append", default=None, metavar="词",
+                    help="补充 ASR 热词（书名/机构/术语），可重复传。shownotes 会自动抽，"
+                         "这里只补它抽不到的（例：--hotword Connect --hotword 斯坦福商学院）")
+    ap.add_argument("--hotword-speaker", action="append", default=None, metavar="人名",
+                    help="主播/嘉宾姓名热词。**人名必须用这个参数**，不要用 --hotword："
+                         "实测人名必须放进“我是…”句式才能纠对（例：--hotword-speaker 携隐Melody）")
     args = ap.parse_args()
 
     if "xiaoyuzhoufm.com" not in args.url:
@@ -193,8 +199,20 @@ def main() -> int:
             return 2
         eprint("[..] 本地转写中（长音频较慢，请耐心等）")
         try:
-            from media_to_text import to_text
-            r = to_text(audio, model=args.model, language="zh")
+            from media_to_text import to_text, extract_hotwords
+
+            # 热词：把已知专名送进 ASR，降低专名误识。
+            # 分类传很关键（实测）：节目名要进“欢迎来到…”、人名要进“我是…”，
+            # 堆成一串列表无效。shownotes 绝不能裸塞（会超 prompt 上限把模型搞崩）。
+            topics = extract_hotwords(text=info["shownotes"] or info["description"], limit=10)
+            hot = {
+                "channel": [info["podcast"]] if info["podcast"] else [],
+                "speakers": args.hotword_speaker or [],
+                "topics": (args.hotword or []) + topics,
+            }
+            n = len(hot["channel"]) + len(hot["speakers"]) + len(hot["topics"])
+            eprint(f"[i] 热词 {n} 个（节目={hot['channel']}，人名={hot['speakers']}）")
+            r = to_text(audio, model=args.model, language="zh", hotwords=hot)
             transcript, backend = r.text, r.backend
             eprint(f"[ok] 转写完成 {len(transcript)} 字 via {backend}")
         except Exception as e:

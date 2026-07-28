@@ -41,45 +41,80 @@ HOTWORD_TOKEN_BUDGET = 120
 
 
 def _fmt_hotwords(hotwords: list[str] | None) -> str:
-    """热词 → 引导语。**必须写成连贯的自然句，不能是词表也不能是列表句。**
+    """热词 → 引导语。**必须把词放进真正的句式位置，不能堆成列表。**
 
-    initial_prompt 是“上文续写”通道：模型在模仿“前一段话长什么样”，
-    而不是查一张词表。三种写法的实测结果（同一段音频，看“携隐”能否纠对）：
+    initial_prompt 是“上文续写”通道：模型模仿“前一段话长什么样”，而不是查词表。
+    四种写法的实测结果（同一段音频，看人名“携隐”能否纠对）：
 
-        携隐Melody、纵横四海、斯坦福商学院。              → ✗ 仍作“显影”
-        本段话里提到了携隐Melody，纵横四海，斯坦福商学院。  → ✗ 仍作“显影”
-        大家好，欢迎来到纵横四海，我是携隐Melody。        → ✓ **纠对**
+        携隐Melody、纵横四海、斯坦福商学院。                    → ✗
+        本段话里提到了携隐Melody，纵横四海，…。                 → ✗
+        大家好，欢迎来到纵横四海。今天要聊的是携隐Melody、…。  → ✗（人名在列表里）
+        大家好，欢迎来到纵横四海，**我是**携隐Melody。           → ✓ **纠对**
 
-    可见关键不是“把词放进去”，而是“把词放进一个像人说话的句子里”。
-    所以这里用句型模板把热词编成一段像开场白的话。
+    结论：词必须出现在它在真实语音里会出现的**同类句式位置**上（人名跟在
+    “我是…”后面、节目名跟在“欢迎来到…”后面），才能真正影响解码。
+    所以上层传 hotwords 时需区分类型：用 dict 形式传（见 hotwords 参数说明）。
     """
-    words = [w.strip() for w in (hotwords or []) if w and w.strip()]
-    if not words:
-        return ""
-    # 去重保序（上层传进来的顺序已按重要度排好，尾部被截也丢的是次要词）
-    seen, uniq = set(), []
-    for w in words:
-        if w not in seen:
-            seen.add(w)
-            uniq.append(w)
+    return _fmt_hotwords_typed({"topics": list(hotwords or [])})
 
-    # 按 token 预算逐个加，宁可少放也不能溢出把标点引导句顶掉
-    kept = []
-    for w in uniq:
-        if _rough_tokens("，".join(kept + [w])) > HOTWORD_TOKEN_BUDGET:
-            break
-        kept.append(w)
-    if not kept:
-        return ""
 
-    # 编成连贯句：前两个词进“开场白”句式（命中率最高的位置），
-    # 其余词拼成一句述译句，整体仍读起来像一段正常的话。
-    lead = kept[0]
-    rest = kept[1:]
-    parts = [f"大家好，欢迎来到{lead}。"]
-    if rest:
-        parts.append("今天我们要聊的是" + "、".join(rest) + "。")
-    return "".join(parts)
+def _fmt_hotwords_typed(groups: dict) -> str:
+    """按类型把热词编进对应句式。
+
+    groups 可含：
+      channel : 节目/频道名  → “欢迎来到X”
+      speakers: 人名（主播/UP主/嘉宾）→ “我是X” / “今天的嘉宾是X”
+      topics  : 其他专名（书名/机构/术语）→ “今天要聊的是X”
+    """
+    def clean(lst):
+        out, seen = [], set()
+        for w in lst or []:
+            w = (w or "").strip()
+            if w and w not in seen:
+                seen.add(w)
+                out.append(w)
+        return out
+
+    channel = clean(groups.get("channel"))
+    speakers = clean(groups.get("speakers"))
+    topics = clean(groups.get("topics"))
+
+    sents: list[str] = []
+    budget = HOTWORD_TOKEN_BUDGET
+
+    def add(sent: str) -> None:
+        nonlocal budget
+        cost = _rough_tokens(sent)
+        if cost <= budget:
+            sents.append(sent)
+            budget -= cost
+
+    # 人名和节目名合成一句开场白（实测最有效的形态）
+    if channel and speakers:
+        add(f"大家好，欢迎来到{channel[0]}，我是{speakers[0]}。")
+        speakers = speakers[1:]
+    elif channel:
+        add(f"大家好，欢迎来到{channel[0]}。")
+    elif speakers:
+        add(f"大家好，我是{speakers[0]}。")
+        speakers = speakers[1:]
+
+    # 剩下的人名当嘉宾介绍（同样是“人名位置”）
+    if speakers:
+        add("今天的嘉宾是" + "和".join(speakers[:3]) + "。")
+
+    # 其他专名：逐个加到预算用完
+    if topics:
+        kept = []
+        for w in topics:
+            trial = "今天要聊的是" + "、".join(kept + [w]) + "。"
+            if _rough_tokens(trial) > budget:
+                break
+            kept.append(w)
+        if kept:
+            add("今天要聊的是" + "、".join(kept) + "。")
+
+    return "".join(sents)
 
 
 def _rough_tokens(text: str) -> int:
@@ -95,18 +130,22 @@ def _rough_tokens(text: str) -> int:
 def _build_prompt(
     language: str | None,
     initial_prompt: str | None,
-    hotwords: list[str] | None,
+    hotwords: list[str] | dict | None,
 ) -> str | None:
     """组装最终 prompt：热词引导句 + 标点引导句，并卡总预算。
 
     initial_prompt 为显式传入时完全尊重调用方（传 "" 即禁用）。
+    hotwords 可以是 list（全当 topics）或 dict（区分 channel/speakers/topics，效果更好）。
     """
     if initial_prompt is not None:
         return initial_prompt or None
 
     is_zh = bool(language and language.lower().startswith("zh"))
     parts = []
-    hot = _fmt_hotwords(hotwords)
+    if isinstance(hotwords, dict):
+        hot = _fmt_hotwords_typed(hotwords)
+    else:
+        hot = _fmt_hotwords(hotwords)
     if hot:
         parts.append(hot)
     if is_zh:
