@@ -88,6 +88,9 @@ python scripts/get_transcript.py <bvid或视频URL> --json
 # 无字幕视频：下音频本地 ASR 转写（需 asr 依赖 + ffmpeg，约 12 倍实时）
 python scripts/get_transcript.py <bvid> --asr
 python scripts/get_transcript.py <bvid> --asr --model large-v3
+
+# ASR 时补专名热词（降低误识）。UP主名会自动当"说话人"，标题+简介自动抽专名。
+python scripts/get_transcript.py <bvid> --asr --hotword Transformer --hotword-speaker 张鑫旭
 ```
 
 ## 工作流
@@ -132,6 +135,15 @@ python scripts/get_transcript.py <bvid> --asr --model large-v3
 4. 选中的走形态 2 的抓字幕 → 解析 → 沉淀流程。
 
 > 搜索结果的 `play`(播放量) 和 `danmaku` 可作质量参考，但别只看数字——小众技术视频播放量天然低，内容可能更硬。
+
+## 专名热词（仅 --asr 时生效）
+
+走本地转写时会自动组装热词：**UP主名**当说话人（进"我是…"句式），
+**标题+简介**里抽出的专名当话题词。`--hotword` / `--hotword-speaker` 可手动补。
+
+- 人名务必用 `--hotword-speaker`：实测人名要进"我是…"句式才纠得对。
+- 简介质量决定效果：只有一个社区链接的视频抽不到专名（URL 会被过滤掉）。
+- 详细原理和实测数据见 `../kg-media-to-text/SKILL.md`。
 
 ## 边界与坑
 

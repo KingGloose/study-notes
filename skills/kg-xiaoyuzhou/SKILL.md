@@ -48,9 +48,33 @@ python scripts/ingest_episode.py "<链接>" --transcribe
 
 # 其他
 --model <名>      指定 ASR 模型
+--hotword 术语     补充 ASR 热词（书名/机构/术语），可重复传
+--hotword-speaker 人名   主播/嘉宾姓名热词（**人名必须用这个**，见下）
 --keep-audio      转写后保留音频（默认删）
 --out <路径>      自定义输出位置
 ```
+
+## 专名热词（降低 ASR 误识）
+
+转写时 shownotes 里的专名会**自动抽取**并喂给 ASR（播客名进"欢迎来到…"、
+抽到的书名/机构进"今天要聊…"），不需要手动操作。
+
+需要手动补的两种情况：
+
+```bash
+# 主播/嘉宾姓名：shownotes 里常没有，且人名必须走 --hotword-speaker
+python scripts/ingest_episode.py "<链接>" --transcribe --hotword-speaker 携隐Melody
+
+# shownotes 没提但你知道的专名（比如原著英文名）
+python scripts/ingest_episode.py "<链接>" --transcribe --hotword Connect --hotword 斯坦福商学院
+```
+
+**为什么人名要单独传**：实测人名必须出现在"我是…"句式里才纠得对，
+堆进词表列表无效（原理见 `../kg-media-to-text/SKILL.md`）。实测 EP81
+开头 100 秒专名命中从 3/6 → 4/6，"携隐"由"显影"纠正。
+
+**收益边界**：只救事先知道的词。讲到一半才出现的低频专名（金缮→金扇）救不了，
+这类仍需靠时间戳回听核对。
 
 ## 工作流（遵守 AGENTS.md）
 
