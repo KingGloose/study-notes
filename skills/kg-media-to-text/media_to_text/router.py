@@ -14,6 +14,8 @@ def to_text(
     kind: SourceKind | None = None,
     model: str | None = None,
     language: str | None = None,
+    initial_prompt: str | None = None,
+    timestamps: bool = True,
 ) -> TextResult:
     """把任意素材转成文字。底层库对外的唯一 API。
 
@@ -21,7 +23,13 @@ def to_text(
         source:   文件路径
         kind:     强制指定素材类型（可选，默认自动探测）
         model:    ASR 模型名（仅音视频有效，默认按平台选合适的）
-        language: 语言提示，如 "zh"（仅音视频有效）
+        language: 语言提示，如 "zh"（仅音视频有效）。
+                  **中文强烈建议传 "zh"**，否则不会注入标点引导 prompt。
+        initial_prompt: 自定义 ASR 引导词（仅音视频）。不传时中文自动用内置的
+                  标点引导 prompt。传空字符串 "" 可显式禁用。
+                  注意：prompt 不要写元指令或示范句，会被模型当内容续写。
+        timestamps: 输出是否带时间戳（仅音视频，默认 True）。无论真假都按
+                  segment 分行，不会输出无换行的一堵墙。
 
     Returns:
         TextResult(text, kind, backend, metadata, warnings)
@@ -46,7 +54,13 @@ def to_text(
     if k == SourceKind.PLAIN:
         return document.handle_plain(path, k)
     if k in (SourceKind.AUDIO, SourceKind.VIDEO):
-        return audio.handle_audio_video(path, k, model=model, language=language)
+        return audio.handle_audio_video(
+            path, k,
+            model=model,
+            language=language,
+            initial_prompt=initial_prompt,
+            timestamps=timestamps,
+        )
     if k == SourceKind.IMAGE:
         raise UnsupportedSourceError(
             "图片 OCR 暂未实现（规划中的 L2 能力）。当前支持：PDF/Office/txt/md/音频/视频。"
