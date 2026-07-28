@@ -12,6 +12,7 @@ description: 知乎内容摄入：读取专栏文章、回答、问题页多回�
 - 「解析这篇知乎 <链接>」
 - 「这个回答值得存吗」
 - 「这个问题下的高赞回答帮我梳理一下」
+- 「之前在知乎看过一篇讲 X 的，帮我找出来沉淀」→ 先用历史查找定位（见第 1.5 步）
 
 ## 前提：为什么必须走浏览器
 
@@ -35,6 +36,17 @@ cd 学习笔记/skills/kg-browser && bash scripts/connect-chrome.sh
 ```
 
 连接脚本成功前不要跑任何页面命令（否则会操作到没有登录态的隔离浏览器）。
+
+### 第 1.5 步：主人只记得内容、没有链接时
+
+先从本地 Chrome 历史/书签找：
+
+```bash
+cd ../kg-browser && python3 scripts/find-history.py --keywords 知乎 <主题词> --articles-only
+```
+
+AI 应主动扩展同义词提高命中（如主人说"讲知识库那篇"→ `知识库 wiki 笔记 knowledge`）。
+拿到候选让主人确认是哪篇，别自己挑。详见 `../kg-browser/references/history-search.md`。
 
 ### 第 2 步：打开目标页
 

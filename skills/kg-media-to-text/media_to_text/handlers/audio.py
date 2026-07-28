@@ -20,6 +20,46 @@ from ..types import SourceKind, TextResult, MissingDependencyError, MediaToTextE
 DEFAULT_MODEL_MAC = "mlx-community/whisper-large-v3-turbo"
 DEFAULT_MODEL_LINUX = "large-v3"
 
+# Whisper 作为自回归模型会随机陷入「无标点模式」，中文尤其严重（实测 2 分钟中文
+# 播客片段标点数为 0，整段几万字连成一串，人类不可读）。社区通用解法是用
+# initial_prompt 给一段「带标点的正常中文」，把模型推回「有标点模式」。
+#
+# 踩坑（实测）：prompt 里不要写冒号、不要写「例如」「请保留标点」这类元指令，
+# 也不要塞示范句 —— 模型会把它们当成上文内容续写，输出里会混进「Ｂ」这种
+# 全角垃圾字符。只给一段平实的陈述句效果最好。
+ZH_PUNCT_PROMPT = (
+    "这是一段普通话内容。说话人在正常讲述，句子之间有标点，语气自然。"
+)
+
+
+def _default_prompt(language: str | None) -> str | None:
+    """中文默认注入标点引导 prompt；其他语言不干预。"""
+    if language and language.lower().startswith("zh"):
+        return ZH_PUNCT_PROMPT
+    return None
+
+
+def _segments_to_text(segments, with_timestamps: bool = True) -> str:
+    """把 segment 列表拼成可读文本。
+
+    不要直接用 whisper 返回的 res["text"] —— 那是所有 segment 的裸拼接，
+    没有换行，几万字会变成一堵墙。按 segment 分行才是人类可读的形态。
+    """
+    lines = []
+    for seg in segments:
+        txt = (seg["text"] if isinstance(seg, dict) else seg.text).strip()
+        if not txt:
+            continue
+        if with_timestamps:
+            start = seg["start"] if isinstance(seg, dict) else seg.start
+            m, s = divmod(int(start), 60)
+            h, m = divmod(m, 60)
+            stamp = f"[{h:02d}:{m:02d}:{s:02d}]" if h else f"[{m:02d}:{s:02d}]"
+            lines.append(f"{stamp} {txt}")
+        else:
+            lines.append(txt)
+    return "\n".join(lines)
+
 
 def _is_apple_silicon() -> bool:
     return platform.system() == "Darwin" and platform.machine() in ("arm64", "aarch64")
@@ -56,7 +96,13 @@ def _extract_audio(video_path: Path) -> Path:
     return tmp
 
 
-def _transcribe_mlx(audio: Path, model: str | None, language: str | None) -> tuple[str, dict]:
+def _transcribe_mlx(
+    audio: Path,
+    model: str | None,
+    language: str | None,
+    initial_prompt: str | None = None,
+    timestamps: bool = True,
+) -> tuple[str, dict]:
     try:
         import mlx_whisper
     except ImportError as e:
@@ -67,11 +113,30 @@ def _transcribe_mlx(audio: Path, model: str | None, language: str | None) -> tup
     kwargs = {"path_or_hf_repo": model or DEFAULT_MODEL_MAC}
     if language:
         kwargs["language"] = language
+    prompt = initial_prompt if initial_prompt is not None else _default_prompt(language)
+    if prompt:
+        kwargs["initial_prompt"] = prompt
     res = mlx_whisper.transcribe(str(audio), **kwargs)
-    return res.get("text", ""), {"language": res.get("language"), "model": kwargs["path_or_hf_repo"]}
+
+    segments = res.get("segments") or []
+    # 有 segment 就按 segment 分行；万一后端没给 segments，退回裸 text 不至于丢内容
+    text = _segments_to_text(segments, timestamps) if segments else res.get("text", "")
+    meta = {
+        "language": res.get("language"),
+        "model": kwargs["path_or_hf_repo"],
+        "segments": len(segments),
+        "punct_prompt": bool(prompt),
+    }
+    return text, meta
 
 
-def _transcribe_faster(audio: Path, model: str | None, language: str | None) -> tuple[str, dict]:
+def _transcribe_faster(
+    audio: Path,
+    model: str | None,
+    language: str | None,
+    initial_prompt: str | None = None,
+    timestamps: bool = True,
+) -> tuple[str, dict]:
     try:
         from faster_whisper import WhisperModel
     except ImportError as e:
@@ -91,9 +156,19 @@ def _transcribe_faster(audio: Path, model: str | None, language: str | None) -> 
         m = WhisperModel(name, device="cpu", compute_type="int8")
         device = "cpu"
 
-    segments, info = m.transcribe(str(audio), language=language)
-    text = "\n".join(seg.text.strip() for seg in segments)
-    meta = {"language": info.language, "model": name, "device": device}
+    prompt = initial_prompt if initial_prompt is not None else _default_prompt(language)
+    segments, info = m.transcribe(
+        str(audio), language=language, initial_prompt=prompt
+    )
+    seg_list = list(segments)  # 生成器，先落地才能同时算数量和文本
+    text = _segments_to_text(seg_list, timestamps)
+    meta = {
+        "language": info.language,
+        "model": name,
+        "device": device,
+        "segments": len(seg_list),
+        "punct_prompt": bool(prompt),
+    }
     if gpu_error:
         meta["gpu_fallback_reason"] = gpu_error
     return text, meta
@@ -104,8 +179,14 @@ def handle_audio_video(
     kind: SourceKind,
     model: str | None = None,
     language: str | None = None,
+    initial_prompt: str | None = None,
+    timestamps: bool = True,
 ) -> TextResult:
-    """音频/视频 → 文字。视频先抽音轨（临时文件用完必清）。"""
+    """音频/视频 → 文字。视频先抽音轨（临时文件用完必清）。
+
+    language="zh" 时默认注入标点引导 prompt（见 ZH_PUNCT_PROMPT）；
+    输出按 segment 分行并带时间戳，timestamps=False 可只分行不带戳。
+    """
     audio_path = path
     tmp_to_clean: Path | None = None
     warnings: list[str] = []
@@ -117,9 +198,13 @@ def handle_audio_video(
     try:
         backend = pick_backend()
         if backend == "mlx-whisper":
-            text, meta = _transcribe_mlx(audio_path, model, language)
+            text, meta = _transcribe_mlx(
+                audio_path, model, language, initial_prompt, timestamps
+            )
         else:
-            text, meta = _transcribe_faster(audio_path, model, language)
+            text, meta = _transcribe_faster(
+                audio_path, model, language, initial_prompt, timestamps
+            )
     finally:
         # 无论转写成败都清理抽出的临时音轨，避免 /tmp 堆积
         if tmp_to_clean is not None:
@@ -128,6 +213,9 @@ def handle_audio_video(
     meta["filename"] = path.name
     if not text.strip():
         warnings.append("转写结果为空，音频可能无人声或格式异常。")
+    # 中文没走 prompt 引导时大概率无标点，明确告警而不是让人事后困惑
+    if not meta.get("punct_prompt") and (meta.get("language") or "").startswith("zh"):
+        warnings.append("未注入标点引导 prompt，中文结果可能缺少标点。")
 
     return TextResult(
         text=text.strip(),
