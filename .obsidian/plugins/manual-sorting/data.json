@@ -7615,6 +7615,7 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/kg-browser",
       "skills/kg-lint",
       "skills/kg-youtube",
       "skills/kg-bilibili",
@@ -7644,6 +7645,12 @@
       "skills/kg-bilibili/scripts/__pycache__/get_transcript.cpython-312.pyc",
       "skills/kg-bilibili/scripts/__pycache__/list_videos.cpython-312.pyc",
       "skills/kg-bilibili/scripts/__pycache__/login.cpython-312.pyc"
+    ],
+    "skills/kg-browser": [
+      "skills/kg-browser/scripts"
+    ],
+    "skills/kg-browser/scripts": [
+      "skills/kg-browser/scripts/connect-chrome.sh"
     ],
     "skills/kg-doc": [
       "skills/kg-doc/scripts",
@@ -7754,6 +7761,7 @@
       "wiki/前端"
     ],
     "wiki/沟通": [
+      "wiki/沟通/深度关系与自我表露.md",
       "wiki/沟通/转移回答的层级.md"
     ],
     "wiki/前端": [
