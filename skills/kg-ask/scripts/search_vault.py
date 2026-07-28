@@ -162,6 +162,8 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=8, help="返回文档数（默认 8）")
     ap.add_argument("--context", type=int, default=1, help="片段上下文行数（默认 1）")
     ap.add_argument("--snippets", type=int, default=3, help="每个文档最多几个片段")
+    ap.add_argument("--min-score", type=float, default=8.0,
+                    help="相关度门槛，低于此值视为不相关（默认 8.0）")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--rebuild", action="store_true", help="强制重建索引")
     ap.add_argument("--stats", action="store_true", help="显示库构成统计")
@@ -200,7 +202,10 @@ def main() -> int:
         if sc > 0:
             ranked.append((sc, d, hits))
     ranked.sort(key=lambda x: -x[0])
-    ranked = ranked[: args.limit]
+
+    # 相关度门槛：过滤掉只因中文拆词碰巧命中零星片段的噪声
+    weak = [r for r in ranked if r[0] < args.min_score]
+    ranked = [r for r in ranked if r[0] >= args.min_score][: args.limit]
 
     if args.json:
         print(json.dumps({
@@ -215,8 +220,13 @@ def main() -> int:
         return 0
 
     if not ranked:
-        print(f"库里没找到「{args.query}」相关内容。")
-        print("→ 这意味着这个知识点还没沉淀过。可以考虑：换个说法再搜，或摄入相关资料。")
+        print(f"库里没找到「{args.query}」的相关沉淀。")
+        if weak:
+            print(f"\n（有 {len(weak)} 个文件弱命中，相关度均 < {args.min_score}，"
+                  f"多半是中文拆词碰巧撞上，不算真相关。"
+                  f"想看的话加 --min-score 0）")
+        print("\n→ 这意味着这个知识点**还没沉淀过**。对 AI 的提示："
+              "回答时要明确说明「库里没有记录，以下是我的通用知识」，不要冒充库里的内容。")
         return 0
 
     print(f"# 检索「{args.query}」\n")
