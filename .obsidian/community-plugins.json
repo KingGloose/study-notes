@@ -10,5 +10,6 @@
   "obsidian-icon-folder",
   "obsidian-custom-attachment-location",
   "terminal",
-  "browser-cookie-sync"
+  "session-bridge",
+  "hot-reload"
 ]

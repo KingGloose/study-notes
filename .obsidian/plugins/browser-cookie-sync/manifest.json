@@ -1,9 +1,0 @@
-{
-	"id": "browser-cookie-sync",
-	"name": "Browser Cookie Sync",
-	"version": "0.1.0",
-	"minAppVersion": "1.8.0",
-	"description": "把本机浏览器（Chrome/Edge/Brave/Arc）的登录态 cookie 注入 Obsidian web viewer，按域名白名单手动同步。仅桌面端 macOS。",
-	"author": "browser-cookie-sync",
-	"isDesktopOnly": true
-}
