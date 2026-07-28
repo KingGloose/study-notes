@@ -47,6 +47,11 @@ def _is_noise(word: str) -> bool:
         return True
     if len(word) < 2:
         return True
+    # 域名/URL 碎片（www.zhangxinxu.com、example.cn）——带点标识符规则会误命中
+    if re.search(r"\.(com|cn|net|org|io|dev|me|top|xyz)$", word, re.I):
+        return True
+    if word.lower().startswith(("www.", "http")):
+        return True
     return any(p.match(word) for p in _BAD_PATTERNS)
 
 
@@ -92,6 +97,10 @@ def extract_hotwords(
         for pat in (r"《([^》]{1,20})》", r"「([^」]{1,20})」", r"“([^”]{2,12})”"):
             for m in re.findall(pat, text):
                 push(m)
+        # 带点/下划线的标识符（JSON.rawJSON、torch.nn、process.env）——技术内容常见，
+        # 必须排在普通 ASCII 词前面，否则会先被抽成 "JSON" 而丢掉后半截
+        for m in re.findall(r"\b[A-Za-z][A-Za-z0-9]*(?:[._][A-Za-z][A-Za-z0-9]*)+\b", text):
+            push(m)
         # 连续 ASCII 词组（Touchy Feely / Connect / LangGraph），允许中间一个空格
         for m in re.findall(r"\b[A-Z][A-Za-z0-9]{1,18}(?:\s[A-Z][A-Za-z0-9]{1,18})?\b", text):
             push(m)
