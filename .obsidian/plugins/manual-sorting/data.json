@@ -7600,15 +7600,12 @@
       "assets/wx-0f15c076d5.png",
       "assets/wx-5d48fd027d.png",
       "assets/wx-8e1d56235b.png",
-      "assets/wx-334b426ea3.gif",
       "assets/wx-626eeb131f.png",
       "assets/wx-5676a9ab10.png",
-      "assets/wx-558312cb8a.jpeg",
       "assets/wx-076086033e.png",
       "assets/wx-aa3d6c0af4.png",
       "assets/wx-e779cd5308.png",
       "assets/wx-e844ab85d0.png",
-      "assets/wx-eab1d84ad2.gif",
       "assets/wx-f3fc62ec1c.png",
       "assets/wx-f55b2546e8.png",
       "assets/wx-9f23657150.png",
@@ -7840,6 +7837,7 @@
       "wiki/网络/nginx 泛域名转发.md"
     ],
     "wiki/AI": [
+      "wiki/AI/Graph Engineering 与多智能体编排.md",
       "wiki/AI/KimiCode Agent 架构演进.md",
       "wiki/AI/AI Agent 的可验证开发体系.md",
       "wiki/AI/AI Native 时代的研发组织.md"
