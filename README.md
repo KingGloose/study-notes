@@ -21,7 +21,10 @@
    git clone https://github.com/KingGloose/kg-wiki-skills.git ~/个人代码/kg-wiki-skills
    cd ~/个人代码/kg-wiki-skills && bash install.sh
    ```
-2. 建软链: `ln -s ~/个人代码/kg-wiki-skills <本库>/skills`
+2. 建软链(**用相对路径**,跨机器更稳,前提是两仓库同级):
+   ```bash
+   cd <本库> && ln -s ../个人代码/kg-wiki-skills skills
+   ```
 3. 告诉 skills 本库在哪(任选一种):
    - 写 `~/.config/kg-wiki/config.json`: `{"vault": "/path/to/本库"}`
    - 或 `export KG_VAULT=/path/to/本库`

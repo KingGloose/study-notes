@@ -523,3 +523,32 @@ skills/README 与 AGENTS.md 同步更新,pi 正确发现 10 个 kg-* skill。
 - `plan.py` 实测:创建/完成步骤/记录误解/记会话/查看进度/归档 全部正常,全部完成时会提示先沉淀再归档。
 
 skills/README 与 AGENTS.md 同步更新(目录结构新增 learning/),pi 正确发现 12 个 kg-* skill。
+
+## [2026-07-29] setup | skills 拆分为独立开源仓库 kg-wiki-skills
+
+- 需求:工具与知识分仓,工具走开源路线。命名 `kg-wiki-skills`(kg=KingGloose,wiki=知识库,skills=skill)。
+  仓库 https://github.com/KingGloose/kg-wiki-skills (MIT)。
+- **前提改造:库根解析(这是拆分的关键阻碍)**。原设计 7 个脚本硬编码
+  `Path(__file__).resolve().parents[3]` 假设"skill 住在库内",搬出去就断。
+  改为**三级降级解析**:`KG_VAULT` 环境变量 → `~/.config/kg-wiki/config.json` →
+  从 cwd/脚本位置向上找(含 `AGENTS.md` + `wiki/` 的目录)。
+  实现分两处:依赖底层库的 3 个脚本 import `media_to_text.find_vault`;
+  纯标准库的 4 个脚本(kg-ask/kg-lint/kg-review/kg-learn)内联一份轻量解析以保持零依赖。
+  四种场景实测通过:库内自动发现 / 库外靠脚本位置 / KG_VAULT 指定 / 指向错误路径给友好提示。
+- **迁移**:rsync 排除 `.venv`/`.env`/`__pycache__`/`egg-info`/索引缓存 → 368K 干净产物。
+  `.env`(B站 SESSDATA)单独手动迁移到新仓库,**确认远端无凭证泄露**(只有 `.env.example`)。
+  主库 `skills/` 改为**相对路径软链** `../个人代码/kg-wiki-skills`——
+  绝对路径跨机器会断,相对路径前提是两仓库同级。git 记为 mode 120000 只存路径字符串。
+  `~/.agents/skills/kg` 全局软链同步改指向。删除旧 `skills.old`(省 1.6G)。
+- **开源化处理**:
+  - 泛化 15 个文件的私人表述(95 处"主人"→"用户"、库名"学习笔记"→"知识库"、路径引用)
+  - 新增 `templates/`(AGENTS.md 契约模板 + index.md + log.md),让别人能从零起一个库
+  - README 重写:为什么做这个(AI 时代只有踩坑/有上下文的决策/个人判断值钱)、
+    能力概览、分层摄入原则、架构、安装、**平台差异**(faster-whisper 不支持 Apple MPS 故双后端)、
+    依赖矩阵、**设计取舍**(刻意没做:自动批量摄入/说话人分离/原生多模态主线/小红书;
+    刻意做了:真实浏览器而非无头/平台自适应 ASR/只读用户已可见内容)
+  - install.sh 加**知识库定位自检**(新用户最易漏这步)+ 配置指引
+- **顺手修 kg-lint 一个 bug**:带块锚点的双链 `[[页名#小节]]` 被误判为死链(未剥锚点),
+  修复后主库死链归零。
+- 推送时遇远程已有 GitHub 生成的 LICENSE(署名 zhangjiahui,本地写的 KingGloose)冲突,
+  采用远程那份、rebase 保留 Initial commit,历史干净。**署名待主人确认是否统一。**
