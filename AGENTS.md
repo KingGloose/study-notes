@@ -32,7 +32,6 @@
 ├── wiki/          # AI 沉淀的知识,内部按领域分子目录
 │                  # 领域不限技术:前端/AI/python/沟通/心理/商业/人文/健康/...
 ├── learning/      # 学习计划(过程性产物,非沉淀知识;由 kg-learn 维护)
-├── skills/        # 软链 → 独立仓库 kg-wiki-skills(开源工具,与知识分仓)
 │
 └── archive/       # 旧世界整体封存:旧笔记 + 旧 00 assets + 旧领域目录
                    # 图谱默认过滤 -path:archive 隐藏
@@ -115,30 +114,25 @@
 原生多模态 API 每次理解都重新付费、结果不落文字就等于没沉淀;
 本地转文字是一次投入、永久复利。对"沉淀后反复查"的知识库,后者是数量级的优势。
 
-### 架构:底层库 + 上层业务 skill
+### 工具:kg-wiki-skills(独立仓库,全局注册)
 
-> **工具与知识分仓**:`skills/` 是软链,指向开源仓库
-> [kg-wiki-skills](https://github.com/KingGloose/kg-wiki-skills)。
-> 库根通过 `KG_VAULT` 环境变量 / `~/.config/kg-wiki/config.json` / 向上查找解析,
-> 因此 skills 住在库外也能正确写回。
+维护本库的工具**不在本库里**,在独立开源仓库
+[kg-wiki-skills](https://github.com/KingGloose/kg-wiki-skills),
+已注册到 `~/.agents/skills/`,**AI 在任何目录都能发现并调用**。
 
-```
-底层  skills/kg-media-to-text/   素材→文字,按类型分流(平台无关,不懂业务)
-      skills/kg-browser/         真实 Chrome 读取(带登录态/过 JS 挑战的页面)
-上层  skills/kg-bilibili/        B站(稍后再看/收藏/字幕/ASR兜底)
-      skills/kg-wechat/          微信公众号
-      skills/kg-xiaoyuzhou/      小宇宙播客
-      skills/kg-doc/             本地文档/文件夹批量/网页 URL
-      skills/kg-youtube/         YouTube(字幕优先+ASR兜底)
-      skills/kg-zhihu/           知乎(依赖 kg-browser)
-捕获  skills/kg-capture/         ★跨项目知识捕获(别的项目里的收获回填进库)
-学习  skills/kg-learn/           ★学习模式(陌生领域渐进切入+可选学习计划)
-使用  skills/kg-ask/             ★库内检索问答(区分"记过的"vs"AI补充的")
-      skills/kg-review/          知识回顾(先回想再看答案)
-      skills/kg-lint/            库体检(孤儿页/死链/raw未沉淀/index未唤醒)
-```
-上层 skill 通过 `from media_to_text import to_text` 调用底层库。
-**转换能力沉在底层复用,沉淀规则永远归上层 skill。** 详见 `skills/README.md`。
+本库只放知识,不放工具——这也是为什么目录里看不到 `skills/`。
+
+**AI 需要知道的**:
+
+- 想摄入内容(视频/播客/文章/文档)、检索库、体检、回顾、学习 → 相应 skill 会被自动唤起,
+  按它们各自 SKILL.md 的指引操作即可
+- 那些 skill 会**自动解析本库位置**:`--vault` 参数 → `KG_VAULT` 环境变量 →
+  `~/.config/kg-wiki/config.json` → 从当前目录向上查找
+- **如果 skill 报"找不到知识库",不要猜路径,直接问用户**,拿到后写进配置
+
+**架构原则(工具侧,了解即可)**:底层 `kg-media-to-text`(素材→文字) 与
+`kg-browser`(真实浏览器读取) 提供能力,上层各平台 skill 做适配与沉淀。
+**转换能力沉在底层复用,沉淀规则(本契约)永远归上层。**
 
 ### 转写结果的诚实标注
 
@@ -173,4 +167,4 @@
 - 不要在回答里把"笔记记过的"和"AI 补充的"混在一起不加区分。
 - 不要把 ASR 转写当作原文——必须标注"本地转写,可能有误差";多人对谈不要编造发言归属。
 - 不要在未穷尽 L0(平台现成字幕/shownotes/正文)前就上本地 ASR——白拿优先。
-- 不要把转换逻辑写进上层 ingest skill——素材→文字的能力统一沉到 `skills/kg-media-to-text/`。
+- 不要把转换逻辑写进上层 ingest skill——素材→文字的能力统一沉到底层库 `kg-media-to-text`。

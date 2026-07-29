@@ -11,7 +11,10 @@
 - **`assets/`** — 新库图片池。
 - **`wiki/`** — AI 沉淀的知识,按领域分子目录。
 - **`archive/`** — 旧笔记整体归档,原样封存,按需唤起。
-- **`skills/`** — **软链**指向独立开源仓库 [kg-wiki-skills](https://github.com/KingGloose/kg-wiki-skills)。工具与知识分仓:工具开源维护,本库只放个人知识。
+- **`learning/`** — 学习计划(过程性产物,非沉淀知识)。
+
+> **工具不在本库**:维护工具在独立开源仓库 [kg-wiki-skills](https://github.com/KingGloose/kg-wiki-skills),
+> 全局注册后 AI 在任何目录都能调用。本库只放知识。
 
 ## 迁移到新电脑
 
