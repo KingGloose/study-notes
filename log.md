@@ -13,7 +13,7 @@
 - 功能:域名黑名单、UA 对齐、中英文 i18n(getLanguage 跟随)、设置页开源地址、一键发版脚本(commit+tag+push 触发 GitHub Action 出 release)。
 - **开发环境**:vault 软链到开发目录 + Hot Reload 插件 + esbuild watch,存盘即生效。
 - 两页 wiki 补实现层:[[浏览器 Cookie 本地存储与登录态搬运]] 添 1.3.5(Windows v10 = DPAPI+AES-256-GCM,与 macOS CBC 对比表)、[[Obsidian webview 登录态注入]] 添 1.9(纯 JS SQLite reader 可复用结论、零依赖链路、remote 过审不确定性)。
-- 待办:再写一页「Obsidian 插件开发入门」(正与主人讨论写什么)。
+- 新建 [[Obsidian 插件开发入门]](`wiki/obsidian/`,首个 obsidian 领域页):骨架 50% + 实战 50% 的索引页,定位“给未来的自己”。重点沉淀实战坑:不能分发原生模块→纯JS/系统命令、软链+HotReload+watch 调试链、lint≈审核标准、remote 灰色 API、发版全流程。
 
 ## [2026-07-28] query+ingest | Obsidian webview 登录态注入方案探索(实测+沉淀)
 

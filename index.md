@@ -20,6 +20,7 @@
 - **网络 / 泛域名**(⭐系列 7 篇,`wiki/网络/`):概念辨析(泛域名/泛解析/通配符证书)、DNS 泛解析与查询链路、通配符 HTTPS 证书(SAN/只覆盖一级)、nginx 泛域名转发、同源策略与 CORS、Cookie 跨子域与 postMessage
 - **Chrome Cookie 存储与加密**:⭐浏览器 Cookie 本地存储与登录态搬运(磁盘加密/Keychain/AES-128-CBC/32字节host hash前缀/App-Bound Encryption/DBSC终局约束 → wiki/网络)
 - **Obsidian webview 登录态注入**:⭐Obsidian webview 的 Electron 源码分析(partition 设计/partition/remote API/注入方案/路径对比/市场现状/设计方案 → wiki/网络)
+- **Obsidian 插件开发**:⭐入门实战索引(`wiki/obsidian/`):骨架速查(三件套/生命周期/API/esbuild)+ 实战坑(官方模板与 lint=审核标准/**不能分发原生模块→纯JS+系统命令**/软链+HotReload+watch 调试/@electron/remote 灰色 API/i18n/发版全流程/BRAT)
 - **设计模式**:单例模式、工厂模式
 - **网络安全**:SRI 子资源完整性、浏览器指纹
 - **云服务器**:域名、主机记录
