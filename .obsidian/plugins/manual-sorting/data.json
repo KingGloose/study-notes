@@ -1,7 +1,6 @@
 {
   "customFileOrder": {
     "/": [
-      "skills.old",
       "skills",
       "assets",
       "raw",
@@ -7629,6 +7628,8 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/templates",
+      "skills/LICENSE",
       "skills/kg-capture",
       "skills/kg-learn",
       "skills/kg-ask",
@@ -7827,163 +7828,10 @@
       "skills/requirements/doc.txt",
       "skills/requirements/wechat.txt"
     ],
-    "skills.old": [
-      "skills.old/kg-ask",
-      "skills.old/kg-bilibili",
-      "skills.old/kg-browser",
-      "skills.old/kg-capture",
-      "skills.old/kg-doc",
-      "skills.old/kg-learn",
-      "skills.old/kg-lint",
-      "skills.old/kg-media-to-text",
-      "skills.old/kg-review",
-      "skills.old/kg-wechat",
-      "skills.old/kg-xiaoyuzhou",
-      "skills.old/kg-youtube",
-      "skills.old/kg-zhihu",
-      "skills.old/requirements",
-      "skills.old/install.sh",
-      "skills.old/README.md"
-    ],
-    "skills.old/kg-ask": [
-      "skills.old/kg-ask/scripts",
-      "skills.old/kg-ask/SKILL.md"
-    ],
-    "skills.old/kg-ask/scripts": [
-      "skills.old/kg-ask/scripts/__pycache__",
-      "skills.old/kg-ask/scripts/search_vault.py"
-    ],
-    "skills.old/kg-ask/scripts/__pycache__": [],
-    "skills.old/kg-bilibili": [
-      "skills.old/kg-bilibili/scripts",
-      "skills.old/kg-bilibili/SKILL.md"
-    ],
-    "skills.old/kg-bilibili/scripts": [
-      "skills.old/kg-bilibili/scripts/__pycache__",
-      "skills.old/kg-bilibili/scripts/_common.py",
-      "skills.old/kg-bilibili/scripts/get_transcript.py",
-      "skills.old/kg-bilibili/scripts/list_videos.py",
-      "skills.old/kg-bilibili/scripts/login.py",
-      "skills.old/kg-bilibili/scripts/search_videos.py"
-    ],
-    "skills.old/kg-bilibili/scripts/__pycache__": [],
-    "skills.old/kg-browser": [
-      "skills.old/kg-browser/references",
-      "skills.old/kg-browser/scripts",
-      "skills.old/kg-browser/SKILL.md"
-    ],
-    "skills.old/kg-browser/references": [
-      "skills.old/kg-browser/references/history-search.md",
-      "skills.old/kg-browser/references/site-selectors.md",
-      "skills.old/kg-browser/references/troubleshooting.md"
-    ],
-    "skills.old/kg-browser/scripts": [
-      "skills.old/kg-browser/scripts/__pycache__",
-      "skills.old/kg-browser/scripts/connect-chrome.sh",
-      "skills.old/kg-browser/scripts/find-history.py"
-    ],
-    "skills.old/kg-browser/scripts/__pycache__": [],
-    "skills.old/kg-capture": [
-      "skills.old/kg-capture/SKILL.md"
-    ],
-    "skills.old/kg-doc": [
-      "skills.old/kg-doc/scripts",
-      "skills.old/kg-doc/SKILL.md"
-    ],
-    "skills.old/kg-doc/scripts": [
-      "skills.old/kg-doc/scripts/__pycache__",
-      "skills.old/kg-doc/scripts/ingest_doc.py"
-    ],
-    "skills.old/kg-doc/scripts/__pycache__": [],
-    "skills.old/kg-learn": [
-      "skills.old/kg-learn/scripts",
-      "skills.old/kg-learn/SKILL.md"
-    ],
-    "skills.old/kg-learn/scripts": [
-      "skills.old/kg-learn/scripts/__pycache__",
-      "skills.old/kg-learn/scripts/plan.py"
-    ],
-    "skills.old/kg-learn/scripts/__pycache__": [],
-    "skills.old/kg-lint": [
-      "skills.old/kg-lint/scripts",
-      "skills.old/kg-lint/SKILL.md"
-    ],
-    "skills.old/kg-lint/scripts": [
-      "skills.old/kg-lint/scripts/__pycache__",
-      "skills.old/kg-lint/scripts/lint_vault.py"
-    ],
-    "skills.old/kg-lint/scripts/__pycache__": [],
-    "skills.old/kg-media-to-text": [
-      "skills.old/kg-media-to-text/media_to_text",
-      "skills.old/kg-media-to-text/media_to_text.egg-info",
-      "skills.old/kg-media-to-text/pyproject.toml",
-      "skills.old/kg-media-to-text/SKILL.md"
-    ],
-    "skills.old/kg-media-to-text/media_to_text": [
-      "skills.old/kg-media-to-text/media_to_text/__pycache__",
-      "skills.old/kg-media-to-text/media_to_text/handlers",
-      "skills.old/kg-media-to-text/media_to_text/__init__.py",
-      "skills.old/kg-media-to-text/media_to_text/detect.py",
-      "skills.old/kg-media-to-text/media_to_text/hotwords.py",
-      "skills.old/kg-media-to-text/media_to_text/router.py",
-      "skills.old/kg-media-to-text/media_to_text/types.py",
-      "skills.old/kg-media-to-text/media_to_text/vault.py"
-    ],
-    "skills.old/kg-media-to-text/media_to_text/__pycache__": [],
-    "skills.old/kg-media-to-text/media_to_text/handlers": [],
-    "skills.old/kg-media-to-text/media_to_text.egg-info": [
-      "skills.old/kg-media-to-text/media_to_text.egg-info/dependency_links.txt",
-      "skills.old/kg-media-to-text/media_to_text.egg-info/PKG-INFO",
-      "skills.old/kg-media-to-text/media_to_text.egg-info/requires.txt",
-      "skills.old/kg-media-to-text/media_to_text.egg-info/SOURCES.txt",
-      "skills.old/kg-media-to-text/media_to_text.egg-info/top_level.txt"
-    ],
-    "skills.old/kg-review": [
-      "skills.old/kg-review/scripts",
-      "skills.old/kg-review/SKILL.md"
-    ],
-    "skills.old/kg-review/scripts": [
-      "skills.old/kg-review/scripts/__pycache__",
-      "skills.old/kg-review/scripts/pick_review.py"
-    ],
-    "skills.old/kg-review/scripts/__pycache__": [],
-    "skills.old/kg-wechat": [
-      "skills.old/kg-wechat/scripts",
-      "skills.old/kg-wechat/SKILL.md"
-    ],
-    "skills.old/kg-wechat/scripts": [
-      "skills.old/kg-wechat/scripts/__pycache__",
-      "skills.old/kg-wechat/scripts/wechat_to_md.py"
-    ],
-    "skills.old/kg-wechat/scripts/__pycache__": [],
-    "skills.old/kg-xiaoyuzhou": [
-      "skills.old/kg-xiaoyuzhou/scripts",
-      "skills.old/kg-xiaoyuzhou/SKILL.md"
-    ],
-    "skills.old/kg-xiaoyuzhou/scripts": [
-      "skills.old/kg-xiaoyuzhou/scripts/__pycache__",
-      "skills.old/kg-xiaoyuzhou/scripts/ingest_episode.py"
-    ],
-    "skills.old/kg-xiaoyuzhou/scripts/__pycache__": [],
-    "skills.old/kg-youtube": [
-      "skills.old/kg-youtube/scripts",
-      "skills.old/kg-youtube/SKILL.md"
-    ],
-    "skills.old/kg-youtube/scripts": [
-      "skills.old/kg-youtube/scripts/__pycache__",
-      "skills.old/kg-youtube/scripts/ingest_video.py"
-    ],
-    "skills.old/kg-youtube/scripts/__pycache__": [],
-    "skills.old/kg-zhihu": [
-      "skills.old/kg-zhihu/SKILL.md"
-    ],
-    "skills.old/requirements": [
-      "skills.old/requirements/asr-linux.txt",
-      "skills.old/requirements/asr-mac.txt",
-      "skills.old/requirements/base.txt",
-      "skills.old/requirements/bilibili.txt",
-      "skills.old/requirements/doc.txt",
-      "skills.old/requirements/wechat.txt"
+    "skills/templates": [
+      "skills/templates/AGENTS.md",
+      "skills/templates/index.md",
+      "skills/templates/log.md"
     ],
     "wiki": [
       "wiki/obsidian",
