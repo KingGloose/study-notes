@@ -7628,6 +7628,8 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "skills": [
+      "skills/kg-capture",
+      "skills/kg-learn",
       "skills/kg-ask",
       "skills/kg-review",
       "skills/kg-zhihu",
@@ -7691,6 +7693,9 @@
     "skills/kg-browser/scripts/__pycache__": [
       "skills/kg-browser/scripts/__pycache__/find-history.cpython-312.pyc"
     ],
+    "skills/kg-capture": [
+      "skills/kg-capture/SKILL.md"
+    ],
     "skills/kg-doc": [
       "skills/kg-doc/scripts",
       "skills/kg-doc/SKILL.md"
@@ -7701,6 +7706,16 @@
     ],
     "skills/kg-doc/scripts/__pycache__": [
       "skills/kg-doc/scripts/__pycache__/ingest_doc.cpython-312.pyc"
+    ],
+    "skills/kg-learn": [
+      "skills/kg-learn/scripts"
+    ],
+    "skills/kg-learn/scripts": [
+      "skills/kg-learn/scripts/__pycache__",
+      "skills/kg-learn/scripts/plan.py"
+    ],
+    "skills/kg-learn/scripts/__pycache__": [
+      "skills/kg-learn/scripts/__pycache__/plan.cpython-312.pyc"
     ],
     "skills/kg-lint": [
       "skills/kg-lint/scripts",
