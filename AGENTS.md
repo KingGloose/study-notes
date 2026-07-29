@@ -32,7 +32,7 @@
 ├── wiki/          # AI 沉淀的知识,内部按领域分子目录
 │                  # 领域不限技术:前端/AI/python/沟通/心理/商业/人文/健康/...
 ├── learning/      # 学习计划(过程性产物,非沉淀知识;由 kg-learn 维护)
-├── skills/        # 库自带 skill(均以 kg- 前缀,随库迁移;环境与架构见 skills/README.md)
+├── skills/        # 软链 → 独立仓库 kg-wiki-skills(开源工具,与知识分仓)
 │
 └── archive/       # 旧世界整体封存:旧笔记 + 旧 00 assets + 旧领域目录
                    # 图谱默认过滤 -path:archive 隐藏
@@ -116,6 +116,11 @@
 本地转文字是一次投入、永久复利。对"沉淀后反复查"的知识库,后者是数量级的优势。
 
 ### 架构:底层库 + 上层业务 skill
+
+> **工具与知识分仓**:`skills/` 是软链,指向开源仓库
+> [kg-wiki-skills](https://github.com/KingGloose/kg-wiki-skills)。
+> 库根通过 `KG_VAULT` 环境变量 / `~/.config/kg-wiki/config.json` / 向上查找解析,
+> 因此 skills 住在库外也能正确写回。
 
 ```
 底层  skills/kg-media-to-text/   素材→文字,按类型分流(平台无关,不懂业务)
