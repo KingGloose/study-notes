@@ -10,6 +10,7 @@
 """
 from .router import to_text
 from .detect import detect_kind
+from .vault import find_vault, looks_like_vault, save_config, VaultNotFoundError
 from .hotwords import extract_hotwords
 from .types import (
     SourceKind,
@@ -22,6 +23,10 @@ from .types import (
 __all__ = [
     "to_text",
     "detect_kind",
+    "find_vault",
+    "looks_like_vault",
+    "save_config",
+    "VaultNotFoundError",
     "extract_hotwords",
     "SourceKind",
     "TextResult",

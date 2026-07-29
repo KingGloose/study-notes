@@ -27,7 +27,62 @@ import sys
 import time
 from pathlib import Path
 
-VAULT = Path(__file__).resolve().parents[3]
+# ---------- 库根解析（内联，保持本脚本零依赖） ----------
+def _looks_like_vault(p: Path) -> bool:
+    try:
+        return p.is_dir() and (p / "AGENTS.md").is_file() and (p / "wiki").is_dir()
+    except OSError:
+        return False
+
+
+def _walk_up(start: Path, limit: int = 8) -> Path | None:
+    cur = start.resolve()
+    for _ in range(limit):
+        if _looks_like_vault(cur):
+            return cur
+        if cur.parent == cur:
+            break
+        cur = cur.parent
+    return None
+
+
+def find_vault() -> Path:
+    """定位知识库根。优先级：KG_VAULT 环境变量 → 配置文件 → cwd 向上 → 本文件向上。"""
+    import os
+    v = os.environ.get("KG_VAULT")
+    if v:
+        p = Path(v).expanduser().resolve()
+        if _looks_like_vault(p):
+            return p
+        sys.exit(f"[错误] KG_VAULT 指向 {p}，但那里不像知识库（需 AGENTS.md + wiki/）")
+
+    cfg = Path.home() / ".config" / "kg-wiki" / "config.json"
+    if cfg.is_file():
+        try:
+            v = json.loads(cfg.read_text(encoding="utf-8")).get("vault")
+            if v:
+                p = Path(v).expanduser().resolve()
+                if _looks_like_vault(p):
+                    return p
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    for start in (Path.cwd(), Path(__file__).parent):
+        p = _walk_up(start)
+        if p:
+            return p
+
+    sys.exit(
+        "[错误] 找不到知识库。请用以下任一方式指定：\n"
+        "  1. export KG_VAULT=/path/to/your-vault\n"
+        f"  2. 写入 {cfg}：{{\"vault\": \"/path/to/your-vault\"}}\n"
+        "  3. 在知识库目录内执行\n"
+        "知识库需包含 AGENTS.md 和 wiki/ 目录。"
+    )
+
+
+
+VAULT = find_vault()
 INDEX_FILE = VAULT / "skills" / "kg-ask" / ".vault-index.json"
 
 # 分区权重：wiki 是蒸馏过的知识，优先级最高；archive 是旧世界，兜底用

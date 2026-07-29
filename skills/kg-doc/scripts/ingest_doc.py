@@ -28,8 +28,10 @@ from urllib.parse import urlparse
 
 from media_to_text import to_text, MediaToTextError
 
-# 仓库根：本脚本在 skills/kg-doc/scripts/ 下，向上三级
-REPO_ROOT = Path(__file__).resolve().parents[3]
+# 库根：优先 KG_VAULT 环境变量 / ~/.config/kg-wiki/config.json，
+# 否则从 cwd 或本文件位置向上找（含 AGENTS.md + wiki/ 的目录）
+from media_to_text import find_vault
+REPO_ROOT = find_vault(__file__)
 RAW_DIR = REPO_ROOT / "raw"
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
