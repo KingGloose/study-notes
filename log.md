@@ -4,6 +4,17 @@
 > 类型:setup / ingest / query / upgrade / lint
 > 查最近几条:`grep "^## \[" log.md | tail -5`
 
+## [2026-07-28] build+upgrade | Session Bridge 插件落地 + 两页 wiki 实现层补充
+
+- 把之前的设计真正做成开源 Obsidian 插件 **Session Bridge**(`KingGloose/obsidian-session-bridge`)。
+- 基于官方模板 `obsidian-sample-plugin` 搭建,官方 `eslint-plugin-obsidianmd` lint 过(0 error)。
+- **零运行时依赖**:自写 250 行纯 JS SQLite 只读解析器(因为原生模块不能随 Obsidian 分发、Node 20 无 node:sqlite、Windows 无系统 sqlite3),macOS 用 security、Windows 用 PowerShell 调 DPAPI。
+- **Windows v10 适配**:Local State 取 encrypted_key → 去 DPAPI 5 字节前缀 → PowerShell `ProtectedData.Unprotect` → AES-256-GCM。v20 明确不做(需提权+注入)。
+- 功能:域名黑名单、UA 对齐、中英文 i18n(getLanguage 跟随)、设置页开源地址、一键发版脚本(commit+tag+push 触发 GitHub Action 出 release)。
+- **开发环境**:vault 软链到开发目录 + Hot Reload 插件 + esbuild watch,存盘即生效。
+- 两页 wiki 补实现层:[[浏览器 Cookie 本地存储与登录态搬运]] 添 1.3.5(Windows v10 = DPAPI+AES-256-GCM,与 macOS CBC 对比表)、[[Obsidian webview 登录态注入]] 添 1.9(纯 JS SQLite reader 可复用结论、零依赖链路、remote 过审不确定性)。
+- 待办:再写一页「Obsidian 插件开发入门」(正与主人讨论写什么)。
+
 ## [2026-07-28] query+ingest | Obsidian webview 登录态注入方案探索(实测+沉淀)
 
 - 讨论「能否把 Chrome 登录态注入 Obsidian 内置 webview」,确认技术上可行(macOS v10 方案)。
@@ -457,3 +468,24 @@ pi 正确发现 6 个可唤起 skill(kg-media-to-text 按设计隐藏)。
 
 `.vault-index.json` 与 `.review-log.json` 已加 gitignore(各机器独立)。
 skills/README 与 AGENTS.md 同步更新,pi 正确发现 10 个 kg-* skill。
+
+## [2026-07-28] ingest | 公众号 → wiki/AI/Graph Engineering 与多智能体编排
+
+- 文章《Loop Engineering 已死? 一文带你了解 Graph Engineering》(lukiexing,腾讯技术工程,2026-07-28),正文 12464 字。存 `raw/wx-2026-07-28-GraphEngineering.md`。
+- **图片按 A/B/C 三档处理**:14 张下载后保留 11 张知识型配图(五层演进/编排拓扑/验证器/Loop vs Graph 对比);删文末公众号关注引导 2 张,以及**一个 6.8MB 未被正文引用的孤儿 gif**(防盗链占位导致下载但没引用)。assets 从 8MB 降到 1.3MB。
+- **沉淀判断**:框架部分是通用知识,但三样东西值得留页——被核实过的一手数据、明确的"不该用"判据、以及对新词本身的祛魅(作者自己说这词几个月后会被下一个词盖掉)。
+- **数据核实(直接读 Anthropic 原文)**:90.2%(Opus4主+Sonnet4子 vs 单Opus4)、15×token(单智能体 4×)、80% 方差——**三个数字与原文完全一致**,文章引用可靠。
+- **从原文补了文章漏掉的两条关键限制**:
+  1. **升级模型的收益 > 把 token 预算翻倍**(Sonnet 3.7→4)——直接影响"要不要上图"的决策。
+  2. **编码任务真正可并行的部分比研究少得多**,LLM 目前不擅长实时协调委派 → "研究适合上图"不能推广到编码。
+- **标注了未核实项**:框架对比表的 token 数字(DataCamp 第三方)、LinkedIn 95%/Uber 21000 工程小时(LangChain 案例宣传,厂商口径)。
+- 最有价值的内容:**核心价值是确定性不是智能体数量**、Verifier 职责是推翻而非重写、**必须有现实锚点**(否则是"项目管理更好的更大幻觉")、**每天跑的任务值得上图/只跑一次就是纯税**、**工作图快变 vs 角色图慢变**(权限不能让模型现场发挥)、**目标失明与古德哈特定律**(客服工单解决率涨5个月而流失率翻倍)。
+- **双链(三向)**:↔ [[AI Agent 的可验证开发体系]](**独立收敛**——芯片验证 vs Agent 平台两条不同经验路径都得出"判断与验证必须分开、验证需干净上下文";那篇还补了"连裁判标准本身也可能错")、↔ [[AI Native 时代的研发组织]](工程侧撞到同一命题:AI 工程终局是组织设计;并澄清 Harness 一词在两页是**同名不同尺度**)、→ [[../沟通/深度关系与自我表露]]("自己评价自己必然宽容"在人和 AI 上是同一失效模式)。
+- `index.md` 08 AI 补条目。
+
+## [2026-07-28] fix | 双链校验脚本漏了 `#锚点` 语法(误报)
+
+- 本次收尾校验报了一条断链:`wiki/网络/Obsidian webview 登录态注入.md -> 浏览器 Cookie 本地存储与登录态搬运#1.5.2 Google 不只是验 cookie`。
+- 核查后确认**是脚本误报**:目标文件存在,`### 1.5.2 Google 不只是验 cookie` 这个标题也真实存在(第 154 行)。问题是我的校验脚本把整串 `文件名#锚点` 当文件名去 `os.path.exists`,必然找不到。
+- 已改进校验逻辑:先按 `#` 拆分,文件存在性和锚点存在性**分开校验**(锚点比对标题文本、忽略空白)。改进后全库 **0 断链**。
+- 记这条是因为:之前几次 ingest 收尾都跑过这个脚本,当时若有带锚点的链接也会被误报或漏检——校验工具自身出错比没有校验更危险。

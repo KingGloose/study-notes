@@ -117,6 +117,64 @@ const cookieValue = plaintext.subarray(32).toString();
 
 ---
 
+## 1.3.5 Windows v10 的完整解密链路(实现时补)
+
+> 这一节是 2026-07 真正做 [[Obsidian webview 登录态注入|Session Bridge 插件]] Windows 适配时补的。macOS 走 v10/AES-128-CBC(见 1.2),Windows 的 v10 是**另一套**:AES-256-GCM,而且密钥要先过 DPAPI。
+
+### 密钥来源:Local State + DPAPI
+
+Windows 上 cookie 的 AES key 不在系统凭据库里(没有 macOS 那种 Keychain),而是**加密后存在 `Local State` 文件**里:
+
+```
+%LOCALAPPDATA%\Google\Chrome\User Data\Local State   (JSON)
+  └─ os_crypt.encrypted_key  (base64)
+```
+
+解开它的步骤:
+1. base64 解码 `encrypted_key`
+2. **去掉开头 5 字节的 `"DPAPI"` 前缀**(标记这是个 DPAPI blob,和 macOS 的 `v10` 前缀是两回事)
+3. 剩下的是 DPAPI blob,调 Windows 的 `CryptUnprotectData(CurrentUser)` 解开 → 得到 **32 字节 AES-256 key**
+
+### [实测坑] 不用原生模块也能调 DPAPI:走 PowerShell
+
+DPAPI 是 Windows API,Node 没内置,常规做法是装 `win-dpapi` 原生模块——但 [[Obsidian webview 登录态注入|Obsidian 插件不能分发原生模块]]。绕过办法是**用 PowerShell 调 .NET 的 `ProtectedData.Unprotect`**,零原生依赖:
+
+```powershell
+Add-Type -AssemblyName System.Security;
+$blob=[Convert]::FromBase64String('<dpapi_blob_b64>');
+$key=[System.Security.Cryptography.ProtectedData]::Unprotect(
+  $blob,$null,[System.Security.Cryptography.DataProtectionScope]::CurrentUser);
+[Convert]::ToBase64String($key)
+```
+
+这条路是 codex 相关工具(`Uni-CLI`、`gstack-windows`)的通用做法,算业界共识的"零依赖 DPAPI"方案。
+
+### cookie 值本身:AES-256-GCM(和 macOS 的 CBC 不同)
+
+拿到 32 字节 key 后,解 `encrypted_value`:
+
+```
+encrypted_value = "v10"(3B) + nonce(12B) + ciphertext + tag(16B)
+算法:AES-256-GCM,key=上面的 32B,iv=nonce,authTag=tag
+解出的明文前 32 字节仍是 host hash 前缀,strip 掉(和 macOS 一样)
+```
+
+对比一下两个平台的 v10,别混:
+
+| | macOS v10 | Windows v10 |
+|---|---|---|
+| 密钥来源 | Keychain(直接是 key) | Local State + DPAPI 解 |
+| KDF | PBKDF2-SHA1(saltysalt,1003) | 无(DPAPI 直接给 32B) |
+| 加密算法 | AES-**128**-CBC | AES-**256**-GCM |
+| IV | 16 个空格(0x20) | 密文里的 nonce(12B) |
+| 32 字节 host hash 前缀 | 有 | 有 |
+
+### [实测边界] v20 我们不做
+
+Windows 上 Chrome 127+ 新写的 cookie 是 v20(前缀不是 `"v10"`),`encrypted_key` 也没有 `DPAPI` 前缀而是 app-bound 的。绕过 v20 要提权 + 进程注入(属攻击手法),Session Bridge **直接跳过 v20 cookie**,不硬碰。现实影响:随 Chrome 版本推进,Windows 上可用的 cookie 会越来越少(老 v10 逐渐被 v20 替换),这是 Windows 版天然的衰减,macOS 无此问题。
+
+---
+
 ## 1.4 DBSC(设备绑定会话凭证):终局约束
 
 [官方] Google 在 2025 年发布了 DBSC(Device Bound Session Credentials),这是一个 **W3C 标准草案**,不只有 Chrome 在做。

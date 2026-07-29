@@ -258,3 +258,50 @@ session.setDevicePermissionHandler(() => false);
 - Web viewer partition:`persist:vault-3e07e723679e4e4e`
 - Partition cookie 库:107 条,value 列明文,encrypted_value 列全空
 - Chrome cookie 库:469 条,全部 v10(AES-128-CBC + Keychain),无 v20
+
+---
+
+## 1.9 从设计到落地:实现时踩到的关键点
+
+> 上面 1.1–1.8 是动手前的调研设计。这一节是 2026-07 真正把它做成插件 **Session Bridge**(开源仓库 `KingGloose/obsidian-session-bridge`)后补的实现层结论。cookie 解密算法细节见姊妹页 [[浏览器 Cookie 本地存储与登录态搬运]]。
+
+### 1.9.1 [大坑] 读 SQLite:最后只能自己写纯 JS 解析器
+
+设计时以为读 cookie 库很简单,实际卡在**怎么在 Obsidian 插件里读 SQLite**上,试了一圈:
+
+| 方案 | 为什么不行 |
+|---|---|
+| npm 的 `better-sqlite3` / `sqlite3` | **原生模块**,要针对 Electron ABI 编译 `.node`。而 Obsidian 社区插件分发只发 `main.js`/`manifest.json`/`styles.css` 三个文件,**没渠道带原生二进制** |
+| Node 内置 `node:sqlite` | Node 22.5+ 才有,Obsidian 1.8.10 是 **Electron 34 = Node 20**,没有 |
+| 调系统 `sqlite3` 命令 | macOS 自带,但 **Windows 没有**,跨平台不成立 |
+| sql.js(wasm) | 体积大、加载慢 |
+
+**最终方案:自己写一个约 250 行的纯 JS 只读 SQLite 表扫描器**(`sqliteReader.ts`)。只实现读一个表所需的最小子集:
+- 解析文件头(page size)
+- 遍历 `sqlite_master` 找目标表 root page
+- 遍历 table B-tree(interior + leaf page)
+- 解析 record format(varint + serial types)
+- 处理 overflow page(大 value 会溢出到多页)
+
+[实测] 用真实 Chrome 库对照系统 `sqlite3 -json`:471 行、所有字段、含 overflow 的 883 字节长值**全部一致**。好处是 macOS/Windows 彻底统一,**零外部命令、零原生依赖**——这对能不能过 Obsidian 审核、能不能跨平台是决定性的。
+
+> **可复用结论**:Obsidian/受限 Electron 环境里要读 SQLite,最稳的是纯 JS 解析(标准未加密库不难),别碰原生模块。SQLite 文件格式稳定、公开,读一个表的成本可控。
+
+### 1.9.2 零运行时依赖的三条命令
+
+整条链路最后没有任何第三方运行时依赖,全靠"系统能力 + Node 内置":
+- 读库 → 自写纯 JS 解析器
+- macOS 取密钥 → `security` 命令(系统自带)
+- Windows 取密钥 → `powershell` 调 `ProtectedData.Unprotect`(系统自带)
+- 解密 → Node 内置 `crypto`
+- 注入 → `@electron/remote` 的 `session.cookies.set`
+
+`devDependencies` 只有 esbuild/typescript/eslint。这是 Obsidian 插件该有的形态。
+
+### 1.9.3 官方脚手架 + 官方 lint 是过审的抓手
+
+用官方模板 `obsidianmd/obsidian-sample-plugin` 起项目,它自带 `eslint-plugin-obsidianmd`——**这套 lint 规则基本等于提交审核会查的点**。实跑时它精确报出了真问题:`require()` 被禁(要正经 import)、内联 style 要移到 CSS class、`getLanguage()` 需要 minAppVersion≥1.8.7 等。把 lint 清成 0 error,过审概率大很多。
+
+### 1.9.4 灰色地带:`@electron/remote`
+
+注入 session 依赖 `require('electron').remote`,这是 Obsidian 不公开鼓励的 Electron 私有 API(lint 也会提示)。但核心 Web Viewer 自己清缓存就在用同一套(见 1.3.2),不少浏览器类插件也这么干。**这是这个插件过审的最大不确定点**——能开源自用、能用 BRAT 装,但进官方市场有被拒风险。
