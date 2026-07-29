@@ -7627,6 +7627,7 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "wiki": [
+      "wiki/数据库",
       "wiki/obsidian",
       "wiki/NodeJS",
       "wiki/沟通",
@@ -7644,6 +7645,9 @@
       "wiki/前端/JS 模块系统与模块缓存单例.md",
       "wiki/前端/QuillJs 换行与 embed 光标问题.md",
       "wiki/前端/Vue watch 与 Promise 异步.md"
+    ],
+    "wiki/数据库": [
+      "wiki/数据库/MySQL 索引为什么快.md"
     ],
     "wiki/网络": [
       "wiki/网络/Obsidian webview 登录态注入.md",
