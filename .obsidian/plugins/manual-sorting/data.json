@@ -1,7 +1,6 @@
 {
   "customFileOrder": {
     "/": [
-      "learning",
       "assets",
       "raw",
       "wiki",
@@ -7612,9 +7611,6 @@
       "assets/wx-63bb0ad496.png",
       "assets/wx-05067aa85b.gif",
       "assets/wx-62999b0af5.gif"
-    ],
-    "learning": [
-      "learning/测试计划.json"
     ],
     "raw": [
       "raw/wx-2026-07-28-GraphEngineering.md",
