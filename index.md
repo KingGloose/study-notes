@@ -108,6 +108,7 @@
 - ⭐**Chrome DevTools MCP**:架构解析、通信协议选型、连接排查、复用浏览器实例、带登录态启动
 - ⭐**Claude Code MCP 调用机制**:Shell 调用 vs 直接 MCP、stdin/stdout 通信、exec 作用
 - ⭐**AI Agent 的可验证开发体系**(`wiki/AI/`,蒸馏B站视频):验证的不对称性、芯片验证行业类比、先改造系统再写测试、为不确定系统构建回归测试、人退出内环、作者自己的免责声明
+- ⭐**Graph Engineering 与多智能体编排**(`wiki/AI/`,蒸馏腾讯技术工程文章+核实 Anthropic 原始数据):**五层演进**(Prompt→Context→Harness→Loop→Graph,层层叠加非取代)、Loop 的**五个结构性缺陷**(上下文腐烂/错误级联/工具过载15~20个后选错/无控制粒度/可观测性差)、**目标失明与古德哈特定律**(客服"工单解决率"涨5个月而流失率翻倍——循环完美运行而成功恰是失败机制)、**G=(V节点,E边,S状态,P策略)**、Graph≠流程图≠知识图谱、三种拓扑(**菱形扇出扇入**/主管Orchestrator-Workers/流水线)、Anthropic **五种工作流模式**(Prompt Chaining/Routing/Parallelization/Orchestrator-Workers/Evaluator-Optimizer)、**核心价值是确定性不是智能体数量**、**Verifier验证器**(职责是推翻而非重写;必须干净上下文)+Router分诊、三种验证打法(对抗式/多视角/评委制)、**让模型判断落在节点、代码可靠性落在边上**、**必须有现实锚点**(否则是"项目管理更好的更大幻觉")、**成本三数字**(多智能体强90.2%但烧15×token、token用量解释80%方差;**换更好模型>翻倍token预算**)、该用的三把尺子(上下文保护/可并行/专业化)、**每天跑的任务值得上图、只跑一次就是纯税**、**工作图快变 vs 角色图慢变**(权限绝不能让模型现场发挥)、LangGraph **持久化执行**(checkpointer/super-step/pending writes/时间旅行/人在回路)、框架 token 差异(图把"对话"变"状态转换")、老工作流vs ReAct vs Graph(**边固定+节点自主**,形似神不似)、**识别技术营销的判据**(新词诞生时有无伴随新能力发布)
 - ⭐**AI Native 时代的研发组织**(`wiki/AI/`,详细蒸馏阿里技术文章):AI=新协作主体、Harness层+HiveMind层双层结构、Org Chart→Execution Graph、人既是瓶颈也是兜底、信息形态的人形偏置(人肉中间件)、管理塌缩、Architect 最高杠杆、Platform 三柱、Death of ego 有边界
 - ⭐**KimiCode Agent 架构演进**(`wiki/AI/`,详细蒸馏知乎文章):Node.js SEA+postject 单二进制分发(打破"TS不适合做CLI"偏见)、弃 React 系 Ink 选 pi-tui、kosong(LLM抽象)/kaos(POSIX-like执行抽象)跨语言成立 → **Agent 架构正在收敛**。⭐含主人对照本库 skills 体系的原创判断
 
