@@ -7708,6 +7708,7 @@
       "skills/kg-doc/scripts/__pycache__/ingest_doc.cpython-312.pyc"
     ],
     "skills/kg-learn": [
+      "skills/kg-learn/SKILL.md",
       "skills/kg-learn/scripts"
     ],
     "skills/kg-learn/scripts": [
@@ -7824,6 +7825,7 @@
       "skills/requirements/wechat.txt"
     ],
     "wiki": [
+      "wiki/obsidian",
       "wiki/NodeJS",
       "wiki/沟通",
       "wiki/AI",
@@ -7859,6 +7861,9 @@
     ],
     "wiki/NodeJS": [
       "wiki/NodeJS/子进程 spawn 管理.md"
+    ],
+    "wiki/obsidian": [
+      "wiki/obsidian/Obsidian 插件开发入门.md"
     ]
   },
   "draggingEnabled": true,

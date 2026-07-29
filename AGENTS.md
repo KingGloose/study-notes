@@ -31,6 +31,7 @@
 ├── assets/        # 新库图片池(从零累积,与旧 assets 隔离)
 ├── wiki/          # AI 沉淀的知识,内部按领域分子目录
 │                  # 领域不限技术:前端/AI/python/沟通/心理/商业/人文/健康/...
+├── learning/      # 学习计划(过程性产物,非沉淀知识;由 kg-learn 维护)
 ├── skills/        # 库自带 skill(均以 kg- 前缀,随库迁移;环境与架构见 skills/README.md)
 │
 └── archive/       # 旧世界整体封存:旧笔记 + 旧 00 assets + 旧领域目录
@@ -125,6 +126,8 @@
       skills/kg-doc/             本地文档/文件夹批量/网页 URL
       skills/kg-youtube/         YouTube(字幕优先+ASR兜底)
       skills/kg-zhihu/           知乎(依赖 kg-browser)
+捕获  skills/kg-capture/         ★跨项目知识捕获(别的项目里的收获回填进库)
+学习  skills/kg-learn/           ★学习模式(陌生领域渐进切入+可选学习计划)
 使用  skills/kg-ask/             ★库内检索问答(区分"记过的"vs"AI补充的")
       skills/kg-review/          知识回顾(先回想再看答案)
       skills/kg-lint/            库体检(孤儿页/死链/raw未沉淀/index未唤醒)

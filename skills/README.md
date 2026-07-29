@@ -22,6 +22,10 @@
   kg-youtube/              YouTube：字幕优先（覆盖率高）+ ASR 兜底
   kg-zhihu/                知乎：专栏/回答/问题页（依赖 kg-browser）
 
+捕获与学习
+  kg-capture/              ★ 跨项目知识捕获（在别的项目里干活时的收获回填进库）
+  kg-learn/                ★ 学习模式（陌生领域渐进切入 + 可选学习计划）
+
 使用与维护（不摄入）
   kg-ask/                  ★ 库内检索问答（区分"记过的"vs"AI补充的"）
   kg-review/               知识回顾（先回想再看答案，检验个人判断是否还认同）
@@ -156,6 +160,8 @@ cd /tmp && pi --print "列出名字以 kg- 开头的 skill"
 | kg-lint | 无额外依赖（纯标准库） |
 | kg-ask | 无额外依赖（纯标准库） |
 | kg-review | 无额外依赖（纯标准库） |
+| kg-capture | 无额外依赖（复用 kg-ask 查重、kg-lint 体检） |
+| kg-learn | 无额外依赖（纯标准库） |
 | kg-browser | 无 Python 依赖；需 `npm i -g chrome-devtools-mcp@latest` + Chrome 开 remote debugging |
 | kg-zhihu | base + wechat(markdownify)；浏览器能力依赖 kg-browser |
 
