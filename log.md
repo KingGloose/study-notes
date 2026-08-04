@@ -600,3 +600,22 @@ skills/README 与 AGENTS.md 同步更新(目录结构新增 learning/),pi 正确
 
 沉淀 → `wiki/数据库/MySQL 索引为什么快.md`(新库第一个数据库领域页),index.md 补 ⭐ 唤醒条目。
 **下次接上**:二级索引与回表、覆盖索引、最左前缀、索引失效、explain。
+
+## [2026-08-03] learn | Flutter 项目初始化与移动端工具链
+
+围绕 `player-app` 后续可持续开发，第一次建立 Flutter 工具链心智模型，并沉淀到
+`wiki/Flutter/Flutter 项目初始化与移动端工具链.md`。
+
+**本次最重要的认知变化：**
+
+1. **原以为 Flutter 是一个「大一统的 Web」** → 声明式组件和状态驱动的类比有帮助，
+   但 Flutter 移动端不依赖 DOM/CSS/WebView；正确模型是**自带 Framework、Engine 与工具链的跨平台应用运行时**。
+2. **原以为 `android/`、`ios/` 可能是编译后的代码** → 它们是 `flutter create` 生成、
+   可编辑且通常进 Git 的平台宿主源码与配置；真正临时编译产物主要在 `build/`。
+3. **确认 Flutter CLI 覆盖开发生命周期，但它是统一编排入口而非替代底层工具**：
+   Android 仍走 Gradle/ADB，iOS 仍走 Xcode 构建体系。
+4. **VM Service≈CDP 的类比成立但有边界**：它调试 Dart/Flutter 运行时；
+   Android/iOS 原生问题仍分别需要 Logcat、Xcode/LLDB。
+
+当前学习范围确定为 Android、iOS，暂不关注 Web。实测本机 Flutter/Android 环境已就绪，
+iOS 的完整 Xcode 和 CocoaPods 后续再补。

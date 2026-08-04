@@ -255,3 +255,9 @@ dynamic-base 走 `post`:等 Vite 把 base 都替换成 `/__dynamic_base__/` 靶�
 | 赋值时机 | 所有 import 之前 | — | 入口脚本前设好 `window.__dynamic_base__` |
 
 **一句话**:动态 base 的本质,是把资源前缀从「打包那一刻的字符串」变成「页面加载那一刻的变量」;webpack 原生给了,Vite 靠 dynamic-base 在 `post` 阶段替换产物补上。
+
+---
+
+## 1.9 相关知识
+
+- [[../Flutter/Flutter 项目初始化与移动端工具链]]：从 Vite/Webpack 的前端工程化心智模型迁移到 Flutter CLI、Gradle 与多平台宿主工程。

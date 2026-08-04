@@ -56,6 +56,7 @@
 ### 框架 / 运行时
 - **Vue**:响应式原理、组件通信、Vuex/Pinia、Vue Router、虚拟DOM、生命周期(详见 archive Vue 全集)
 - **React**:hooks、redux 原理、虚拟DOM diff
+- ⭐**Flutter 移动端工具链**(`wiki/Flutter/`):`flutter create` 脚手架、`--platforms=android,ios`、共享 `lib/` 与平台宿主 `android/ios`、Flutter CLI 编排 Gradle/Xcode、Dart VM Service≈CDP 的边界；⭐纠正「Flutter 是大一统 Web」→「自带渲染体系的跨平台应用运行时」
 - **Jquery**、**NodeJS**、**TypeScript**、**微信小程序**
 - ⭐**Node.js 子进程管理 spawn**(`wiki/NodeJS/`):spawn vs exec/fork、stdio 三管道与背压、僵尸与孤儿进程、信号语义(SIGTERM/SIGKILL)、进程组与 detached、跨平台差异、CLI 调子进程的踩坑清单
 - **Uniapp**:⭐跨平台原理、环境配置(网页/小程序/Android/mumu模拟器)、pages.json/manifest.json、uni-ui/uni-forms、页面通讯(setup传参/事件总线)、⭐网络请求封装(RequestService)、pinia、⭐蘑菇街项目(多端适配/条件编译/图片懒加载/三端发布)、easycom、#ifndef 条件编译

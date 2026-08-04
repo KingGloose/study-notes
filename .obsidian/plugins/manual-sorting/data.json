@@ -7628,6 +7628,7 @@
       "raw/QuillJs换行bug解决方案-原文.md"
     ],
     "wiki": [
+      "wiki/Flutter",
       "wiki/数据库",
       "wiki/obsidian",
       "wiki/NodeJS",
@@ -7665,6 +7666,9 @@
       "wiki/AI/KimiCode Agent 架构演进.md",
       "wiki/AI/AI Agent 的可验证开发体系.md",
       "wiki/AI/AI Native 时代的研发组织.md"
+    ],
+    "wiki/Flutter": [
+      "wiki/Flutter/Flutter 项目初始化与移动端工具链.md"
     ],
     "wiki/NodeJS": [
       "wiki/NodeJS/子进程 spawn 管理.md"
